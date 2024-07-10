@@ -169,8 +169,6 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
                           );
 
                           if ((_model.addNewTray?.succeeded ?? true)) {
-                            FFAppState().trayid = '';
-                            FFAppState().update(() {});
                             await showModalBottomSheet(
                               isScrollControlled: true,
                               backgroundColor: Colors.transparent,

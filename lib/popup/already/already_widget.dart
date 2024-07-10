@@ -4,18 +4,18 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'wrong_model.dart';
-export 'wrong_model.dart';
+import 'already_model.dart';
+export 'already_model.dart';
 
-class WrongWidget extends StatefulWidget {
-  const WrongWidget({super.key});
+class AlreadyWidget extends StatefulWidget {
+  const AlreadyWidget({super.key});
 
   @override
-  State<WrongWidget> createState() => _WrongWidgetState();
+  State<AlreadyWidget> createState() => _AlreadyWidgetState();
 }
 
-class _WrongWidgetState extends State<WrongWidget> {
-  late WrongModel _model;
+class _AlreadyWidgetState extends State<AlreadyWidget> {
+  late AlreadyModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -26,7 +26,7 @@ class _WrongWidgetState extends State<WrongWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => WrongModel());
+    _model = createModel(context, () => AlreadyModel());
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
@@ -61,7 +61,7 @@ class _WrongWidgetState extends State<WrongWidget> {
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
                 child: Text(
-                  'Something Went wrong.',
+                  'The tray is already integrated with the robot.',
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Open Sans',
@@ -87,13 +87,19 @@ class _WrongWidgetState extends State<WrongWidget> {
                   if (shouldUpdate) setState(() {});
                 },
                 onEnded: () async {
-                  FFAppState().slotid = '';
                   FFAppState().trayid = '';
-                  FFAppState().slotrecid = 0;
-                  FFAppState().trayrecid = 0;
-                  FFAppState().taskrecid = 0;
                   FFAppState().update(() {});
-                  Navigator.pop(context);
+
+                  context.pushNamed(
+                    'add_new_tray',
+                    extra: <String, dynamic>{
+                      kTransitionInfoKey: const TransitionInfo(
+                        hasTransition: true,
+                        transitionType: PageTransitionType.fade,
+                        duration: Duration(milliseconds: 0),
+                      ),
+                    },
+                  );
                 },
                 textAlign: TextAlign.start,
                 style: FlutterFlowTheme.of(context).headlineSmall.override(

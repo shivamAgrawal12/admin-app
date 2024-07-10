@@ -48,8 +48,9 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
     return Align(
       alignment: const AlignmentDirectional(0.0, -0.6),
       child: FutureBuilder<ApiCallResponse>(
-        future: AdminApiGroup.slotInfoByTrayIdCall.call(
+        future: AdminApiGroup.trayInfoCall.call(
           trayId: FFAppState().trayid,
+          robotId: FFAppState().robotid,
         ),
         builder: (context, snapshot) {
           // Customize what your widget looks like when it's loading.
@@ -65,7 +66,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
               ),
             );
           }
-          final containerSlotInfoByTrayIdResponse = snapshot.data!;
+          final containerTrayInfoResponse = snapshot.data!;
 
           return Container(
             width: 290.0,
@@ -138,11 +139,10 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                                     10.0, 4.0, 10.0, 4.0),
                                 child: Text(
                                   valueOrDefault<String>(
-                                    AdminApiGroup.slotInfoByTrayIdCall.status(
-                                      containerSlotInfoByTrayIdResponse
-                                          .jsonBody,
+                                    AdminApiGroup.trayInfoCall.traystatus(
+                                      containerTrayInfoResponse.jsonBody,
                                     ),
-                                    'free',
+                                    '-',
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -184,9 +184,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                         alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Text(
                           valueOrDefault<String>(
-                            AdminApiGroup.slotInfoByTrayIdCall.slotid(
-                              containerSlotInfoByTrayIdResponse.jsonBody,
-                            ),
+                            FFAppState().slotid,
                             '-',
                           ),
                           style:
@@ -209,7 +207,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                     text: TextSpan(
                       children: [
                         TextSpan(
-                          text: 'Slot is ',
+                          text: 'Tray is ',
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
@@ -343,11 +341,6 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                         ),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            FFAppState().slotrecid =
-                                AdminApiGroup.slotInfoByTrayIdCall.id(
-                              containerSlotInfoByTrayIdResponse.jsonBody,
-                            )!;
-                            FFAppState().update(() {});
                             _model.freeTray =
                                 await AdminApiGroup.patchTrayIdInSlotCall.call(
                               id: FFAppState().slotrecid,
@@ -355,9 +348,6 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                             );
 
                             if ((_model.freeTray?.succeeded ?? true)) {
-                              FFAppState().trayid = '';
-                              FFAppState().slotrecid = 0;
-                              FFAppState().update(() {});
                               await showModalBottomSheet(
                                 isScrollControlled: true,
                                 backgroundColor: Colors.transparent,

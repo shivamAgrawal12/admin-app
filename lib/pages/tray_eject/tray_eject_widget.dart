@@ -390,6 +390,18 @@ class _TrayEjectWidgetState extends State<TrayEjectWidget> {
                                     FFAppState().trayid =
                                         _model.trayIdValueTextController.text;
                                     FFAppState().update(() {});
+
+                                    context.pushNamed(
+                                      'tray_eject_loc',
+                                      extra: <String, dynamic>{
+                                        kTransitionInfoKey: const TransitionInfo(
+                                          hasTransition: true,
+                                          transitionType:
+                                              PageTransitionType.fade,
+                                          duration: Duration(milliseconds: 0),
+                                        ),
+                                      },
+                                    );
                                   } else {
                                     await showModalBottomSheet(
                                       isScrollControlled: true,

@@ -143,6 +143,7 @@ class _TrayDeleteWidgetState extends State<TrayDeleteWidget> {
                   FFButtonWidget(
                     onPressed: () async {
                       FFAppState().trayid = '';
+                      FFAppState().trayrecid = 0;
                       FFAppState().update(() {});
 
                       context.pushNamed(
@@ -203,9 +204,6 @@ class _TrayDeleteWidgetState extends State<TrayDeleteWidget> {
                         );
 
                         if ((_model.addNewTray?.succeeded ?? true)) {
-                          FFAppState().trayid = '';
-                          FFAppState().trayrecid = 0;
-                          FFAppState().update(() {});
                           await showModalBottomSheet(
                             isScrollControlled: true,
                             backgroundColor: Colors.transparent,

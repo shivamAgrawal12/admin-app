@@ -55,6 +55,9 @@ class _TrayRemoveWidgetState extends State<TrayRemoveWidget> {
                 FFAppState().slotrecid = AdminApiGroup.slotInfoByTrayIdCall.id(
                   (_model.slotIdByTray?.jsonBody ?? ''),
                 )!;
+                FFAppState().slotid = AdminApiGroup.slotInfoByTrayIdCall.slotid(
+                  (_model.slotIdByTray?.jsonBody ?? ''),
+                )!;
                 FFAppState().update(() {});
                 await showModalBottomSheet(
                   isScrollControlled: true,

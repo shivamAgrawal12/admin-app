@@ -166,7 +166,7 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Raleway',
                       color: FlutterFlowTheme.of(context).subHeader,
-                      fontSize: 18.0,
+                      fontSize: 17.0,
                       letterSpacing: 0.5,
                       fontWeight: FontWeight.w600,
                     ),
@@ -185,7 +185,7 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Raleway',
                             color: FlutterFlowTheme.of(context).subHeader,
-                            fontSize: 18.0,
+                            fontSize: 17.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
                           ),
@@ -202,11 +202,11 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
               child: Text(
-                'Tap Confirm to Add Tray',
+                'Tap Confirm to Mapped Tray',
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Raleway',
                       color: FlutterFlowTheme.of(context).subHeader,
-                      fontSize: 18.0,
+                      fontSize: 17.0,
                       letterSpacing: 0.5,
                       fontWeight: FontWeight.bold,
                     ),
@@ -284,10 +284,6 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                         );
 
                         if ((_model.trayPatch?.succeeded ?? true)) {
-                          FFAppState().slotid = '';
-                          FFAppState().trayid = '';
-                          FFAppState().slotrecid = 0;
-                          FFAppState().update(() {});
                           await showModalBottomSheet(
                             isScrollControlled: true,
                             backgroundColor: Colors.transparent,

@@ -5,18 +5,18 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
-import 'tray_remove_info_model.dart';
-export 'tray_remove_info_model.dart';
+import 'tray_info_del_model.dart';
+export 'tray_info_del_model.dart';
 
-class TrayRemoveInfoWidget extends StatefulWidget {
-  const TrayRemoveInfoWidget({super.key});
+class TrayInfoDelWidget extends StatefulWidget {
+  const TrayInfoDelWidget({super.key});
 
   @override
-  State<TrayRemoveInfoWidget> createState() => _TrayRemoveInfoWidgetState();
+  State<TrayInfoDelWidget> createState() => _TrayInfoDelWidgetState();
 }
 
-class _TrayRemoveInfoWidgetState extends State<TrayRemoveInfoWidget> {
-  late TrayRemoveInfoModel _model;
+class _TrayInfoDelWidgetState extends State<TrayInfoDelWidget> {
+  late TrayInfoDelModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -27,7 +27,7 @@ class _TrayRemoveInfoWidgetState extends State<TrayRemoveInfoWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => TrayRemoveInfoModel());
+    _model = createModel(context, () => TrayInfoDelModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -67,7 +67,7 @@ class _TrayRemoveInfoWidgetState extends State<TrayRemoveInfoWidget> {
 
           return Container(
             width: 290.0,
-            height: 340.0,
+            height: 290.0,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).liteBg,
               borderRadius: BorderRadius.circular(10.0),
@@ -75,154 +75,90 @@ class _TrayRemoveInfoWidgetState extends State<TrayRemoveInfoWidget> {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                FutureBuilder<ApiCallResponse>(
-                  future: AdminApiGroup.slotInfoByTrayIdCall.call(
-                    trayId: FFAppState().trayid,
+                Container(
+                  width: 290.0,
+                  height: 65.0,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).primaryBackground,
+                    boxShadow: const [
+                      BoxShadow(
+                        blurRadius: 25.0,
+                        color: Color(0x338E7CC3),
+                        offset: Offset(
+                          0.0,
+                          5.0,
+                        ),
+                      )
+                    ],
+                    borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.circular(25.0),
+                      bottomRight: Radius.circular(25.0),
+                      topLeft: Radius.circular(10.0),
+                      topRight: Radius.circular(10.0),
+                    ),
                   ),
-                  builder: (context, snapshot) {
-                    // Customize what your widget looks like when it's loading.
-                    if (!snapshot.hasData) {
-                      return Center(
-                        child: SizedBox(
-                          width: 40.0,
-                          height: 40.0,
-                          child: SpinKitThreeBounce(
-                            color: FlutterFlowTheme.of(context).subHeader,
-                            size: 40.0,
-                          ),
-                        ),
-                      );
-                    }
-                    final containerSlotInfoByTrayIdResponse = snapshot.data!;
-
-                    return Container(
-                      width: 290.0,
-                      height: 125.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).primaryBackground,
-                        boxShadow: const [
-                          BoxShadow(
-                            blurRadius: 25.0,
-                            color: Color(0x338E7CC3),
-                            offset: Offset(
-                              0.0,
-                              5.0,
-                            ),
-                          )
-                        ],
-                        borderRadius: const BorderRadius.only(
-                          bottomLeft: Radius.circular(25.0),
-                          bottomRight: Radius.circular(25.0),
-                          topLeft: Radius.circular(10.0),
-                          topRight: Radius.circular(10.0),
-                        ),
-                      ),
-                      child: Column(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
                         mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Container(
-                                width: 50.0,
-                                height: 10.0,
-                                decoration: const BoxDecoration(),
-                              ),
-                              Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
+                          Container(
+                            width: 50.0,
+                            height: 10.0,
+                            decoration: const BoxDecoration(),
+                          ),
+                          Align(
+                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            child: Text(
+                              'Tray Info',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Raleway',
+                                    fontSize: 18.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              color: const Color(0x254D8218),
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
+                            child: Align(
+                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 4.0, 10.0, 4.0),
                                 child: Text(
-                                  'Tray Info',
+                                  valueOrDefault<String>(
+                                    AdminApiGroup.trayInfoCall.traystatus(
+                                      containerTrayInfoResponse.jsonBody,
+                                    ),
+                                    '-',
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Raleway',
-                                        fontSize: 18.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .success,
+                                        fontSize: 15.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
                                       ),
                                 ),
                               ),
-                              Container(
-                                decoration: BoxDecoration(
-                                  color: const Color(0x254D8218),
-                                  borderRadius: BorderRadius.circular(5.0),
-                                ),
-                                child: Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 4.0, 10.0, 4.0),
-                                    child: Text(
-                                      valueOrDefault<String>(
-                                        AdminApiGroup.trayInfoCall.traystatus(
-                                          containerTrayInfoResponse.jsonBody,
-                                        ),
-                                        '-',
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Raleway',
-                                            color: FlutterFlowTheme.of(context)
-                                                .success,
-                                            fontSize: 15.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 5.0, 0.0, 0.0),
-                            child: Container(
-                              width: 290.0,
-                              height: 1.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                              ),
                             ),
                           ),
-                          Text(
-                            'Slot ID',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Open Sans',
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                          ),
-                          Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
-                            child: Text(
-                              valueOrDefault<String>(
-                                AdminApiGroup.slotInfoByTrayIdCall.slotid(
-                                  containerSlotInfoByTrayIdResponse.jsonBody,
-                                ),
-                                '-',
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Open Sans',
-                                    fontSize: 30.0,
-                                    letterSpacing: 0.5,
-                                    fontWeight: FontWeight.bold,
-                                    lineHeight: 1.0,
-                                  ),
-                            ),
-                          ),
-                        ].divide(const SizedBox(height: 8.0)),
+                        ],
                       ),
-                    );
-                  },
+                    ].divide(const SizedBox(height: 8.0)),
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
@@ -317,10 +253,11 @@ class _TrayRemoveInfoWidgetState extends State<TrayRemoveInfoWidget> {
                     child: FFButtonWidget(
                       onPressed: () async {
                         FFAppState().trayid = '';
+                        FFAppState().trayrecid = 0;
                         FFAppState().update(() {});
 
                         context.pushNamed(
-                          'tray_remove',
+                          'delete_tray',
                           extra: <String, dynamic>{
                             kTransitionInfoKey: const TransitionInfo(
                               hasTransition: true,

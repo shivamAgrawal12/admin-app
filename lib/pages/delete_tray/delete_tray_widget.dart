@@ -4,7 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/instant_timer.dart';
 import '/popup/menu/menu_widget.dart';
 import '/popup/tray_delete/tray_delete_widget.dart';
-import '/popup/tray_info_2/tray_info2_widget.dart';
+import '/popup/tray_info_del/tray_info_del_widget.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -84,7 +84,7 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
                           : FocusScope.of(context).unfocus(),
                       child: Padding(
                         padding: MediaQuery.viewInsetsOf(context),
-                        child: const TrayInfo2Widget(),
+                        child: const TrayInfoDelWidget(),
                       ),
                     );
                   },

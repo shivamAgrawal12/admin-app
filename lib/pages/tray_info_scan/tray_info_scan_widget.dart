@@ -272,11 +272,46 @@ class _TrayInfoScanWidgetState extends State<TrayInfoScanWidget> {
                     decoration: const BoxDecoration(),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
+                          RichText(
+                            textScaler: MediaQuery.of(context).textScaler,
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'Slot ID: ',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Open Sans',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        fontSize: 18.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                ),
+                                TextSpan(
+                                  text: FFAppState().slotid,
+                                  style: TextStyle(
+                                    color: FlutterFlowTheme.of(context).heading,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 18.0,
+                                  ),
+                                )
+                              ],
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Open Sans',
+                                    fontSize: 18.0,
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                          ),
                           Container(
                             width: 300.0,
                             height: 300.0,
