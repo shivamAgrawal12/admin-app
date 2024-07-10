@@ -1,0 +1,17 @@
+import '/backend/api_requests/api_calls.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import 'tray_added_widget.dart' show TrayAddedWidget;
+import 'package:flutter/material.dart';
+
+class TrayAddedModel extends FlutterFlowModel<TrayAddedWidget> {
+  ///  State fields for stateful widgets in this component.
+
+  // Stores action output result for [Backend Call - API (add new tray)] action in Button widget.
+  ApiCallResponse? addNewTray;
+
+  @override
+  void initState(BuildContext context) {}
+
+  @override
+  void dispose() {}
+}
