@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/popup/menu/menu_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'history_model.dart';
@@ -81,10 +82,30 @@ class _HistoryWidgetState extends State<HistoryWidget>
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          FaIcon(
-                            FontAwesomeIcons.arrowLeft,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            size: 24.0,
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              await actions.stopcamera();
+
+                              context.pushNamed(
+                                'history',
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: const TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType: PageTransitionType.fade,
+                                    duration: Duration(milliseconds: 0),
+                                  ),
+                                },
+                              );
+                            },
+                            child: FaIcon(
+                              FontAwesomeIcons.arrowLeft,
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              size: 24.0,
+                            ),
                           ),
                           ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
@@ -144,7 +165,7 @@ class _HistoryWidgetState extends State<HistoryWidget>
                   ),
                   Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: 70.0,
+                    height: 50.0,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(

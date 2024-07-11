@@ -2,6 +2,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
@@ -252,6 +253,7 @@ class _TrayInfo2WidgetState extends State<TrayInfo2Widget> {
                     ),
                     child: FFButtonWidget(
                       onPressed: () async {
+                        await actions.stopcamera();
                         FFAppState().trayid = '';
                         FFAppState().slotid = '';
                         FFAppState().slotrecid = 0;

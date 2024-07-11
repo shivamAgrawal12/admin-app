@@ -5,6 +5,7 @@ import '/flutter_flow/instant_timer.dart';
 import '/popup/mapping_confirmation/mapping_confirmation_widget.dart';
 import '/popup/menu/menu_widget.dart';
 import '/popup/tray_info_2/tray_info2_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -158,6 +159,7 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
+                              await actions.stopcamera();
                               FFAppState().trayid = '';
                               FFAppState().update(() {});
 

@@ -5,6 +5,7 @@ import '/flutter_flow/instant_timer.dart';
 import '/popup/menu/menu_widget.dart';
 import '/popup/tray_remove_info/tray_remove_info_widget.dart';
 import '/popup/tray_removed/tray_removed_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -170,6 +171,7 @@ class _TrayRemoveWidgetState extends State<TrayRemoveWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
+                              await actions.stopcamera();
                               FFAppState().trayid = '';
                               FFAppState().update(() {});
 

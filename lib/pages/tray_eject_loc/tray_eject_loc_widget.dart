@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/instant_timer.dart';
 import '/popup/menu/menu_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -110,6 +111,7 @@ class _TrayEjectLocWidgetState extends State<TrayEjectLocWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
+                              await actions.stopcamera();
                               FFAppState().trayid = '';
                               FFAppState().taskrecid = 0;
                               FFAppState().update(() {});

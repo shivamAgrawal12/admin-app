@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/popup/menu/menu_widget.dart';
 import '/popup/wrong/wrong_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -103,6 +104,7 @@ class _TrayEjectWidgetState extends State<TrayEjectWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
+                              await actions.stopcamera();
                               FFAppState().trayid = '';
                               FFAppState().update(() {});
 
