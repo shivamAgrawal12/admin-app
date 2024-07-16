@@ -1,4 +1,4 @@
-package com.mycompany.trayapkgsgv1
+package com.mycompany.adminappv1
 
 import io.flutter.embedding.android.FlutterActivity
 

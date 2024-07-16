@@ -5,6 +5,10 @@ import 'tray_remove_widget.dart' show TrayRemoveWidget;
 import 'package:flutter/material.dart';
 
 class TrayRemoveModel extends FlutterFlowModel<TrayRemoveWidget> {
+  ///  Local state fields for this page.
+
+  int? change = 0;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
@@ -13,6 +17,16 @@ class TrayRemoveModel extends FlutterFlowModel<TrayRemoveWidget> {
   ApiCallResponse? trayDetails;
   // Stores action output result for [Backend Call - API (slot info by tray id)] action in tray_remove widget.
   ApiCallResponse? slotIdByTray;
+  // State field(s) for Switch widget.
+  bool? switchValue;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
+  TextEditingController? textController;
+  String? Function(BuildContext, String?)? textControllerValidator;
+  // Stores action output result for [Backend Call - API (tray info)] action in Button widget.
+  ApiCallResponse? trayDetailsBtn;
+  // Stores action output result for [Backend Call - API (slot info by tray id)] action in Button widget.
+  ApiCallResponse? slotIdByTrayBtn;
 
   @override
   void initState(BuildContext context) {}
@@ -21,5 +35,7 @@ class TrayRemoveModel extends FlutterFlowModel<TrayRemoveWidget> {
   void dispose() {
     unfocusNode.dispose();
     instantTimer?.cancel();
+    textFieldFocusNode?.dispose();
+    textController?.dispose();
   }
 }

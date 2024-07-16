@@ -49,6 +49,7 @@ class _SlotInfo2WidgetState extends State<SlotInfo2Widget> {
       child: FutureBuilder<ApiCallResponse>(
         future: AdminApiGroup.slotInfoCall.call(
           slotId: FFAppState().slotid,
+          robotId: FFAppState().robotid,
         ),
         builder: (context, snapshot) {
           // Customize what your widget looks like when it's loading.
@@ -67,8 +68,8 @@ class _SlotInfo2WidgetState extends State<SlotInfo2Widget> {
           final containerSlotInfoResponse = snapshot.data!;
 
           return Container(
-            width: 290.0,
-            height: 340.0,
+            width: 280.0,
+            height: 320.0,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).liteBg,
               borderRadius: BorderRadius.circular(10.0),
@@ -102,61 +103,93 @@ class _SlotInfo2WidgetState extends State<SlotInfo2Widget> {
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Container(
-                            width: 50.0,
-                            height: 10.0,
-                            decoration: const BoxDecoration(),
-                          ),
-                          Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
-                            child: Text(
-                              'Slot Info',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Raleway',
-                                    fontSize: 18.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                            ),
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              color: const Color(0x254D8218),
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                            child: Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 4.0, 10.0, 4.0),
-                                child: Text(
-                                  valueOrDefault<String>(
-                                    AdminApiGroup.slotInfoCall.status(
-                                      containerSlotInfoResponse.jsonBody,
-                                    ),
-                                    'free',
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Raleway',
-                                        color: FlutterFlowTheme.of(context)
-                                            .success,
-                                        fontSize: 15.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.bold,
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                color: const Color(0x254D8218),
+                                borderRadius: BorderRadius.circular(5.0),
+                              ),
+                              child: Align(
+                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      8.0, 4.0, 8.0, 4.0),
+                                  child: Text(
+                                    valueOrDefault<String>(
+                                      AdminApiGroup.slotInfoCall.type(
+                                        containerSlotInfoResponse.jsonBody,
                                       ),
+                                      '-',
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Raleway',
+                                          color: FlutterFlowTheme.of(context)
+                                              .success,
+                                          fontSize: 15.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                            Align(
+                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              child: Text(
+                                'Slot Info',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Raleway',
+                                      color:
+                                          FlutterFlowTheme.of(context).heading,
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                              ),
+                            ),
+                            Container(
+                              decoration: BoxDecoration(
+                                color: const Color(0x254D8218),
+                                borderRadius: BorderRadius.circular(5.0),
+                              ),
+                              child: Align(
+                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      10.0, 4.0, 10.0, 4.0),
+                                  child: Text(
+                                    valueOrDefault<String>(
+                                      AdminApiGroup.slotInfoCall.status(
+                                        containerSlotInfoResponse.jsonBody,
+                                      ),
+                                      'free',
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Raleway',
+                                          color: FlutterFlowTheme.of(context)
+                                              .success,
+                                          fontSize: 15.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                       Padding(
                         padding:
@@ -185,8 +218,8 @@ class _SlotInfo2WidgetState extends State<SlotInfo2Widget> {
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Open Sans',
-                                    fontSize: 30.0,
-                                    letterSpacing: 0.5,
+                                    fontSize: 28.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                     lineHeight: 1.0,
                                   ),
@@ -196,7 +229,7 @@ class _SlotInfo2WidgetState extends State<SlotInfo2Widget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
                   child: RichText(
                     textScaler: MediaQuery.of(context).textScaler,
                     text: TextSpan(
@@ -208,7 +241,7 @@ class _SlotInfo2WidgetState extends State<SlotInfo2Widget> {
                               .override(
                                 fontFamily: 'Open Sans',
                                 color: FlutterFlowTheme.of(context).primaryText,
-                                fontSize: 18.0,
+                                fontSize: 16.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -218,14 +251,14 @@ class _SlotInfo2WidgetState extends State<SlotInfo2Widget> {
                           style: TextStyle(
                             color: FlutterFlowTheme.of(context).heading,
                             fontWeight: FontWeight.w600,
-                            fontSize: 18.0,
+                            fontSize: 16.0,
                           ),
                         )
                       ],
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Open Sans',
-                            fontSize: 18.0,
-                            letterSpacing: 0.5,
+                            fontFamily: 'Raleway',
+                            fontSize: 16.0,
+                            letterSpacing: 0.0,
                           ),
                     ),
                   ),
@@ -249,7 +282,7 @@ class _SlotInfo2WidgetState extends State<SlotInfo2Widget> {
                         'Tray ID',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Open Sans',
-                              fontSize: 13.0,
+                              fontSize: 14.0,
                               letterSpacing: 0.0,
                             ),
                       ),
@@ -262,14 +295,14 @@ class _SlotInfo2WidgetState extends State<SlotInfo2Widget> {
                     valueOrDefault<String>(
                       getJsonField(
                         containerSlotInfoResponse.jsonBody,
-                        r'''$.records[0].tray_id''',
+                        r'''$.tray_id''',
                       )?.toString(),
                       '-',
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Open Sans',
-                          fontSize: 16.0,
-                          letterSpacing: 0.5,
+                          fontSize: 18.0,
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.bold,
                         ),
                   ),
@@ -277,8 +310,8 @@ class _SlotInfo2WidgetState extends State<SlotInfo2Widget> {
                 Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                   child: Container(
-                    width: 170.0,
-                    height: 45.0,
+                    width: 140.0,
+                    height: 40.0,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
@@ -320,8 +353,8 @@ class _SlotInfo2WidgetState extends State<SlotInfo2Widget> {
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Raleway',
                                   color: Colors.white,
-                                  fontSize: 17.0,
-                                  letterSpacing: 1.0,
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
                                 ),
                         elevation: 0.0,

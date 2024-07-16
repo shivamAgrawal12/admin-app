@@ -5,10 +5,10 @@
 // 'flutter create' template.
 
 // The application's name. By default this is also the title of the Flutter window.
-PRODUCT_NAME = tray-apk-gsgv1
+PRODUCT_NAME = admin-app-v1
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.trayapkgsgv1
+PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.adminappv1
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2024 tray-apk-gsgv1. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2024 admin-app-v1. All rights reserved.

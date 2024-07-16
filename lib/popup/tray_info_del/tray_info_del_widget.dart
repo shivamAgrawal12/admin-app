@@ -66,8 +66,8 @@ class _TrayInfoDelWidgetState extends State<TrayInfoDelWidget> {
           final containerTrayInfoResponse = snapshot.data!;
 
           return Container(
-            width: 290.0,
-            height: 290.0,
+            width: 280.0,
+            height: 320.0,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).liteBg,
               borderRadius: BorderRadius.circular(10.0),
@@ -77,7 +77,7 @@ class _TrayInfoDelWidgetState extends State<TrayInfoDelWidget> {
               children: [
                 Container(
                   width: 290.0,
-                  height: 65.0,
+                  height: 130.0,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).primaryBackground,
                     boxShadow: const [
@@ -91,77 +91,147 @@ class _TrayInfoDelWidgetState extends State<TrayInfoDelWidget> {
                       )
                     ],
                     borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(25.0),
-                      bottomRight: Radius.circular(25.0),
+                      bottomLeft: Radius.circular(20.0),
+                      bottomRight: Radius.circular(20.0),
                       topLeft: Radius.circular(10.0),
                       topRight: Radius.circular(10.0),
                     ),
                   ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Row(
+                  child: FutureBuilder<ApiCallResponse>(
+                    future: AdminApiGroup.slotInfoByTrayIdCall.call(
+                      trayId: FFAppState().trayid,
+                    ),
+                    builder: (context, snapshot) {
+                      // Customize what your widget looks like when it's loading.
+                      if (!snapshot.hasData) {
+                        return Center(
+                          child: SizedBox(
+                            width: 40.0,
+                            height: 40.0,
+                            child: SpinKitThreeBounce(
+                              color: FlutterFlowTheme.of(context).subHeader,
+                              size: 40.0,
+                            ),
+                          ),
+                        );
+                      }
+                      final columnSlotInfoByTrayIdResponse = snapshot.data!;
+
+                      return Column(
                         mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Container(
-                            width: 50.0,
-                            height: 10.0,
-                            decoration: const BoxDecoration(),
-                          ),
-                          Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
-                            child: Text(
-                              'Tray Info',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Raleway',
-                                    fontSize: 18.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                            ),
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              color: const Color(0x254D8218),
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                            child: Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 4.0, 10.0, 4.0),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Container(
+                                width: 50.0,
+                                height: 10.0,
+                                decoration: const BoxDecoration(),
+                              ),
+                              Align(
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Text(
-                                  valueOrDefault<String>(
-                                    AdminApiGroup.trayInfoCall.traystatus(
-                                      containerTrayInfoResponse.jsonBody,
-                                    ),
-                                    '-',
-                                  ),
+                                  'Tray Info',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Raleway',
                                         color: FlutterFlowTheme.of(context)
-                                            .success,
-                                        fontSize: 15.0,
+                                            .heading,
+                                        fontSize: 16.0,
                                         letterSpacing: 0.0,
-                                        fontWeight: FontWeight.bold,
+                                        fontWeight: FontWeight.w600,
                                       ),
                                 ),
                               ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: const Color(0x254D8218),
+                                  borderRadius: BorderRadius.circular(5.0),
+                                ),
+                                child: Align(
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 4.0, 10.0, 4.0),
+                                    child: Text(
+                                      valueOrDefault<String>(
+                                        AdminApiGroup.trayInfoCall.traystatus(
+                                          containerTrayInfoResponse.jsonBody,
+                                        ),
+                                        '-',
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Raleway',
+                                            color: FlutterFlowTheme.of(context)
+                                                .success,
+                                            fontSize: 15.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 5.0, 0.0, 0.0),
+                            child: Container(
+                              width: 290.0,
+                              height: 1.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                              ),
                             ),
                           ),
-                        ],
-                      ),
-                    ].divide(const SizedBox(height: 8.0)),
+                          Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 5.0, 0.0, 0.0),
+                            child: Text(
+                              'Slot ID',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Raleway',
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                            ),
+                          ),
+                          Align(
+                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            child: Text(
+                              valueOrDefault<String>(
+                                AdminApiGroup.slotInfoByTrayIdCall.slotid(
+                                  columnSlotInfoByTrayIdResponse.jsonBody,
+                                ),
+                                '-',
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Raleway',
+                                    fontSize: 30.0,
+                                    letterSpacing: 0.5,
+                                    fontWeight: FontWeight.bold,
+                                    lineHeight: 1.0,
+                                  ),
+                            ),
+                          ),
+                        ].divide(const SizedBox(height: 8.0)),
+                      );
+                    },
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                   child: RichText(
                     textScaler: MediaQuery.of(context).textScaler,
                     text: TextSpan(
@@ -173,7 +243,7 @@ class _TrayInfoDelWidgetState extends State<TrayInfoDelWidget> {
                               .override(
                                 fontFamily: 'Open Sans',
                                 color: FlutterFlowTheme.of(context).primaryText,
-                                fontSize: 18.0,
+                                fontSize: 16.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -183,13 +253,13 @@ class _TrayInfoDelWidgetState extends State<TrayInfoDelWidget> {
                           style: TextStyle(
                             color: FlutterFlowTheme.of(context).heading,
                             fontWeight: FontWeight.w600,
-                            fontSize: 18.0,
+                            fontSize: 16.0,
                           ),
                         )
                       ],
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Open Sans',
-                            fontSize: 18.0,
+                            fontFamily: 'Raleway',
+                            fontSize: 16.0,
                             letterSpacing: 0.5,
                           ),
                     ),
@@ -213,7 +283,7 @@ class _TrayInfoDelWidgetState extends State<TrayInfoDelWidget> {
                       Text(
                         'Tray ID',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Open Sans',
+                              fontFamily: 'Raleway',
                               fontSize: 13.0,
                               letterSpacing: 0.0,
                             ),
@@ -222,11 +292,11 @@ class _TrayInfoDelWidgetState extends State<TrayInfoDelWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                   child: Text(
                     FFAppState().trayid,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Open Sans',
+                          fontFamily: 'Raleway',
                           fontSize: 16.0,
                           letterSpacing: 0.5,
                           fontWeight: FontWeight.bold,
@@ -236,8 +306,8 @@ class _TrayInfoDelWidgetState extends State<TrayInfoDelWidget> {
                 Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
                   child: Container(
-                    width: 170.0,
-                    height: 45.0,
+                    width: 140.0,
+                    height: 40.0,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
@@ -279,8 +349,8 @@ class _TrayInfoDelWidgetState extends State<TrayInfoDelWidget> {
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Raleway',
                                   color: Colors.white,
-                                  fontSize: 17.0,
-                                  letterSpacing: 1.0,
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
                                 ),
                         elevation: 0.0,

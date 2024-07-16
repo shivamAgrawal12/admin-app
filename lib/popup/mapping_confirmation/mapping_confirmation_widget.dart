@@ -49,7 +49,7 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
       alignment: const AlignmentDirectional(0.0, -0.6),
       child: Container(
         width: 290.0,
-        height: 425.0,
+        height: 410.0,
         decoration: BoxDecoration(
           color: const Color(0xFFEFFBE3),
           borderRadius: BorderRadius.circular(10.0),
@@ -94,9 +94,10 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Raleway',
-                                    fontSize: 18.0,
+                                    color: FlutterFlowTheme.of(context).heading,
+                                    fontSize: 16.0,
                                     letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
+                                    fontWeight: FontWeight.w600,
                                   ),
                         ),
                       ),
@@ -166,7 +167,7 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Raleway',
                       color: FlutterFlowTheme.of(context).subHeader,
-                      fontSize: 17.0,
+                      fontSize: 16.0,
                       letterSpacing: 0.5,
                       fontWeight: FontWeight.w600,
                     ),
@@ -185,7 +186,7 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Raleway',
                             color: FlutterFlowTheme.of(context).subHeader,
-                            fontSize: 17.0,
+                            fontSize: 16.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
                           ),
@@ -194,7 +195,7 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                   Icon(
                     Icons.task_alt,
                     color: FlutterFlowTheme.of(context).subHeader,
-                    size: 19.0,
+                    size: 18.0,
                   ),
                 ].divide(const SizedBox(width: 5.0)),
               ),
@@ -206,14 +207,14 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Raleway',
                       color: FlutterFlowTheme.of(context).subHeader,
-                      fontSize: 17.0,
+                      fontSize: 16.0,
                       letterSpacing: 0.5,
                       fontWeight: FontWeight.bold,
                     ),
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 15.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 25.0, 15.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -237,8 +238,8 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                     },
                     text: 'Cancel',
                     options: FFButtonOptions(
-                      width: 110.0,
-                      height: 45.0,
+                      width: 100.0,
+                      height: 40.0,
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                       iconPadding:
@@ -248,8 +249,8 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Open Sans',
                                 color: FlutterFlowTheme.of(context).heading,
-                                fontSize: 17.0,
-                                letterSpacing: 0.5,
+                                fontSize: 16.0,
+                                letterSpacing: 0.0,
                                 fontWeight: FontWeight.w600,
                               ),
                       elevation: 0.0,
@@ -261,8 +262,8 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                     ),
                   ),
                   Container(
-                    width: 110.0,
-                    height: 45.0,
+                    width: 100.0,
+                    height: 40.0,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
@@ -315,7 +316,7 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                       },
                       text: 'Confirm',
                       options: FFButtonOptions(
-                        height: 45.0,
+                        height: 40.0,
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
                         iconPadding:
@@ -325,8 +326,8 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Raleway',
                                   color: Colors.white,
-                                  fontSize: 17.0,
-                                  letterSpacing: 1.0,
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
                                 ),
                         elevation: 0.0,

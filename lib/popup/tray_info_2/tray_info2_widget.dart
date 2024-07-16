@@ -67,7 +67,7 @@ class _TrayInfo2WidgetState extends State<TrayInfo2Widget> {
           final containerTrayInfoResponse = snapshot.data!;
 
           return Container(
-            width: 290.0,
+            width: 270.0,
             height: 290.0,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).liteBg,
@@ -162,7 +162,7 @@ class _TrayInfo2WidgetState extends State<TrayInfo2Widget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
                   child: RichText(
                     textScaler: MediaQuery.of(context).textScaler,
                     text: TextSpan(
@@ -174,23 +174,15 @@ class _TrayInfo2WidgetState extends State<TrayInfo2Widget> {
                               .override(
                                 fontFamily: 'Open Sans',
                                 color: FlutterFlowTheme.of(context).primaryText,
-                                fontSize: 18.0,
+                                fontSize: 16.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.w600,
                               ),
-                        ),
-                        TextSpan(
-                          text: '‘In Use’',
-                          style: TextStyle(
-                            color: FlutterFlowTheme.of(context).heading,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 18.0,
-                          ),
                         )
                       ],
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Open Sans',
-                            fontSize: 18.0,
+                            fontFamily: 'Raleway',
+                            fontSize: 16.0,
                             letterSpacing: 0.5,
                           ),
                     ),
@@ -237,8 +229,8 @@ class _TrayInfo2WidgetState extends State<TrayInfo2Widget> {
                 Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
                   child: Container(
-                    width: 170.0,
-                    height: 45.0,
+                    width: 150.0,
+                    height: 40.0,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
@@ -282,8 +274,8 @@ class _TrayInfo2WidgetState extends State<TrayInfo2Widget> {
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Raleway',
                                   color: Colors.white,
-                                  fontSize: 17.0,
-                                  letterSpacing: 1.0,
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
                                 ),
                         elevation: 0.0,

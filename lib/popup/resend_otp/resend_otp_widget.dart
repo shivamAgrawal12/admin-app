@@ -48,7 +48,7 @@ class _ResendOtpWidgetState extends State<ResendOtpWidget> {
     return Align(
       alignment: const AlignmentDirectional(0.0, -0.6),
       child: Container(
-        width: 300.0,
+        width: 280.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
           borderRadius: BorderRadius.circular(10.0),
@@ -64,11 +64,12 @@ class _ResendOtpWidgetState extends State<ResendOtpWidget> {
                   'Your OTP has been sent to your registered mobile number.',
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Open Sans',
+                        fontFamily: 'Raleway',
                         color: FlutterFlowTheme.of(context).accent,
                         fontSize: 16.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
+                        lineHeight: 1.4,
                       ),
                 ),
               ),

@@ -66,7 +66,7 @@ class _TrayInfoWidgetState extends State<TrayInfoWidget> {
           final containerTrayInfoResponse = snapshot.data!;
 
           return Container(
-            width: 290.0,
+            width: 280.0,
             height: 290.0,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).liteBg,
@@ -118,9 +118,10 @@ class _TrayInfoWidgetState extends State<TrayInfoWidget> {
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Raleway',
-                                    fontSize: 18.0,
+                                    color: FlutterFlowTheme.of(context).heading,
+                                    fontSize: 16.0,
                                     letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
+                                    fontWeight: FontWeight.w600,
                                   ),
                             ),
                           ),
@@ -227,7 +228,7 @@ class _TrayInfoWidgetState extends State<TrayInfoWidget> {
                     FFAppState().trayid,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Open Sans',
-                          fontSize: 16.0,
+                          fontSize: 18.0,
                           letterSpacing: 0.5,
                           fontWeight: FontWeight.bold,
                         ),
@@ -236,8 +237,8 @@ class _TrayInfoWidgetState extends State<TrayInfoWidget> {
                 Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
                   child: Container(
-                    width: 170.0,
-                    height: 45.0,
+                    width: 150.0,
+                    height: 40.0,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
@@ -278,7 +279,7 @@ class _TrayInfoWidgetState extends State<TrayInfoWidget> {
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Raleway',
                                   color: Colors.white,
-                                  fontSize: 17.0,
+                                  fontSize: 16.0,
                                   letterSpacing: 1.0,
                                   fontWeight: FontWeight.w600,
                                 ),

@@ -1,11 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mycompany.trayapkgsgv1"
+    package="com.mycompany.adminappv1"
     xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <uses-permission android:name="usespermissionandroidnameandroid.permission.VIBRATE"/>
     <application
-        android:label="tray-apk-gsgv1"
+        android:label="admin-app-v1"
         tools:replace="android:label"
         android:icon="@mipmap/ic_launcher"
         android:requestLegacyExternalStorage="true">
@@ -45,7 +45,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="trayapkgsgv1" android:host="trayapkgsgv1.com" />
+                <data android:scheme="adminappv1" android:host="adminappv1.com" />
             </intent-filter>
 
         </activity>

@@ -42,7 +42,7 @@ class _MyAppState extends State<MyApp> {
   late AppStateNotifier _appStateNotifier;
   late GoRouter _router;
 
-  late Stream<TrayApkGsgv1AuthUser> userStream;
+  late Stream<AdminAppV1AuthUser> userStream;
 
   @override
   void initState() {
@@ -50,7 +50,7 @@ class _MyAppState extends State<MyApp> {
 
     _appStateNotifier = AppStateNotifier.instance;
     _router = createRouter(_appStateNotifier);
-    userStream = trayApkGsgv1AuthUserStream()
+    userStream = adminAppV1AuthUserStream()
       ..listen((user) {
         _appStateNotifier.update(user);
       });

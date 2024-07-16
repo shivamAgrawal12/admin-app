@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
-project(tray_apk_gsgv1 LANGUAGES CXX)
+project(admin_app_v1 LANGUAGES CXX)
 
-set(BINARY_NAME "tray_apk_gsgv1")
+set(BINARY_NAME "admin_app_v1")
 
 cmake_policy(SET CMP0063 NEW)
 

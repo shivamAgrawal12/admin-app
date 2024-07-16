@@ -5,12 +5,24 @@ import 'tray_info_scan_widget.dart' show TrayInfoScanWidget;
 import 'package:flutter/material.dart';
 
 class TrayInfoScanModel extends FlutterFlowModel<TrayInfoScanWidget> {
+  ///  Local state fields for this page.
+
+  int? change = 0;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
   InstantTimer? instantTimer;
   // Stores action output result for [Backend Call - API (tray info)] action in tray_info_scan widget.
   ApiCallResponse? trayDetail;
+  // State field(s) for Switch widget.
+  bool? switchValue;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
+  TextEditingController? textController;
+  String? Function(BuildContext, String?)? textControllerValidator;
+  // Stores action output result for [Backend Call - API (tray info)] action in Button widget.
+  ApiCallResponse? trayDetailBtn;
 
   @override
   void initState(BuildContext context) {}
@@ -19,5 +31,7 @@ class TrayInfoScanModel extends FlutterFlowModel<TrayInfoScanWidget> {
   void dispose() {
     unfocusNode.dispose();
     instantTimer?.cancel();
+    textFieldFocusNode?.dispose();
+    textController?.dispose();
   }
 }

@@ -5,12 +5,24 @@ import 'delete_tray_widget.dart' show DeleteTrayWidget;
 import 'package:flutter/material.dart';
 
 class DeleteTrayModel extends FlutterFlowModel<DeleteTrayWidget> {
+  ///  Local state fields for this page.
+
+  int? change = 0;
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
   InstantTimer? instantTimer;
   // Stores action output result for [Backend Call - API (tray info)] action in delete_tray widget.
   ApiCallResponse? trayDelete;
+  // State field(s) for Switch widget.
+  bool? switchValue;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
+  TextEditingController? textController;
+  String? Function(BuildContext, String?)? textControllerValidator;
+  // Stores action output result for [Backend Call - API (tray info)] action in Button widget.
+  ApiCallResponse? trayDeleteBtn;
 
   @override
   void initState(BuildContext context) {}
@@ -19,5 +31,7 @@ class DeleteTrayModel extends FlutterFlowModel<DeleteTrayWidget> {
   void dispose() {
     unfocusNode.dispose();
     instantTimer?.cancel();
+    textFieldFocusNode?.dispose();
+    textController?.dispose();
   }
 }

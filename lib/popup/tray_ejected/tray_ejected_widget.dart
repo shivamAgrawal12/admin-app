@@ -126,7 +126,7 @@ class _TrayEjectedWidgetState extends State<TrayEjectedWidget> {
                   child: FFButtonWidget(
                     onPressed: () async {
                       context.pushNamed(
-                        'home',
+                        'robot_info',
                         extra: <String, dynamic>{
                           kTransitionInfoKey: const TransitionInfo(
                             hasTransition: true,

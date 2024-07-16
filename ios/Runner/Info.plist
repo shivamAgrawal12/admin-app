@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>tray-apk-gsgv1</string>
+	<string>admin-app-v1</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -13,7 +13,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>tray-apk-gsgv1</string>
+	<string>admin-app-v1</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 
@@ -26,10 +26,10 @@
         <key>CFBundleTypeRole</key>
         <string>Editor</string>
         <key>CFBundleURLName</key>
-        <string>trayapkgsgv1.com</string>
+        <string>adminappv1.com</string>
         <key>CFBundleURLSchemes</key>
         <array>
-        <string>trayapkgsgv1</string>
+        <string>adminappv1</string>
         </array>
         </dict>
     </array>

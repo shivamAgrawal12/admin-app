@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 
 import '/backend/schema/structs/index.dart';
@@ -8,6 +9,7 @@ import '/backend/schema/structs/index.dart';
 import '/auth/custom_auth/custom_auth_user_provider.dart';
 
 import '/index.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 export 'package:go_router/go_router.dart';
@@ -21,8 +23,8 @@ class AppStateNotifier extends ChangeNotifier {
   static AppStateNotifier? _instance;
   static AppStateNotifier get instance => _instance ??= AppStateNotifier._();
 
-  TrayApkGsgv1AuthUser? initialUser;
-  TrayApkGsgv1AuthUser? user;
+  AdminAppV1AuthUser? initialUser;
+  AdminAppV1AuthUser? user;
   bool showSplashImage = true;
   String? _redirectLocation;
 
@@ -47,7 +49,7 @@ class AppStateNotifier extends ChangeNotifier {
   /// to perform subsequent actions (such as navigation) afterwards.
   void updateNotifyOnAuthChange(bool notify) => notifyOnAuthChange = notify;
 
-  void update(TrayApkGsgv1AuthUser newUser) {
+  void update(AdminAppV1AuthUser newUser) {
     final shouldUpdate =
         user?.uid == null || newUser.uid == null || user?.uid != newUser.uid;
     initialUser ??= newUser;
@@ -73,13 +75,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const HomeWidget() : const RobotScan1Widget(),
+          appStateNotifier.loggedIn ? const RobotInfoWidget() : const RobotScanWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const HomeWidget() : const RobotScan1Widget(),
+              appStateNotifier.loggedIn ? const RobotInfoWidget() : const RobotScanWidget(),
         ),
         FFRoute(
           name: 'login_page',
@@ -87,15 +89,15 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const LoginPageWidget(),
         ),
         FFRoute(
-          name: 'robot_scan_1',
-          path: '/robotScan1',
-          builder: (context, params) => const RobotScan1Widget(),
+          name: 'robot_scan',
+          path: '/robotScan',
+          builder: (context, params) => const RobotScanWidget(),
         ),
         FFRoute(
-          name: 'home',
-          path: '/home',
+          name: 'robot_info',
+          path: '/robotInfo',
           requireAuth: true,
-          builder: (context, params) => const HomeWidget(),
+          builder: (context, params) => const RobotInfoWidget(),
         ),
         FFRoute(
           name: 'slot_info_scan',
@@ -108,9 +110,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const TrayInfoScanWidget(),
         ),
         FFRoute(
-          name: 'history',
-          path: '/history',
-          builder: (context, params) => const HistoryWidget(),
+          name: 'complete_request',
+          path: '/completeRequest',
+          builder: (context, params) => const CompleteRequestWidget(),
         ),
         FFRoute(
           name: 'slot_mappimg',
@@ -128,14 +130,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const TrayRemoveWidget(),
         ),
         FFRoute(
-          name: 'tray_eject',
-          path: '/trayEject',
-          builder: (context, params) => const TrayEjectWidget(),
+          name: 'tray_retrieve',
+          path: '/trayRetrieve',
+          builder: (context, params) => const TrayRetrieveWidget(),
         ),
         FFRoute(
-          name: 'tray_eject_loc',
-          path: '/trayEjectLoc',
-          builder: (context, params) => const TrayEjectLocWidget(),
+          name: 'tray_retrieve_loc',
+          path: '/trayRetrieveLoc',
+          builder: (context, params) => const TrayRetrieveLocWidget(),
         ),
         FFRoute(
           name: 'add_new_tray',
@@ -151,6 +153,42 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'support',
           path: '/support',
           builder: (context, params) => const SupportWidget(),
+        ),
+        FFRoute(
+          name: 'list_of_tray',
+          path: '/listOfTray',
+          builder: (context, params) => const ListOfTrayWidget(),
+        ),
+        FFRoute(
+          name: 'list_of_slot',
+          path: '/listOfSlot',
+          builder: (context, params) => const ListOfSlotWidget(),
+        ),
+        FFRoute(
+          name: 'tray_release',
+          path: '/trayRelease',
+          builder: (context, params) => const TrayReleaseWidget(),
+        ),
+        FFRoute(
+          name: 'home',
+          path: '/home',
+          requireAuth: true,
+          builder: (context, params) => const HomeWidget(),
+        ),
+        FFRoute(
+          name: 'list_of_picking',
+          path: '/listOfPicking',
+          builder: (context, params) => const ListOfPickingWidget(),
+        ),
+        FFRoute(
+          name: 'pending_task',
+          path: '/pendingTask',
+          builder: (context, params) => const PendingTaskWidget(),
+        ),
+        FFRoute(
+          name: 'register_robot',
+          path: '/registerRobot',
+          builder: (context, params) => const RegisterRobotWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -321,7 +359,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
-            return '/robotScan1';
+            return '/robotScan';
           }
           return null;
         },
@@ -335,11 +373,14 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Container(
-                  color: Colors.transparent,
-                  child: Image.asset(
-                    'assets/images/Group_42_(2).png',
-                    fit: BoxFit.contain,
+              ? Center(
+                  child: SizedBox(
+                    width: 40.0,
+                    height: 40.0,
+                    child: SpinKitThreeBounce(
+                      color: FlutterFlowTheme.of(context).subHeader,
+                      size: 40.0,
+                    ),
                   ),
                 )
               : page;

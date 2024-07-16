@@ -69,8 +69,8 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
           final containerTrayInfoResponse = snapshot.data!;
 
           return Container(
-            width: 290.0,
-            height: 340.0,
+            width: 280.0,
+            height: 330.0,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).liteBg,
               borderRadius: BorderRadius.circular(10.0),
@@ -121,9 +121,10 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Raleway',
-                                    fontSize: 18.0,
+                                    color: FlutterFlowTheme.of(context).heading,
+                                    fontSize: 16.0,
                                     letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
+                                    fontWeight: FontWeight.w600,
                                   ),
                             ),
                           ),
@@ -201,7 +202,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
                   child: RichText(
                     textScaler: MediaQuery.of(context).textScaler,
                     text: TextSpan(
@@ -213,7 +214,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                               .override(
                                 fontFamily: 'Open Sans',
                                 color: FlutterFlowTheme.of(context).primaryText,
-                                fontSize: 18.0,
+                                fontSize: 16.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -223,14 +224,14 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                           style: TextStyle(
                             color: FlutterFlowTheme.of(context).heading,
                             fontWeight: FontWeight.w600,
-                            fontSize: 18.0,
+                            fontSize: 16.0,
                           ),
                         )
                       ],
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Open Sans',
-                            fontSize: 18.0,
-                            letterSpacing: 0.5,
+                            fontFamily: 'Raleway',
+                            fontSize: 16.0,
+                            letterSpacing: 0.0,
                           ),
                     ),
                   ),
@@ -270,8 +271,8 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Open Sans',
-                          fontSize: 16.0,
-                          letterSpacing: 0.5,
+                          fontSize: 18.0,
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.bold,
                         ),
                   ),
@@ -281,7 +282,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                       const EdgeInsetsDirectional.fromSTEB(15.0, 25.0, 15.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       FFButtonWidget(
                         onPressed: () async {
@@ -301,7 +302,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                         },
                         text: 'Cancel',
                         options: FFButtonOptions(
-                          width: 110.0,
+                          width: 100.0,
                           height: 40.0,
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               5.0, 0.0, 5.0, 0.0),
@@ -312,7 +313,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Open Sans',
                                     color: FlutterFlowTheme.of(context).heading,
-                                    fontSize: 17.0,
+                                    fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
@@ -325,8 +326,8 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                         ),
                       ),
                       Container(
-                        width: 110.0,
-                        height: 45.0,
+                        width: 100.0,
+                        height: 40.0,
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [
@@ -379,7 +380,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                           },
                           text: 'Submit',
                           options: FFButtonOptions(
-                            height: 45.0,
+                            height: 40.0,
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 5.0, 0.0, 5.0, 0.0),
                             iconPadding: const EdgeInsetsDirectional.fromSTEB(
@@ -390,7 +391,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                                 .override(
                                   fontFamily: 'Raleway',
                                   color: Colors.white,
-                                  fontSize: 17.0,
+                                  fontSize: 16.0,
                                   letterSpacing: 1.0,
                                   fontWeight: FontWeight.w600,
                                 ),

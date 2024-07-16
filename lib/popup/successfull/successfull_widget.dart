@@ -118,7 +118,7 @@ class _SuccessfullWidgetState extends State<SuccessfullWidget> {
                   FFAppState().update(() {});
 
                   context.pushNamed(
-                    'home',
+                    'robot_info',
                     extra: <String, dynamic>{
                       kTransitionInfoKey: const TransitionInfo(
                         hasTransition: true,

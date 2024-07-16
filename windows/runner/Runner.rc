@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "tray-apk-gsgv1" "\0"
+            VALUE "CompanyName", "admin-app-v1" "\0"
             VALUE "FileDescription", "A new Flutter project." "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "tray-apk-gsgv1" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2024 tray-apk-gsgv1. All rights reserved." "\0"
-            VALUE "OriginalFilename", "tray_apk_gsgv1.exe" "\0"
-            VALUE "ProductName", "tray-apk-gsgv1" "\0"
+            VALUE "InternalName", "admin-app-v1" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2024 admin-app-v1. All rights reserved." "\0"
+            VALUE "OriginalFilename", "admin_app_v1.exe" "\0"
+            VALUE "ProductName", "admin-app-v1" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

@@ -148,22 +148,21 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Open Sans',
+                                        fontFamily: 'Raleway',
                                         color: FlutterFlowTheme.of(context)
                                             .heading,
-                                        fontSize: 18.0,
+                                        fontSize: 16.0,
                                         letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
+                                        fontWeight: FontWeight.w600,
                                         lineHeight: 1.0,
                                       ),
                                 ),
                                 FaIcon(
                                   FontAwesomeIcons.store,
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                  color: FlutterFlowTheme.of(context).accent,
                                   size: 18.0,
                                 ),
-                              ].divide(const SizedBox(width: 10.0)),
+                              ].divide(const SizedBox(width: 5.0)),
                             ),
                           ].divide(const SizedBox(height: 10.0)),
                         ),
@@ -240,7 +239,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 20.0, 0.0, 10.0),
                                   child: Container(
-                                    width: 320.0,
+                                    width: 300.0,
                                     height: 45.0,
                                     decoration: BoxDecoration(
                                       color:
@@ -248,7 +247,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                       borderRadius: BorderRadius.circular(5.0),
                                       border: Border.all(
                                         color: FlutterFlowTheme.of(context)
-                                            .accent4,
+                                            .liteText,
                                         width: 1.0,
                                       ),
                                     ),
@@ -589,7 +588,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                     padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 20.0, 0.0, 10.0),
                                     child: Container(
-                                      width: 320.0,
+                                      width: 300.0,
                                       height: 45.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
@@ -598,13 +597,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                             BorderRadius.circular(5.0),
                                         border: Border.all(
                                           color: FlutterFlowTheme.of(context)
-                                              .accent4,
+                                              .liteText,
                                           width: 1.5,
                                         ),
                                       ),
                                       child: Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 10.0, 0.0),
+                                            8.0, 0.0, 5.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [

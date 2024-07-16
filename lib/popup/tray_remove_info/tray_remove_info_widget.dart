@@ -138,9 +138,11 @@ class _TrayRemoveInfoWidgetState extends State<TrayRemoveInfoWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Raleway',
-                                        fontSize: 18.0,
+                                        color: FlutterFlowTheme.of(context)
+                                            .heading,
+                                        fontSize: 16.0,
                                         letterSpacing: 0.0,
-                                        fontWeight: FontWeight.bold,
+                                        fontWeight: FontWeight.w600,
                                       ),
                                 ),
                               ),
@@ -159,7 +161,7 @@ class _TrayRemoveInfoWidgetState extends State<TrayRemoveInfoWidget> {
                                         AdminApiGroup.trayInfoCall.traystatus(
                                           containerTrayInfoResponse.jsonBody,
                                         ),
-                                        '-',
+                                        'free',
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
@@ -225,7 +227,7 @@ class _TrayRemoveInfoWidgetState extends State<TrayRemoveInfoWidget> {
                   },
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
                   child: RichText(
                     textScaler: MediaQuery.of(context).textScaler,
                     text: TextSpan(
@@ -237,7 +239,7 @@ class _TrayRemoveInfoWidgetState extends State<TrayRemoveInfoWidget> {
                               .override(
                                 fontFamily: 'Open Sans',
                                 color: FlutterFlowTheme.of(context).primaryText,
-                                fontSize: 18.0,
+                                fontSize: 16.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -252,7 +254,7 @@ class _TrayRemoveInfoWidgetState extends State<TrayRemoveInfoWidget> {
                         )
                       ],
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Open Sans',
+                            fontFamily: 'Raleway',
                             fontSize: 18.0,
                             letterSpacing: 0.5,
                           ),
@@ -300,8 +302,8 @@ class _TrayRemoveInfoWidgetState extends State<TrayRemoveInfoWidget> {
                 Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
                   child: Container(
-                    width: 170.0,
-                    height: 45.0,
+                    width: 140.0,
+                    height: 40.0,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
@@ -332,7 +334,7 @@ class _TrayRemoveInfoWidgetState extends State<TrayRemoveInfoWidget> {
                       },
                       text: 'Return Back',
                       options: FFButtonOptions(
-                        height: 45.0,
+                        height: 40.0,
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
                         iconPadding:
@@ -342,8 +344,8 @@ class _TrayRemoveInfoWidgetState extends State<TrayRemoveInfoWidget> {
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Raleway',
                                   color: Colors.white,
-                                  fontSize: 17.0,
-                                  letterSpacing: 1.0,
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
                                 ),
                         elevation: 0.0,

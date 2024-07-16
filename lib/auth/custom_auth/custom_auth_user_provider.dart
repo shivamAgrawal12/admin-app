@@ -3,8 +3,8 @@ import 'package:rxdart/rxdart.dart';
 import '/backend/schema/structs/index.dart';
 import 'custom_auth_manager.dart';
 
-class TrayApkGsgv1AuthUser {
-  TrayApkGsgv1AuthUser({
+class AdminAppV1AuthUser {
+  AdminAppV1AuthUser({
     required this.loggedIn,
     this.uid,
     this.userData,
@@ -16,9 +16,9 @@ class TrayApkGsgv1AuthUser {
 }
 
 /// Generates a stream of the authenticated user.
-BehaviorSubject<TrayApkGsgv1AuthUser> trayApkGsgv1AuthUserSubject =
-    BehaviorSubject.seeded(TrayApkGsgv1AuthUser(loggedIn: false));
-Stream<TrayApkGsgv1AuthUser> trayApkGsgv1AuthUserStream() =>
-    trayApkGsgv1AuthUserSubject
+BehaviorSubject<AdminAppV1AuthUser> adminAppV1AuthUserSubject =
+    BehaviorSubject.seeded(AdminAppV1AuthUser(loggedIn: false));
+Stream<AdminAppV1AuthUser> adminAppV1AuthUserStream() =>
+    adminAppV1AuthUserSubject
         .asBroadcastStream()
         .map((user) => currentUser = user);

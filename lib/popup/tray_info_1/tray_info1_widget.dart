@@ -1,8 +1,10 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'tray_info1_model.dart';
 export 'tray_info1_model.dart';
@@ -45,8 +47,8 @@ class _TrayInfo1WidgetState extends State<TrayInfo1Widget> {
     return Align(
       alignment: const AlignmentDirectional(0.0, -0.6),
       child: Container(
-        width: 290.0,
-        height: 330.0,
+        width: 280.0,
+        height: 340.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).liteBg,
           borderRadius: BorderRadius.circular(10.0),
@@ -96,9 +98,10 @@ class _TrayInfo1WidgetState extends State<TrayInfo1Widget> {
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Raleway',
-                                    fontSize: 18.0,
+                                    color: FlutterFlowTheme.of(context).heading,
+                                    fontSize: 16.0,
                                     letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
+                                    fontWeight: FontWeight.w600,
                                   ),
                         ),
                       ),
@@ -151,8 +154,8 @@ class _TrayInfo1WidgetState extends State<TrayInfo1Widget> {
                       FFAppState().trayid,
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Open Sans',
-                            fontSize: 30.0,
-                            letterSpacing: 0.5,
+                            fontSize: 28.0,
+                            letterSpacing: 0.0,
                             fontWeight: FontWeight.bold,
                             lineHeight: 1.0,
                           ),
@@ -161,8 +164,87 @@ class _TrayInfo1WidgetState extends State<TrayInfo1Widget> {
                 ].divide(const SizedBox(height: 8.0)),
               ),
             ),
+            FutureBuilder<ApiCallResponse>(
+              future: AdminApiGroup.slotInfoByTrayIdCall.call(
+                trayId: FFAppState().trayid,
+                robotId: FFAppState().robotid,
+              ),
+              builder: (context, snapshot) {
+                // Customize what your widget looks like when it's loading.
+                if (!snapshot.hasData) {
+                  return Center(
+                    child: SizedBox(
+                      width: 40.0,
+                      height: 40.0,
+                      child: SpinKitThreeBounce(
+                        color: FlutterFlowTheme.of(context).subHeader,
+                        size: 40.0,
+                      ),
+                    ),
+                  );
+                }
+                final containerSlotInfoByTrayIdResponse = snapshot.data!;
+
+                return Container(
+                  width: 260.0,
+                  height: 50.0,
+                  decoration: const BoxDecoration(),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
+                        child: RichText(
+                          textScaler: MediaQuery.of(context).textScaler,
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: 'Slot Id ',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Open Sans',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                              ),
+                              TextSpan(
+                                text: valueOrDefault<String>(
+                                  AdminApiGroup.slotInfoByTrayIdCall.slotid(
+                                    containerSlotInfoByTrayIdResponse.jsonBody,
+                                  ),
+                                  '-',
+                                ),
+                                style: TextStyle(
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16.0,
+                                ),
+                              )
+                            ],
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Open Sans',
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.5,
+                                ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
               child: RichText(
                 textScaler: MediaQuery.of(context).textScaler,
                 text: TextSpan(
@@ -172,7 +254,7 @@ class _TrayInfo1WidgetState extends State<TrayInfo1Widget> {
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Open Sans',
                             color: FlutterFlowTheme.of(context).primaryText,
-                            fontSize: 18.0,
+                            fontSize: 16.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
                           ),
@@ -182,13 +264,13 @@ class _TrayInfo1WidgetState extends State<TrayInfo1Widget> {
                       style: TextStyle(
                         color: FlutterFlowTheme.of(context).heading,
                         fontWeight: FontWeight.w600,
-                        fontSize: 18.0,
+                        fontSize: 16.0,
                       ),
                     )
                   ],
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Open Sans',
-                        fontSize: 18.0,
+                        fontSize: 16.0,
                         letterSpacing: 0.5,
                       ),
                 ),
@@ -197,11 +279,11 @@ class _TrayInfo1WidgetState extends State<TrayInfo1Widget> {
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
+                borderRadius: BorderRadius.circular(0.0),
                 child: Image.asset(
                   'assets/images/Group_5796.png',
-                  width: 40.0,
-                  height: 40.0,
+                  width: 30.0,
+                  height: 35.0,
                   fit: BoxFit.contain,
                 ),
               ),
@@ -209,8 +291,8 @@ class _TrayInfo1WidgetState extends State<TrayInfo1Widget> {
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
               child: Container(
-                width: 170.0,
-                height: 45.0,
+                width: 140.0,
+                height: 40.0,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
@@ -250,8 +332,8 @@ class _TrayInfo1WidgetState extends State<TrayInfo1Widget> {
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Raleway',
                           color: Colors.white,
-                          fontSize: 17.0,
-                          letterSpacing: 1.0,
+                          fontSize: 16.0,
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.w600,
                         ),
                     elevation: 0.0,

@@ -140,7 +140,7 @@ class _SupportWidgetState extends State<SupportWidget> {
                                 shape: BoxShape.circle,
                               ),
                               child: Align(
-                                alignment: const AlignmentDirectional(0.0, 2.8),
+                                alignment: const AlignmentDirectional(0.0, 2.6),
                                 child: Icon(
                                   Icons.person_3,
                                   color: FlutterFlowTheme.of(context).heading,
@@ -176,9 +176,8 @@ class _SupportWidgetState extends State<SupportWidget> {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Raleway',
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                  fontSize: 18.0,
+                                  color: FlutterFlowTheme.of(context).heading,
+                                  fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
                                 ),
@@ -221,33 +220,33 @@ class _SupportWidgetState extends State<SupportWidget> {
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
+                                      color:
+                                          FlutterFlowTheme.of(context).liteText,
+                                      width: 1.5,
+                                    ),
+                                    borderRadius: BorderRadius.circular(5.0),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
                                           .subHeader,
                                       width: 1.5,
                                     ),
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color:
-                                          FlutterFlowTheme.of(context).heading,
-                                      width: 1.5,
-                                    ),
-                                    borderRadius: BorderRadius.circular(10.0),
+                                    borderRadius: BorderRadius.circular(5.0),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.5,
                                     ),
-                                    borderRadius: BorderRadius.circular(10.0),
+                                    borderRadius: BorderRadius.circular(5.0),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.5,
                                     ),
-                                    borderRadius: BorderRadius.circular(10.0),
+                                    borderRadius: BorderRadius.circular(5.0),
                                   ),
                                 ),
                                 style: FlutterFlowTheme.of(context)
@@ -286,33 +285,33 @@ class _SupportWidgetState extends State<SupportWidget> {
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
+                                      color:
+                                          FlutterFlowTheme.of(context).liteText,
+                                      width: 1.5,
+                                    ),
+                                    borderRadius: BorderRadius.circular(5.0),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
                                           .subHeader,
                                       width: 1.5,
                                     ),
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color:
-                                          FlutterFlowTheme.of(context).heading,
-                                      width: 1.5,
-                                    ),
-                                    borderRadius: BorderRadius.circular(10.0),
+                                    borderRadius: BorderRadius.circular(5.0),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.5,
                                     ),
-                                    borderRadius: BorderRadius.circular(10.0),
+                                    borderRadius: BorderRadius.circular(5.0),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.5,
                                     ),
-                                    borderRadius: BorderRadius.circular(10.0),
+                                    borderRadius: BorderRadius.circular(5.0),
                                   ),
                                 ),
                                 style: FlutterFlowTheme.of(context)
@@ -359,33 +358,33 @@ class _SupportWidgetState extends State<SupportWidget> {
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
+                                      color:
+                                          FlutterFlowTheme.of(context).liteText,
+                                      width: 1.5,
+                                    ),
+                                    borderRadius: BorderRadius.circular(5.0),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
                                           .subHeader,
                                       width: 1.5,
                                     ),
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color:
-                                          FlutterFlowTheme.of(context).heading,
-                                      width: 1.5,
-                                    ),
-                                    borderRadius: BorderRadius.circular(10.0),
+                                    borderRadius: BorderRadius.circular(5.0),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.5,
                                     ),
-                                    borderRadius: BorderRadius.circular(10.0),
+                                    borderRadius: BorderRadius.circular(5.0),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context).error,
                                       width: 1.5,
                                     ),
-                                    borderRadius: BorderRadius.circular(10.0),
+                                    borderRadius: BorderRadius.circular(5.0),
                                   ),
                                 ),
                                 style: FlutterFlowTheme.of(context)

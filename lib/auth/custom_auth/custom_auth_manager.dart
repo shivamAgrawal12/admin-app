@@ -31,13 +31,13 @@ class CustomAuthManager {
     uid = null;
     userData = null;
     // Update the current user.
-    trayApkGsgv1AuthUserSubject.add(
-      TrayApkGsgv1AuthUser(loggedIn: false),
+    adminAppV1AuthUserSubject.add(
+      AdminAppV1AuthUser(loggedIn: false),
     );
     persistAuthData();
   }
 
-  Future<TrayApkGsgv1AuthUser?> signIn({
+  Future<AdminAppV1AuthUser?> signIn({
     String? authenticationToken,
     String? refreshToken,
     DateTime? tokenExpiration,
@@ -73,7 +73,7 @@ class CustomAuthManager {
     );
   }
 
-  TrayApkGsgv1AuthUser? _updateCurrentUser({
+  AdminAppV1AuthUser? _updateCurrentUser({
     String? authenticationToken,
     String? refreshToken,
     DateTime? tokenExpiration,
@@ -86,12 +86,12 @@ class CustomAuthManager {
     uid = authUid;
     this.userData = userData;
     // Update the current user stream.
-    final updatedUser = TrayApkGsgv1AuthUser(
+    final updatedUser = AdminAppV1AuthUser(
       loggedIn: true,
       uid: authUid,
       userData: userData,
     );
-    trayApkGsgv1AuthUserSubject.add(updatedUser);
+    adminAppV1AuthUserSubject.add(updatedUser);
     persistAuthData();
     return updatedUser;
   }
@@ -124,12 +124,12 @@ class CustomAuthManager {
     final authTokenExists = authenticationToken != null;
     final tokenExpired =
         tokenExpiration != null && tokenExpiration!.isBefore(DateTime.now());
-    final updatedUser = TrayApkGsgv1AuthUser(
+    final updatedUser = AdminAppV1AuthUser(
       loggedIn: authTokenExists && !tokenExpired,
       uid: uid,
       userData: userData,
     );
-    trayApkGsgv1AuthUserSubject.add(updatedUser);
+    adminAppV1AuthUserSubject.add(updatedUser);
   }
 
   void persistAuthData() {
@@ -151,5 +151,5 @@ class CustomAuthManager {
   }
 }
 
-TrayApkGsgv1AuthUser? currentUser;
+AdminAppV1AuthUser? currentUser;
 bool get loggedIn => currentUser?.loggedIn ?? false;

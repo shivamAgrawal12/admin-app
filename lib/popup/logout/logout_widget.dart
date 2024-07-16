@@ -111,7 +111,7 @@ class _LogoutWidgetState extends State<LogoutWidget> {
                         await authManager.signOut();
                         GoRouter.of(context).clearRedirectLocation();
 
-                        context.goNamedAuth('robot_scan_1', context.mounted);
+                        context.goNamedAuth('robot_scan', context.mounted);
                       },
                       child: Container(
                         width: 110.0,

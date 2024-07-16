@@ -30,6 +30,10 @@ class AdminApiGroup {
   static SlotInfoByTrayIdCall slotInfoByTrayIdCall = SlotInfoByTrayIdCall();
   static PostTaskCall postTaskCall = PostTaskCall();
   static TaskDetailsCall taskDetailsCall = TaskDetailsCall();
+  static ListOfTrayCall listOfTrayCall = ListOfTrayCall();
+  static ListOfSlotCall listOfSlotCall = ListOfSlotCall();
+  static PendingTaskCall pendingTaskCall = PendingTaskCall();
+  static RegisterNewRobotCall registerNewRobotCall = RegisterNewRobotCall();
 }
 
 class VerifyRobotIdCall {
@@ -72,6 +76,10 @@ class VerifyRobotIdCall {
   bool? statusbool(dynamic response) => castToType<bool>(getJsonField(
         response,
         r'''$.statusbool''',
+      ));
+  String? robotname(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.records[:].robot_name''',
       ));
 }
 
@@ -394,6 +402,7 @@ class DeleteTrayCall {
 class SlotInfoByTrayIdCall {
   Future<ApiCallResponse> call({
     String? trayId = '',
+    String? robotId = '',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl();
 
@@ -409,6 +418,7 @@ class SlotInfoByTrayIdCall {
       },
       params: {
         'tray_id': trayId,
+        'robot_id': robotId,
       },
       returnBody: true,
       encodeBodyUtf8: false,
@@ -526,6 +536,183 @@ class TaskDetailsCall {
   String? status(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.records[:].status''',
+      ));
+}
+
+class ListOfTrayCall {
+  Future<ApiCallResponse> call({
+    String? robotId = '',
+  }) async {
+    final baseUrl = AdminApiGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'list of tray',
+      apiUrl: '$baseUrl/robotmanager/trays/',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization':
+            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+      },
+      params: {
+        'robot_id': robotId,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  List? records(dynamic response) => getJsonField(
+        response,
+        r'''$.records''',
+        true,
+      ) as List?;
+  bool? statusbool(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.statusbool''',
+      ));
+  int? count(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.count''',
+      ));
+}
+
+class ListOfSlotCall {
+  Future<ApiCallResponse> call({
+    String? robotId = '',
+  }) async {
+    final baseUrl = AdminApiGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'list of slot',
+      apiUrl: '$baseUrl/robotmanager/slots/',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization':
+            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+      },
+      params: {
+        'robot_id': robotId,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  List? records(dynamic response) => getJsonField(
+        response,
+        r'''$.records''',
+        true,
+      ) as List?;
+  bool? statusbool(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.statusbool''',
+      ));
+}
+
+class PendingTaskCall {
+  Future<ApiCallResponse> call({
+    String? taskStatus = '',
+    String? robotId = '',
+  }) async {
+    final baseUrl = AdminApiGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'pending task',
+      apiUrl: '$baseUrl/robotmanager/task/',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization':
+            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+      },
+      params: {
+        'robot_id': robotId,
+        'task_status': taskStatus,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  List? records(dynamic response) => getJsonField(
+        response,
+        r'''$.records''',
+        true,
+      ) as List?;
+  bool? statusbool(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.statusbool''',
+      ));
+}
+
+class RegisterNewRobotCall {
+  Future<ApiCallResponse> call({
+    String? robotName = '',
+    String? robotId = '',
+    String? status = '',
+    int? maxRow,
+    int? maxRack,
+    int? maxSlot,
+    int? maxDepth,
+  }) async {
+    final baseUrl = AdminApiGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "robot_name": "$robotName",
+  "robot_id": "$robotId",
+  "status": "$status",
+  "max_row": $maxRow,
+  "max_rack": $maxRack,
+  "max_slot": $maxSlot,
+  "max_depth": $maxDepth
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'register new robot',
+      apiUrl: '$baseUrl/robotmanager/robots/',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization':
+            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  String? robotid(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.records[:].robot_id''',
+      ));
+  bool? statusbool(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.statusbool''',
       ));
 }
 

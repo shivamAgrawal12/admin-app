@@ -70,3 +70,115 @@ List<dynamic> singleitemview(List<dynamic>? itemslist) {
 
   return [];
 }
+
+dynamic searchallpicking(
+  List<dynamic>? records,
+  String? searchdata,
+) {
+  if (records == null ||
+      records.isEmpty ||
+      searchdata == null ||
+      searchdata.isEmpty) {
+    return records;
+  }
+
+  String searchQuery = searchdata.toLowerCase();
+  List<dynamic> result = [];
+
+  for (var item in records) {
+    if (item is Map<String, dynamic>) {
+      var nameField = item['friendly_name'];
+
+      if (nameField != null && nameField is String) {
+        String itemName = nameField.toLowerCase();
+
+        if (itemName.contains(searchQuery)) {
+          result.add(item);
+        }
+      }
+    }
+  }
+
+  return result.isNotEmpty ? result : records;
+}
+
+dynamic searchallslot(
+  List<dynamic>? records,
+  String? searchdata,
+) {
+  if (records == null ||
+      records.isEmpty ||
+      searchdata == null ||
+      searchdata.isEmpty) {
+    return records;
+  }
+
+  String searchQuery = searchdata.toLowerCase();
+  List<dynamic> result = [];
+
+  for (var item in records) {
+    if (item is Map<String, dynamic>) {
+      var nameField = item['slot_id'];
+
+      if (nameField != null && nameField is String) {
+        String itemName = nameField.toLowerCase();
+
+        if (itemName.contains(searchQuery)) {
+          result.add(item);
+        }
+      }
+    }
+  }
+
+  return result.isNotEmpty ? result : records;
+}
+
+String? changeformateDT(String? datetime) {
+  if (datetime == null) {
+    return 'Invalid date';
+  }
+
+  DateTime? parsedDateTime;
+  try {
+    parsedDateTime = DateTime.parse(datetime).toLocal();
+  } catch (e) {
+    return 'Invalid date format';
+  }
+
+  // Update the format to use a 24-hour time format
+  DateFormat customFormat = DateFormat('yyyy-MM-dd HH:mm');
+  String formattedDateTime = customFormat.format(parsedDateTime);
+
+  return formattedDateTime;
+}
+
+dynamic searchalltray(
+  List<dynamic>? records,
+  String? searchdata,
+) {
+  if (records == null ||
+      records.isEmpty ||
+      searchdata == null ||
+      searchdata.isEmpty) {
+    return records;
+  }
+
+  String searchQuery = searchdata.toLowerCase();
+  List<dynamic> result = [];
+
+  for (var item in records) {
+    if (item is Map<String, dynamic>) {
+      var nameField = item['tray_id'];
+
+      if (nameField != null && nameField is String) {
+        String itemName = nameField.toLowerCase();
+
+        if (itemName.contains(searchQuery)) {
+          result.add(item);
+        }
+      }
+    }
+  }
+
+  return result.isNotEmpty ? result : records;
+}

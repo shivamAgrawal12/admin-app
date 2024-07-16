@@ -63,8 +63,8 @@ class _TrayDeleteWidgetState extends State<TrayDeleteWidget> {
     return Align(
       alignment: const AlignmentDirectional(0.0, -0.6),
       child: Container(
-        width: 290.0,
-        height: 250.0,
+        width: 280.0,
+        height: 240.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).liteBg,
           borderRadius: BorderRadius.circular(10.0),
@@ -89,8 +89,8 @@ class _TrayDeleteWidgetState extends State<TrayDeleteWidget> {
                   )
                 ],
                 borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(25.0),
-                  bottomRight: Radius.circular(25.0),
+                  bottomLeft: Radius.circular(20.0),
+                  bottomRight: Radius.circular(20.0),
                   topLeft: Radius.circular(10.0),
                   topRight: Radius.circular(10.0),
                 ),
@@ -101,19 +101,21 @@ class _TrayDeleteWidgetState extends State<TrayDeleteWidget> {
                   'Confirm To Delete Tray',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Raleway',
-                        fontSize: 18.0,
+                        color: FlutterFlowTheme.of(context).heading,
+                        fontSize: 16.0,
                         letterSpacing: 0.0,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w600,
                       ),
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
               child: Text(
                 'Tray ID',
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Raleway',
+                      color: FlutterFlowTheme.of(context).heading,
                       fontSize: 15.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w500,
@@ -126,7 +128,7 @@ class _TrayDeleteWidgetState extends State<TrayDeleteWidget> {
               child: Text(
                 FFAppState().trayid,
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Open Sans',
+                      fontFamily: 'Raleway',
                       fontSize: 30.0,
                       letterSpacing: 0.5,
                       fontWeight: FontWeight.w600,
@@ -159,8 +161,8 @@ class _TrayDeleteWidgetState extends State<TrayDeleteWidget> {
                     },
                     text: 'Cancel',
                     options: FFButtonOptions(
-                      width: 110.0,
-                      height: 45.0,
+                      width: 100.0,
+                      height: 40.0,
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
                       iconPadding:
@@ -170,8 +172,8 @@ class _TrayDeleteWidgetState extends State<TrayDeleteWidget> {
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Raleway',
                                 color: FlutterFlowTheme.of(context).accent,
-                                fontSize: 17.0,
-                                letterSpacing: 1.0,
+                                fontSize: 16.0,
+                                letterSpacing: 0.0,
                                 fontWeight: FontWeight.w600,
                               ),
                       elevation: 0.0,
@@ -182,8 +184,8 @@ class _TrayDeleteWidgetState extends State<TrayDeleteWidget> {
                     ),
                   ),
                   Container(
-                    width: 110.0,
-                    height: 45.0,
+                    width: 100.0,
+                    height: 40.0,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
@@ -235,7 +237,7 @@ class _TrayDeleteWidgetState extends State<TrayDeleteWidget> {
                       },
                       text: 'Confirm',
                       options: FFButtonOptions(
-                        height: 45.0,
+                        height: 40.0,
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
                         iconPadding:
@@ -245,8 +247,8 @@ class _TrayDeleteWidgetState extends State<TrayDeleteWidget> {
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Raleway',
                                   color: Colors.white,
-                                  fontSize: 17.0,
-                                  letterSpacing: 1.0,
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
                                 ),
                         elevation: 0.0,
