@@ -200,7 +200,7 @@ class _TrayInfo1WidgetState extends State<TrayInfo1Widget> {
                           text: TextSpan(
                             children: [
                               TextSpan(
-                                text: 'Slot Id ',
+                                text: 'Slot Id: ',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(

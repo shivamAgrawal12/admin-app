@@ -23,6 +23,10 @@ class HomeModel extends FlutterFlowModel<HomeWidget> {
   ApiCallResponse? addPickingStation;
   // Stores action output result for [Backend Call - API (change slot type)] action in Container widget.
   ApiCallResponse? removePickingStation;
+  // Stores action output result for [Backend Call - API (change slot type)] action in Button widget.
+  ApiCallResponse? unblockSlot;
+  // Stores action output result for [Backend Call - API (change slot type)] action in Button widget.
+  ApiCallResponse? blockSlot;
   // Stores action output result for [Backend Call - API (cancel pending task)] action in Container widget.
   ApiCallResponse? cancelTask;
 

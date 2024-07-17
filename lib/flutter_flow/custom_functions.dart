@@ -56,6 +56,10 @@ String? dateformate(DateTime? date) {
   return DateFormat('yyyy-MM-dd').format(date);
 }
 
+dynamic jsontoint(int? jsonint) {
+  return jsonint;
+}
+
 List<dynamic> singleitemview(List<dynamic>? itemslist) {
   // Check if itemslist is a List
   if (itemslist == null || itemslist is! List) {

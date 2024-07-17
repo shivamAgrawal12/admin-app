@@ -68,7 +68,7 @@ class _SlotInfo1WidgetState extends State<SlotInfo1Widget> {
 
           return Container(
             width: 275.0,
-            height: 310.0,
+            height: 340.0,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).liteBg,
               borderRadius: BorderRadius.circular(10.0),
@@ -110,35 +110,11 @@ class _SlotInfo1WidgetState extends State<SlotInfo1Widget> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
+                              width: 40.0,
                               height: 25.0,
                               decoration: BoxDecoration(
-                                color: const Color(0x254D8218),
+                                color: const Color(0x004D8218),
                                 borderRadius: BorderRadius.circular(5.0),
-                              ),
-                              child: Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
-                                child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 4.0, 8.0, 4.0),
-                                  child: Text(
-                                    valueOrDefault<String>(
-                                      AdminApiGroup.slotInfoCall.type(
-                                        containerSlotInfoResponse.jsonBody,
-                                      ),
-                                      '-',
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Raleway',
-                                          color: FlutterFlowTheme.of(context)
-                                              .success,
-                                          fontSize: 15.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                  ),
-                                ),
                               ),
                             ),
                             Align(
@@ -249,6 +225,46 @@ class _SlotInfo1WidgetState extends State<SlotInfo1Widget> {
                         ),
                         TextSpan(
                           text: '‘Available’',
+                          style: TextStyle(
+                            color: FlutterFlowTheme.of(context).heading,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16.0,
+                          ),
+                        )
+                      ],
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Raleway',
+                            fontSize: 16.0,
+                            letterSpacing: 0.0,
+                          ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                  child: RichText(
+                    textScaler: MediaQuery.of(context).textScaler,
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: 'Slot type  ',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Open Sans',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                fontSize: 16.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w600,
+                              ),
+                        ),
+                        TextSpan(
+                          text: valueOrDefault<String>(
+                            AdminApiGroup.slotInfoCall.type(
+                              containerSlotInfoResponse.jsonBody,
+                            ),
+                            '-',
+                          ),
                           style: TextStyle(
                             color: FlutterFlowTheme.of(context).heading,
                             fontWeight: FontWeight.w600,

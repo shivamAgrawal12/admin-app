@@ -9,17 +9,23 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-import 'package:just_audio/just_audio.dart';
+import 'index.dart'; // Imports other custom widgets
+import '/backend/api_requests/api_calls.dart';
+import '/auth/custom_auth/auth_util.dart';
+import '/pages/robot_scan/robot_scan_model.dart';
+import '/popup/new_robot/new_robot_widget.dart';
+import '/pages/robot_scan/robot_scan_widget.dart' show RobotScanWidget;
+// import 'package:just_audio/just_audio.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'dart:io';
 import 'package:flutter/services.dart';
 
 class QRCodeScannerScreen extends StatefulWidget {
   const QRCodeScannerScreen({
-    super.key,
+    Key? key,
     this.width,
     this.height,
-  });
+  }) : super(key: key);
 
   final double? width;
   final double? height;
@@ -30,14 +36,13 @@ class QRCodeScannerScreen extends StatefulWidget {
 
 class _QRCodeScannerScreenState extends State<QRCodeScannerScreen> {
   MobileScannerController controller = MobileScannerController();
-  AudioPlayer? soundPlayer1;
-  AudioPlayer? soundPlayer2;
-  bool isProcessing = false; // Variable to prevent multiple scans at once
+  bool isProcessing = false;
+  bool _shouldSetState = false;
+  bool loggedIn = false;
 
   @override
   void initState() {
     super.initState();
-    // Start the scanner and set the initial zoom scale when the widget is first created
     controller.start();
   }
 
@@ -67,9 +72,9 @@ class _QRCodeScannerScreenState extends State<QRCodeScannerScreen> {
 
               if (code != null) {
                 FFAppState().robotid = code; // Store scanned value in robotid
-                await _playSound1();
+                await _handleScannedCode(code, context);
               } else {
-                await _showWrongStoreDialog(context, 'no value found');
+                await _showWrongStoreDialog(context, 'No value found');
               }
 
               Future.delayed(Duration(seconds: 1), () {
@@ -143,28 +148,72 @@ class _QRCodeScannerScreenState extends State<QRCodeScannerScreen> {
     );
   }
 
-  Future<void> _playSound1() async {
-    soundPlayer1 ??= AudioPlayer();
-    if (soundPlayer1!.playing) {
-      await soundPlayer1!.stop();
+  Future<void> _handleScannedCode(String code, BuildContext context) async {
+    _shouldSetState = true;
+    final result = await AdminApiGroup.verifyRobotIdCall.call(
+      robotId: FFAppState().robotid,
+    );
+
+    if (result.succeeded) {
+      FFAppState().robotid = code;
+      setState(() {});
+      if (loggedIn) {
+        context.pushNamed(
+          'home',
+          extra: <String, dynamic>{
+            kTransitionInfoKey: TransitionInfo(
+              hasTransition: true,
+              transitionType: PageTransitionType.fade,
+              duration: Duration(milliseconds: 0),
+            ),
+          },
+        );
+      } else {
+        context.pushNamed(
+          'login_page',
+          extra: <String, dynamic>{
+            kTransitionInfoKey: TransitionInfo(
+              hasTransition: true,
+              transitionType: PageTransitionType.fade,
+              duration: Duration(milliseconds: 0),
+            ),
+          },
+        );
+      }
+    } else {
+      await showModalBottomSheet(
+        isScrollControlled: true,
+        backgroundColor: Colors.transparent,
+        enableDrag: false,
+        context: context,
+        builder: (context) {
+          return GestureDetector(
+            onTap: () => FocusScope.of(context).unfocus(),
+            child: Padding(
+              padding: MediaQuery.of(context).viewInsets,
+              child: NewRobotWidget(),
+            ),
+          );
+        },
+      ).then((value) => safeSetState(() {}));
+      if (_shouldSetState) setState(() {});
     }
-    soundPlayer1!.setVolume(1);
-    await soundPlayer1!.setAsset('assets/audios/click-124467.mp3');
-    await soundPlayer1!.play();
   }
 
   Future<void> _showWrongStoreDialog(
-      BuildContext context, String scannedValue) async {
+    BuildContext context,
+    String message,
+  ) async {
     await showDialog(
       context: context,
       builder: (alertDialogContext) {
         return AlertDialog(
-          title: Text('Wrong store please scan again'),
-          content: Text('no value found'),
+          title: const Text('Wrong store, please scan again'),
+          content: Text(message),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(alertDialogContext),
-              child: Text('Ok'),
+              child: const Text('Ok'),
             ),
           ],
         );

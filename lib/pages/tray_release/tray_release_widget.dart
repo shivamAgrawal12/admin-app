@@ -279,366 +279,375 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                       child: Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 15.0, 0.0, 0.0),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Align(
-                                              alignment: const AlignmentDirectional(
-                                                  -1.0, -1.0),
-                                              child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 8.0, 0.0),
-                                                child: SizedBox(
-                                                  width: 250.0,
-                                                  child: TextFormField(
-                                                    controller:
-                                                        _model.textController1,
-                                                    focusNode: _model
-                                                        .textFieldFocusNode1,
-                                                    onChanged: (_) =>
-                                                        EasyDebounce.debounce(
-                                                      '_model.textController1',
-                                                      const Duration(
-                                                          milliseconds: 50),
-                                                      () => setState(() {}),
+                                        child: SingleChildScrollView(
+                                          primary: false,
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Align(
+                                                alignment: const AlignmentDirectional(
+                                                    -1.0, -1.0),
+                                                child: Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 8.0, 0.0),
+                                                  child: SizedBox(
+                                                    width: 250.0,
+                                                    child: TextFormField(
+                                                      controller: _model
+                                                          .textController1,
+                                                      focusNode: _model
+                                                          .textFieldFocusNode1,
+                                                      onChanged: (_) =>
+                                                          EasyDebounce.debounce(
+                                                        '_model.textController1',
+                                                        const Duration(
+                                                            milliseconds: 50),
+                                                        () => setState(() {}),
+                                                      ),
+                                                      autofocus: true,
+                                                      obscureText: false,
+                                                      decoration:
+                                                          InputDecoration(
+                                                        hintText:
+                                                            'Search by tray id',
+                                                        hintStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Open Sans',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .liteText,
+                                                                  fontSize:
+                                                                      15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                ),
+                                                        enabledBorder:
+                                                            OutlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .liteText,
+                                                            width: 1.5,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      5.0),
+                                                        ),
+                                                        focusedBorder:
+                                                            OutlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .subHeader,
+                                                            width: 1.5,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      5.0),
+                                                        ),
+                                                        errorBorder:
+                                                            OutlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .error,
+                                                            width: 1.5,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      5.0),
+                                                        ),
+                                                        focusedErrorBorder:
+                                                            OutlineInputBorder(
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .error,
+                                                            width: 1.5,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      5.0),
+                                                        ),
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Open Sans',
+                                                            fontSize: 15.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                      validator: _model
+                                                          .textController1Validator
+                                                          .asValidator(context),
                                                     ),
-                                                    autofocus: true,
-                                                    obscureText: false,
-                                                    decoration: InputDecoration(
-                                                      hintText:
-                                                          'Search by tray id',
-                                                      hintStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Open Sans',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .liteText,
-                                                                fontSize: 15.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                              ),
-                                                      enabledBorder:
-                                                          OutlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .liteText,
-                                                          width: 1.5,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(5.0),
-                                                      ),
-                                                      focusedBorder:
-                                                          OutlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .subHeader,
-                                                          width: 1.5,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(5.0),
-                                                      ),
-                                                      errorBorder:
-                                                          OutlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .error,
-                                                          width: 1.5,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(5.0),
-                                                      ),
-                                                      focusedErrorBorder:
-                                                          OutlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .error,
-                                                          width: 1.5,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(5.0),
-                                                      ),
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Open Sans',
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
-                                                    validator: _model
-                                                        .textController1Validator
-                                                        .asValidator(context),
                                                   ),
                                                 ),
                                               ),
-                                            ),
-                                            Padding(
-                                              padding: const EdgeInsets.all(10.0),
-                                              child: SingleChildScrollView(
-                                                primary: false,
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Builder(
-                                                      builder: (context) {
-                                                        final trayRecords = functions
-                                                                .searchalltray(
-                                                                    AdminApiGroup.getTaskCall
-                                                                        .records(
-                                                                          containerGetTaskResponse
-                                                                              .jsonBody,
-                                                                        )
-                                                                        ?.toList(),
-                                                                    _model.textController1.text)
-                                                                ?.toList() ??
-                                                            [];
+                                              Padding(
+                                                padding: const EdgeInsets.all(10.0),
+                                                child: SingleChildScrollView(
+                                                  primary: false,
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Builder(
+                                                        builder: (context) {
+                                                          final trayRecords = functions
+                                                                  .searchalltray(
+                                                                      AdminApiGroup.getTaskCall
+                                                                          .records(
+                                                                            containerGetTaskResponse.jsonBody,
+                                                                          )
+                                                                          ?.toList(),
+                                                                      _model.textController1.text)
+                                                                  ?.toList() ??
+                                                              [];
 
-                                                        return ListView.builder(
-                                                          padding: const EdgeInsets
-                                                              .fromLTRB(
-                                                            0,
-                                                            0,
-                                                            0,
-                                                            15.0,
-                                                          ),
-                                                          shrinkWrap: true,
-                                                          scrollDirection:
-                                                              Axis.vertical,
-                                                          itemCount: trayRecords
-                                                              .length,
-                                                          itemBuilder: (context,
-                                                              trayRecordsIndex) {
-                                                            final trayRecordsItem =
-                                                                trayRecords[
-                                                                    trayRecordsIndex];
-                                                            return Align(
-                                                              alignment:
-                                                                  const AlignmentDirectional(
-                                                                      0.0,
-                                                                      -1.0),
-                                                              child: Padding(
-                                                                padding:
-                                                                    const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            15.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child:
-                                                                    Container(
-                                                                  width: 350.0,
-                                                                  height: 75.0,
-                                                                  constraints:
-                                                                      const BoxConstraints(
-                                                                    minWidth:
-                                                                        290.0,
-                                                                    maxWidth:
-                                                                        350.0,
-                                                                  ),
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryBackground,
-                                                                    boxShadow: const [
-                                                                      BoxShadow(
-                                                                        blurRadius:
-                                                                            5.0,
-                                                                        color: Color(
-                                                                            0x26000000),
-                                                                        offset:
-                                                                            Offset(
-                                                                          1.0,
-                                                                          3.0,
-                                                                        ),
-                                                                      )
-                                                                    ],
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            5.0),
-                                                                  ),
+                                                          return ListView
+                                                              .builder(
+                                                            padding: const EdgeInsets
+                                                                .fromLTRB(
+                                                              0,
+                                                              0,
+                                                              0,
+                                                              15.0,
+                                                            ),
+                                                            shrinkWrap: true,
+                                                            scrollDirection:
+                                                                Axis.vertical,
+                                                            itemCount:
+                                                                trayRecords
+                                                                    .length,
+                                                            itemBuilder: (context,
+                                                                trayRecordsIndex) {
+                                                              final trayRecordsItem =
+                                                                  trayRecords[
+                                                                      trayRecordsIndex];
+                                                              return Align(
+                                                                alignment:
+                                                                    const AlignmentDirectional(
+                                                                        0.0,
+                                                                        -1.0),
+                                                                child: Padding(
+                                                                  padding: const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          15.0,
+                                                                          0.0,
+                                                                          0.0),
                                                                   child:
-                                                                      Padding(
-                                                                    padding:
-                                                                        const EdgeInsets.all(
-                                                                            10.0),
-                                                                    child: Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      mainAxisAlignment:
-                                                                          MainAxisAlignment
-                                                                              .spaceBetween,
-                                                                      children: [
-                                                                        Column(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          crossAxisAlignment:
-                                                                              CrossAxisAlignment.start,
-                                                                          children:
-                                                                              [
-                                                                            RichText(
-                                                                              textScaler: MediaQuery.of(context).textScaler,
-                                                                              text: TextSpan(
-                                                                                children: [
-                                                                                  TextSpan(
-                                                                                    text: 'Task Id : ',
-                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Open Sans',
-                                                                                          color: FlutterFlowTheme.of(context).liteText,
-                                                                                          fontSize: 15.0,
-                                                                                          letterSpacing: 0.0,
-                                                                                          fontWeight: FontWeight.w600,
-                                                                                        ),
-                                                                                  ),
-                                                                                  TextSpan(
-                                                                                    text: getJsonField(
-                                                                                      trayRecordsItem,
-                                                                                      r'''$.id''',
-                                                                                    ).toString(),
-                                                                                    style: TextStyle(
-                                                                                      color: FlutterFlowTheme.of(context).bodyText,
-                                                                                      fontWeight: FontWeight.w600,
-                                                                                      fontSize: 15.0,
-                                                                                    ),
-                                                                                  )
-                                                                                ],
-                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'Open Sans',
-                                                                                      letterSpacing: 0.0,
-                                                                                    ),
-                                                                              ),
-                                                                            ),
-                                                                            RichText(
-                                                                              textScaler: MediaQuery.of(context).textScaler,
-                                                                              text: TextSpan(
-                                                                                children: [
-                                                                                  TextSpan(
-                                                                                    text: 'Tray Id : ',
-                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Open Sans',
-                                                                                          color: FlutterFlowTheme.of(context).liteText,
-                                                                                          fontSize: 15.0,
-                                                                                          letterSpacing: 0.0,
-                                                                                          fontWeight: FontWeight.w600,
-                                                                                        ),
-                                                                                  ),
-                                                                                  TextSpan(
-                                                                                    text: getJsonField(
-                                                                                      trayRecordsItem,
-                                                                                      r'''$.tray_id''',
-                                                                                    ).toString(),
-                                                                                    style: TextStyle(
-                                                                                      color: FlutterFlowTheme.of(context).bodyText,
-                                                                                      fontWeight: FontWeight.w600,
-                                                                                      fontSize: 15.0,
-                                                                                    ),
-                                                                                  )
-                                                                                ],
-                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'Open Sans',
-                                                                                      letterSpacing: 0.0,
-                                                                                    ),
-                                                                              ),
-                                                                            ),
-                                                                          ].divide(const SizedBox(height: 8.0)),
-                                                                        ),
-                                                                        Container(
-                                                                          width:
-                                                                              80.0,
-                                                                          height:
-                                                                              35.0,
-                                                                          decoration:
-                                                                              BoxDecoration(
-                                                                            gradient:
-                                                                                LinearGradient(
-                                                                              colors: [
-                                                                                FlutterFlowTheme.of(context).heading,
-                                                                                FlutterFlowTheme.of(context).accent
-                                                                              ],
-                                                                              stops: const [
-                                                                                0.0,
-                                                                                1.0
-                                                                              ],
-                                                                              begin: const AlignmentDirectional(1.0, 0.0),
-                                                                              end: const AlignmentDirectional(-1.0, 0),
-                                                                            ),
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(5.0),
+                                                                      Container(
+                                                                    width:
+                                                                        350.0,
+                                                                    height:
+                                                                        75.0,
+                                                                    constraints:
+                                                                        const BoxConstraints(
+                                                                      minWidth:
+                                                                          290.0,
+                                                                      maxWidth:
+                                                                          350.0,
+                                                                    ),
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryBackground,
+                                                                      boxShadow: const [
+                                                                        BoxShadow(
+                                                                          blurRadius:
+                                                                              5.0,
+                                                                          color:
+                                                                              Color(0x26000000),
+                                                                          offset:
+                                                                              Offset(
+                                                                            1.0,
+                                                                            3.0,
                                                                           ),
-                                                                          child:
-                                                                              FFButtonWidget(
-                                                                            onPressed:
-                                                                                () async {
-                                                                              FFAppState().taskrecid = getJsonField(
-                                                                                trayRecordsItem,
-                                                                                r'''$.id''',
-                                                                              );
-                                                                              FFAppState().friendlyname = getJsonField(
-                                                                                trayRecordsItem,
-                                                                                r'''$.slot_friendly_name''',
-                                                                              ).toString();
-                                                                              FFAppState().update(() {});
-                                                                            },
-                                                                            text:
-                                                                                'Select',
-                                                                            options:
-                                                                                FFButtonOptions(
-                                                                              height: 40.0,
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
-                                                                              iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                              color: const Color(0x27351C75),
-                                                                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                    fontFamily: 'Raleway',
-                                                                                    color: Colors.white,
-                                                                                    fontSize: 15.0,
-                                                                                    letterSpacing: 0.0,
-                                                                                    fontWeight: FontWeight.w600,
-                                                                                  ),
-                                                                              elevation: 0.0,
-                                                                              borderSide: const BorderSide(
-                                                                                color: Color(0xFF8E7CC3),
+                                                                        )
+                                                                      ],
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              5.0),
+                                                                    ),
+                                                                    child:
+                                                                        Padding(
+                                                                      padding:
+                                                                          const EdgeInsets.all(
+                                                                              10.0),
+                                                                      child:
+                                                                          Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.spaceBetween,
+                                                                        children: [
+                                                                          Column(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            crossAxisAlignment:
+                                                                                CrossAxisAlignment.start,
+                                                                            children:
+                                                                                [
+                                                                              RichText(
+                                                                                textScaler: MediaQuery.of(context).textScaler,
+                                                                                text: TextSpan(
+                                                                                  children: [
+                                                                                    TextSpan(
+                                                                                      text: 'Task Id : ',
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Open Sans',
+                                                                                            color: FlutterFlowTheme.of(context).liteText,
+                                                                                            fontSize: 15.0,
+                                                                                            letterSpacing: 0.0,
+                                                                                            fontWeight: FontWeight.w600,
+                                                                                          ),
+                                                                                    ),
+                                                                                    TextSpan(
+                                                                                      text: getJsonField(
+                                                                                        trayRecordsItem,
+                                                                                        r'''$.id''',
+                                                                                      ).toString(),
+                                                                                      style: TextStyle(
+                                                                                        color: FlutterFlowTheme.of(context).bodyText,
+                                                                                        fontWeight: FontWeight.w600,
+                                                                                        fontSize: 15.0,
+                                                                                      ),
+                                                                                    )
+                                                                                  ],
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Open Sans',
+                                                                                        letterSpacing: 0.0,
+                                                                                      ),
+                                                                                ),
+                                                                              ),
+                                                                              RichText(
+                                                                                textScaler: MediaQuery.of(context).textScaler,
+                                                                                text: TextSpan(
+                                                                                  children: [
+                                                                                    TextSpan(
+                                                                                      text: 'Tray Id : ',
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Open Sans',
+                                                                                            color: FlutterFlowTheme.of(context).liteText,
+                                                                                            fontSize: 15.0,
+                                                                                            letterSpacing: 0.0,
+                                                                                            fontWeight: FontWeight.w600,
+                                                                                          ),
+                                                                                    ),
+                                                                                    TextSpan(
+                                                                                      text: getJsonField(
+                                                                                        trayRecordsItem,
+                                                                                        r'''$.tray_id''',
+                                                                                      ).toString(),
+                                                                                      style: TextStyle(
+                                                                                        color: FlutterFlowTheme.of(context).bodyText,
+                                                                                        fontWeight: FontWeight.w600,
+                                                                                        fontSize: 15.0,
+                                                                                      ),
+                                                                                    )
+                                                                                  ],
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Open Sans',
+                                                                                        letterSpacing: 0.0,
+                                                                                      ),
+                                                                                ),
+                                                                              ),
+                                                                            ].divide(const SizedBox(height: 8.0)),
+                                                                          ),
+                                                                          Container(
+                                                                            width:
+                                                                                80.0,
+                                                                            height:
+                                                                                35.0,
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              gradient: LinearGradient(
+                                                                                colors: [
+                                                                                  FlutterFlowTheme.of(context).heading,
+                                                                                  FlutterFlowTheme.of(context).accent
+                                                                                ],
+                                                                                stops: const [
+                                                                                  0.0,
+                                                                                  1.0
+                                                                                ],
+                                                                                begin: const AlignmentDirectional(1.0, 0.0),
+                                                                                end: const AlignmentDirectional(-1.0, 0),
                                                                               ),
                                                                               borderRadius: BorderRadius.circular(5.0),
                                                                             ),
+                                                                            child:
+                                                                                FFButtonWidget(
+                                                                              onPressed: () async {
+                                                                                FFAppState().taskrecid = getJsonField(
+                                                                                  trayRecordsItem,
+                                                                                  r'''$.id''',
+                                                                                );
+                                                                                FFAppState().friendlyname = getJsonField(
+                                                                                  trayRecordsItem,
+                                                                                  r'''$.slot_friendly_name''',
+                                                                                ).toString();
+                                                                                FFAppState().update(() {});
+                                                                              },
+                                                                              text: 'Select',
+                                                                              options: FFButtonOptions(
+                                                                                height: 40.0,
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
+                                                                                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                color: const Color(0x27351C75),
+                                                                                textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                      fontFamily: 'Raleway',
+                                                                                      color: Colors.white,
+                                                                                      fontSize: 15.0,
+                                                                                      letterSpacing: 0.0,
+                                                                                      fontWeight: FontWeight.w600,
+                                                                                    ),
+                                                                                elevation: 0.0,
+                                                                                borderSide: const BorderSide(
+                                                                                  color: Color(0xFF8E7CC3),
+                                                                                ),
+                                                                                borderRadius: BorderRadius.circular(5.0),
+                                                                              ),
+                                                                            ),
                                                                           ),
-                                                                        ),
-                                                                      ],
+                                                                        ],
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              ),
-                                                            );
-                                                          },
-                                                        );
-                                                      },
-                                                    ),
-                                                  ],
+                                                              );
+                                                            },
+                                                          );
+                                                        },
+                                                      ),
+                                                    ],
+                                                  ),
                                                 ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     );
