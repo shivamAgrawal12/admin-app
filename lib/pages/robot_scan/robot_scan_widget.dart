@@ -408,6 +408,11 @@ class _RobotScanWidgetState extends State<RobotScanWidget> {
                                                   },
                                                 ).then((value) =>
                                                     safeSetState(() {}));
+
+                                                if (shouldSetState) {
+                                                  setState(() {});
+                                                }
+                                                return;
                                               }
                                             } else {
                                               if (shouldSetState) {

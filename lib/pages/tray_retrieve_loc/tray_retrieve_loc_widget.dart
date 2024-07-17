@@ -534,7 +534,7 @@ class _TrayRetrieveLocWidgetState extends State<TrayRetrieveLocWidget> {
                                 ),
                               ].divide(const SizedBox(height: 20.0)),
                             ),
-                        ].divide(const SizedBox(height: 30.0)),
+                        ].divide(const SizedBox(height: 20.0)),
                       ),
                     ),
                   ),

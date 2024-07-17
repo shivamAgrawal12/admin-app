@@ -221,65 +221,113 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    4.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  'Enter The Tray ID',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Open Sans',
-                                        color: FlutterFlowTheme.of(context)
-                                            .subHeader,
-                                        fontSize: 15.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    5.0, 0.0, 5.0, 0.0),
-                                child: Container(
-                                  width: 300.0,
-                                  height: 55.0,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(5.0),
-                                    border: Border.all(
-                                      color:
-                                          FlutterFlowTheme.of(context).liteText,
-                                      width: 1.0,
-                                    ),
+                          Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 15.0, 0.0, 0.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      4.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    'Enter The Tray ID',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Open Sans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .subHeader,
+                                          fontSize: 15.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
                                   ),
-                                  child: TextFormField(
-                                    controller:
-                                        _model.trayIdValueTextController,
-                                    focusNode: _model.trayIdValueFocusNode,
-                                    autofocus: false,
-                                    obscureText: false,
-                                    decoration: InputDecoration(
-                                      hintText: 'Enter tray id ',
-                                      hintStyle: FlutterFlowTheme.of(context)
-                                          .labelMedium
+                                ),
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      5.0, 0.0, 5.0, 0.0),
+                                  child: Container(
+                                    width: 300.0,
+                                    height: 45.0,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5.0),
+                                      border: Border.all(
+                                        color: FlutterFlowTheme.of(context)
+                                            .liteText,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: TextFormField(
+                                      controller:
+                                          _model.trayIdValueTextController,
+                                      focusNode: _model.trayIdValueFocusNode,
+                                      autofocus: false,
+                                      obscureText: false,
+                                      decoration: InputDecoration(
+                                        hintText: 'Enter tray id ',
+                                        hintStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Open Sans',
+                                              fontSize: 16.0,
+                                              letterSpacing: 0.0,
+                                            ),
+                                        enabledBorder: InputBorder.none,
+                                        focusedBorder: InputBorder.none,
+                                        errorBorder: InputBorder.none,
+                                        focusedErrorBorder: InputBorder.none,
+                                        contentPadding:
+                                            const EdgeInsetsDirectional.fromSTEB(
+                                                10.0, 0.0, 0.0, 4.0),
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
                                           .override(
                                             fontFamily: 'Open Sans',
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w600,
                                           ),
-                                      enabledBorder: InputBorder.none,
-                                      focusedBorder: InputBorder.none,
-                                      errorBorder: InputBorder.none,
-                                      focusedErrorBorder: InputBorder.none,
-                                      contentPadding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              10.0, 5.0, 0.0, 0.0),
+                                      validator: _model
+                                          .trayIdValueTextControllerValidator
+                                          .asValidator(context),
                                     ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      4.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    'Select Direct Pickable',
                                     style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Open Sans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .subHeader,
+                                          fontSize: 15.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      5.0, 0.0, 5.0, 0.0),
+                                  child: FlutterFlowDropDown<String>(
+                                    controller:
+                                        _model.directPickableValueController ??=
+                                            FormFieldController<String>(
+                                      _model.directPickableValue ??= 'true',
+                                    ),
+                                    options: const ['true', 'false'],
+                                    onChanged: (val) => setState(
+                                        () => _model.directPickableValue = val),
+                                    width: 300.0,
+                                    height: 45.0,
+                                    textStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Open Sans',
@@ -287,71 +335,27 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
-                                    validator: _model
-                                        .trayIdValueTextControllerValidator
-                                        .asValidator(context),
+                                    icon: Icon(
+                                      Icons.keyboard_arrow_down_rounded,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      size: 24.0,
+                                    ),
+                                    elevation: 0.0,
+                                    borderColor:
+                                        FlutterFlowTheme.of(context).liteText,
+                                    borderWidth: 1.0,
+                                    borderRadius: 5.0,
+                                    margin: const EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 0.0, 10.0, 4.0),
+                                    hidesUnderline: true,
+                                    isOverButton: true,
+                                    isSearchable: false,
+                                    isMultiSelect: false,
                                   ),
                                 ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    4.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  'Select Direct Pickable',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Open Sans',
-                                        color: FlutterFlowTheme.of(context)
-                                            .subHeader,
-                                        fontSize: 15.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    5.0, 0.0, 5.0, 0.0),
-                                child: FlutterFlowDropDown<String>(
-                                  controller:
-                                      _model.directPickableValueController ??=
-                                          FormFieldController<String>(
-                                    _model.directPickableValue ??= 'true',
-                                  ),
-                                  options: const ['true', 'false'],
-                                  onChanged: (val) => setState(
-                                      () => _model.directPickableValue = val),
-                                  width: 300.0,
-                                  height: 55.0,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Open Sans',
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                  icon: Icon(
-                                    Icons.keyboard_arrow_down_rounded,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
-                                    size: 24.0,
-                                  ),
-                                  elevation: 0.0,
-                                  borderColor:
-                                      FlutterFlowTheme.of(context).liteText,
-                                  borderWidth: 1.0,
-                                  borderRadius: 5.0,
-                                  margin: const EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 4.0, 10.0, 4.0),
-                                  hidesUnderline: true,
-                                  isOverButton: true,
-                                  isSearchable: false,
-                                  isMultiSelect: false,
-                                ),
-                              ),
-                            ].divide(const SizedBox(height: 15.0)),
+                              ].divide(const SizedBox(height: 15.0)),
+                            ),
                           ),
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
