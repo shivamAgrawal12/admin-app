@@ -3,7 +3,6 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/instant_timer.dart';
 import '/popup/new_robot/new_robot_widget.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
@@ -30,72 +29,7 @@ class _RobotScanWidgetState extends State<RobotScanWidget> {
     _model = createModel(context, () => RobotScanModel());
 
     // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.instantTimer = InstantTimer.periodic(
-        duration: const Duration(milliseconds: 1000),
-        callback: (timer) async {
-          if (FFAppState().robotid != '') {
-            _model.robotDetail = await AdminApiGroup.verifyRobotIdCall.call(
-              robotId: FFAppState().robotid,
-            );
-
-            if ((_model.robotDetail?.succeeded ?? true)) {
-              _model.instantTimer?.cancel();
-              if (loggedIn) {
-                context.pushNamed(
-                  'home',
-                  extra: <String, dynamic>{
-                    kTransitionInfoKey: const TransitionInfo(
-                      hasTransition: true,
-                      transitionType: PageTransitionType.fade,
-                      duration: Duration(milliseconds: 0),
-                    ),
-                  },
-                );
-              } else {
-                context.pushNamed(
-                  'login_page',
-                  extra: <String, dynamic>{
-                    kTransitionInfoKey: const TransitionInfo(
-                      hasTransition: true,
-                      transitionType: PageTransitionType.fade,
-                      duration: Duration(milliseconds: 0),
-                    ),
-                  },
-                );
-              }
-
-              return;
-            } else {
-              _model.instantTimer?.cancel();
-              await showModalBottomSheet(
-                isScrollControlled: true,
-                backgroundColor: Colors.transparent,
-                enableDrag: false,
-                context: context,
-                builder: (context) {
-                  return GestureDetector(
-                    onTap: () => _model.unfocusNode.canRequestFocus
-                        ? FocusScope.of(context)
-                            .requestFocus(_model.unfocusNode)
-                        : FocusScope.of(context).unfocus(),
-                    child: Padding(
-                      padding: MediaQuery.viewInsetsOf(context),
-                      child: const NewRobotWidget(),
-                    ),
-                  );
-                },
-              ).then((value) => safeSetState(() {}));
-
-              return;
-            }
-          } else {
-            return;
-          }
-        },
-        startImmediately: true,
-      );
-    });
+    SchedulerBinding.instance.addPostFrameCallback((_) async {});
 
     _model.switchValue = true;
     _model.textController ??= TextEditingController();
@@ -324,107 +258,90 @@ class _RobotScanWidgetState extends State<RobotScanWidget> {
                                     borderRadius: BorderRadius.circular(5.0),
                                   ),
                                   child: FFButtonWidget(
-                                    onPressed: (_model.textController.text == '')
-                                        ? null
-                                        : () async {
-                                            var shouldSetState = false;
-                                            FFAppState().robotid =
-                                                _model.textController.text;
-                                            FFAppState().update(() {});
-                                            if (FFAppState().robotid != '') {
-                                              _model.robotDetailBtn =
-                                                  await AdminApiGroup
-                                                      .verifyRobotIdCall
-                                                      .call(
-                                                robotId: FFAppState().robotid,
+                                    onPressed: () async {
+                                      var shouldSetState = false;
+                                      FFAppState().robotid =
+                                          _model.textController.text;
+                                      FFAppState().update(() {});
+                                      if (FFAppState().robotid != '') {
+                                        _model.robotDetailBtn =
+                                            await AdminApiGroup
+                                                .verifyRobotIdCall
+                                                .call(
+                                          robotId: FFAppState().robotid,
+                                        );
+
+                                        shouldSetState = true;
+                                        if ((_model.robotDetailBtn?.succeeded ??
+                                            true)) {
+                                          if (loggedIn) {
+                                            context.pushNamed(
+                                              'home',
+                                              extra: <String, dynamic>{
+                                                kTransitionInfoKey:
+                                                    const TransitionInfo(
+                                                  hasTransition: true,
+                                                  transitionType:
+                                                      PageTransitionType.fade,
+                                                  duration:
+                                                      Duration(milliseconds: 0),
+                                                ),
+                                              },
+                                            );
+                                          } else {
+                                            context.pushNamed(
+                                              'login_page',
+                                              extra: <String, dynamic>{
+                                                kTransitionInfoKey:
+                                                    const TransitionInfo(
+                                                  hasTransition: true,
+                                                  transitionType:
+                                                      PageTransitionType.fade,
+                                                  duration:
+                                                      Duration(milliseconds: 0),
+                                                ),
+                                              },
+                                            );
+                                          }
+
+                                          if (shouldSetState) setState(() {});
+                                          return;
+                                        } else {
+                                          await showModalBottomSheet(
+                                            isScrollControlled: true,
+                                            backgroundColor: Colors.transparent,
+                                            enableDrag: false,
+                                            context: context,
+                                            builder: (context) {
+                                              return GestureDetector(
+                                                onTap: () => _model.unfocusNode
+                                                        .canRequestFocus
+                                                    ? FocusScope.of(context)
+                                                        .requestFocus(
+                                                            _model.unfocusNode)
+                                                    : FocusScope.of(context)
+                                                        .unfocus(),
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child: const NewRobotWidget(),
+                                                ),
                                               );
+                                            },
+                                          ).then(
+                                              (value) => safeSetState(() {}));
 
-                                              shouldSetState = true;
-                                              if ((_model
-                                                      .robotDetail?.succeeded ??
-                                                  true)) {
-                                                if (loggedIn) {
-                                                  context.pushNamed(
-                                                    'home',
-                                                    extra: <String, dynamic>{
-                                                      kTransitionInfoKey:
-                                                          const TransitionInfo(
-                                                        hasTransition: true,
-                                                        transitionType:
-                                                            PageTransitionType
-                                                                .fade,
-                                                        duration: Duration(
-                                                            milliseconds: 0),
-                                                      ),
-                                                    },
-                                                  );
-                                                } else {
-                                                  context.pushNamed(
-                                                    'login_page',
-                                                    extra: <String, dynamic>{
-                                                      kTransitionInfoKey:
-                                                          const TransitionInfo(
-                                                        hasTransition: true,
-                                                        transitionType:
-                                                            PageTransitionType
-                                                                .fade,
-                                                        duration: Duration(
-                                                            milliseconds: 0),
-                                                      ),
-                                                    },
-                                                  );
-                                                }
+                                          if (shouldSetState) setState(() {});
+                                          return;
+                                        }
+                                      } else {
+                                        if (shouldSetState) setState(() {});
+                                        return;
+                                      }
 
-                                                if (shouldSetState) {
-                                                  setState(() {});
-                                                }
-                                                return;
-                                              } else {
-                                                await showModalBottomSheet(
-                                                  isScrollControlled: true,
-                                                  backgroundColor:
-                                                      Colors.transparent,
-                                                  enableDrag: false,
-                                                  context: context,
-                                                  builder: (context) {
-                                                    return GestureDetector(
-                                                      onTap: () => _model
-                                                              .unfocusNode
-                                                              .canRequestFocus
-                                                          ? FocusScope.of(
-                                                                  context)
-                                                              .requestFocus(_model
-                                                                  .unfocusNode)
-                                                          : FocusScope.of(
-                                                                  context)
-                                                              .unfocus(),
-                                                      child: Padding(
-                                                        padding: MediaQuery
-                                                            .viewInsetsOf(
-                                                                context),
-                                                        child: const NewRobotWidget(),
-                                                      ),
-                                                    );
-                                                  },
-                                                ).then((value) =>
-                                                    safeSetState(() {}));
-
-                                                if (shouldSetState) {
-                                                  setState(() {});
-                                                }
-                                                return;
-                                              }
-                                            } else {
-                                              if (shouldSetState) {
-                                                setState(() {});
-                                              }
-                                              return;
-                                            }
-
-                                            if (shouldSetState) {
-                                              setState(() {});
-                                            }
-                                          },
+                                      if (shouldSetState) setState(() {});
+                                    },
                                     text: 'Submit',
                                     options: FFButtonOptions(
                                       width: 140.0,
@@ -449,8 +366,6 @@ class _RobotScanWidgetState extends State<RobotScanWidget> {
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(5.0),
-                                      disabledColor:
-                                          FlutterFlowTheme.of(context).liteBg,
                                     ),
                                   ),
                                 ),

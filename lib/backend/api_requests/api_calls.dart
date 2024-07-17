@@ -34,6 +34,11 @@ class AdminApiGroup {
   static ListOfSlotCall listOfSlotCall = ListOfSlotCall();
   static PendingTaskCall pendingTaskCall = PendingTaskCall();
   static RegisterNewRobotCall registerNewRobotCall = RegisterNewRobotCall();
+  static GetTaskCall getTaskCall = GetTaskCall();
+  static TaskCompleteCall taskCompleteCall = TaskCompleteCall();
+  static CancelPendingTaskCall cancelPendingTaskCall = CancelPendingTaskCall();
+  static ChangeSlotTypeCall changeSlotTypeCall = ChangeSlotTypeCall();
+  static DirectPickableCall directPickableCall = DirectPickableCall();
 }
 
 class VerifyRobotIdCall {
@@ -219,6 +224,14 @@ class SlotInfoCall {
   String? slotid(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.records[:].slot_id''',
+      ));
+  String? trayid(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.records[:].tray_id''',
+      ));
+  bool? directpickable(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.records[:].direct_pickable''',
       ));
 }
 
@@ -451,14 +464,14 @@ class PostTaskCall {
   Future<ApiCallResponse> call({
     String? robotId = '',
     String? trayId = '',
-    bool? directPickable = true,
+    String? taskType = '',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'post task',
       apiUrl:
-          '$baseUrl/robotmanager/task/?robot_id=$robotId&tray_id=$trayId&direct_pickable=$directPickable',
+          '$baseUrl/robotmanager/task/?robot_id=$robotId&tray_id=$trayId&task_type=$taskType',
       callType: ApiCallType.POST,
       headers: {
         'Authorization':
@@ -714,6 +727,215 @@ class RegisterNewRobotCall {
         response,
         r'''$.statusbool''',
       ));
+}
+
+class GetTaskCall {
+  Future<ApiCallResponse> call({
+    String? robotId = '',
+    String? taskType = '',
+  }) async {
+    final baseUrl = AdminApiGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'get task',
+      apiUrl: '$baseUrl/robotmanager/task/',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization':
+            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+      },
+      params: {
+        'robot_id': robotId,
+        'task_type': taskType,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  List? records(dynamic response) => getJsonField(
+        response,
+        r'''$.records''',
+        true,
+      ) as List?;
+  bool? statusbool(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.statusbool''',
+      ));
+  int? id(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.records[:].id''',
+      ));
+}
+
+class TaskCompleteCall {
+  Future<ApiCallResponse> call({
+    int? id,
+  }) async {
+    final baseUrl = AdminApiGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'task complete',
+      apiUrl: '$baseUrl/robotmanager/task/pickup_completed/$id',
+      callType: ApiCallType.PATCH,
+      headers: {
+        'Authorization':
+            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+      },
+      params: {},
+      bodyType: BodyType.NONE,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  bool? statusbool(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.statusbool''',
+      ));
+  List? records(dynamic response) => getJsonField(
+        response,
+        r'''$.records''',
+        true,
+      ) as List?;
+}
+
+class CancelPendingTaskCall {
+  Future<ApiCallResponse> call({
+    String? robotId = '',
+  }) async {
+    final baseUrl = AdminApiGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'cancel pending task',
+      apiUrl:
+          '$baseUrl/robotmanager/task/cancel_pending_task/{record_id}?robot_id=$robotId',
+      callType: ApiCallType.PATCH,
+      headers: {
+        'Authorization':
+            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+      },
+      params: {},
+      bodyType: BodyType.NONE,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  int? count(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.count''',
+      ));
+  bool? statusbool(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.statusbool''',
+      ));
+}
+
+class ChangeSlotTypeCall {
+  Future<ApiCallResponse> call({
+    int? id,
+    String? type = '',
+  }) async {
+    final baseUrl = AdminApiGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "type": "$type"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'change slot type',
+      apiUrl: '$baseUrl/robotmanager/slots/$id',
+      callType: ApiCallType.PATCH,
+      headers: {
+        'Authorization':
+            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  bool? statusbool(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.statusbool''',
+      ));
+  List? records(dynamic response) => getJsonField(
+        response,
+        r'''$.records''',
+        true,
+      ) as List?;
+}
+
+class DirectPickableCall {
+  Future<ApiCallResponse> call({
+    int? id,
+    bool? directPickable,
+  }) async {
+    final baseUrl = AdminApiGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "direct_pickable": $directPickable
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'direct pickable',
+      apiUrl: '$baseUrl/robotmanager/slots/$id',
+      callType: ApiCallType.PATCH,
+      headers: {
+        'Authorization':
+            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  bool? statusbool(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.statusbool''',
+      ));
+  List? records(dynamic response) => getJsonField(
+        response,
+        r'''$.records''',
+        true,
+      ) as List?;
 }
 
 /// End admin api Group Code

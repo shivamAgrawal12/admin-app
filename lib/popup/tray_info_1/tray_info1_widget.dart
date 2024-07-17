@@ -2,7 +2,6 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
@@ -208,7 +207,7 @@ class _TrayInfo1WidgetState extends State<TrayInfo1Widget> {
                                       fontFamily: 'Open Sans',
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,
-                                      fontSize: 16.0,
+                                      fontSize: 20.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
@@ -224,7 +223,7 @@ class _TrayInfo1WidgetState extends State<TrayInfo1Widget> {
                                   color:
                                       FlutterFlowTheme.of(context).primaryText,
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 16.0,
+                                  fontSize: 20.0,
                                 ),
                               )
                             ],
@@ -307,7 +306,6 @@ class _TrayInfo1WidgetState extends State<TrayInfo1Widget> {
                 ),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    await actions.stopcamera();
                     FFAppState().trayid = '';
                     FFAppState().update(() {});
 

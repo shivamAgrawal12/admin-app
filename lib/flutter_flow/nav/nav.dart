@@ -75,13 +75,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const RobotInfoWidget() : const RobotScanWidget(),
+          appStateNotifier.loggedIn ? const HomeWidget() : const RobotScanWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const RobotInfoWidget() : const RobotScanWidget(),
+              appStateNotifier.loggedIn ? const HomeWidget() : const RobotScanWidget(),
         ),
         FFRoute(
           name: 'login_page',
@@ -133,11 +133,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'tray_retrieve',
           path: '/trayRetrieve',
           builder: (context, params) => const TrayRetrieveWidget(),
-        ),
-        FFRoute(
-          name: 'tray_retrieve_loc',
-          path: '/trayRetrieveLoc',
-          builder: (context, params) => const TrayRetrieveLocWidget(),
         ),
         FFRoute(
           name: 'add_new_tray',

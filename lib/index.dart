@@ -12,8 +12,6 @@ export '/pages/slot_mappimg/slot_mappimg_widget.dart' show SlotMappimgWidget;
 export '/pages/tray_mappimg/tray_mappimg_widget.dart' show TrayMappimgWidget;
 export '/pages/tray_remove/tray_remove_widget.dart' show TrayRemoveWidget;
 export '/pages/tray_retrieve/tray_retrieve_widget.dart' show TrayRetrieveWidget;
-export '/pages/tray_retrieve_loc/tray_retrieve_loc_widget.dart'
-    show TrayRetrieveLocWidget;
 export '/pages/add_new_tray/add_new_tray_widget.dart' show AddNewTrayWidget;
 export '/pages/delete_tray/delete_tray_widget.dart' show DeleteTrayWidget;
 export '/pages/support/support_widget.dart' show SupportWidget;

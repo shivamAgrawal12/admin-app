@@ -42,7 +42,7 @@ class _LogoutWidgetState extends State<LogoutWidget> {
     return Align(
       alignment: const AlignmentDirectional(0.0, -0.6),
       child: Container(
-        width: 300.0,
+        width: 280.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
           borderRadius: BorderRadius.circular(10.0),
@@ -52,26 +52,23 @@ class _LogoutWidgetState extends State<LogoutWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                child: Text(
-                  'Are you sure\nDo you want to logout?',
-                  textAlign: TextAlign.center,
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Open Sans',
-                        color: FlutterFlowTheme.of(context).accent,
-                        fontSize: 16.0,
-                        letterSpacing: 0.0,
-                        fontWeight: FontWeight.w600,
-                        lineHeight: 1.7,
-                      ),
-                ),
+              Text(
+                'Are you sure\nDo you want to logout?',
+                textAlign: TextAlign.center,
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: 'Open Sans',
+                      color: FlutterFlowTheme.of(context).accent,
+                      fontSize: 16.0,
+                      letterSpacing: 0.0,
+                      fontWeight: FontWeight.w600,
+                      lineHeight: 1.7,
+                    ),
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 35.0, 0.0, 10.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     FFButtonWidget(
                       onPressed: () async {
@@ -79,7 +76,7 @@ class _LogoutWidgetState extends State<LogoutWidget> {
                       },
                       text: 'No',
                       options: FFButtonOptions(
-                        width: 120.0,
+                        width: 100.0,
                         height: 40.0,
                         padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 0.0, 24.0, 0.0),
@@ -114,7 +111,7 @@ class _LogoutWidgetState extends State<LogoutWidget> {
                         context.goNamedAuth('robot_scan', context.mounted);
                       },
                       child: Container(
-                        width: 110.0,
+                        width: 100.0,
                         height: 40.0,
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
@@ -141,7 +138,7 @@ class _LogoutWidgetState extends State<LogoutWidget> {
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     fontSize: 16.0,
-                                    letterSpacing: 1.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),

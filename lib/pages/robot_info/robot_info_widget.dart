@@ -125,7 +125,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
                                               context.pushNamed(
-                                                'robot_info',
+                                                'home',
                                                 extra: <String, dynamic>{
                                                   kTransitionInfoKey:
                                                       const TransitionInfo(

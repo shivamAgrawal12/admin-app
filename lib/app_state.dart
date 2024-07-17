@@ -76,6 +76,12 @@ class FFAppState extends ChangeNotifier {
   void deleteHideslot() {
     secureStorage.delete(key: 'ff_hideslot');
   }
+
+  String _friendlyname = '';
+  String get friendlyname => _friendlyname;
+  set friendlyname(String value) {
+    _friendlyname = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

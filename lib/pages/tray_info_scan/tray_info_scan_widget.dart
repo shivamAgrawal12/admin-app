@@ -472,155 +472,138 @@ class _TrayInfoScanWidgetState extends State<TrayInfoScanWidget> {
                                             BorderRadius.circular(5.0),
                                       ),
                                       child: FFButtonWidget(
-                                        onPressed: (_model.textController.text ==
-                                                    '')
-                                            ? null
-                                            : () async {
-                                                var shouldSetState = false;
-                                                FFAppState().trayid =
-                                                    _model.textController.text;
-                                                FFAppState().update(() {});
-                                                if (FFAppState().trayid != '') {
-                                                  _model.trayDetailBtn =
-                                                      await AdminApiGroup
-                                                          .trayInfoCall
-                                                          .call(
-                                                    trayId: FFAppState().trayid,
-                                                    robotId:
-                                                        FFAppState().robotid,
+                                        onPressed: () async {
+                                          var shouldSetState = false;
+                                          FFAppState().trayid =
+                                              _model.textController.text;
+                                          FFAppState().update(() {});
+                                          if (FFAppState().trayid != '') {
+                                            _model.trayDetailBtn =
+                                                await AdminApiGroup.trayInfoCall
+                                                    .call(
+                                              trayId: FFAppState().trayid,
+                                              robotId: FFAppState().robotid,
+                                            );
+
+                                            shouldSetState = true;
+                                            if ((_model
+                                                    .trayDetailBtn?.succeeded ??
+                                                true)) {
+                                              if (AdminApiGroup.trayInfoCall
+                                                      .traystatus(
+                                                    (_model.trayDetailBtn
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ) ==
+                                                  'free') {
+                                                await showModalBottomSheet(
+                                                  isScrollControlled: true,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  enableDrag: false,
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            const TrayInfo1Widget(),
+                                                      ),
+                                                    );
+                                                  },
+                                                ).then((value) =>
+                                                    safeSetState(() {}));
+                                              } else {
+                                                await showModalBottomSheet(
+                                                  isScrollControlled: true,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  enableDrag: false,
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child: const TrayInfoWidget(),
+                                                      ),
+                                                    );
+                                                  },
+                                                ).then((value) =>
+                                                    safeSetState(() {}));
+                                              }
+
+                                              if (shouldSetState) {
+                                                setState(() {});
+                                              }
+                                              return;
+                                            } else {
+                                              FFAppState().trayid = '';
+                                              FFAppState().update(() {});
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child: const NoRecordWidget(),
+                                                    ),
                                                   );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
 
-                                                  shouldSetState = true;
-                                                  if ((_model.trayDetailBtn
-                                                          ?.succeeded ??
-                                                      true)) {
-                                                    if (AdminApiGroup
-                                                            .trayInfoCall
-                                                            .traystatus(
-                                                          (_model.trayDetailBtn
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        ) ==
-                                                        'free') {
-                                                      await showModalBottomSheet(
-                                                        isScrollControlled:
-                                                            true,
-                                                        backgroundColor:
-                                                            Colors.transparent,
-                                                        enableDrag: false,
-                                                        context: context,
-                                                        builder: (context) {
-                                                          return GestureDetector(
-                                                            onTap: () => _model
-                                                                    .unfocusNode
-                                                                    .canRequestFocus
-                                                                ? FocusScope.of(
-                                                                        context)
-                                                                    .requestFocus(
-                                                                        _model
-                                                                            .unfocusNode)
-                                                                : FocusScope.of(
-                                                                        context)
-                                                                    .unfocus(),
-                                                            child: Padding(
-                                                              padding: MediaQuery
-                                                                  .viewInsetsOf(
-                                                                      context),
-                                                              child:
-                                                                  const TrayInfo1Widget(),
-                                                            ),
-                                                          );
-                                                        },
-                                                      ).then((value) =>
-                                                          safeSetState(() {}));
-                                                    } else {
-                                                      await showModalBottomSheet(
-                                                        isScrollControlled:
-                                                            true,
-                                                        backgroundColor:
-                                                            Colors.transparent,
-                                                        enableDrag: false,
-                                                        context: context,
-                                                        builder: (context) {
-                                                          return GestureDetector(
-                                                            onTap: () => _model
-                                                                    .unfocusNode
-                                                                    .canRequestFocus
-                                                                ? FocusScope.of(
-                                                                        context)
-                                                                    .requestFocus(
-                                                                        _model
-                                                                            .unfocusNode)
-                                                                : FocusScope.of(
-                                                                        context)
-                                                                    .unfocus(),
-                                                            child: Padding(
-                                                              padding: MediaQuery
-                                                                  .viewInsetsOf(
-                                                                      context),
-                                                              child:
-                                                                  const TrayInfoWidget(),
-                                                            ),
-                                                          );
-                                                        },
-                                                      ).then((value) =>
-                                                          safeSetState(() {}));
-                                                    }
+                                              if (shouldSetState) {
+                                                setState(() {});
+                                              }
+                                              return;
+                                            }
+                                          } else {
+                                            if (shouldSetState) {
+                                              setState(() {});
+                                            }
+                                            return;
+                                          }
 
-                                                    if (shouldSetState) {
-                                                      setState(() {});
-                                                    }
-                                                    return;
-                                                  } else {
-                                                    FFAppState().trayid = '';
-                                                    FFAppState().update(() {});
-                                                    await showModalBottomSheet(
-                                                      isScrollControlled: true,
-                                                      backgroundColor:
-                                                          Colors.transparent,
-                                                      enableDrag: false,
-                                                      context: context,
-                                                      builder: (context) {
-                                                        return GestureDetector(
-                                                          onTap: () => _model
-                                                                  .unfocusNode
-                                                                  .canRequestFocus
-                                                              ? FocusScope.of(
-                                                                      context)
-                                                                  .requestFocus(
-                                                                      _model
-                                                                          .unfocusNode)
-                                                              : FocusScope.of(
-                                                                      context)
-                                                                  .unfocus(),
-                                                          child: Padding(
-                                                            padding: MediaQuery
-                                                                .viewInsetsOf(
-                                                                    context),
-                                                            child:
-                                                                const NoRecordWidget(),
-                                                          ),
-                                                        );
-                                                      },
-                                                    ).then((value) =>
-                                                        safeSetState(() {}));
-
-                                                    if (shouldSetState) {
-                                                      setState(() {});
-                                                    }
-                                                    return;
-                                                  }
-                                                } else {
-                                                  if (shouldSetState) {
-                                                    setState(() {});
-                                                  }
-                                                  return;
-                                                }
-
-                                                if (shouldSetState) {
-                                                  setState(() {});
-                                                }
-                                              },
+                                          if (shouldSetState) setState(() {});
+                                        },
                                         text: 'Submit',
                                         options: FFButtonOptions(
                                           width: 150.0,
@@ -648,9 +631,6 @@ class _TrayInfoScanWidgetState extends State<TrayInfoScanWidget> {
                                           ),
                                           borderRadius:
                                               BorderRadius.circular(5.0),
-                                          disabledColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .liteBg,
                                         ),
                                       ),
                                     ),

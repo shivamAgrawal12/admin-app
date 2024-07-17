@@ -178,6 +178,10 @@ class _TrayInfo2WidgetState extends State<TrayInfo2Widget> {
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.w600,
                               ),
+                        ),
+                        const TextSpan(
+                          text: 'Hello World ',
+                          style: TextStyle(),
                         )
                       ],
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -220,7 +224,7 @@ class _TrayInfo2WidgetState extends State<TrayInfo2Widget> {
                     FFAppState().trayid,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Open Sans',
-                          fontSize: 16.0,
+                          fontSize: 28.0,
                           letterSpacing: 0.5,
                           fontWeight: FontWeight.bold,
                         ),

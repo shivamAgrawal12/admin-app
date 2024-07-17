@@ -1,14 +1,14 @@
 import '/backend/api_requests/api_calls.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/form_field_controller.dart';
 import '/popup/menu/menu_widget.dart';
+import '/popup/task_successfull/task_successfull_widget.dart';
 import '/popup/wrong/wrong_widget.dart';
-import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'tray_retrieve_model.dart';
@@ -31,18 +31,8 @@ class _TrayRetrieveWidgetState extends State<TrayRetrieveWidget> {
     super.initState();
     _model = createModel(context, () => TrayRetrieveModel());
 
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() {
-        _model.trayIdValueTextController?.clear();
-      });
-      setState(() {
-        _model.directPickableValueController?.reset();
-      });
-    });
-
-    _model.trayIdValueTextController ??= TextEditingController();
-    _model.trayIdValueFocusNode ??= FocusNode();
+    _model.textController ??= TextEditingController();
+    _model.textFieldFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -104,12 +94,8 @@ class _TrayRetrieveWidgetState extends State<TrayRetrieveWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              await actions.stopcamera();
-                              FFAppState().trayid = '';
-                              FFAppState().update(() {});
-
                               context.pushNamed(
-                                'robot_info',
+                                'home',
                                 extra: <String, dynamic>{
                                   kTransitionInfoKey: const TransitionInfo(
                                     hasTransition: true,
@@ -214,255 +200,443 @@ class _TrayRetrieveWidgetState extends State<TrayRetrieveWidget> {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
-                    child: Container(
-                      decoration: const BoxDecoration(),
-                      child: Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
+                  FutureBuilder<ApiCallResponse>(
+                    future: AdminApiGroup.listOfTrayCall.call(
+                      robotId: FFAppState().robotid,
+                    ),
+                    builder: (context, snapshot) {
+                      // Customize what your widget looks like when it's loading.
+                      if (!snapshot.hasData) {
+                        return Center(
+                          child: SizedBox(
+                            width: 40.0,
+                            height: 40.0,
+                            child: SpinKitThreeBounce(
+                              color: FlutterFlowTheme.of(context).subHeader,
+                              size: 40.0,
+                            ),
+                          ),
+                        );
+                      }
+                      final containerListOfTrayResponse = snapshot.data!;
+
+                      return Container(
+                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        height: MediaQuery.sizeOf(context).height * 0.8,
+                        constraints: const BoxConstraints(
+                          minWidth: 320.0,
+                          maxWidth: 450.0,
+                        ),
+                        decoration: const BoxDecoration(),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 15.0, 0.0, 0.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Align(
+                                alignment: const AlignmentDirectional(-1.0, -1.0),
+                                child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      4.0, 0.0, 0.0, 0.0),
-                                  child: Text(
-                                    'Enter The Tray ID',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Open Sans',
-                                          color: FlutterFlowTheme.of(context)
-                                              .subHeader,
-                                          fontSize: 15.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      5.0, 0.0, 5.0, 0.0),
-                                  child: Container(
-                                    width: 300.0,
-                                    height: 45.0,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(5.0),
-                                      border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .liteText,
-                                        width: 1.0,
-                                      ),
-                                    ),
+                                      20.0, 0.0, 8.0, 0.0),
+                                  child: SizedBox(
+                                    width: 250.0,
                                     child: TextFormField(
-                                      controller:
-                                          _model.trayIdValueTextController,
-                                      focusNode: _model.trayIdValueFocusNode,
-                                      autofocus: false,
+                                      controller: _model.textController,
+                                      focusNode: _model.textFieldFocusNode,
+                                      onChanged: (_) => EasyDebounce.debounce(
+                                        '_model.textController',
+                                        const Duration(milliseconds: 50),
+                                        () => setState(() {}),
+                                      ),
+                                      autofocus: true,
                                       obscureText: false,
                                       decoration: InputDecoration(
-                                        hintText: 'Enter tray id ',
+                                        hintText: 'Search by tray id',
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(
                                               fontFamily: 'Open Sans',
-                                              fontSize: 16.0,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .liteText,
+                                              fontSize: 15.0,
                                               letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w500,
                                             ),
-                                        enabledBorder: InputBorder.none,
-                                        focusedBorder: InputBorder.none,
-                                        errorBorder: InputBorder.none,
-                                        focusedErrorBorder: InputBorder.none,
-                                        contentPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
-                                                10.0, 0.0, 0.0, 4.0),
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .liteText,
+                                            width: 1.5,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(5.0),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .subHeader,
+                                            width: 1.5,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(5.0),
+                                        ),
+                                        errorBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .error,
+                                            width: 1.5,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(5.0),
+                                        ),
+                                        focusedErrorBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .error,
+                                            width: 1.5,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(5.0),
+                                        ),
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Open Sans',
-                                            fontSize: 16.0,
+                                            fontSize: 15.0,
                                             letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w600,
+                                            fontWeight: FontWeight.w500,
                                           ),
-                                      validator: _model
-                                          .trayIdValueTextControllerValidator
+                                      validator: _model.textControllerValidator
                                           .asValidator(context),
                                     ),
                                   ),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      4.0, 0.0, 0.0, 0.0),
-                                  child: Text(
-                                    'Select Direct Pickable',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Open Sans',
-                                          color: FlutterFlowTheme.of(context)
-                                              .subHeader,
-                                          fontSize: 15.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      5.0, 0.0, 5.0, 0.0),
-                                  child: FlutterFlowDropDown<String>(
-                                    controller:
-                                        _model.directPickableValueController ??=
-                                            FormFieldController<String>(
-                                      _model.directPickableValue ??= 'true',
-                                    ),
-                                    options: const ['true', 'false'],
-                                    onChanged: (val) => setState(
-                                        () => _model.directPickableValue = val),
-                                    width: 300.0,
-                                    height: 45.0,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Open Sans',
-                                          fontSize: 16.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                    icon: Icon(
-                                      Icons.keyboard_arrow_down_rounded,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      size: 24.0,
-                                    ),
-                                    elevation: 0.0,
-                                    borderColor:
-                                        FlutterFlowTheme.of(context).liteText,
-                                    borderWidth: 1.0,
-                                    borderRadius: 5.0,
-                                    margin: const EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 10.0, 4.0),
-                                    hidesUnderline: true,
-                                    isOverButton: true,
-                                    isSearchable: false,
-                                    isMultiSelect: false,
-                                  ),
-                                ),
-                              ].divide(const SizedBox(height: 15.0)),
-                            ),
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 20.0, 0.0, 0.0),
-                              child: Container(
-                                width: 150.0,
-                                height: 45.0,
-                                decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    colors: [
-                                      FlutterFlowTheme.of(context).heading,
-                                      FlutterFlowTheme.of(context).accent
-                                    ],
-                                    stops: const [0.0, 1.0],
-                                    begin: const AlignmentDirectional(1.0, 0.0),
-                                    end: const AlignmentDirectional(-1.0, 0),
-                                  ),
-                                  borderRadius: BorderRadius.circular(5.0),
-                                ),
-                                child: FFButtonWidget(
-                                  onPressed: () async {
-                                    _model.taskPost =
-                                        await AdminApiGroup.postTaskCall.call(
-                                      trayId:
-                                          _model.trayIdValueTextController.text,
-                                      directPickable:
-                                          _model.directPickableValue != null &&
-                                              _model.directPickableValue != '',
-                                      robotId: FFAppState().robotid,
-                                    );
-
-                                    if ((_model.taskPost?.succeeded ?? true)) {
-                                      FFAppState().taskrecid =
-                                          AdminApiGroup.postTaskCall.id(
-                                        (_model.taskPost?.jsonBody ?? ''),
-                                      )!;
-                                      FFAppState().trayid =
-                                          _model.trayIdValueTextController.text;
-                                      FFAppState().update(() {});
-
-                                      context.pushNamed(
-                                        'tray_retrieve_loc',
-                                        extra: <String, dynamic>{
-                                          kTransitionInfoKey: const TransitionInfo(
-                                            hasTransition: true,
-                                            transitionType:
-                                                PageTransitionType.fade,
-                                            duration: Duration(milliseconds: 0),
-                                          ),
-                                        },
-                                      );
-                                    } else {
-                                      await showModalBottomSheet(
-                                        isScrollControlled: true,
-                                        backgroundColor: Colors.transparent,
-                                        enableDrag: false,
-                                        context: context,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: SingleChildScrollView(
+                                  primary: false,
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Builder(
                                         builder: (context) {
-                                          return GestureDetector(
-                                            onTap: () => _model
-                                                    .unfocusNode.canRequestFocus
-                                                ? FocusScope.of(context)
-                                                    .requestFocus(
-                                                        _model.unfocusNode)
-                                                : FocusScope.of(context)
-                                                    .unfocus(),
-                                            child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child: const WrongWidget(),
+                                          final trayRecords = functions
+                                                  .searchalltray(
+                                                      AdminApiGroup
+                                                          .listOfTrayCall
+                                                          .records(
+                                                            containerListOfTrayResponse
+                                                                .jsonBody,
+                                                          )
+                                                          ?.toList(),
+                                                      _model
+                                                          .textController.text)
+                                                  ?.toList() ??
+                                              [];
+
+                                          return ListView.builder(
+                                            padding: const EdgeInsets.fromLTRB(
+                                              0,
+                                              0,
+                                              0,
+                                              15.0,
                                             ),
+                                            shrinkWrap: true,
+                                            scrollDirection: Axis.vertical,
+                                            itemCount: trayRecords.length,
+                                            itemBuilder:
+                                                (context, trayRecordsIndex) {
+                                              final trayRecordsItem =
+                                                  trayRecords[trayRecordsIndex];
+                                              return Align(
+                                                alignment: const AlignmentDirectional(
+                                                    0.0, -1.0),
+                                                child: Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 15.0, 0.0, 0.0),
+                                                  child: Container(
+                                                    width: 350.0,
+                                                    height: 70.0,
+                                                    constraints: const BoxConstraints(
+                                                      minWidth: 290.0,
+                                                      maxWidth: 350.0,
+                                                    ),
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .primaryBackground,
+                                                      boxShadow: const [
+                                                        BoxShadow(
+                                                          blurRadius: 5.0,
+                                                          color:
+                                                              Color(0x26000000),
+                                                          offset: Offset(
+                                                            1.0,
+                                                            3.0,
+                                                          ),
+                                                        )
+                                                      ],
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              5.0),
+                                                    ),
+                                                    child: Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(10.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          RichText(
+                                                            textScaler:
+                                                                MediaQuery.of(
+                                                                        context)
+                                                                    .textScaler,
+                                                            text: TextSpan(
+                                                              children: [
+                                                                TextSpan(
+                                                                  text:
+                                                                      'Tray Id : ',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Open Sans',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .liteText,
+                                                                        fontSize:
+                                                                            15.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.w600,
+                                                                      ),
+                                                                ),
+                                                                TextSpan(
+                                                                  text:
+                                                                      getJsonField(
+                                                                    trayRecordsItem,
+                                                                    r'''$.tray_id''',
+                                                                  ).toString(),
+                                                                  style:
+                                                                      TextStyle(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyText,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    fontSize:
+                                                                        15.0,
+                                                                  ),
+                                                                )
+                                                              ],
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Open Sans',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                          Container(
+                                                            width: 90.0,
+                                                            height: 35.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              gradient:
+                                                                  LinearGradient(
+                                                                colors: [
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .heading,
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .accent
+                                                                ],
+                                                                stops: const [
+                                                                  0.0,
+                                                                  1.0
+                                                                ],
+                                                                begin:
+                                                                    const AlignmentDirectional(
+                                                                        1.0,
+                                                                        0.0),
+                                                                end:
+                                                                    const AlignmentDirectional(
+                                                                        -1.0,
+                                                                        0),
+                                                              ),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          5.0),
+                                                            ),
+                                                            child:
+                                                                FFButtonWidget(
+                                                              onPressed:
+                                                                  () async {
+                                                                _model.taskPost =
+                                                                    await AdminApiGroup
+                                                                        .postTaskCall
+                                                                        .call(
+                                                                  trayId:
+                                                                      getJsonField(
+                                                                    trayRecordsItem,
+                                                                    r'''$.tray_id''',
+                                                                  ).toString(),
+                                                                  robotId:
+                                                                      FFAppState()
+                                                                          .robotid,
+                                                                  taskType:
+                                                                      'retrieve',
+                                                                );
+
+                                                                if ((_model
+                                                                        .taskPost
+                                                                        ?.succeeded ??
+                                                                    true)) {
+                                                                  await showModalBottomSheet(
+                                                                    isScrollControlled:
+                                                                        true,
+                                                                    backgroundColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    enableDrag:
+                                                                        false,
+                                                                    context:
+                                                                        context,
+                                                                    builder:
+                                                                        (context) {
+                                                                      return GestureDetector(
+                                                                        onTap: () => _model.unfocusNode.canRequestFocus
+                                                                            ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                            : FocusScope.of(context).unfocus(),
+                                                                        child:
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.viewInsetsOf(context),
+                                                                          child:
+                                                                              const TaskSuccessfullWidget(),
+                                                                        ),
+                                                                      );
+                                                                    },
+                                                                  ).then((value) =>
+                                                                      safeSetState(
+                                                                          () {}));
+                                                                } else {
+                                                                  await showModalBottomSheet(
+                                                                    isScrollControlled:
+                                                                        true,
+                                                                    backgroundColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    enableDrag:
+                                                                        false,
+                                                                    context:
+                                                                        context,
+                                                                    builder:
+                                                                        (context) {
+                                                                      return GestureDetector(
+                                                                        onTap: () => _model.unfocusNode.canRequestFocus
+                                                                            ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                            : FocusScope.of(context).unfocus(),
+                                                                        child:
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.viewInsetsOf(context),
+                                                                          child:
+                                                                              const WrongWidget(),
+                                                                        ),
+                                                                      );
+                                                                    },
+                                                                  ).then((value) =>
+                                                                      safeSetState(
+                                                                          () {}));
+                                                                }
+
+                                                                setState(() {});
+                                                              },
+                                                              text: 'Retrieve',
+                                                              options:
+                                                                  FFButtonOptions(
+                                                                height: 40.0,
+                                                                padding:
+                                                                    const EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            5.0,
+                                                                            0.0,
+                                                                            5.0,
+                                                                            0.0),
+                                                                iconPadding:
+                                                                    const EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                color: const Color(
+                                                                    0x27351C75),
+                                                                textStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Raleway',
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                    ),
+                                                                elevation: 0.0,
+                                                                borderSide:
+                                                                    const BorderSide(
+                                                                  color: Color(
+                                                                      0xFF8E7CC3),
+                                                                ),
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            5.0),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              );
+                                            },
                                           );
                                         },
-                                      ).then((value) => safeSetState(() {}));
-                                    }
-
-                                    setState(() {});
-                                  },
-                                  text: 'Submit',
-                                  options: FFButtonOptions(
-                                    height: 45.0,
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        5.0, 0.0, 5.0, 0.0),
-                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: const Color(0x27351C75),
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          fontFamily: 'Raleway',
-                                          color: Colors.white,
-                                          fontSize: 17.0,
-                                          letterSpacing: 1.0,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                    elevation: 0.0,
-                                    borderSide: const BorderSide(
-                                      color: Color(0xFF8E7CC3),
-                                    ),
-                                    borderRadius: BorderRadius.circular(5.0),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),
-                            ),
-                          ].divide(const SizedBox(height: 100.0)),
+                            ],
+                          ),
                         ),
-                      ),
-                    ),
+                      );
+                    },
                   ),
                 ],
               ),

@@ -4,18 +4,18 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'successfull_model.dart';
-export 'successfull_model.dart';
+import 'task_successfull_model.dart';
+export 'task_successfull_model.dart';
 
-class SuccessfullWidget extends StatefulWidget {
-  const SuccessfullWidget({super.key});
+class TaskSuccessfullWidget extends StatefulWidget {
+  const TaskSuccessfullWidget({super.key});
 
   @override
-  State<SuccessfullWidget> createState() => _SuccessfullWidgetState();
+  State<TaskSuccessfullWidget> createState() => _TaskSuccessfullWidgetState();
 }
 
-class _SuccessfullWidgetState extends State<SuccessfullWidget> {
-  late SuccessfullModel _model;
+class _TaskSuccessfullWidgetState extends State<TaskSuccessfullWidget> {
+  late TaskSuccessfullModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -26,7 +26,7 @@ class _SuccessfullWidgetState extends State<SuccessfullWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => SuccessfullModel());
+    _model = createModel(context, () => TaskSuccessfullModel());
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
@@ -68,7 +68,7 @@ class _SuccessfullWidgetState extends State<SuccessfullWidget> {
                     Align(
                       alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Text(
-                        'Successfully',
+                        'Task posted Successfully',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Raleway',
                               color: FlutterFlowTheme.of(context).success,
@@ -115,12 +115,10 @@ class _SuccessfullWidgetState extends State<SuccessfullWidget> {
                   FFAppState().slotrecid = 0;
                   FFAppState().trayrecid = 0;
                   FFAppState().taskrecid = 0;
-                  FFAppState().friendlyname = '';
-                  FFAppState().hideslot = 0;
                   FFAppState().update(() {});
 
                   context.pushNamed(
-                    'home',
+                    'tray_retrieve',
                     extra: <String, dynamic>{
                       kTransitionInfoKey: const TransitionInfo(
                         hasTransition: true,

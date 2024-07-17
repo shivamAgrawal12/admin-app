@@ -1,10 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
 import 'new_robot_model.dart';
 export 'new_robot_model.dart';
@@ -29,11 +26,6 @@ class _NewRobotWidgetState extends State<NewRobotWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => NewRobotModel());
-
-    // On component load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.timerController.onStartTimer();
-    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -102,31 +94,6 @@ class _NewRobotWidgetState extends State<NewRobotWidget> {
                 ),
               ),
             ),
-            FlutterFlowTimer(
-              initialTime: _model.timerInitialTimeMs,
-              getDisplayTime: (value) => StopWatchTimer.getDisplayTime(
-                value,
-                hours: false,
-                milliSecond: false,
-              ),
-              controller: _model.timerController,
-              updateStateInterval: const Duration(milliseconds: 1000),
-              onChanged: (value, displayTime, shouldUpdate) {
-                _model.timerMilliseconds = value;
-                _model.timerValue = displayTime;
-                if (shouldUpdate) setState(() {});
-              },
-              onEnded: () async {
-                Navigator.pop(context);
-              },
-              textAlign: TextAlign.start,
-              style: FlutterFlowTheme.of(context).headlineSmall.override(
-                    fontFamily: 'Open Sans',
-                    color: FlutterFlowTheme.of(context).primaryBackground,
-                    fontSize: 2.0,
-                    letterSpacing: 0.0,
-                  ),
-            ),
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
               child: Text(
@@ -162,17 +129,7 @@ class _NewRobotWidgetState extends State<NewRobotWidget> {
                     onPressed: () async {
                       FFAppState().robotid = '';
                       FFAppState().update(() {});
-
-                      context.pushNamed(
-                        'robot_scan',
-                        extra: <String, dynamic>{
-                          kTransitionInfoKey: const TransitionInfo(
-                            hasTransition: true,
-                            transitionType: PageTransitionType.fade,
-                            duration: Duration(milliseconds: 0),
-                          ),
-                        },
-                      );
+                      Navigator.pop(context);
                     },
                     text: 'Cancel',
                     options: FFButtonOptions(
@@ -185,7 +142,7 @@ class _NewRobotWidgetState extends State<NewRobotWidget> {
                       color: const Color(0x00FFFFFF),
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
-                                fontFamily: 'Open Sans',
+                                fontFamily: 'Raleway',
                                 color: FlutterFlowTheme.of(context).heading,
                                 fontSize: 16.0,
                                 letterSpacing: 0.0,

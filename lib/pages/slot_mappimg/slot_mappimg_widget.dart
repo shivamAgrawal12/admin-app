@@ -6,7 +6,6 @@ import '/flutter_flow/instant_timer.dart';
 import '/popup/menu/menu_widget.dart';
 import '/popup/no_record/no_record_widget.dart';
 import '/popup/slot_info_2/slot_info2_widget.dart';
-import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -164,12 +163,11 @@ class _SlotMappimgWidgetState extends State<SlotMappimgWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              await actions.stopcamera();
                               FFAppState().slotid = '';
                               FFAppState().update(() {});
 
                               context.pushNamed(
-                                'robot_info',
+                                'home',
                                 extra: <String, dynamic>{
                                   kTransitionInfoKey: const TransitionInfo(
                                     hasTransition: true,
@@ -476,157 +474,138 @@ class _SlotMappimgWidgetState extends State<SlotMappimgWidget> {
                                               BorderRadius.circular(5.0),
                                         ),
                                         child: FFButtonWidget(
-                                          onPressed: (_model.textController.text ==
-                                                      '')
-                                              ? null
-                                              : () async {
-                                                  var shouldSetState = false;
-                                                  FFAppState().slotid = _model
-                                                      .textController.text;
+                                          onPressed: () async {
+                                            var shouldSetState = false;
+                                            FFAppState().slotid =
+                                                _model.textController.text;
+                                            FFAppState().update(() {});
+                                            if (FFAppState().slotid != '') {
+                                              _model.slotDetailBtn =
+                                                  await AdminApiGroup
+                                                      .slotInfoCall
+                                                      .call(
+                                                slotId: FFAppState().slotid,
+                                                robotId: FFAppState().robotid,
+                                              );
+
+                                              shouldSetState = true;
+                                              if ((_model.slotDetailBtn
+                                                      ?.succeeded ??
+                                                  true)) {
+                                                if (AdminApiGroup.slotInfoCall
+                                                        .status(
+                                                      (_model.slotDetailBtn
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    ) ==
+                                                    'free') {
+                                                  FFAppState().slotrecid =
+                                                      getJsonField(
+                                                    (_model.slotDetail
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                    r'''$.id''',
+                                                  );
                                                   FFAppState().update(() {});
-                                                  if (FFAppState().slotid !=
-                                                          '') {
-                                                    _model.slotDetailBtn =
-                                                        await AdminApiGroup
-                                                            .slotInfoCall
-                                                            .call(
-                                                      slotId:
-                                                          FFAppState().slotid,
-                                                      robotId:
-                                                          FFAppState().robotid,
+
+                                                  context.pushNamed(
+                                                    'tray_mappimg',
+                                                    extra: <String, dynamic>{
+                                                      kTransitionInfoKey:
+                                                          const TransitionInfo(
+                                                        hasTransition: true,
+                                                        transitionType:
+                                                            PageTransitionType
+                                                                .fade,
+                                                        duration: Duration(
+                                                            milliseconds: 0),
+                                                      ),
+                                                    },
+                                                  );
+                                                } else {
+                                                  await showModalBottomSheet(
+                                                    isScrollControlled: true,
+                                                    backgroundColor:
+                                                        Colors.transparent,
+                                                    enableDrag: false,
+                                                    context: context,
+                                                    builder: (context) {
+                                                      return GestureDetector(
+                                                        onTap: () => _model
+                                                                .unfocusNode
+                                                                .canRequestFocus
+                                                            ? FocusScope.of(
+                                                                    context)
+                                                                .requestFocus(_model
+                                                                    .unfocusNode)
+                                                            : FocusScope.of(
+                                                                    context)
+                                                                .unfocus(),
+                                                        child: Padding(
+                                                          padding: MediaQuery
+                                                              .viewInsetsOf(
+                                                                  context),
+                                                          child:
+                                                              const SlotInfo2Widget(),
+                                                        ),
+                                                      );
+                                                    },
+                                                  ).then((value) =>
+                                                      safeSetState(() {}));
+                                                }
+
+                                                if (shouldSetState) {
+                                                  setState(() {});
+                                                }
+                                                return;
+                                              } else {
+                                                FFAppState().slotid = '';
+                                                FFAppState().update(() {});
+                                                await showModalBottomSheet(
+                                                  isScrollControlled: true,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  enableDrag: false,
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child: const NoRecordWidget(),
+                                                      ),
                                                     );
+                                                  },
+                                                ).then((value) =>
+                                                    safeSetState(() {}));
 
-                                                    shouldSetState = true;
-                                                    if ((_model.slotDetailBtn
-                                                            ?.succeeded ??
-                                                        true)) {
-                                                      if (AdminApiGroup
-                                                              .slotInfoCall
-                                                              .status(
-                                                            (_model.slotDetailBtn
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          ) ==
-                                                          'free') {
-                                                        FFAppState().slotrecid =
-                                                            getJsonField(
-                                                          (_model.slotDetail
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                          r'''$.id''',
-                                                        );
-                                                        FFAppState()
-                                                            .update(() {});
+                                                if (shouldSetState) {
+                                                  setState(() {});
+                                                }
+                                                return;
+                                              }
+                                            } else {
+                                              if (shouldSetState) {
+                                                setState(() {});
+                                              }
+                                              return;
+                                            }
 
-                                                        context.pushNamed(
-                                                          'tray_mappimg',
-                                                          extra: <String,
-                                                              dynamic>{
-                                                            kTransitionInfoKey:
-                                                                const TransitionInfo(
-                                                              hasTransition:
-                                                                  true,
-                                                              transitionType:
-                                                                  PageTransitionType
-                                                                      .fade,
-                                                              duration: Duration(
-                                                                  milliseconds:
-                                                                      0),
-                                                            ),
-                                                          },
-                                                        );
-                                                      } else {
-                                                        await showModalBottomSheet(
-                                                          isScrollControlled:
-                                                              true,
-                                                          backgroundColor:
-                                                              Colors
-                                                                  .transparent,
-                                                          enableDrag: false,
-                                                          context: context,
-                                                          builder: (context) {
-                                                            return GestureDetector(
-                                                              onTap: () => _model
-                                                                      .unfocusNode
-                                                                      .canRequestFocus
-                                                                  ? FocusScope.of(
-                                                                          context)
-                                                                      .requestFocus(
-                                                                          _model
-                                                                              .unfocusNode)
-                                                                  : FocusScope.of(
-                                                                          context)
-                                                                      .unfocus(),
-                                                              child: Padding(
-                                                                padding: MediaQuery
-                                                                    .viewInsetsOf(
-                                                                        context),
-                                                                child:
-                                                                    const SlotInfo2Widget(),
-                                                              ),
-                                                            );
-                                                          },
-                                                        ).then((value) =>
-                                                            safeSetState(
-                                                                () {}));
-                                                      }
-
-                                                      if (shouldSetState) {
-                                                        setState(() {});
-                                                      }
-                                                      return;
-                                                    } else {
-                                                      FFAppState().slotid = '';
-                                                      FFAppState()
-                                                          .update(() {});
-                                                      await showModalBottomSheet(
-                                                        isScrollControlled:
-                                                            true,
-                                                        backgroundColor:
-                                                            Colors.transparent,
-                                                        enableDrag: false,
-                                                        context: context,
-                                                        builder: (context) {
-                                                          return GestureDetector(
-                                                            onTap: () => _model
-                                                                    .unfocusNode
-                                                                    .canRequestFocus
-                                                                ? FocusScope.of(
-                                                                        context)
-                                                                    .requestFocus(
-                                                                        _model
-                                                                            .unfocusNode)
-                                                                : FocusScope.of(
-                                                                        context)
-                                                                    .unfocus(),
-                                                            child: Padding(
-                                                              padding: MediaQuery
-                                                                  .viewInsetsOf(
-                                                                      context),
-                                                              child:
-                                                                  const NoRecordWidget(),
-                                                            ),
-                                                          );
-                                                        },
-                                                      ).then((value) =>
-                                                          safeSetState(() {}));
-
-                                                      if (shouldSetState) {
-                                                        setState(() {});
-                                                      }
-                                                      return;
-                                                    }
-                                                  } else {
-                                                    if (shouldSetState) {
-                                                      setState(() {});
-                                                    }
-                                                    return;
-                                                  }
-
-                                                  if (shouldSetState) {
-                                                    setState(() {});
-                                                  }
-                                                },
+                                            if (shouldSetState) {
+                                              setState(() {});
+                                            }
+                                          },
                                           text: 'Submit',
                                           options: FFButtonOptions(
                                             height: 40.0,
@@ -653,9 +632,6 @@ class _SlotMappimgWidgetState extends State<SlotMappimgWidget> {
                                             ),
                                             borderRadius:
                                                 BorderRadius.circular(5.0),
-                                            disabledColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .liteBg,
                                           ),
                                         ),
                                       ),

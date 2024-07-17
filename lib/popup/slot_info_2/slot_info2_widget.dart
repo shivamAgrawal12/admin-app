@@ -2,7 +2,6 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
@@ -293,10 +292,9 @@ class _SlotInfo2WidgetState extends State<SlotInfo2Widget> {
                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                   child: Text(
                     valueOrDefault<String>(
-                      getJsonField(
+                      AdminApiGroup.slotInfoCall.trayid(
                         containerSlotInfoResponse.jsonBody,
-                        r'''$.tray_id''',
-                      )?.toString(),
+                      ),
                       '-',
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -326,7 +324,6 @@ class _SlotInfo2WidgetState extends State<SlotInfo2Widget> {
                     ),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        await actions.stopcamera();
                         FFAppState().slotid = '';
                         FFAppState().update(() {});
 
