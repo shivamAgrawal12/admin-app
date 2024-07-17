@@ -92,6 +92,7 @@ class _WrongWidgetState extends State<WrongWidget> {
                   FFAppState().slotrecid = 0;
                   FFAppState().trayrecid = 0;
                   FFAppState().taskrecid = 0;
+                  FFAppState().hideslot = 0;
                   FFAppState().update(() {});
                   Navigator.pop(context);
                 },

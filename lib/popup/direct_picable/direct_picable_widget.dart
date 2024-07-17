@@ -198,6 +198,7 @@ class _DirectPicableWidgetState extends State<DirectPicableWidget> {
                         onPressed: () async {
                           FFAppState().slotid = '';
                           FFAppState().slotrecid = 0;
+                          FFAppState().hideslot = 0;
                           FFAppState().update(() {});
                           Navigator.pop(context);
                         },

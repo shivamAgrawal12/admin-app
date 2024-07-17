@@ -1827,8 +1827,6 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
-                                                FFAppState().hideslot = 0;
-                                                FFAppState().update(() {});
                                                 _model.addPickingStation =
                                                     await AdminApiGroup
                                                         .changeSlotTypeCall
@@ -1998,8 +1996,6 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
-                                                FFAppState().hideslot = 0;
-                                                FFAppState().update(() {});
                                                 _model.removePickingStation =
                                                     await AdminApiGroup
                                                         .changeSlotTypeCall
@@ -2169,8 +2165,6 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
-                                                FFAppState().hideslot = 0;
-                                                FFAppState().update(() {});
                                                 await showModalBottomSheet(
                                                   isScrollControlled: true,
                                                   backgroundColor:
@@ -2306,10 +2300,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                     .fromSTEB(
                                                         3.0, 0.0, 0.0, 0.0),
                                                 child: FFButtonWidget(
-                                                  onPressed: () async {
-                                                    FFAppState().hideslot = 0;
-                                                    FFAppState().update(() {});
-                                                  },
+                                                  onPressed: () async {},
                                                   text: 'Unblock Slot',
                                                   options: FFButtonOptions(
                                                     width: 140.0,
@@ -2350,10 +2341,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                     .fromSTEB(
                                                         0.0, 0.0, 3.0, 0.0),
                                                 child: FFButtonWidget(
-                                                  onPressed: () async {
-                                                    FFAppState().hideslot = 0;
-                                                    FFAppState().update(() {});
-                                                  },
+                                                  onPressed: () async {},
                                                   text: 'Block Slot',
                                                   options: FFButtonOptions(
                                                     width: 140.0,
