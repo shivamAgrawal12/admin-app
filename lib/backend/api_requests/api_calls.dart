@@ -42,6 +42,7 @@ class AdminApiGroup {
   static AddShuttlesCall addShuttlesCall = AddShuttlesCall();
   static MappingTrayAsnShuttleCall mappingTrayAsnShuttleCall =
       MappingTrayAsnShuttleCall();
+  static TaskByIdCall taskByIdCall = TaskByIdCall();
 }
 
 class VerifyRobotIdCall {
@@ -1028,6 +1029,50 @@ class MappingTrayAsnShuttleCall {
         r'''$.records''',
         true,
       ) as List?;
+  bool? statusbool(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.statusbool''',
+      ));
+}
+
+class TaskByIdCall {
+  Future<ApiCallResponse> call({
+    int? recordId,
+    String? robotId = '',
+  }) async {
+    final baseUrl = AdminApiGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'task by id',
+      apiUrl: '$baseUrl/robotmanager/task/',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization':
+            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+      },
+      params: {
+        'record_id': recordId,
+        'robot_id': robotId,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  String? slotfriendlyname(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.records[:].slot_friendly_name''',
+      ));
+  String? friendlyname(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.records[:].friendly_name''',
+      ));
   bool? statusbool(dynamic response) => castToType<bool>(getJsonField(
         response,
         r'''$.statusbool''',

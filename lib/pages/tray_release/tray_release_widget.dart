@@ -2,6 +2,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/popup/friendly_name_wrg/friendly_name_wrg_widget.dart';
 import '/popup/menu/menu_widget.dart';
 import '/popup/successfull/successfull_widget.dart';
 import '/popup/wrong/wrong_widget.dart';
@@ -221,32 +222,33 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              Align(
-                                alignment: const AlignmentDirectional(1.0, -1.0),
-                                child: Switch.adaptive(
-                                  value: _model.switchValue!,
-                                  onChanged: (newValue) async {
-                                    setState(
-                                        () => _model.switchValue = newValue);
-                                    if (newValue) {
-                                      _model.change = 0;
-                                      setState(() {});
-                                    } else {
-                                      _model.change = 1;
-                                      setState(() {});
-                                    }
-                                  },
-                                  activeColor:
-                                      FlutterFlowTheme.of(context).primary,
-                                  activeTrackColor:
-                                      FlutterFlowTheme.of(context).accent1,
-                                  inactiveTrackColor:
-                                      FlutterFlowTheme.of(context).alternate,
-                                  inactiveThumbColor:
-                                      FlutterFlowTheme.of(context)
-                                          .secondaryText,
+                              if (_model.change == 2 ? false : true)
+                                Align(
+                                  alignment: const AlignmentDirectional(1.0, -1.0),
+                                  child: Switch.adaptive(
+                                    value: _model.switchValue!,
+                                    onChanged: (newValue) async {
+                                      setState(
+                                          () => _model.switchValue = newValue);
+                                      if (newValue) {
+                                        _model.change = 0;
+                                        setState(() {});
+                                      } else {
+                                        _model.change = 1;
+                                        setState(() {});
+                                      }
+                                    },
+                                    activeColor:
+                                        FlutterFlowTheme.of(context).primary,
+                                    activeTrackColor:
+                                        FlutterFlowTheme.of(context).accent1,
+                                    inactiveTrackColor:
+                                        FlutterFlowTheme.of(context).alternate,
+                                    inactiveThumbColor:
+                                        FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                  ),
                                 ),
-                              ),
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 15.0),
@@ -610,6 +612,8 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                                                   r'''$.slot_friendly_name''',
                                                                                 ).toString();
                                                                                 FFAppState().update(() {});
+                                                                                _model.change = 0;
+                                                                                setState(() {});
                                                                               },
                                                                               text: 'Select',
                                                                               options: FFButtonOptions(
@@ -680,6 +684,10 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                       .labelMedium
                                                       .override(
                                                         fontFamily: 'Open Sans',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .liteText,
                                                         fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                       ),
@@ -760,43 +768,79 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                         ),
                                         child: FFButtonWidget(
                                           onPressed: () async {
-                                            _model.taskComplete =
-                                                await AdminApiGroup
-                                                    .taskCompleteCall
-                                                    .call(
-                                              id: FFAppState().taskrecid,
-                                            );
+                                            var shouldSetState = false;
+                                            if (FFAppState().friendlyname ==
+                                                _model.textController2.text) {
+                                              _model.taskComplete =
+                                                  await AdminApiGroup
+                                                      .taskCompleteCall
+                                                      .call(
+                                                id: FFAppState().taskrecid,
+                                              );
 
-                                            if ((_model
-                                                    .taskComplete?.succeeded ??
-                                                true)) {
-                                              await showModalBottomSheet(
-                                                isScrollControlled: true,
-                                                backgroundColor:
-                                                    Colors.transparent,
-                                                enableDrag: false,
-                                                context: context,
-                                                builder: (context) {
-                                                  return GestureDetector(
-                                                    onTap: () => _model
-                                                            .unfocusNode
-                                                            .canRequestFocus
-                                                        ? FocusScope.of(context)
-                                                            .requestFocus(_model
-                                                                .unfocusNode)
-                                                        : FocusScope.of(context)
-                                                            .unfocus(),
-                                                    child: Padding(
-                                                      padding: MediaQuery
-                                                          .viewInsetsOf(
-                                                              context),
-                                                      child:
-                                                          const SuccessfullWidget(),
-                                                    ),
-                                                  );
-                                                },
-                                              ).then((value) =>
-                                                  safeSetState(() {}));
+                                              shouldSetState = true;
+                                              if ((_model.taskComplete
+                                                      ?.succeeded ??
+                                                  true)) {
+                                                await showModalBottomSheet(
+                                                  isScrollControlled: true,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  enableDrag: false,
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            const SuccessfullWidget(),
+                                                      ),
+                                                    );
+                                                  },
+                                                ).then((value) =>
+                                                    safeSetState(() {}));
+                                              } else {
+                                                await showModalBottomSheet(
+                                                  isScrollControlled: true,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  enableDrag: false,
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child: const WrongWidget(),
+                                                      ),
+                                                    );
+                                                  },
+                                                ).then((value) =>
+                                                    safeSetState(() {}));
+                                              }
                                             } else {
                                               await showModalBottomSheet(
                                                 isScrollControlled: true,
@@ -818,15 +862,23 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                       padding: MediaQuery
                                                           .viewInsetsOf(
                                                               context),
-                                                      child: const WrongWidget(),
+                                                      child:
+                                                          const FriendlyNameWrgWidget(),
                                                     ),
                                                   );
                                                 },
                                               ).then((value) =>
                                                   safeSetState(() {}));
+
+                                              if (shouldSetState) {
+                                                setState(() {});
+                                              }
+                                              return;
                                             }
 
-                                            setState(() {});
+                                            if (shouldSetState) {
+                                              setState(() {});
+                                            }
                                           },
                                           text: 'Release',
                                           options: FFButtonOptions(

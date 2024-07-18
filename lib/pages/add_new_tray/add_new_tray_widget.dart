@@ -2,13 +2,11 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/instant_timer.dart';
 import '/popup/already/already_widget.dart';
 import '/popup/menu/menu_widget.dart';
 import '/popup/tray_added/tray_added_widget.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'add_new_tray_model.dart';
@@ -30,67 +28,6 @@ class _AddNewTrayWidgetState extends State<AddNewTrayWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AddNewTrayModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.instantTimer = InstantTimer.periodic(
-        duration: const Duration(milliseconds: 1000),
-        callback: (timer) async {
-          if (FFAppState().trayid != '') {
-            _model.instantTimer?.cancel();
-            _model.trayCheck = await AdminApiGroup.trayInfoCall.call(
-              trayId: FFAppState().trayid,
-              robotId: FFAppState().robotid,
-            );
-
-            if ((_model.trayCheck?.succeeded ?? true)) {
-              await showModalBottomSheet(
-                isScrollControlled: true,
-                backgroundColor: Colors.transparent,
-                enableDrag: false,
-                context: context,
-                builder: (context) {
-                  return GestureDetector(
-                    onTap: () => _model.unfocusNode.canRequestFocus
-                        ? FocusScope.of(context)
-                            .requestFocus(_model.unfocusNode)
-                        : FocusScope.of(context).unfocus(),
-                    child: Padding(
-                      padding: MediaQuery.viewInsetsOf(context),
-                      child: const AlreadyWidget(),
-                    ),
-                  );
-                },
-              ).then((value) => safeSetState(() {}));
-            } else {
-              await showModalBottomSheet(
-                isScrollControlled: true,
-                backgroundColor: Colors.transparent,
-                enableDrag: false,
-                context: context,
-                builder: (context) {
-                  return GestureDetector(
-                    onTap: () => _model.unfocusNode.canRequestFocus
-                        ? FocusScope.of(context)
-                            .requestFocus(_model.unfocusNode)
-                        : FocusScope.of(context).unfocus(),
-                    child: Padding(
-                      padding: MediaQuery.viewInsetsOf(context),
-                      child: const TrayAddedWidget(),
-                    ),
-                  );
-                },
-              ).then((value) => safeSetState(() {}));
-            }
-
-            return;
-          } else {
-            return;
-          }
-        },
-        startImmediately: true,
-      );
-    });
 
     _model.switchValue = true;
     _model.textController ??= TextEditingController();

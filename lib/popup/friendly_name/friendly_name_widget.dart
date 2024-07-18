@@ -67,7 +67,7 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
       alignment: const AlignmentDirectional(0.0, -0.6),
       child: Container(
         width: 280.0,
-        height: 290.0,
+        height: 310.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).liteBg,
           borderRadius: BorderRadius.circular(10.0),
@@ -101,7 +101,7 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
               child: Align(
                 alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Text(
-                  'Change To Picking Station',
+                  'Change Slot To Picking Station',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Raleway',
                         color: FlutterFlowTheme.of(context).heading,
@@ -113,7 +113,20 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+              child: Text(
+                'Slot Id',
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: 'Raleway',
+                      color: FlutterFlowTheme.of(context).heading,
+                      fontSize: 14.0,
+                      letterSpacing: 0.0,
+                      fontWeight: FontWeight.w500,
+                    ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
               child: Text(
                 FFAppState().slotid,
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -125,24 +138,27 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
                     ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-              child: Text(
-                'Enter Friendly Name',
-                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Raleway',
-                      color: FlutterFlowTheme.of(context).liteText,
-                      fontSize: 15.0,
-                      letterSpacing: 0.0,
-                      fontWeight: FontWeight.w600,
-                      lineHeight: 1.0,
-                    ),
+            Align(
+              alignment: const AlignmentDirectional(-1.0, -1.0),
+              child: Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(30.0, 10.0, 0.0, 0.0),
+                child: Text(
+                  'Enter Friendly Name',
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Raleway',
+                        color: FlutterFlowTheme.of(context).liteText,
+                        fontSize: 15.0,
+                        letterSpacing: 0.0,
+                        fontWeight: FontWeight.w500,
+                        lineHeight: 1.0,
+                      ),
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(8.0, 10.0, 8.0, 0.0),
               child: SizedBox(
-                width: 210.0,
+                width: 220.0,
                 child: TextFormField(
                   controller: _model.textController,
                   focusNode: _model.textFieldFocusNode,

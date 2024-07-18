@@ -140,9 +140,10 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                                     10.0, 4.0, 10.0, 4.0),
                                 child: Text(
                                   valueOrDefault<String>(
-                                    AdminApiGroup.trayInfoCall.traystatus(
+                                    getJsonField(
                                       containerTrayInfoResponse.jsonBody,
-                                    ),
+                                      r'''$.status''',
+                                    )?.toString(),
                                     '-',
                                   ),
                                   style: FlutterFlowTheme.of(context)
@@ -282,7 +283,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                       const EdgeInsetsDirectional.fromSTEB(15.0, 25.0, 15.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       FFButtonWidget(
                         onPressed: () async {

@@ -137,9 +137,10 @@ class _TrayInfo2WidgetState extends State<TrayInfo2Widget> {
                                     10.0, 4.0, 10.0, 4.0),
                                 child: Text(
                                   valueOrDefault<String>(
-                                    AdminApiGroup.trayInfoCall.traystatus(
+                                    getJsonField(
                                       containerTrayInfoResponse.jsonBody,
-                                    ),
+                                      r'''$.status''',
+                                    )?.toString(),
                                     '-',
                                   ),
                                   style: FlutterFlowTheme.of(context)

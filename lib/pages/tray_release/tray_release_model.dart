@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class TrayReleaseModel extends FlutterFlowModel<TrayReleaseWidget> {
   ///  Local state fields for this page.
 
-  int? change = 0;
+  int? change = 2;
 
   ///  State fields for stateful widgets in this page.
 

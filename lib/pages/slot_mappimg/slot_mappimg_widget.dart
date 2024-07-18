@@ -2,13 +2,11 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/instant_timer.dart';
 import '/popup/menu/menu_widget.dart';
 import '/popup/no_record/no_record_widget.dart';
 import '/popup/slot_info_2/slot_info2_widget.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'slot_mappimg_model.dart';
@@ -30,74 +28,6 @@ class _SlotMappimgWidgetState extends State<SlotMappimgWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SlotMappimgModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.instantTimer = InstantTimer.periodic(
-        duration: const Duration(milliseconds: 1000),
-        callback: (timer) async {
-          if (FFAppState().slotid != '') {
-            _model.slotDetail = await AdminApiGroup.slotInfoCall.call(
-              slotId: FFAppState().slotid,
-              robotId: FFAppState().robotid,
-            );
-
-            if ((_model.slotDetail?.succeeded ?? true)) {
-              _model.instantTimer?.cancel();
-              if (AdminApiGroup.slotInfoCall.status(
-                    (_model.slotDetail?.jsonBody ?? ''),
-                  ) ==
-                  'free') {
-                FFAppState().slotrecid = getJsonField(
-                  (_model.slotDetail?.jsonBody ?? ''),
-                  r'''$.id''',
-                );
-                FFAppState().update(() {});
-
-                context.pushNamed(
-                  'tray_mappimg',
-                  extra: <String, dynamic>{
-                    kTransitionInfoKey: const TransitionInfo(
-                      hasTransition: true,
-                      transitionType: PageTransitionType.fade,
-                      duration: Duration(milliseconds: 0),
-                    ),
-                  },
-                );
-              } else {
-                await showModalBottomSheet(
-                  isScrollControlled: true,
-                  backgroundColor: Colors.transparent,
-                  enableDrag: false,
-                  context: context,
-                  builder: (context) {
-                    return GestureDetector(
-                      onTap: () => _model.unfocusNode.canRequestFocus
-                          ? FocusScope.of(context)
-                              .requestFocus(_model.unfocusNode)
-                          : FocusScope.of(context).unfocus(),
-                      child: Padding(
-                        padding: MediaQuery.viewInsetsOf(context),
-                        child: const SlotInfo2Widget(),
-                      ),
-                    );
-                  },
-                ).then((value) => safeSetState(() {}));
-              }
-
-              return;
-            } else {
-              FFAppState().slotid = '';
-              FFAppState().update(() {});
-              return;
-            }
-          } else {
-            return;
-          }
-        },
-        startImmediately: true,
-      );
-    });
 
     _model.switchValue = true;
     _model.textController ??= TextEditingController();
@@ -476,91 +406,56 @@ class _SlotMappimgWidgetState extends State<SlotMappimgWidget> {
                                         child: FFButtonWidget(
                                           onPressed: () async {
                                             var shouldSetState = false;
-                                            FFAppState().slotid =
-                                                _model.textController.text;
-                                            FFAppState().update(() {});
-                                            if (FFAppState().slotid != '') {
-                                              _model.slotDetailBtn =
-                                                  await AdminApiGroup
-                                                      .slotInfoCall
-                                                      .call(
-                                                slotId: FFAppState().slotid,
-                                                robotId: FFAppState().robotid,
-                                              );
+                                            _model.slotDetailBtn =
+                                                await AdminApiGroup.slotInfoCall
+                                                    .call(
+                                              slotId:
+                                                  _model.textController.text,
+                                              robotId: FFAppState().robotid,
+                                            );
 
-                                              shouldSetState = true;
-                                              if ((_model.slotDetailBtn
-                                                      ?.succeeded ??
-                                                  true)) {
-                                                if (AdminApiGroup.slotInfoCall
-                                                        .status(
-                                                      (_model.slotDetailBtn
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    ) ==
-                                                    'free') {
-                                                  FFAppState().slotrecid =
-                                                      getJsonField(
-                                                    (_model.slotDetail
+                                            shouldSetState = true;
+                                            if ((_model
+                                                    .slotDetailBtn?.succeeded ??
+                                                true)) {
+                                              if (AdminApiGroup.slotInfoCall
+                                                      .status(
+                                                    (_model.slotDetailBtn
                                                             ?.jsonBody ??
                                                         ''),
-                                                    r'''$.id''',
-                                                  );
-                                                  FFAppState().update(() {});
-
-                                                  context.pushNamed(
-                                                    'tray_mappimg',
-                                                    extra: <String, dynamic>{
-                                                      kTransitionInfoKey:
-                                                          const TransitionInfo(
-                                                        hasTransition: true,
-                                                        transitionType:
-                                                            PageTransitionType
-                                                                .fade,
-                                                        duration: Duration(
-                                                            milliseconds: 0),
-                                                      ),
-                                                    },
-                                                  );
-                                                } else {
-                                                  await showModalBottomSheet(
-                                                    isScrollControlled: true,
-                                                    backgroundColor:
-                                                        Colors.transparent,
-                                                    enableDrag: false,
-                                                    context: context,
-                                                    builder: (context) {
-                                                      return GestureDetector(
-                                                        onTap: () => _model
-                                                                .unfocusNode
-                                                                .canRequestFocus
-                                                            ? FocusScope.of(
-                                                                    context)
-                                                                .requestFocus(_model
-                                                                    .unfocusNode)
-                                                            : FocusScope.of(
-                                                                    context)
-                                                                .unfocus(),
-                                                        child: Padding(
-                                                          padding: MediaQuery
-                                                              .viewInsetsOf(
-                                                                  context),
-                                                          child:
-                                                              const SlotInfo2Widget(),
-                                                        ),
-                                                      );
-                                                    },
-                                                  ).then((value) =>
-                                                      safeSetState(() {}));
-                                                }
-
-                                                if (shouldSetState) {
-                                                  setState(() {});
-                                                }
-                                                return;
-                                              } else {
-                                                FFAppState().slotid = '';
+                                                  ) ==
+                                                  'free') {
+                                                FFAppState().slotrecid =
+                                                    getJsonField(
+                                                  (_model.slotDetailBtn
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                  r'''$.id''',
+                                                );
+                                                FFAppState().slotid =
+                                                    AdminApiGroup.slotInfoCall
+                                                        .slotid(
+                                                  (_model.slotDetailBtn
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!;
                                                 FFAppState().update(() {});
+
+                                                context.pushNamed(
+                                                  'tray_mappimg',
+                                                  extra: <String, dynamic>{
+                                                    kTransitionInfoKey:
+                                                        const TransitionInfo(
+                                                      hasTransition: true,
+                                                      transitionType:
+                                                          PageTransitionType
+                                                              .fade,
+                                                      duration: Duration(
+                                                          milliseconds: 0),
+                                                    ),
+                                                  },
+                                                );
+                                              } else {
                                                 await showModalBottomSheet(
                                                   isScrollControlled: true,
                                                   backgroundColor:
@@ -583,19 +478,47 @@ class _SlotMappimgWidgetState extends State<SlotMappimgWidget> {
                                                         padding: MediaQuery
                                                             .viewInsetsOf(
                                                                 context),
-                                                        child: const NoRecordWidget(),
+                                                        child:
+                                                            const SlotInfo2Widget(),
                                                       ),
                                                     );
                                                   },
                                                 ).then((value) =>
                                                     safeSetState(() {}));
-
-                                                if (shouldSetState) {
-                                                  setState(() {});
-                                                }
-                                                return;
                                               }
+
+                                              if (shouldSetState) {
+                                                setState(() {});
+                                              }
+                                              return;
                                             } else {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child: const NoRecordWidget(),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+
                                               if (shouldSetState) {
                                                 setState(() {});
                                               }

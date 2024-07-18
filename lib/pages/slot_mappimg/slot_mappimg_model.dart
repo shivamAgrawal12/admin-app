@@ -1,6 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/instant_timer.dart';
 import 'slot_mappimg_widget.dart' show SlotMappimgWidget;
 import 'package:flutter/material.dart';
 
@@ -12,9 +11,6 @@ class SlotMappimgModel extends FlutterFlowModel<SlotMappimgWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  InstantTimer? instantTimer;
-  // Stores action output result for [Backend Call - API (slot info)] action in slot_mappimg widget.
-  ApiCallResponse? slotDetail;
   // State field(s) for Switch widget.
   bool? switchValue;
   // State field(s) for TextField widget.
@@ -30,7 +26,6 @@ class SlotMappimgModel extends FlutterFlowModel<SlotMappimgWidget> {
   @override
   void dispose() {
     unfocusNode.dispose();
-    instantTimer?.cancel();
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }
