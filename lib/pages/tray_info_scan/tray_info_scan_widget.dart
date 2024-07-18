@@ -2,14 +2,12 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/instant_timer.dart';
 import '/popup/menu/menu_widget.dart';
 import '/popup/no_record/no_record_widget.dart';
 import '/popup/tray_info/tray_info_widget.dart';
 import '/popup/tray_info_1/tray_info1_widget.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'tray_info_scan_model.dart';
@@ -31,76 +29,6 @@ class _TrayInfoScanWidgetState extends State<TrayInfoScanWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => TrayInfoScanModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.instantTimer = InstantTimer.periodic(
-        duration: const Duration(milliseconds: 1000),
-        callback: (timer) async {
-          if (FFAppState().trayid != '') {
-            _model.trayDetail = await AdminApiGroup.trayInfoCall.call(
-              trayId: FFAppState().trayid,
-              robotId: FFAppState().robotid,
-            );
-
-            if ((_model.trayDetail?.succeeded ?? true)) {
-              _model.instantTimer?.cancel();
-              if (AdminApiGroup.trayInfoCall.traystatus(
-                    (_model.trayDetail?.jsonBody ?? ''),
-                  ) ==
-                  'free') {
-                await showModalBottomSheet(
-                  isScrollControlled: true,
-                  backgroundColor: Colors.transparent,
-                  enableDrag: false,
-                  context: context,
-                  builder: (context) {
-                    return GestureDetector(
-                      onTap: () => _model.unfocusNode.canRequestFocus
-                          ? FocusScope.of(context)
-                              .requestFocus(_model.unfocusNode)
-                          : FocusScope.of(context).unfocus(),
-                      child: Padding(
-                        padding: MediaQuery.viewInsetsOf(context),
-                        child: const TrayInfo1Widget(),
-                      ),
-                    );
-                  },
-                ).then((value) => safeSetState(() {}));
-              } else {
-                await showModalBottomSheet(
-                  isScrollControlled: true,
-                  backgroundColor: Colors.transparent,
-                  enableDrag: false,
-                  context: context,
-                  builder: (context) {
-                    return GestureDetector(
-                      onTap: () => _model.unfocusNode.canRequestFocus
-                          ? FocusScope.of(context)
-                              .requestFocus(_model.unfocusNode)
-                          : FocusScope.of(context).unfocus(),
-                      child: Padding(
-                        padding: MediaQuery.viewInsetsOf(context),
-                        child: const TrayInfoWidget(),
-                      ),
-                    );
-                  },
-                ).then((value) => safeSetState(() {}));
-              }
-
-              return;
-            } else {
-              FFAppState().slotid = '';
-              FFAppState().update(() {});
-              return;
-            }
-          } else {
-            return;
-          }
-        },
-        startImmediately: true,
-      );
-    });
 
     _model.switchValue = true;
     _model.textController ??= TextEditingController();
@@ -334,7 +262,7 @@ class _TrayInfoScanWidgetState extends State<TrayInfoScanWidget> {
                                     child: SizedBox(
                                       width: 300.0,
                                       height: 300.0,
-                                      child: custom_widgets.QRTrayScan(
+                                      child: custom_widgets.QRTrayInfo(
                                         width: 300.0,
                                         height: 300.0,
                                       ),

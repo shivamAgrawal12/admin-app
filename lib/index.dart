@@ -24,3 +24,5 @@ export '/pages/list_of_picking/list_of_picking_widget.dart'
 export '/pages/pending_task/pending_task_widget.dart' show PendingTaskWidget;
 export '/pages/register_robot/register_robot_widget.dart'
     show RegisterRobotWidget;
+export '/pages/register_shuttles/register_shuttles_widget.dart'
+    show RegisterShuttlesWidget;

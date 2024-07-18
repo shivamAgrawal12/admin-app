@@ -45,7 +45,7 @@ class _NewRobotWidgetState extends State<NewRobotWidget> {
       alignment: const AlignmentDirectional(0.0, -0.6),
       child: Container(
         width: 270.0,
-        height: 220.0,
+        height: 225.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
           borderRadius: BorderRadius.circular(10.0),

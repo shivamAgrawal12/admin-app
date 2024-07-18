@@ -39,6 +39,9 @@ class AdminApiGroup {
   static CancelPendingTaskCall cancelPendingTaskCall = CancelPendingTaskCall();
   static ChangeSlotTypeCall changeSlotTypeCall = ChangeSlotTypeCall();
   static DirectPickableCall directPickableCall = DirectPickableCall();
+  static AddShuttlesCall addShuttlesCall = AddShuttlesCall();
+  static MappingTrayAsnShuttleCall mappingTrayAsnShuttleCall =
+      MappingTrayAsnShuttleCall();
 }
 
 class VerifyRobotIdCall {
@@ -936,6 +939,99 @@ class DirectPickableCall {
         r'''$.records''',
         true,
       ) as List?;
+}
+
+class AddShuttlesCall {
+  Future<ApiCallResponse> call({
+    int? currentSlot,
+    int? currentRack,
+    int? currentRow,
+    String? shuttleIpAddress = '',
+    String? shuttleId = '',
+    String? robotId = '',
+  }) async {
+    final baseUrl = AdminApiGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "shuttle_id": "$shuttleId",
+  "shuttle_ip_address": "$shuttleIpAddress",
+  "current_row":$currentRow,
+  "current_rack": $currentRack,
+  "current_slot": $currentSlot
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'add shuttles',
+      apiUrl: '$baseUrl/robotmanager/shuttles/?robot_id=$robotId',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization':
+            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  List? records(dynamic response) => getJsonField(
+        response,
+        r'''$.records''',
+        true,
+      ) as List?;
+  bool? statusbool(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.statusbool''',
+      ));
+}
+
+class MappingTrayAsnShuttleCall {
+  Future<ApiCallResponse> call({
+    String? robotId = '',
+    String? trayId = '',
+    String? slotId = '',
+  }) async {
+    final baseUrl = AdminApiGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'mapping tray asn shuttle',
+      apiUrl:
+          '$baseUrl/robotmanager/trays/mapping?robot_id=$robotId&tray_id=$trayId&slot_id=$slotId&robot=false',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization':
+            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+      },
+      params: {},
+      bodyType: BodyType.NONE,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  List? records(dynamic response) => getJsonField(
+        response,
+        r'''$.records''',
+        true,
+      ) as List?;
+  bool? statusbool(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.statusbool''',
+      ));
 }
 
 /// End admin api Group Code

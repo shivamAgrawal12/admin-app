@@ -334,7 +334,7 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget> {
                                     child: SizedBox(
                                       width: 300.0,
                                       height: 300.0,
-                                      child: custom_widgets.QRTrayScan(
+                                      child: custom_widgets.QRTrayMap(
                                         width: 300.0,
                                         height: 300.0,
                                       ),

@@ -184,6 +184,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'register_robot',
           path: '/registerRobot',
           builder: (context, params) => const RegisterRobotWidget(),
+        ),
+        FFRoute(
+          name: 'register_shuttles',
+          path: '/registerShuttles',
+          builder: (context, params) => const RegisterShuttlesWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

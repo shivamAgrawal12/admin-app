@@ -5,20 +5,20 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/popup/successfull/successfull_widget.dart';
 import '/popup/wrong/wrong_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
-import 'mapping_confirmation_model.dart';
-export 'mapping_confirmation_model.dart';
+import 'friendly_name_model.dart';
+export 'friendly_name_model.dart';
 
-class MappingConfirmationWidget extends StatefulWidget {
-  const MappingConfirmationWidget({super.key});
+class FriendlyNameWidget extends StatefulWidget {
+  const FriendlyNameWidget({super.key});
 
   @override
-  State<MappingConfirmationWidget> createState() =>
-      _MappingConfirmationWidgetState();
+  State<FriendlyNameWidget> createState() => _FriendlyNameWidgetState();
 }
 
-class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
-  late MappingConfirmationModel _model;
+class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
+  late FriendlyNameModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -29,7 +29,25 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => MappingConfirmationModel());
+    _model = createModel(context, () => FriendlyNameModel());
+
+    // On component load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.deleteTray = await AdminApiGroup.trayInfoCall.call(
+        trayId: FFAppState().trayid,
+      );
+
+      if ((_model.deleteTray?.succeeded ?? true)) {
+        FFAppState().trayrecid = getJsonField(
+          (_model.deleteTray?.jsonBody ?? ''),
+          r'''$.records[0].id''',
+        );
+        FFAppState().update(() {});
+      }
+    });
+
+    _model.textController ??= TextEditingController();
+    _model.textFieldFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -48,18 +66,19 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
     return Align(
       alignment: const AlignmentDirectional(0.0, -0.6),
       child: Container(
-        width: 290.0,
-        height: 410.0,
+        width: 280.0,
+        height: 290.0,
         decoration: BoxDecoration(
-          color: const Color(0xFFEFFBE3),
+          color: FlutterFlowTheme.of(context).liteBg,
           borderRadius: BorderRadius.circular(10.0),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Container(
               width: 290.0,
-              height: 200.0,
+              height: 60.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).primaryBackground,
                 boxShadow: const [
@@ -73,148 +92,113 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                   )
                 ],
                 borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(25.0),
-                  bottomRight: Radius.circular(25.0),
+                  bottomLeft: Radius.circular(20.0),
+                  bottomRight: Radius.circular(20.0),
                   topLeft: Radius.circular(10.0),
                   topRight: Radius.circular(10.0),
                 ),
               ),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
-                        child: Text(
-                          'Confirmation !',
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Raleway',
-                                    color: FlutterFlowTheme.of(context).heading,
-                                    fontSize: 16.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                        ),
+              child: Align(
+                alignment: const AlignmentDirectional(0.0, 0.0),
+                child: Text(
+                  'Change To Picking Station',
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Raleway',
+                        color: FlutterFlowTheme.of(context).heading,
+                        fontSize: 16.0,
+                        letterSpacing: 0.0,
+                        fontWeight: FontWeight.w600,
                       ),
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
-                    child: Container(
-                      width: 290.0,
-                      height: 1.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                      ),
-                    ),
-                  ),
-                  Text(
-                    'Slot ID',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Open Sans',
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.w500,
-                        ),
-                  ),
-                  Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
-                    child: Text(
-                      FFAppState().slotid,
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Open Sans',
-                            fontSize: 30.0,
-                            letterSpacing: 0.5,
-                            fontWeight: FontWeight.bold,
-                            lineHeight: 1.0,
-                          ),
-                    ),
-                  ),
-                  Text(
-                    'Tray ID',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Open Sans',
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.w500,
-                        ),
-                  ),
-                  Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
-                    child: Text(
-                      FFAppState().trayid,
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Open Sans',
-                            fontSize: 25.0,
-                            letterSpacing: 0.5,
-                            fontWeight: FontWeight.bold,
-                            lineHeight: 1.0,
-                          ),
-                    ),
-                  ),
-                ]
-                    .divide(const SizedBox(height: 8.0))
-                    .addToStart(const SizedBox(height: 15.0)),
+                ),
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
               child: Text(
-                'Slot & Tray QR',
+                FFAppState().slotid,
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Raleway',
-                      color: FlutterFlowTheme.of(context).subHeader,
-                      fontSize: 16.0,
+                      fontSize: 30.0,
                       letterSpacing: 0.5,
                       fontWeight: FontWeight.w600,
+                      lineHeight: 1.0,
                     ),
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
-                    child: Text(
-                      'Scanned Successfully',
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Raleway',
-                            color: FlutterFlowTheme.of(context).subHeader,
-                            fontSize: 16.0,
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.w600,
-                          ),
-                    ),
-                  ),
-                  Icon(
-                    Icons.task_alt,
-                    color: FlutterFlowTheme.of(context).subHeader,
-                    size: 18.0,
-                  ),
-                ].divide(const SizedBox(width: 5.0)),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
               child: Text(
-                'Tap Confirm to Mapped Tray',
+                'Enter Friendly Name',
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Raleway',
-                      color: FlutterFlowTheme.of(context).subHeader,
-                      fontSize: 16.0,
-                      letterSpacing: 0.5,
-                      fontWeight: FontWeight.bold,
+                      color: FlutterFlowTheme.of(context).liteText,
+                      fontSize: 15.0,
+                      letterSpacing: 0.0,
+                      fontWeight: FontWeight.w600,
+                      lineHeight: 1.0,
                     ),
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 25.0, 15.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(8.0, 10.0, 8.0, 0.0),
+              child: SizedBox(
+                width: 210.0,
+                child: TextFormField(
+                  controller: _model.textController,
+                  focusNode: _model.textFieldFocusNode,
+                  autofocus: false,
+                  obscureText: false,
+                  decoration: InputDecoration(
+                    hintText: 'friendly name',
+                    hintStyle:
+                        FlutterFlowTheme.of(context).labelMedium.override(
+                              fontFamily: 'Open Sans',
+                              fontSize: 15.0,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.w500,
+                            ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).liteText,
+                        width: 1.5,
+                      ),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).heading,
+                        width: 1.5,
+                      ),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).error,
+                        width: 1.5,
+                      ),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).error,
+                        width: 1.5,
+                      ),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Open Sans',
+                        fontSize: 15.0,
+                        letterSpacing: 0.0,
+                        fontWeight: FontWeight.w600,
+                      ),
+                  validator:
+                      _model.textControllerValidator.asValidator(context),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 15.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -222,11 +206,11 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                   FFButtonWidget(
                     onPressed: () async {
                       FFAppState().slotid = '';
-                      FFAppState().trayid = '';
+                      FFAppState().hideslot = 0;
                       FFAppState().update(() {});
 
                       context.pushNamed(
-                        'slot_mappimg',
+                        'home',
                         extra: <String, dynamic>{
                           kTransitionInfoKey: const TransitionInfo(
                             hasTransition: true,
@@ -241,14 +225,14 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                       width: 100.0,
                       height: 40.0,
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
                       iconPadding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: const Color(0x00FFFFFF),
+                      color: const Color(0x00351C75),
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
-                                fontFamily: 'Open Sans',
-                                color: FlutterFlowTheme.of(context).heading,
+                                fontFamily: 'Raleway',
+                                color: FlutterFlowTheme.of(context).accent,
                                 fontSize: 16.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.w600,
@@ -256,7 +240,6 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                       elevation: 0.0,
                       borderSide: BorderSide(
                         color: FlutterFlowTheme.of(context).heading,
-                        width: 1.0,
                       ),
                       borderRadius: BorderRadius.circular(5.0),
                     ),
@@ -278,14 +261,13 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                     ),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        _model.trayMapingBtn =
-                            await AdminApiGroup.mappingTrayAsnShuttleCall.call(
-                          slotId: FFAppState().slotid,
-                          trayId: FFAppState().trayid,
-                          robotId: FFAppState().robotid,
+                        _model.addPickingStation =
+                            await AdminApiGroup.changeSlotTypeCall.call(
+                          id: FFAppState().slotrecid,
+                          type: 'picking_station',
                         );
 
-                        if ((_model.trayMapingBtn?.succeeded ?? true)) {
+                        if ((_model.addPickingStation?.succeeded ?? true)) {
                           await showModalBottomSheet(
                             isScrollControlled: true,
                             backgroundColor: Colors.transparent,

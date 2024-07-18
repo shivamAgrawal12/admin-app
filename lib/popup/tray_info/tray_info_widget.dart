@@ -189,7 +189,7 @@ class _TrayInfoWidgetState extends State<TrayInfoWidget> {
                         )
                       ],
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Open Sans',
+                            fontFamily: 'Raleway',
                             fontSize: 18.0,
                             letterSpacing: 0.5,
                           ),

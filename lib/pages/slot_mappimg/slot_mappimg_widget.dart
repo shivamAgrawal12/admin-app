@@ -334,7 +334,7 @@ class _SlotMappimgWidgetState extends State<SlotMappimgWidget> {
                                       child: SizedBox(
                                         width: 300.0,
                                         height: 300.0,
-                                        child: custom_widgets.QRSlotScan(
+                                        child: custom_widgets.QRSlotMap(
                                           width: 300.0,
                                           height: 300.0,
                                         ),

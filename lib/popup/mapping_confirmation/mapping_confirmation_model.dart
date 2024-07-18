@@ -7,8 +7,8 @@ class MappingConfirmationModel
     extends FlutterFlowModel<MappingConfirmationWidget> {
   ///  State fields for stateful widgets in this component.
 
-  // Stores action output result for [Backend Call - API (patch tray id in slot)] action in Button widget.
-  ApiCallResponse? trayPatch;
+  // Stores action output result for [Backend Call - API (mapping tray asn shuttle)] action in Button widget.
+  ApiCallResponse? trayMapingBtn;
 
   @override
   void initState(BuildContext context) {}

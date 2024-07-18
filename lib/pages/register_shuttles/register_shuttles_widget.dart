@@ -2,48 +2,45 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/popup/robot_register/robot_register_widget.dart';
 import '/popup/wrong/wrong_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
-import 'register_robot_model.dart';
-export 'register_robot_model.dart';
+import 'register_shuttles_model.dart';
+export 'register_shuttles_model.dart';
 
-class RegisterRobotWidget extends StatefulWidget {
-  const RegisterRobotWidget({super.key});
+class RegisterShuttlesWidget extends StatefulWidget {
+  const RegisterShuttlesWidget({super.key});
 
   @override
-  State<RegisterRobotWidget> createState() => _RegisterRobotWidgetState();
+  State<RegisterShuttlesWidget> createState() => _RegisterShuttlesWidgetState();
 }
 
-class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
-  late RegisterRobotModel _model;
+class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget> {
+  late RegisterShuttlesModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => RegisterRobotModel());
+    _model = createModel(context, () => RegisterShuttlesModel());
 
-    _model.nameTextController ??= TextEditingController();
-    _model.nameFocusNode ??= FocusNode();
-
-    _model.idTextController ??=
-        TextEditingController(text: FFAppState().robotid);
+    _model.idTextController ??= TextEditingController();
     _model.idFocusNode ??= FocusNode();
 
-    _model.rowTextController ??= TextEditingController(text: '1');
+    _model.ipTextController ??= TextEditingController();
+    _model.ipFocusNode ??= FocusNode();
+
+    _model.rowTextController ??= TextEditingController();
     _model.rowFocusNode ??= FocusNode();
 
-    _model.rackTextController ??= TextEditingController(text: '1');
+    _model.rackTextController ??= TextEditingController();
     _model.rackFocusNode ??= FocusNode();
 
-    _model.slotTextController ??= TextEditingController(text: '1');
+    _model.slotTextController ??= TextEditingController();
     _model.slotFocusNode ??= FocusNode();
-
-    _model.depthTextController ??= TextEditingController(text: '1');
-    _model.depthFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -163,7 +160,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'Register New Robot',
+                            'Register New Shuttle',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -195,92 +192,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     5.0, 5.0, 0.0, 0.0),
                                 child: Text(
-                                  'Robot Name',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Open Sans',
-                                        color: FlutterFlowTheme.of(context)
-                                            .liteText,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 5.0, 8.0, 0.0),
-                              child: SizedBox(
-                                width: 310.0,
-                                child: TextFormField(
-                                  controller: _model.nameTextController,
-                                  focusNode: _model.nameFocusNode,
-                                  autofocus: false,
-                                  obscureText: false,
-                                  decoration: InputDecoration(
-                                    hintText: 'Enter robot name',
-                                    hintStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .override(
-                                          fontFamily: 'Open Sans',
-                                          fontSize: 16.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.normal,
-                                        ),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: FlutterFlowTheme.of(context)
-                                            .liteText,
-                                        width: 1.5,
-                                      ),
-                                      borderRadius: BorderRadius.circular(5.0),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: FlutterFlowTheme.of(context)
-                                            .subHeader,
-                                        width: 1.5,
-                                      ),
-                                      borderRadius: BorderRadius.circular(5.0),
-                                    ),
-                                    errorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color:
-                                            FlutterFlowTheme.of(context).error,
-                                        width: 1.5,
-                                      ),
-                                      borderRadius: BorderRadius.circular(5.0),
-                                    ),
-                                    focusedErrorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color:
-                                            FlutterFlowTheme.of(context).error,
-                                        width: 1.5,
-                                      ),
-                                      borderRadius: BorderRadius.circular(5.0),
-                                    ),
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Open Sans',
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                  validator: _model.nameTextControllerValidator
-                                      .asValidator(context),
-                                ),
-                              ),
-                            ),
-                            Align(
-                              alignment: const AlignmentDirectional(-1.0, -1.0),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    5.0, 10.0, 0.0, 0.0),
-                                child: Text(
-                                  'Robot Id',
+                                  'Shuttle Id',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -304,7 +216,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                   autofocus: false,
                                   obscureText: false,
                                   decoration: InputDecoration(
-                                    hintText: 'Enter robot id',
+                                    hintText: 'Enter shuttle id',
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
@@ -365,7 +277,92 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     5.0, 10.0, 0.0, 0.0),
                                 child: Text(
-                                  'Robot Max Row',
+                                  'Shuttle Ip Address',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Open Sans',
+                                        color: FlutterFlowTheme.of(context)
+                                            .liteText,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  8.0, 5.0, 8.0, 0.0),
+                              child: SizedBox(
+                                width: 310.0,
+                                child: TextFormField(
+                                  controller: _model.ipTextController,
+                                  focusNode: _model.ipFocusNode,
+                                  autofocus: false,
+                                  obscureText: false,
+                                  decoration: InputDecoration(
+                                    hintText: 'Enter shuttle ip address',
+                                    hintStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .override(
+                                          fontFamily: 'Open Sans',
+                                          fontSize: 16.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .liteText,
+                                        width: 1.5,
+                                      ),
+                                      borderRadius: BorderRadius.circular(5.0),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .subHeader,
+                                        width: 1.5,
+                                      ),
+                                      borderRadius: BorderRadius.circular(5.0),
+                                    ),
+                                    errorBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color:
+                                            FlutterFlowTheme.of(context).error,
+                                        width: 1.5,
+                                      ),
+                                      borderRadius: BorderRadius.circular(5.0),
+                                    ),
+                                    focusedErrorBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color:
+                                            FlutterFlowTheme.of(context).error,
+                                        width: 1.5,
+                                      ),
+                                      borderRadius: BorderRadius.circular(5.0),
+                                    ),
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Open Sans',
+                                        fontSize: 16.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                  validator: _model.ipTextControllerValidator
+                                      .asValidator(context),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: const AlignmentDirectional(-1.0, -1.0),
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    5.0, 10.0, 0.0, 0.0),
+                                child: Text(
+                                  'Current Row',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -390,7 +387,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                   textCapitalization: TextCapitalization.none,
                                   obscureText: false,
                                   decoration: InputDecoration(
-                                    hintText: 'Enter max row',
+                                    hintText: 'Enter current row',
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
@@ -452,7 +449,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     5.0, 10.0, 0.0, 0.0),
                                 child: Text(
-                                  'Robot Max Rack',
+                                  'Current Rack',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -477,7 +474,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                   textCapitalization: TextCapitalization.none,
                                   obscureText: false,
                                   decoration: InputDecoration(
-                                    hintText: 'Enter max rack',
+                                    hintText: 'Enter current rack',
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
@@ -539,7 +536,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     5.0, 10.0, 0.0, 0.0),
                                 child: Text(
-                                  'Robot Max Slot',
+                                  'Current Slot',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -564,7 +561,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                   textCapitalization: TextCapitalization.none,
                                   obscureText: false,
                                   decoration: InputDecoration(
-                                    hintText: 'Enter max slot',
+                                    hintText: 'Enter current slot',
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
@@ -620,96 +617,9 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                 ),
                               ),
                             ),
-                            Align(
-                              alignment: const AlignmentDirectional(-1.0, -1.0),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    5.0, 10.0, 0.0, 0.0),
-                                child: Text(
-                                  'Robot Max Depth',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Open Sans',
-                                        color: FlutterFlowTheme.of(context)
-                                            .liteText,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                ),
-                              ),
-                            ),
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 5.0, 8.0, 0.0),
-                              child: SizedBox(
-                                width: 310.0,
-                                child: TextFormField(
-                                  controller: _model.depthTextController,
-                                  focusNode: _model.depthFocusNode,
-                                  autofocus: false,
-                                  textCapitalization: TextCapitalization.none,
-                                  obscureText: false,
-                                  decoration: InputDecoration(
-                                    hintText: 'Enter max depth',
-                                    hintStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .override(
-                                          fontFamily: 'Open Sans',
-                                          fontSize: 16.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.normal,
-                                        ),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: FlutterFlowTheme.of(context)
-                                            .liteText,
-                                        width: 1.5,
-                                      ),
-                                      borderRadius: BorderRadius.circular(5.0),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: FlutterFlowTheme.of(context)
-                                            .subHeader,
-                                        width: 1.5,
-                                      ),
-                                      borderRadius: BorderRadius.circular(5.0),
-                                    ),
-                                    errorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color:
-                                            FlutterFlowTheme.of(context).error,
-                                        width: 1.5,
-                                      ),
-                                      borderRadius: BorderRadius.circular(5.0),
-                                    ),
-                                    focusedErrorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color:
-                                            FlutterFlowTheme.of(context).error,
-                                        width: 1.5,
-                                      ),
-                                      borderRadius: BorderRadius.circular(5.0),
-                                    ),
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Open Sans',
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                  keyboardType: TextInputType.number,
-                                  validator: _model.depthTextControllerValidator
-                                      .asValidator(context),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 30.0, 0.0, 0.0),
+                                  0.0, 40.0, 0.0, 0.0),
                               child: Container(
                                 width: 140.0,
                                 height: 40.0,
@@ -727,38 +637,45 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                 ),
                                 child: FFButtonWidget(
                                   onPressed: () async {
-                                    _model.newRobot = await AdminApiGroup
-                                        .registerNewRobotCall
+                                    _model.newShuttle = await AdminApiGroup
+                                        .addShuttlesCall
                                         .call(
-                                      maxDepth: int.tryParse(
-                                          _model.depthTextController.text),
-                                      maxSlot: int.tryParse(
-                                          _model.slotTextController.text),
-                                      maxRack: int.tryParse(
-                                          _model.rackTextController.text),
-                                      maxRow: int.tryParse(
+                                      robotId: FFAppState().robotid,
+                                      shuttleId: _model.idTextController.text,
+                                      shuttleIpAddress:
+                                          _model.ipTextController.text,
+                                      currentRow: int.tryParse(
                                           _model.rowTextController.text),
-                                      status: 'active',
-                                      robotId: _model.idTextController.text,
-                                      robotName: _model.nameTextController.text,
+                                      currentRack: int.tryParse(
+                                          _model.rackTextController.text),
+                                      currentSlot: int.tryParse(
+                                          _model.slotTextController.text),
                                     );
 
-                                    if ((_model.newRobot?.succeeded ?? true)) {
-                                      FFAppState().robotid =
-                                          _model.idTextController.text;
-                                      FFAppState().update(() {});
-
-                                      context.pushNamed(
-                                        'register_shuttles',
-                                        extra: <String, dynamic>{
-                                          kTransitionInfoKey: const TransitionInfo(
-                                            hasTransition: true,
-                                            transitionType:
-                                                PageTransitionType.fade,
-                                            duration: Duration(milliseconds: 0),
-                                          ),
+                                    if ((_model.newShuttle?.succeeded ??
+                                        true)) {
+                                      await showModalBottomSheet(
+                                        isScrollControlled: true,
+                                        backgroundColor: Colors.transparent,
+                                        enableDrag: false,
+                                        context: context,
+                                        builder: (context) {
+                                          return GestureDetector(
+                                            onTap: () => _model
+                                                    .unfocusNode.canRequestFocus
+                                                ? FocusScope.of(context)
+                                                    .requestFocus(
+                                                        _model.unfocusNode)
+                                                : FocusScope.of(context)
+                                                    .unfocus(),
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: const RobotRegisterWidget(),
+                                            ),
+                                          );
                                         },
-                                      );
+                                      ).then((value) => safeSetState(() {}));
                                     } else {
                                       await showModalBottomSheet(
                                         isScrollControlled: true,

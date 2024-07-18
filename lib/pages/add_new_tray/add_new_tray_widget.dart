@@ -324,7 +324,7 @@ class _AddNewTrayWidgetState extends State<AddNewTrayWidget> {
                                     child: SizedBox(
                                       width: 300.0,
                                       height: 300.0,
-                                      child: custom_widgets.QRTrayScan(
+                                      child: custom_widgets.QRTrayAddNew(
                                         width: 300.0,
                                         height: 300.0,
                                       ),

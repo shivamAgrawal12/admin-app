@@ -347,7 +347,7 @@ class _TrayRemoveWidgetState extends State<TrayRemoveWidget> {
                                     child: SizedBox(
                                       width: 300.0,
                                       height: 300.0,
-                                      child: custom_widgets.QRTrayScan(
+                                      child: custom_widgets.QRTrayRemove(
                                         width: 300.0,
                                         height: 300.0,
                                       ),
