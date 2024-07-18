@@ -9,6 +9,16 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'index.dart'; // Imports other custom widgets
+
+import 'dart:io';
+import '/backend/api_requests/api_calls.dart';
+import 'package:mobile_scanner/mobile_scanner.dart'; // Import MobileScanner
+import '/popup/menu/menu_widget.dart';
+import '/popup/friendly_name_wrg/friendly_name_wrg_widget.dart';
+import '/popup/successfull/successfull_widget.dart' show SuccessfullWidget;
+import '/popup/wrong/wrong_widget.dart';
+
 class LocationQRScan extends StatefulWidget {
   const LocationQRScan({
     super.key,
@@ -26,8 +36,130 @@ class LocationQRScan extends StatefulWidget {
 }
 
 class _LocationQRScanState extends State<LocationQRScan> {
+  MobileScannerController controller = MobileScannerController();
+  bool isProcessing = false;
+
+  @override
+  void initState() {
+    super.initState();
+    controller.start();
+  }
+
+  @override
+  void reassemble() {
+    super.reassemble();
+    if (Platform.isAndroid) {
+      controller.stop();
+    }
+    controller.start();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Stack(
+        children: [
+          MobileScanner(
+            controller: controller,
+            onDetect: (barcodeCapture) async {
+              if (isProcessing) return;
+              setState(() {
+                isProcessing = true;
+              });
+
+              final String? scannedValue =
+                  barcodeCapture.barcodes.first.rawValue;
+
+              if (scannedValue != null) {
+                // Handle your API call and UI updates here
+                await _handleScannedValue(scannedValue);
+              } else {
+                // Handle no value scenario if needed
+              }
+
+              setState(() {
+                isProcessing = false;
+              });
+            },
+          ),
+          // Add any additional UI elements or controls here
+        ],
+      ),
+    );
+  }
+
+  Future<void> _handleScannedValue(String scannedValue) async {
+    var _shouldSetState = false;
+
+    if (FFAppState().friendlyname == scannedValue) {
+      final taskCompleteResult = await AdminApiGroup.taskCompleteCall.call(
+        id: FFAppState().taskrecid,
+      );
+      _shouldSetState = true;
+      if (taskCompleteResult.succeeded) {
+        await showModalBottomSheet(
+          isScrollControlled: true,
+          backgroundColor: Colors.transparent,
+          enableDrag: false,
+          context: context,
+          builder: (context) {
+            return GestureDetector(
+              onTap: () => _unfocusIfNeeded(context),
+              child: Padding(
+                padding: MediaQuery.of(context).viewInsets,
+                child: SuccessfullWidget(),
+              ),
+            );
+          },
+        ).then((value) => setState(() {}));
+      } else {
+        await showModalBottomSheet(
+          isScrollControlled: true,
+          backgroundColor: Colors.transparent,
+          enableDrag: false,
+          context: context,
+          builder: (context) {
+            return GestureDetector(
+              onTap: () => _unfocusIfNeeded(context),
+              child: Padding(
+                padding: MediaQuery.of(context).viewInsets,
+                child: WrongWidget(),
+              ),
+            );
+          },
+        ).then((value) => setState(() {}));
+      }
+    } else {
+      await showModalBottomSheet(
+        isScrollControlled: true,
+        backgroundColor: Colors.transparent,
+        enableDrag: false,
+        context: context,
+        builder: (context) {
+          return GestureDetector(
+            onTap: () => _unfocusIfNeeded(context),
+            child: Padding(
+              padding: MediaQuery.of(context).viewInsets,
+              child: FriendlyNameWrgWidget(),
+            ),
+          );
+        },
+      ).then((value) => setState(() {}));
+      if (_shouldSetState) setState(() {});
+      return;
+    }
+    if (_shouldSetState) setState(() {});
+  }
+
+  void _unfocusIfNeeded(BuildContext context) {
+    if (FocusScope.of(context).hasFocus) {
+      FocusScope.of(context).unfocus();
+    }
   }
 }

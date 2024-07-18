@@ -4,6 +4,9 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'successfull_model.dart';
 export 'successfull_model.dart';
 
@@ -46,7 +49,7 @@ class _SuccessfullWidgetState extends State<SuccessfullWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0.0, -0.6),
+      alignment: AlignmentDirectional(0.0, -0.6),
       child: Container(
         width: 270.0,
         height: 230.0,
@@ -55,18 +58,18 @@ class _SuccessfullWidgetState extends State<SuccessfullWidget> {
           borderRadius: BorderRadius.circular(10.0),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: EdgeInsets.all(10.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Align(
-                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Text(
                         'Successfully',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -83,7 +86,7 @@ class _SuccessfullWidgetState extends State<SuccessfullWidget> {
                       color: FlutterFlowTheme.of(context).success,
                       size: 19.0,
                     ),
-                  ].divide(const SizedBox(width: 5.0)),
+                  ].divide(SizedBox(width: 5.0)),
                 ),
               ),
               ClipRRect(
@@ -103,7 +106,7 @@ class _SuccessfullWidgetState extends State<SuccessfullWidget> {
                   milliSecond: false,
                 ),
                 controller: _model.timerController,
-                updateStateInterval: const Duration(milliseconds: 1000),
+                updateStateInterval: Duration(milliseconds: 1000),
                 onChanged: (value, displayTime, shouldUpdate) {
                   _model.timerMilliseconds = value;
                   _model.timerValue = displayTime;
@@ -122,7 +125,7 @@ class _SuccessfullWidgetState extends State<SuccessfullWidget> {
                   context.pushNamed(
                     'home',
                     extra: <String, dynamic>{
-                      kTransitionInfoKey: const TransitionInfo(
+                      kTransitionInfoKey: TransitionInfo(
                         hasTransition: true,
                         transitionType: PageTransitionType.fade,
                         duration: Duration(milliseconds: 0),
@@ -139,7 +142,7 @@ class _SuccessfullWidgetState extends State<SuccessfullWidget> {
                       fontWeight: FontWeight.w100,
                     ),
               ),
-            ].divide(const SizedBox(height: 20.0)),
+            ].divide(SizedBox(height: 20.0)),
           ),
         ),
       ),

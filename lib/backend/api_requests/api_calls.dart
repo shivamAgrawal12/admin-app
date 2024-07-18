@@ -1,4 +1,6 @@
 import 'dart:convert';
+import 'dart:typed_data';
+import '../schema/structs/index.dart';
 
 import 'package:flutter/foundation.dart';
 
@@ -53,7 +55,7 @@ class VerifyRobotIdCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'verify robot id',
-      apiUrl: '$baseUrl/robotmanager/robots/',
+      apiUrl: '${baseUrl}/robotmanager/robots/',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -120,7 +122,7 @@ class GenerateOtpCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'generate otp',
-      apiUrl: '$baseUrl/auth/generate_mock_otp/',
+      apiUrl: '${baseUrl}/auth/generate_mock_otp/',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -155,7 +157,7 @@ class ValidateOtpCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'validate otp',
-      apiUrl: '$baseUrl/auth/validate_mock_otp/',
+      apiUrl: '${baseUrl}/auth/validate_mock_otp/',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -195,7 +197,7 @@ class SlotInfoCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'slot info',
-      apiUrl: '$baseUrl/robotmanager/slots/',
+      apiUrl: '${baseUrl}/robotmanager/slots/',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -268,7 +270,7 @@ class TrayInfoCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'tray info',
-      apiUrl: '$baseUrl/robotmanager/trays/',
+      apiUrl: '${baseUrl}/robotmanager/trays/',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -317,11 +319,11 @@ class PatchTrayIdInSlotCall {
 
     final ffApiRequestBody = '''
 {
-  "tray_id": "$trayId"
+  "tray_id": "${trayId}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'patch tray id in slot',
-      apiUrl: '$baseUrl/robotmanager/slots/$id',
+      apiUrl: '${baseUrl}/robotmanager/slots/${id}',
       callType: ApiCallType.PATCH,
       headers: {
         'Authorization':
@@ -367,14 +369,14 @@ class AddNewTrayCall {
 
     final ffApiRequestBody = '''
 {
-  "tray_id": "$trayId",
-  "robot_id": "$robotId",
-  "tray_status": "$trayStatus",
-  "tray_size": "$traySize"
+  "tray_id": "${trayId}",
+  "robot_id": "${robotId}",
+  "tray_status": "${trayStatus}",
+  "tray_size": "${traySize}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'add new tray',
-      apiUrl: '$baseUrl/robotmanager/trays/',
+      apiUrl: '${baseUrl}/robotmanager/trays/',
       callType: ApiCallType.POST,
       headers: {
         'Authorization':
@@ -408,7 +410,7 @@ class DeleteTrayCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'delete tray',
-      apiUrl: '$baseUrl/robotmanager/trays/$id',
+      apiUrl: '${baseUrl}/robotmanager/trays/${id}',
       callType: ApiCallType.DELETE,
       headers: {
         'Authorization':
@@ -445,7 +447,7 @@ class SlotInfoByTrayIdCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'slot info by tray id',
-      apiUrl: '$baseUrl/robotmanager/slots/',
+      apiUrl: '${baseUrl}/robotmanager/slots/',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -495,7 +497,7 @@ class PostTaskCall {
     return ApiManager.instance.makeApiCall(
       callName: 'post task',
       apiUrl:
-          '$baseUrl/robotmanager/task/?robot_id=$robotId&tray_id=$trayId&task_type=$taskType',
+          '${baseUrl}/robotmanager/task/?robot_id=${robotId}&tray_id=${trayId}&task_type=${taskType}',
       callType: ApiCallType.POST,
       headers: {
         'Authorization':
@@ -539,7 +541,7 @@ class TaskDetailsCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'task details',
-      apiUrl: '$baseUrl/robotmanager/task/',
+      apiUrl: '${baseUrl}/robotmanager/task/',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -584,7 +586,7 @@ class ListOfTrayCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'list of tray',
-      apiUrl: '$baseUrl/robotmanager/trays/',
+      apiUrl: '${baseUrl}/robotmanager/trays/',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -627,7 +629,7 @@ class ListOfSlotCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'list of slot',
-      apiUrl: '$baseUrl/robotmanager/slots/',
+      apiUrl: '${baseUrl}/robotmanager/slots/',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -668,7 +670,7 @@ class TaskByStatusCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'task by status',
-      apiUrl: '$baseUrl/robotmanager/task/',
+      apiUrl: '${baseUrl}/robotmanager/task/',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -715,17 +717,17 @@ class RegisterNewRobotCall {
 
     final ffApiRequestBody = '''
 {
-  "robot_name": "$robotName",
-  "robot_id": "$robotId",
-  "status": "$status",
-  "max_row": $maxRow,
-  "max_rack": $maxRack,
-  "max_slot": $maxSlot,
-  "max_depth": $maxDepth
+  "robot_name": "${robotName}",
+  "robot_id": "${robotId}",
+  "status": "${status}",
+  "max_row": ${maxRow},
+  "max_rack": ${maxRack},
+  "max_slot": ${maxSlot},
+  "max_depth": ${maxDepth}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'register new robot',
-      apiUrl: '$baseUrl/robotmanager/robots/',
+      apiUrl: '${baseUrl}/robotmanager/robots/',
       callType: ApiCallType.POST,
       headers: {
         'Authorization':
@@ -765,7 +767,7 @@ class GetTaskCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'get task',
-      apiUrl: '$baseUrl/robotmanager/task/',
+      apiUrl: '${baseUrl}/robotmanager/task/',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -810,7 +812,7 @@ class TaskCompleteCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'task complete',
-      apiUrl: '$baseUrl/robotmanager/task/pickup_completed/$id',
+      apiUrl: '${baseUrl}/robotmanager/task/pickup_completed/${id}',
       callType: ApiCallType.PATCH,
       headers: {
         'Authorization':
@@ -849,7 +851,7 @@ class CancelPendingTaskCall {
     return ApiManager.instance.makeApiCall(
       callName: 'cancel pending task',
       apiUrl:
-          '$baseUrl/robotmanager/task/cancel_pending_task/{record_id}?robot_id=$robotId',
+          '${baseUrl}/robotmanager/task/cancel_pending_task/{record_id}?robot_id=${robotId}',
       callType: ApiCallType.PATCH,
       headers: {
         'Authorization':
@@ -887,11 +889,11 @@ class ChangeSlotTypeCall {
 
     final ffApiRequestBody = '''
 {
-  "type": "$type"
+  "type": "${type}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'change slot type',
-      apiUrl: '$baseUrl/robotmanager/slots/$id',
+      apiUrl: '${baseUrl}/robotmanager/slots/${id}',
       callType: ApiCallType.PATCH,
       headers: {
         'Authorization':
@@ -931,11 +933,11 @@ class DirectPickableCall {
 
     final ffApiRequestBody = '''
 {
-  "direct_pickable": $directPickable
+  "direct_pickable": ${directPickable}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'direct pickable',
-      apiUrl: '$baseUrl/robotmanager/slots/$id',
+      apiUrl: '${baseUrl}/robotmanager/slots/${id}',
       callType: ApiCallType.PATCH,
       headers: {
         'Authorization':
@@ -979,15 +981,15 @@ class AddShuttlesCall {
 
     final ffApiRequestBody = '''
 {
-  "shuttle_id": "$shuttleId",
-  "shuttle_ip_address": "$shuttleIpAddress",
-  "current_row":$currentRow,
-  "current_rack": $currentRack,
-  "current_slot": $currentSlot
+  "shuttle_id": "${shuttleId}",
+  "shuttle_ip_address": "${shuttleIpAddress}",
+  "current_row":${currentRow},
+  "current_rack": ${currentRack},
+  "current_slot": ${currentSlot}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'add shuttles',
-      apiUrl: '$baseUrl/robotmanager/shuttles/?robot_id=$robotId',
+      apiUrl: '${baseUrl}/robotmanager/shuttles/?robot_id=${robotId}',
       callType: ApiCallType.POST,
       headers: {
         'Authorization':
@@ -1029,7 +1031,7 @@ class MappingTrayAsnShuttleCall {
     return ApiManager.instance.makeApiCall(
       callName: 'mapping tray asn shuttle',
       apiUrl:
-          '$baseUrl/robotmanager/trays/mapping?robot_id=$robotId&tray_id=$trayId&slot_id=$slotId&robot=false',
+          '${baseUrl}/robotmanager/trays/mapping?robot_id=${robotId}&tray_id=${trayId}&slot_id=${slotId}&robot=false',
       callType: ApiCallType.POST,
       headers: {
         'Authorization':
@@ -1068,7 +1070,7 @@ class TaskByIdCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'task by id',
-      apiUrl: '$baseUrl/robotmanager/task/',
+      apiUrl: '${baseUrl}/robotmanager/task/',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':

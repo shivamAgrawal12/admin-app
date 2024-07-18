@@ -83,7 +83,7 @@ class CustomAuthManager {
     this.authenticationToken = authenticationToken;
     this.refreshToken = refreshToken;
     this.tokenExpiration = tokenExpiration;
-    uid = authUid;
+    this.uid = authUid;
     this.userData = userData;
     // Update the current user stream.
     final updatedUser = AdminAppV1AuthUser(
