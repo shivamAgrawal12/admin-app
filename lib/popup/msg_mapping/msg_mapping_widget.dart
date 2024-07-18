@@ -4,9 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'msg_mapping_model.dart';
 export 'msg_mapping_model.dart';
 
@@ -54,7 +51,7 @@ class _MsgMappingWidgetState extends State<MsgMappingWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: AlignmentDirectional(0.0, -0.6),
+      alignment: const AlignmentDirectional(0.0, -0.6),
       child: Container(
         width: 250.0,
         decoration: BoxDecoration(
@@ -62,15 +59,15 @@ class _MsgMappingWidgetState extends State<MsgMappingWidget> {
           borderRadius: BorderRadius.circular(10.0),
         ),
         child: Padding(
-          padding: EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
                 child: Text(
                   valueOrDefault<String>(
-                    widget!.msg,
+                    widget.msg,
                     '--',
                   ),
                   textAlign: TextAlign.center,
@@ -91,7 +88,7 @@ class _MsgMappingWidgetState extends State<MsgMappingWidget> {
                   milliSecond: false,
                 ),
                 controller: _model.timerController,
-                updateStateInterval: Duration(milliseconds: 1000),
+                updateStateInterval: const Duration(milliseconds: 1000),
                 onChanged: (value, displayTime, shouldUpdate) {
                   _model.timerMilliseconds = value;
                   _model.timerValue = displayTime;
@@ -105,7 +102,7 @@ class _MsgMappingWidgetState extends State<MsgMappingWidget> {
                   context.pushNamed(
                     'slot_mappimg',
                     extra: <String, dynamic>{
-                      kTransitionInfoKey: TransitionInfo(
+                      kTransitionInfoKey: const TransitionInfo(
                         hasTransition: true,
                         transitionType: PageTransitionType.fade,
                         duration: Duration(milliseconds: 0),

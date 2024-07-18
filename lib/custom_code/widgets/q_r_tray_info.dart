@@ -21,19 +21,19 @@ import '/popup/tray_info_1/tray_info1_widget.dart';
 
 class QRTrayInfo extends StatefulWidget {
   const QRTrayInfo({
-    super.key,
+    Key? key,
     this.width,
     this.height,
-  });
+  }) : super(key: key);
 
   final double? width;
   final double? height;
 
   @override
-  State<QRTrayScan> createState() => _QRTrayScanState();
+  _QRTrayInfoState createState() => _QRTrayInfoState();
 }
 
-class _QRTrayScanState extends State<QRTrayScan> {
+class _QRTrayInfoState extends State<QRTrayInfo> {
   MobileScannerController controller = MobileScannerController();
   bool isProcessing = false; // Variable to prevent multiple scans at once
 

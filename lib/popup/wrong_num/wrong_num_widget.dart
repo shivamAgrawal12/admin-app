@@ -1,9 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'wrong_num_model.dart';
 export 'wrong_num_model.dart';
 
@@ -41,7 +38,7 @@ class _WrongNumWidgetState extends State<WrongNumWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: AlignmentDirectional(0.0, -0.6),
+      alignment: const AlignmentDirectional(0.0, -0.6),
       child: Container(
         width: 300.0,
         decoration: BoxDecoration(
@@ -49,12 +46,12 @@ class _WrongNumWidgetState extends State<WrongNumWidget> {
           borderRadius: BorderRadius.circular(10.0),
         ),
         child: Padding(
-          padding: EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                 child: Text(
                   'Enter Valid Mobile Number',
                   textAlign: TextAlign.center,
@@ -68,7 +65,7 @@ class _WrongNumWidgetState extends State<WrongNumWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                 child: Text(
                   'The given number must have 10 digits',
                   textAlign: TextAlign.center,
@@ -82,7 +79,7 @@ class _WrongNumWidgetState extends State<WrongNumWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 10.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 10.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -100,9 +97,9 @@ class _WrongNumWidgetState extends State<WrongNumWidget> {
                           FlutterFlowTheme.of(context).heading,
                           FlutterFlowTheme.of(context).accent
                         ],
-                        stops: [0.0, 1.0],
-                        begin: AlignmentDirectional(1.0, 0.0),
-                        end: AlignmentDirectional(-1.0, 0),
+                        stops: const [0.0, 1.0],
+                        begin: const AlignmentDirectional(1.0, 0.0),
+                        end: const AlignmentDirectional(-1.0, 0),
                       ),
                       borderRadius: BorderRadius.circular(5.0),
                     ),
@@ -122,7 +119,7 @@ class _WrongNumWidgetState extends State<WrongNumWidget> {
                                     fontWeight: FontWeight.w600,
                                   ),
                         ),
-                      ].divide(SizedBox(width: 10.0)),
+                      ].divide(const SizedBox(width: 10.0)),
                     ),
                   ),
                 ),

@@ -9,17 +9,12 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/popup/invalid_otp/invalid_otp_widget.dart';
 import '/popup/resend_otp/resend_otp_widget.dart';
 import '/popup/wrong_num/wrong_num_widget.dart';
-import 'dart:math';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'login_page_model.dart';
 export 'login_page_model.dart';
 
@@ -84,11 +79,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: AlignmentDirectional(0.0, -1.0),
+            alignment: const AlignmentDirectional(0.0, -1.0),
             child: Container(
               width: MediaQuery.sizeOf(context).width * 1.0,
               height: MediaQuery.sizeOf(context).height * 1.0,
-              constraints: BoxConstraints(
+              constraints: const BoxConstraints(
                 minWidth: 310.0,
                 minHeight: 650.0,
                 maxHeight: 900.0,
@@ -107,12 +102,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                       decoration: BoxDecoration(
                         color: Colors.white,
                         border: Border.all(
-                          color: Color(0xFFEEECF1),
+                          color: const Color(0xFFEEECF1),
                           width: 1.0,
                         ),
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             10.0, 0.0, 10.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -127,18 +122,18 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                 fit: BoxFit.contain,
                               ),
                             ),
-                          ].divide(SizedBox(width: 6.0)),
+                          ].divide(const SizedBox(width: 6.0)),
                         ),
                       ),
                     ),
                     Container(
                       width: MediaQuery.sizeOf(context).width * 1.0,
                       height: 60.0,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.white,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             10.0, 0.0, 10.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -167,9 +162,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                   color: FlutterFlowTheme.of(context).accent,
                                   size: 18.0,
                                 ),
-                              ].divide(SizedBox(width: 5.0)),
+                              ].divide(const SizedBox(width: 5.0)),
                             ),
-                          ].divide(SizedBox(height: 10.0)),
+                          ].divide(const SizedBox(height: 10.0)),
                         ),
                       ),
                     ),
@@ -180,7 +175,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                           color: FlutterFlowTheme.of(context).primaryBackground,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 10.0, 0.0, 15.0),
                           child: SingleChildScrollView(
                             child: Column(
@@ -206,7 +201,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 10.0, 0.0, 0.0),
                                   child: Text(
                                     'Login',
@@ -225,7 +220,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 30.0, 0.0, 0.0),
                                   child: Text(
                                     'Enter Mobile Number',
@@ -241,7 +236,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 20.0, 0.0, 10.0),
                                   child: Container(
                                     width: 300.0,
@@ -257,7 +252,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                       ),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 10.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -266,7 +261,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                         children: [
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(-1.0, 0.0),
+                                                const AlignmentDirectional(-1.0, 0.0),
                                             child: Icon(
                                               Icons.dialpad_rounded,
                                               color:
@@ -277,7 +272,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                           ),
                                           Expanded(
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(5.0, 0.0, 5.0, 0.0),
                                               child: TextFormField(
                                                 controller:
@@ -311,7 +306,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                               .viewInsetsOf(
                                                                   context),
                                                           child:
-                                                              WrongNumWidget(),
+                                                              const WrongNumWidget(),
                                                         );
                                                       },
                                                     ).then((value) =>
@@ -343,7 +338,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                   focusedErrorBorder:
                                                       InputBorder.none,
                                                   contentPadding:
-                                                      EdgeInsetsDirectional
+                                                      const EdgeInsetsDirectional
                                                           .fromSTEB(10.0, 0.0,
                                                               0.0, 5.0),
                                                 ),
@@ -388,7 +383,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       10.0, 20.0, 10.0, 0.0),
                                   child: Container(
                                     width: 300.0,
@@ -399,9 +394,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                           FlutterFlowTheme.of(context).heading,
                                           FlutterFlowTheme.of(context).accent
                                         ],
-                                        stops: [0.0, 1.0],
-                                        begin: AlignmentDirectional(1.0, 0.0),
-                                        end: AlignmentDirectional(-1.0, 0),
+                                        stops: const [0.0, 1.0],
+                                        begin: const AlignmentDirectional(1.0, 0.0),
+                                        end: const AlignmentDirectional(-1.0, 0),
                                       ),
                                       borderRadius: BorderRadius.circular(5.0),
                                     ),
@@ -429,7 +424,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                 padding:
                                                     MediaQuery.viewInsetsOf(
                                                         context),
-                                                child: WrongNumWidget(),
+                                                child: const WrongNumWidget(),
                                               );
                                             },
                                           ).then(
@@ -442,12 +437,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                       options: FFButtonOptions(
                                         width: 300.0,
                                         height: 45.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             24.0, 0.0, 24.0, 0.0),
                                         iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
-                                        color: Color(0x27351C75),
+                                        color: const Color(0x27351C75),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
@@ -458,7 +453,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                               fontWeight: FontWeight.w600,
                                             ),
                                         elevation: 0.0,
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Color(0xFF8E7CC3),
                                         ),
                                         borderRadius:
@@ -479,9 +474,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                           color: FlutterFlowTheme.of(context).primaryBackground,
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0.0, -1.0),
+                          alignment: const AlignmentDirectional(0.0, -1.0),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 10.0, 0.0, 15.0),
                             child: SingleChildScrollView(
                               child: Column(
@@ -492,7 +487,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                   Container(
                                     width: 170.0,
                                     height: 170.0,
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
                                       child: Image.asset(
@@ -502,7 +497,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 10.0, 0.0, 0.0),
                                     child: Text(
                                       'Verify OTP',
@@ -518,14 +513,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 10.0, 0.0, 0.0),
                                       child: Container(
                                         width: 300.0,
                                         height: 30.0,
-                                        constraints: BoxConstraints(
+                                        constraints: const BoxConstraints(
                                           maxWidth: 330.0,
                                         ),
                                         decoration: BoxDecoration(
@@ -568,13 +563,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                     fontWeight: FontWeight.w600,
                                                   ),
                                             ),
-                                          ].divide(SizedBox(width: 5.0)),
+                                          ].divide(const SizedBox(width: 5.0)),
                                         ),
                                       ),
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 15.0, 0.0, 0.0),
                                     child: Text(
                                       'Enter the OTP, Sent to Mobile Number',
@@ -590,7 +585,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 20.0, 0.0, 10.0),
                                     child: Container(
                                       width: 300.0,
@@ -607,7 +602,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                         ),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             8.0, 0.0, 5.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -621,7 +616,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                             ),
                                             Expanded(
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         5.0, 1.0, 5.0, 1.0),
                                                 child: TextFormField(
@@ -630,7 +625,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                   focusNode: _model
                                                       .textFieldOtpFocusNode,
                                                   onFieldSubmitted: (_) async {
-                                                    var _shouldSetState = false;
+                                                    var shouldSetState = false;
                                                     _model.validateOtpC =
                                                         await AdminApiGroup
                                                             .validateOtpCall
@@ -642,7 +637,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                           .text,
                                                     );
 
-                                                    _shouldSetState = true;
+                                                    shouldSetState = true;
                                                     if ((_model.validateOtpC
                                                             ?.succeeded ??
                                                         true)) {
@@ -682,7 +677,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                         extra: <String,
                                                             dynamic>{
                                                           kTransitionInfoKey:
-                                                              TransitionInfo(
+                                                              const TransitionInfo(
                                                             hasTransition: true,
                                                             transitionType:
                                                                 PageTransitionType
@@ -707,19 +702,21 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                 .viewInsetsOf(
                                                                     context),
                                                             child:
-                                                                InvalidOtpWidget(),
+                                                                const InvalidOtpWidget(),
                                                           );
                                                         },
                                                       ).then((value) =>
                                                           safeSetState(() {}));
 
-                                                      if (_shouldSetState)
+                                                      if (shouldSetState) {
                                                         setState(() {});
+                                                      }
                                                       return;
                                                     }
 
-                                                    if (_shouldSetState)
+                                                    if (shouldSetState) {
                                                       setState(() {});
+                                                    }
                                                   },
                                                   autofocus: true,
                                                   textCapitalization:
@@ -747,7 +744,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                     focusedErrorBorder:
                                                         InputBorder.none,
                                                     contentPadding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(10.0, 0.0,
                                                                 0.0, 5.0),
                                                   ),
@@ -792,7 +789,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         10.0, 15.0, 10.0, 0.0),
                                     child: Container(
                                       width: 300.0,
@@ -804,16 +801,16 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                 .heading,
                                             FlutterFlowTheme.of(context).accent
                                           ],
-                                          stops: [0.0, 1.0],
-                                          begin: AlignmentDirectional(1.0, 0.0),
-                                          end: AlignmentDirectional(-1.0, 0),
+                                          stops: const [0.0, 1.0],
+                                          begin: const AlignmentDirectional(1.0, 0.0),
+                                          end: const AlignmentDirectional(-1.0, 0),
                                         ),
                                         borderRadius:
                                             BorderRadius.circular(5.0),
                                       ),
                                       child: FFButtonWidget(
                                         onPressed: () async {
-                                          var _shouldSetState = false;
+                                          var shouldSetState = false;
                                           _model.validateOtp =
                                               await AdminApiGroup
                                                   .validateOtpCall
@@ -825,7 +822,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                 .text,
                                           );
 
-                                          _shouldSetState = true;
+                                          shouldSetState = true;
                                           if ((_model.validateOtp?.succeeded ??
                                               true)) {
                                             GoRouter.of(context)
@@ -858,7 +855,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                               context.mounted,
                                               extra: <String, dynamic>{
                                                 kTransitionInfoKey:
-                                                    TransitionInfo(
+                                                    const TransitionInfo(
                                                   hasTransition: true,
                                                   transitionType:
                                                       PageTransitionType.fade,
@@ -879,30 +876,31 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                   padding:
                                                       MediaQuery.viewInsetsOf(
                                                           context),
-                                                  child: InvalidOtpWidget(),
+                                                  child: const InvalidOtpWidget(),
                                                 );
                                               },
                                             ).then(
                                                 (value) => safeSetState(() {}));
 
-                                            if (_shouldSetState)
+                                            if (shouldSetState) {
                                               setState(() {});
+                                            }
                                             return;
                                           }
 
-                                          if (_shouldSetState) setState(() {});
+                                          if (shouldSetState) setState(() {});
                                         },
                                         text: 'Verify OTP',
                                         options: FFButtonOptions(
                                           width: 300.0,
                                           height: 45.0,
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   5.0, 0.0, 5.0, 0.0),
                                           iconPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
-                                          color: Color(0x008E7CC3),
+                                          color: const Color(0x008E7CC3),
                                           textStyle:
                                               FlutterFlowTheme.of(context)
                                                   .titleSmall
@@ -921,7 +919,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 15.0, 0.0, 10.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -930,7 +928,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                       children: [
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(-1.0, 0.0),
+                                              const AlignmentDirectional(-1.0, 0.0),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
                                             focusColor: Colors.transparent,
@@ -959,7 +957,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                       padding: MediaQuery
                                                           .viewInsetsOf(
                                                               context),
-                                                      child: ResendOtpWidget(),
+                                                      child: const ResendOtpWidget(),
                                                     );
                                                   },
                                                 ).then((value) =>
@@ -976,7 +974,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                       padding: MediaQuery
                                                           .viewInsetsOf(
                                                               context),
-                                                      child: WrongNumWidget(),
+                                                      child: const WrongNumWidget(),
                                                     );
                                                   },
                                                 ).then((value) =>
@@ -1022,7 +1020,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                             ),
                                             controller: _model.timerController,
                                             updateStateInterval:
-                                                Duration(milliseconds: 1000),
+                                                const Duration(milliseconds: 1000),
                                             onChanged: (value, displayTime,
                                                 shouldUpdate) {
                                               _model.timerMilliseconds = value;
@@ -1038,7 +1036,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
-                                      ].divide(SizedBox(width: 10.0)),
+                                      ].divide(const SizedBox(width: 10.0)),
                                     ),
                                   ),
                                 ],
@@ -1048,11 +1046,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                         ),
                       ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, 1.0),
+                      alignment: const AlignmentDirectional(0.0, 1.0),
                       child: Container(
                         width: MediaQuery.sizeOf(context).width * 1.0,
                         height: 60.0,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Colors.white,
                         ),
                         child: Row(
@@ -1071,7 +1069,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                   ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              alignment: const AlignmentDirectional(-1.0, 0.0),
                               child: Text(
                                 'Support',
                                 style: FlutterFlowTheme.of(context)
@@ -1087,7 +1085,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                     ),
                               ),
                             ),
-                          ].divide(SizedBox(width: 5.0)),
+                          ].divide(const SizedBox(width: 5.0)),
                         ),
                       ),
                     ),
