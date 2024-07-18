@@ -1,13 +1,10 @@
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/popup/menu/menu_widget.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'robot_info_model.dart';
 export 'robot_info_model.dart';
@@ -53,17 +50,17 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: AlignmentDirectional(0.0, -1.0),
+            alignment: const AlignmentDirectional(0.0, -1.0),
             child: Container(
               width: MediaQuery.sizeOf(context).width * 1.0,
               height: MediaQuery.sizeOf(context).height * 1.0,
-              constraints: BoxConstraints(
+              constraints: const BoxConstraints(
                 minWidth: 320.0,
                 maxWidth: 450.0,
               ),
-              decoration: BoxDecoration(),
+              decoration: const BoxDecoration(),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
                 child: SingleChildScrollView(
                   primary: false,
                   child: Column(
@@ -92,7 +89,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
 
                           return Container(
                             width: MediaQuery.sizeOf(context).width * 1.0,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               gradient: LinearGradient(
                                 colors: [Color(0xFF351C75), Color(0xFF8E7CC3)],
                                 stops: [0.0, 1.0],
@@ -101,12 +98,12 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                               ),
                             ),
                             child: Padding(
-                              padding: EdgeInsets.all(10.0),
+                              padding: const EdgeInsets.all(10.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 10.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -123,7 +120,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                               'home',
                                               extra: <String, dynamic>{
                                                 kTransitionInfoKey:
-                                                    TransitionInfo(
+                                                    const TransitionInfo(
                                                   hasTransition: true,
                                                   transitionType:
                                                       PageTransitionType.fade,
@@ -176,7 +173,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                     padding:
                                                         MediaQuery.viewInsetsOf(
                                                             context),
-                                                    child: MenuWidget(),
+                                                    child: const MenuWidget(),
                                                   ),
                                                 );
                                               },
@@ -193,7 +190,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                               shape: BoxShape.circle,
                                             ),
                                             child: Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   0.0, 2.6),
                                               child: Icon(
                                                 Icons.person_3_sharp,
@@ -205,11 +202,11 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                             ),
                                           ),
                                         ),
-                                      ].divide(SizedBox(width: 6.0)),
+                                      ].divide(const SizedBox(width: 6.0)),
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         10.0, 25.0, 10.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -231,7 +228,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                 shape: BoxShape.circle,
                                               ),
                                               child: Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: ClipRRect(
                                                   borderRadius:
@@ -292,20 +289,20 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                             FontWeight.w500,
                                                       ),
                                                 ),
-                                              ].divide(SizedBox(width: 5.0)),
+                                              ].divide(const SizedBox(width: 5.0)),
                                             ),
-                                          ].divide(SizedBox(width: 5.0)),
+                                          ].divide(const SizedBox(width: 5.0)),
                                         ),
-                                      ].divide(SizedBox(width: 6.0)),
+                                      ].divide(const SizedBox(width: 6.0)),
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 15.0, 0.0, 5.0),
                                     child: Container(
                                       width: MediaQuery.sizeOf(context).width *
                                           0.9,
-                                      constraints: BoxConstraints(
+                                      constraints: const BoxConstraints(
                                         minWidth: 300.0,
                                         maxWidth: 420.0,
                                       ),
@@ -321,7 +318,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                             MainAxisAlignment.center,
                                         children: [
                                           Padding(
-                                            padding: EdgeInsets.all(8.0),
+                                            padding: const EdgeInsets.all(8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -389,7 +386,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                       height: 25.0,
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            Color(0x1E397A12),
+                                                            const Color(0x1E397A12),
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(5.0),
@@ -402,7 +399,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                       ),
                                                       child: Align(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: Text(
                                                           valueOrDefault<
@@ -436,13 +433,13 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                       ),
                                                     ),
                                                   ].divide(
-                                                      SizedBox(height: 10.0)),
+                                                      const SizedBox(height: 10.0)),
                                                 ),
                                               ],
                                             ),
                                           ),
                                           Padding(
-                                            padding: EdgeInsets.all(8.0),
+                                            padding: const EdgeInsets.all(8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -482,7 +479,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                       ),
                                                       child: Align(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: Text(
                                                           valueOrDefault<
@@ -513,7 +510,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                       ),
                                                     ),
                                                   ].divide(
-                                                      SizedBox(height: 6.0)),
+                                                      const SizedBox(height: 6.0)),
                                                 ),
                                                 Column(
                                                   mainAxisSize:
@@ -548,7 +545,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                       ),
                                                       child: Align(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: Text(
                                                           valueOrDefault<
@@ -579,7 +576,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                       ),
                                                     ),
                                                   ].divide(
-                                                      SizedBox(height: 6.0)),
+                                                      const SizedBox(height: 6.0)),
                                                 ),
                                                 Column(
                                                   mainAxisSize:
@@ -614,7 +611,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                       ),
                                                       child: Align(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: Text(
                                                           valueOrDefault<
@@ -645,7 +642,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                       ),
                                                     ),
                                                   ].divide(
-                                                      SizedBox(height: 6.0)),
+                                                      const SizedBox(height: 6.0)),
                                                 ),
                                                 Column(
                                                   mainAxisSize:
@@ -680,7 +677,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                       ),
                                                       child: Align(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: Text(
                                                           valueOrDefault<
@@ -711,7 +708,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                       ),
                                                     ),
                                                   ].divide(
-                                                      SizedBox(height: 6.0)),
+                                                      const SizedBox(height: 6.0)),
                                                 ),
                                               ],
                                             ),
@@ -730,7 +727,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                         width: MediaQuery.sizeOf(context).width * 1.0,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).primaryBackground,
-                          borderRadius: BorderRadius.only(
+                          borderRadius: const BorderRadius.only(
                             bottomLeft: Radius.circular(0.0),
                             bottomRight: Radius.circular(0.0),
                             topLeft: Radius.circular(0.0),
@@ -738,22 +735,22 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                           ),
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               10.0, 10.0, 10.0, 15.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Align(
-                                alignment: AlignmentDirectional(0.0, -1.0),
+                                alignment: const AlignmentDirectional(0.0, -1.0),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 10.0, 0.0, 0.0),
                                   child: Container(
                                     width:
                                         MediaQuery.sizeOf(context).width * 0.9,
                                     height: 65.0,
-                                    constraints: BoxConstraints(
+                                    constraints: const BoxConstraints(
                                       minWidth: 300.0,
                                       maxWidth: 420.0,
                                     ),
@@ -766,7 +763,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                       ),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsets.all(5.0),
+                                      padding: const EdgeInsets.all(5.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -782,7 +779,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                 'slot_info_scan',
                                                 extra: <String, dynamic>{
                                                   kTransitionInfoKey:
-                                                      TransitionInfo(
+                                                      const TransitionInfo(
                                                     hasTransition: true,
                                                     transitionType:
                                                         PageTransitionType.fade,
@@ -795,7 +792,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                             child: Container(
                                               width: 155.0,
                                               height: 60.0,
-                                              constraints: BoxConstraints(
+                                              constraints: const BoxConstraints(
                                                 minWidth: 140.0,
                                                 maxWidth: 155.0,
                                               ),
@@ -812,14 +809,14 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                     width: 50.0,
                                                     height: 50.0,
                                                     decoration: BoxDecoration(
-                                                      color: Color(0xFFF8F4FF),
+                                                      color: const Color(0xFFF8F4FF),
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               5.0),
                                                     ),
                                                     child: Align(
                                                       alignment:
-                                                          AlignmentDirectional(
+                                                          const AlignmentDirectional(
                                                               0.0, 0.0),
                                                       child: ClipRRect(
                                                         borderRadius:
@@ -882,7 +879,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                           ),
                                                     ),
                                                   ),
-                                                ].divide(SizedBox(width: 15.0)),
+                                                ].divide(const SizedBox(width: 15.0)),
                                               ),
                                             ),
                                           ),
@@ -906,7 +903,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                 'tray_info_scan',
                                                 extra: <String, dynamic>{
                                                   kTransitionInfoKey:
-                                                      TransitionInfo(
+                                                      const TransitionInfo(
                                                     hasTransition: true,
                                                     transitionType:
                                                         PageTransitionType.fade,
@@ -919,7 +916,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                             child: Container(
                                               width: 155.0,
                                               height: 60.0,
-                                              constraints: BoxConstraints(
+                                              constraints: const BoxConstraints(
                                                 minWidth: 140.0,
                                                 maxWidth: 155.0,
                                               ),
@@ -936,14 +933,14 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                     width: 50.0,
                                                     height: 50.0,
                                                     decoration: BoxDecoration(
-                                                      color: Color(0xFFF8F4FF),
+                                                      color: const Color(0xFFF8F4FF),
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               5.0),
                                                     ),
                                                     child: Align(
                                                       alignment:
-                                                          AlignmentDirectional(
+                                                          const AlignmentDirectional(
                                                               0.0, 0.0),
                                                       child: ClipRRect(
                                                         borderRadius:
@@ -1006,7 +1003,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                           ),
                                                     ),
                                                   ),
-                                                ].divide(SizedBox(width: 15.0)),
+                                                ].divide(const SizedBox(width: 15.0)),
                                               ),
                                             ),
                                           ),
@@ -1017,18 +1014,18 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                 ),
                               ),
                               Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Container(
                                   width: MediaQuery.sizeOf(context).width * 0.9,
                                   height: 375.0,
-                                  constraints: BoxConstraints(
+                                  constraints: const BoxConstraints(
                                     minWidth: 300.0,
                                     maxWidth: 420.0,
                                   ),
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
-                                    boxShadow: [
+                                    boxShadow: const [
                                       BoxShadow(
                                         blurRadius: 20.0,
                                         color: Color(0x14351C75),
@@ -1041,7 +1038,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                     borderRadius: BorderRadius.circular(5.0),
                                   ),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         10.0, 12.0, 10.0, 12.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -1078,7 +1075,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                   'complete_request',
                                                   extra: <String, dynamic>{
                                                     kTransitionInfoKey:
-                                                        TransitionInfo(
+                                                        const TransitionInfo(
                                                       hasTransition: true,
                                                       transitionType:
                                                           PageTransitionType
@@ -1107,7 +1104,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                   ),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsets.all(8.0),
+                                                  padding: const EdgeInsets.all(8.0),
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -1121,7 +1118,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                         decoration:
                                                             BoxDecoration(
                                                           color:
-                                                              Color(0xFFF8F4FF),
+                                                              const Color(0xFFF8F4FF),
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(
@@ -1129,7 +1126,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                         ),
                                                         child: Align(
                                                           alignment:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   0.0, 0.0),
                                                           child: ClipRRect(
                                                             borderRadius:
@@ -1186,7 +1183,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                                 ),
                                                       ),
                                                     ].divide(
-                                                        SizedBox(height: 8.0)),
+                                                        const SizedBox(height: 8.0)),
                                                   ),
                                                 ),
                                               ),
@@ -1202,7 +1199,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                   'pending_task',
                                                   extra: <String, dynamic>{
                                                     kTransitionInfoKey:
-                                                        TransitionInfo(
+                                                        const TransitionInfo(
                                                       hasTransition: true,
                                                       transitionType:
                                                           PageTransitionType
@@ -1231,7 +1228,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                   ),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsets.all(8.0),
+                                                  padding: const EdgeInsets.all(8.0),
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -1245,7 +1242,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                         decoration:
                                                             BoxDecoration(
                                                           color:
-                                                              Color(0xFFF8F4FF),
+                                                              const Color(0xFFF8F4FF),
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(
@@ -1253,7 +1250,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                         ),
                                                         child: Align(
                                                           alignment:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   0.0, 0.0),
                                                           child: ClipRRect(
                                                             borderRadius:
@@ -1310,7 +1307,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                                 ),
                                                       ),
                                                     ].divide(
-                                                        SizedBox(height: 8.0)),
+                                                        const SizedBox(height: 8.0)),
                                                   ),
                                                 ),
                                               ),
@@ -1319,7 +1316,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 0.0, 0.0),
                                           child: Text(
                                             'Lists',
@@ -1350,7 +1347,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                   'list_of_slot',
                                                   extra: <String, dynamic>{
                                                     kTransitionInfoKey:
-                                                        TransitionInfo(
+                                                        const TransitionInfo(
                                                       hasTransition: true,
                                                       transitionType:
                                                           PageTransitionType
@@ -1379,7 +1376,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                   ),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsets.all(5.0),
+                                                  padding: const EdgeInsets.all(5.0),
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -1393,7 +1390,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                         decoration:
                                                             BoxDecoration(
                                                           color:
-                                                              Color(0xFFF8F4FF),
+                                                              const Color(0xFFF8F4FF),
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(
@@ -1401,7 +1398,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                         ),
                                                         child: Align(
                                                           alignment:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   0.0, 0.0),
                                                           child: ClipRRect(
                                                             borderRadius:
@@ -1458,7 +1455,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                                 ),
                                                       ),
                                                     ].divide(
-                                                        SizedBox(height: 8.0)),
+                                                        const SizedBox(height: 8.0)),
                                                   ),
                                                 ),
                                               ),
@@ -1474,7 +1471,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                   'list_of_tray',
                                                   extra: <String, dynamic>{
                                                     kTransitionInfoKey:
-                                                        TransitionInfo(
+                                                        const TransitionInfo(
                                                       hasTransition: true,
                                                       transitionType:
                                                           PageTransitionType
@@ -1503,7 +1500,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                   ),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsets.all(5.0),
+                                                  padding: const EdgeInsets.all(5.0),
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -1517,7 +1514,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                         decoration:
                                                             BoxDecoration(
                                                           color:
-                                                              Color(0xFFF8F4FF),
+                                                              const Color(0xFFF8F4FF),
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(
@@ -1525,7 +1522,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                         ),
                                                         child: Align(
                                                           alignment:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   0.0, 0.0),
                                                           child: ClipRRect(
                                                             borderRadius:
@@ -1582,7 +1579,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                                 ),
                                                       ),
                                                     ].divide(
-                                                        SizedBox(height: 8.0)),
+                                                        const SizedBox(height: 8.0)),
                                                   ),
                                                 ),
                                               ),
@@ -1598,7 +1595,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                   'list_of_picking',
                                                   extra: <String, dynamic>{
                                                     kTransitionInfoKey:
-                                                        TransitionInfo(
+                                                        const TransitionInfo(
                                                       hasTransition: true,
                                                       transitionType:
                                                           PageTransitionType
@@ -1627,7 +1624,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                   ),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsets.all(5.0),
+                                                  padding: const EdgeInsets.all(5.0),
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -1641,7 +1638,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                         decoration:
                                                             BoxDecoration(
                                                           color:
-                                                              Color(0xFFF8F4FF),
+                                                              const Color(0xFFF8F4FF),
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(
@@ -1649,7 +1646,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                         ),
                                                         child: Align(
                                                           alignment:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   0.0, 0.0),
                                                           child: ClipRRect(
                                                             borderRadius:
@@ -1706,19 +1703,19 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                                 ),
                                                       ),
                                                     ].divide(
-                                                        SizedBox(height: 8.0)),
+                                                        const SizedBox(height: 8.0)),
                                                   ),
                                                 ),
                                               ),
                                             ),
                                           ],
                                         ),
-                                      ].divide(SizedBox(height: 10.0)),
+                                      ].divide(const SizedBox(height: 10.0)),
                                     ),
                                   ),
                                 ),
                               ),
-                            ].divide(SizedBox(height: 15.0)),
+                            ].divide(const SizedBox(height: 15.0)),
                           ),
                         ),
                       ),

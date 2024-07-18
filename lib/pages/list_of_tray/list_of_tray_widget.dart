@@ -1,14 +1,12 @@
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/popup/menu/menu_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'list_of_tray_model.dart';
 export 'list_of_tray_model.dart';
@@ -57,7 +55,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget> {
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: AlignmentDirectional(0.0, -1.0),
+            alignment: const AlignmentDirectional(0.0, -1.0),
             child: FutureBuilder<ApiCallResponse>(
               future: AdminApiGroup.listOfTrayCall.call(
                 robotId: FFAppState().robotid,
@@ -81,11 +79,11 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget> {
                 return Container(
                   width: MediaQuery.sizeOf(context).width * 1.0,
                   height: MediaQuery.sizeOf(context).height * 1.0,
-                  constraints: BoxConstraints(
+                  constraints: const BoxConstraints(
                     minWidth: 320.0,
                     maxWidth: 450.0,
                   ),
-                  decoration: BoxDecoration(),
+                  decoration: const BoxDecoration(),
                   child: SingleChildScrollView(
                     primary: false,
                     child: Column(
@@ -98,12 +96,12 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget> {
                           decoration: BoxDecoration(
                             color: Colors.white,
                             border: Border.all(
-                              color: Color(0xFFEEECF1),
+                              color: const Color(0xFFEEECF1),
                               width: 1.0,
                             ),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 15.0, 0.0, 10.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -118,7 +116,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget> {
                                     context.pushNamed(
                                       'robot_info',
                                       extra: <String, dynamic>{
-                                        kTransitionInfoKey: TransitionInfo(
+                                        kTransitionInfoKey: const TransitionInfo(
                                           hasTransition: true,
                                           transitionType:
                                               PageTransitionType.fade,
@@ -166,7 +164,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget> {
                                           child: Padding(
                                             padding: MediaQuery.viewInsetsOf(
                                                 context),
-                                            child: MenuWidget(),
+                                            child: const MenuWidget(),
                                           ),
                                         );
                                       },
@@ -181,7 +179,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget> {
                                       shape: BoxShape.circle,
                                     ),
                                     child: Align(
-                                      alignment: AlignmentDirectional(0.0, 2.6),
+                                      alignment: const AlignmentDirectional(0.0, 2.6),
                                       child: Icon(
                                         Icons.person_3,
                                         color: FlutterFlowTheme.of(context)
@@ -191,7 +189,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget> {
                                     ),
                                   ),
                                 ),
-                              ].divide(SizedBox(width: 6.0)),
+                              ].divide(const SizedBox(width: 6.0)),
                             ),
                           ),
                         ),
@@ -201,12 +199,12 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget> {
                           decoration: BoxDecoration(
                             color: Colors.white,
                             border: Border.all(
-                              color: Color(0xFFEEECF1),
+                              color: const Color(0xFFEEECF1),
                               width: 1.0,
                             ),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 10.0, 0.0, 10.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -225,20 +223,20 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget> {
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
-                              ].divide(SizedBox(width: 6.0)),
+                              ].divide(const SizedBox(width: 6.0)),
                             ),
                           ),
                         ),
                         Container(
                           width: MediaQuery.sizeOf(context).width * 1.0,
                           height: MediaQuery.sizeOf(context).height * 0.8,
-                          constraints: BoxConstraints(
+                          constraints: const BoxConstraints(
                             minWidth: 320.0,
                             maxWidth: 450.0,
                           ),
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 15.0, 0.0, 0.0),
                             child: SingleChildScrollView(
                               primary: false,
@@ -246,11 +244,11 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(-1.0, -1.0),
+                                    alignment: const AlignmentDirectional(-1.0, -1.0),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           20.0, 0.0, 8.0, 0.0),
-                                      child: Container(
+                                      child: SizedBox(
                                         width: 250.0,
                                         child: TextFormField(
                                           controller: _model.textController,
@@ -258,7 +256,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget> {
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.textController',
-                                            Duration(milliseconds: 50),
+                                            const Duration(milliseconds: 50),
                                             () => setState(() {}),
                                           ),
                                           autofocus: true,
@@ -335,7 +333,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsets.all(10.0),
+                                    padding: const EdgeInsets.all(10.0),
                                     child: SingleChildScrollView(
                                       primary: false,
                                       child: Column(
@@ -358,7 +356,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget> {
                                                   [];
 
                                               return ListView.builder(
-                                                padding: EdgeInsets.fromLTRB(
+                                                padding: const EdgeInsets.fromLTRB(
                                                   0,
                                                   0,
                                                   0,
@@ -374,11 +372,11 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget> {
                                                           trayRecordsIndex];
                                                   return Align(
                                                     alignment:
-                                                        AlignmentDirectional(
+                                                        const AlignmentDirectional(
                                                             0.0, -1.0),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   15.0,
@@ -388,7 +386,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget> {
                                                         width: 350.0,
                                                         height: 120.0,
                                                         constraints:
-                                                            BoxConstraints(
+                                                            const BoxConstraints(
                                                           minWidth: 270.0,
                                                           maxWidth: 350.0,
                                                         ),
@@ -397,7 +395,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
-                                                          boxShadow: [
+                                                          boxShadow: const [
                                                             BoxShadow(
                                                               blurRadius: 5.0,
                                                               color: Color(
@@ -415,7 +413,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget> {
                                                         ),
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsets.all(
+                                                              const EdgeInsets.all(
                                                                   10.0),
                                                           child: Row(
                                                             mainAxisSize:
@@ -453,7 +451,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget> {
                                                                         ),
                                                                   ),
                                                                   Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             5.0,
@@ -482,7 +480,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget> {
                                                                     ),
                                                                   ),
                                                                   Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             10.0,
@@ -506,7 +504,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget> {
                                                                     ),
                                                                   ),
                                                                   Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             5.0,
@@ -564,7 +562,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget> {
                                                                         ),
                                                                   ),
                                                                   Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             5.0,
@@ -593,7 +591,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget> {
                                                                     ),
                                                                   ),
                                                                   Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             10.0,
@@ -617,7 +615,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget> {
                                                                     ),
                                                                   ),
                                                                   Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             5.0,

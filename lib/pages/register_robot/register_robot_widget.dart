@@ -4,9 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/popup/wrong/wrong_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'register_robot_model.dart';
 export 'register_robot_model.dart';
@@ -71,15 +69,15 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: AlignmentDirectional(0.0, -1.0),
+            alignment: const AlignmentDirectional(0.0, -1.0),
             child: Container(
               width: MediaQuery.sizeOf(context).width * 1.0,
               height: MediaQuery.sizeOf(context).height * 1.0,
-              constraints: BoxConstraints(
+              constraints: const BoxConstraints(
                 minWidth: 320.0,
                 maxWidth: 450.0,
               ),
-              decoration: BoxDecoration(),
+              decoration: const BoxDecoration(),
               child: SingleChildScrollView(
                 primary: false,
                 child: Column(
@@ -92,12 +90,12 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                       decoration: BoxDecoration(
                         color: Colors.white,
                         border: Border.all(
-                          color: Color(0xFFEEECF1),
+                          color: const Color(0xFFEEECF1),
                           width: 1.0,
                         ),
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             15.0, 0.0, 10.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -115,7 +113,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                 context.pushNamed(
                                   'robot_scan',
                                   extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
+                                    kTransitionInfoKey: const TransitionInfo(
                                       hasTransition: true,
                                       transitionType: PageTransitionType.fade,
                                       duration: Duration(milliseconds: 0),
@@ -141,11 +139,11 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                             Container(
                               width: 31.0,
                               height: 31.0,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 shape: BoxShape.circle,
                               ),
                             ),
-                          ].divide(SizedBox(width: 6.0)),
+                          ].divide(const SizedBox(width: 6.0)),
                         ),
                       ),
                     ),
@@ -155,12 +153,12 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                       decoration: BoxDecoration(
                         color: Colors.white,
                         border: Border.all(
-                          color: Color(0xFFEEECF1),
+                          color: const Color(0xFFEEECF1),
                           width: 1.0,
                         ),
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             10.0, 0.0, 10.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -178,18 +176,18 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),
-                          ].divide(SizedBox(width: 6.0)),
+                          ].divide(const SizedBox(width: 6.0)),
                         ),
                       ),
                     ),
                     Container(
                       width: 300.0,
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Form(
                         key: _model.formKey,
                         autovalidateMode: AutovalidateMode.disabled,
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 15.0, 0.0, 10.0),
                           child: SingleChildScrollView(
                             primary: false,
@@ -197,9 +195,9 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 Align(
-                                  alignment: AlignmentDirectional(-1.0, -1.0),
+                                  alignment: const AlignmentDirectional(-1.0, -1.0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         5.0, 5.0, 0.0, 0.0),
                                     child: Text(
                                       'Robot Name',
@@ -216,9 +214,9 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       8.0, 5.0, 8.0, 0.0),
-                                  child: Container(
+                                  child: SizedBox(
                                     width: 310.0,
                                     child: TextFormField(
                                       controller: _model.nameTextController,
@@ -287,9 +285,9 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(-1.0, -1.0),
+                                  alignment: const AlignmentDirectional(-1.0, -1.0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         5.0, 10.0, 0.0, 0.0),
                                     child: Text(
                                       'Robot Id',
@@ -306,9 +304,9 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       8.0, 5.0, 8.0, 0.0),
-                                  child: Container(
+                                  child: SizedBox(
                                     width: 310.0,
                                     child: TextFormField(
                                       controller: _model.idTextController,
@@ -377,9 +375,9 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(-1.0, -1.0),
+                                  alignment: const AlignmentDirectional(-1.0, -1.0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         5.0, 10.0, 0.0, 0.0),
                                     child: Text(
                                       'Robot Max Row',
@@ -396,9 +394,9 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       8.0, 5.0, 8.0, 0.0),
-                                  child: Container(
+                                  child: SizedBox(
                                     width: 310.0,
                                     child: TextFormField(
                                       controller: _model.rowTextController,
@@ -470,9 +468,9 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(-1.0, -1.0),
+                                  alignment: const AlignmentDirectional(-1.0, -1.0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         5.0, 10.0, 0.0, 0.0),
                                     child: Text(
                                       'Robot Max Rack',
@@ -489,9 +487,9 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       8.0, 5.0, 8.0, 0.0),
-                                  child: Container(
+                                  child: SizedBox(
                                     width: 310.0,
                                     child: TextFormField(
                                       controller: _model.rackTextController,
@@ -563,9 +561,9 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(-1.0, -1.0),
+                                  alignment: const AlignmentDirectional(-1.0, -1.0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         5.0, 10.0, 0.0, 0.0),
                                     child: Text(
                                       'Robot Max Slot',
@@ -582,9 +580,9 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       8.0, 5.0, 8.0, 0.0),
-                                  child: Container(
+                                  child: SizedBox(
                                     width: 310.0,
                                     child: TextFormField(
                                       controller: _model.slotTextController,
@@ -656,9 +654,9 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(-1.0, -1.0),
+                                  alignment: const AlignmentDirectional(-1.0, -1.0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         5.0, 10.0, 0.0, 0.0),
                                     child: Text(
                                       'Robot Max Depth',
@@ -675,9 +673,9 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       8.0, 5.0, 8.0, 0.0),
-                                  child: Container(
+                                  child: SizedBox(
                                     width: 310.0,
                                     child: TextFormField(
                                       controller: _model.depthTextController,
@@ -749,7 +747,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 30.0, 0.0, 0.0),
                                   child: Container(
                                     width: 140.0,
@@ -760,9 +758,9 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                           FlutterFlowTheme.of(context).heading,
                                           FlutterFlowTheme.of(context).accent
                                         ],
-                                        stops: [0.0, 1.0],
-                                        begin: AlignmentDirectional(1.0, 0.0),
-                                        end: AlignmentDirectional(-1.0, 0),
+                                        stops: const [0.0, 1.0],
+                                        begin: const AlignmentDirectional(1.0, 0.0),
+                                        end: const AlignmentDirectional(-1.0, 0),
                                       ),
                                       borderRadius: BorderRadius.circular(5.0),
                                     ),
@@ -801,7 +799,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                             'register_shuttles',
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
-                                                  TransitionInfo(
+                                                  const TransitionInfo(
                                                 hasTransition: true,
                                                 transitionType:
                                                     PageTransitionType.fade,
@@ -829,7 +827,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                                   padding:
                                                       MediaQuery.viewInsetsOf(
                                                           context),
-                                                  child: WrongWidget(),
+                                                  child: const WrongWidget(),
                                                 ),
                                               );
                                             },
@@ -842,12 +840,12 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                       text: 'Submit',
                                       options: FFButtonOptions(
                                         height: 40.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             5.0, 0.0, 5.0, 0.0),
                                         iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
-                                        color: Color(0x27351C75),
+                                        color: const Color(0x27351C75),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
@@ -858,7 +856,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                               fontWeight: FontWeight.w600,
                                             ),
                                         elevation: 0.0,
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Color(0xFF8E7CC3),
                                         ),
                                         borderRadius:

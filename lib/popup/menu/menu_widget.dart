@@ -2,9 +2,6 @@ import '/auth/custom_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'menu_model.dart';
 export 'menu_model.dart';
 
@@ -42,7 +39,7 @@ class _MenuWidgetState extends State<MenuWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: AlignmentDirectional(0.0, -0.6),
+      alignment: const AlignmentDirectional(0.0, -0.6),
       child: InkWell(
         splashColor: Colors.transparent,
         focusColor: Colors.transparent,
@@ -54,21 +51,21 @@ class _MenuWidgetState extends State<MenuWidget> {
         child: Container(
           width: MediaQuery.sizeOf(context).width * 1.0,
           height: MediaQuery.sizeOf(context).height * 1.0,
-          constraints: BoxConstraints(
+          constraints: const BoxConstraints(
             minWidth: 320.0,
             maxWidth: 450.0,
           ),
-          decoration: BoxDecoration(),
+          decoration: const BoxDecoration(),
           child: Align(
-            alignment: AlignmentDirectional(1.0, -1.0),
+            alignment: const AlignmentDirectional(1.0, -1.0),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 15.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 15.0, 0.0),
               child: Container(
                 width: 180.0,
                 height: 180.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).primaryBackground,
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(10.0),
                     bottomRight: Radius.circular(10.0),
                     topLeft: Radius.circular(10.0),
@@ -76,7 +73,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                   ),
                 ),
                 child: Padding(
-                  padding: EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(10.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -95,7 +92,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                               context.pushNamed(
                                 'home',
                                 extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
+                                  kTransitionInfoKey: const TransitionInfo(
                                     hasTransition: true,
                                     transitionType: PageTransitionType.fade,
                                     duration: Duration(milliseconds: 0),
@@ -122,7 +119,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
-                              ].divide(SizedBox(width: 6.0)),
+                              ].divide(const SizedBox(width: 6.0)),
                             ),
                           ),
                           InkWell(
@@ -141,7 +138,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                 shape: BoxShape.circle,
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Icon(
                                   Icons.close_sharp,
                                   color: FlutterFlowTheme.of(context)
@@ -162,7 +159,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                           context.pushNamed(
                             'support',
                             extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
+                              kTransitionInfoKey: const TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.fade,
                                 duration: Duration(milliseconds: 0),
@@ -194,7 +191,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
-                              ].divide(SizedBox(width: 6.0)),
+                              ].divide(const SizedBox(width: 6.0)),
                             ),
                           ],
                         ),
@@ -248,13 +245,13 @@ class _MenuWidgetState extends State<MenuWidget> {
                                           fontWeight: FontWeight.w600,
                                         ),
                                   ),
-                                ].divide(SizedBox(width: 6.0)),
+                                ].divide(const SizedBox(width: 6.0)),
                               ),
                             ),
                           ],
                         ),
                       ),
-                    ].divide(SizedBox(height: 40.0)),
+                    ].divide(const SizedBox(height: 40.0)),
                   ),
                 ),
               ),

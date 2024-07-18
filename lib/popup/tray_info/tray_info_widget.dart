@@ -2,10 +2,8 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'tray_info_model.dart';
 export 'tray_info_model.dart';
@@ -46,7 +44,7 @@ class _TrayInfoWidgetState extends State<TrayInfoWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.0, -0.6),
+      alignment: const AlignmentDirectional(0.0, -0.6),
       child: FutureBuilder<ApiCallResponse>(
         future: AdminApiGroup.trayInfoCall.call(
           trayId: FFAppState().trayid,
@@ -82,7 +80,7 @@ class _TrayInfoWidgetState extends State<TrayInfoWidget> {
                   height: 65.0,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).primaryBackground,
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         blurRadius: 25.0,
                         color: Color(0x338E7CC3),
@@ -92,7 +90,7 @@ class _TrayInfoWidgetState extends State<TrayInfoWidget> {
                         ),
                       )
                     ],
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(25.0),
                       bottomRight: Radius.circular(25.0),
                       topLeft: Radius.circular(10.0),
@@ -110,10 +108,10 @@ class _TrayInfoWidgetState extends State<TrayInfoWidget> {
                           Container(
                             width: 50.0,
                             height: 10.0,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Text(
                               'Tray Info',
                               style: FlutterFlowTheme.of(context)
@@ -129,13 +127,13 @@ class _TrayInfoWidgetState extends State<TrayInfoWidget> {
                           ),
                           Container(
                             decoration: BoxDecoration(
-                              color: Color(0x254D8218),
+                              color: const Color(0x254D8218),
                               borderRadius: BorderRadius.circular(5.0),
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     10.0, 4.0, 10.0, 4.0),
                                 child: Text(
                                   valueOrDefault<String>(
@@ -161,11 +159,11 @@ class _TrayInfoWidgetState extends State<TrayInfoWidget> {
                           ),
                         ],
                       ),
-                    ].divide(SizedBox(height: 8.0)),
+                    ].divide(const SizedBox(height: 8.0)),
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                   child: RichText(
                     textScaler: MediaQuery.of(context).textScaler,
                     text: TextSpan(
@@ -200,7 +198,7 @@ class _TrayInfoWidgetState extends State<TrayInfoWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -222,11 +220,11 @@ class _TrayInfoWidgetState extends State<TrayInfoWidget> {
                               letterSpacing: 0.0,
                             ),
                       ),
-                    ].divide(SizedBox(width: 8.0)),
+                    ].divide(const SizedBox(width: 8.0)),
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                   child: Text(
                     FFAppState().trayid,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -238,7 +236,7 @@ class _TrayInfoWidgetState extends State<TrayInfoWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
                   child: Container(
                     width: 150.0,
                     height: 40.0,
@@ -248,9 +246,9 @@ class _TrayInfoWidgetState extends State<TrayInfoWidget> {
                           FlutterFlowTheme.of(context).heading,
                           FlutterFlowTheme.of(context).accent
                         ],
-                        stops: [0.0, 1.0],
-                        begin: AlignmentDirectional(1.0, 0.0),
-                        end: AlignmentDirectional(-1.0, 0),
+                        stops: const [0.0, 1.0],
+                        begin: const AlignmentDirectional(1.0, 0.0),
+                        end: const AlignmentDirectional(-1.0, 0),
                       ),
                       borderRadius: BorderRadius.circular(5.0),
                     ),
@@ -262,7 +260,7 @@ class _TrayInfoWidgetState extends State<TrayInfoWidget> {
                         context.pushNamed(
                           'tray_info_scan',
                           extra: <String, dynamic>{
-                            kTransitionInfoKey: TransitionInfo(
+                            kTransitionInfoKey: const TransitionInfo(
                               hasTransition: true,
                               transitionType: PageTransitionType.fade,
                               duration: Duration(milliseconds: 0),
@@ -274,10 +272,10 @@ class _TrayInfoWidgetState extends State<TrayInfoWidget> {
                       options: FFButtonOptions(
                         height: 45.0,
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
                         iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: Color(0x27351C75),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: const Color(0x27351C75),
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Raleway',
@@ -287,7 +285,7 @@ class _TrayInfoWidgetState extends State<TrayInfoWidget> {
                                   fontWeight: FontWeight.w600,
                                 ),
                         elevation: 0.0,
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Color(0xFF8E7CC3),
                         ),
                         borderRadius: BorderRadius.circular(5.0),
