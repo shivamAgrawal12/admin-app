@@ -7,18 +7,23 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'robot_register_model.dart';
-export 'robot_register_model.dart';
+import 'msg_mapping_model.dart';
+export 'msg_mapping_model.dart';
 
-class RobotRegisterWidget extends StatefulWidget {
-  const RobotRegisterWidget({super.key});
+class MsgMappingWidget extends StatefulWidget {
+  const MsgMappingWidget({
+    super.key,
+    required this.msg,
+  });
+
+  final String? msg;
 
   @override
-  State<RobotRegisterWidget> createState() => _RobotRegisterWidgetState();
+  State<MsgMappingWidget> createState() => _MsgMappingWidgetState();
 }
 
-class _RobotRegisterWidgetState extends State<RobotRegisterWidget> {
-  late RobotRegisterModel _model;
+class _MsgMappingWidgetState extends State<MsgMappingWidget> {
+  late MsgMappingModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -29,7 +34,7 @@ class _RobotRegisterWidgetState extends State<RobotRegisterWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => RobotRegisterModel());
+    _model = createModel(context, () => MsgMappingModel());
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
@@ -51,42 +56,31 @@ class _RobotRegisterWidgetState extends State<RobotRegisterWidget> {
     return Align(
       alignment: AlignmentDirectional(0.0, -0.6),
       child: Container(
-        width: 260.0,
-        height: 240.0,
+        width: 250.0,
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).liteBg,
+          color: FlutterFlowTheme.of(context).primaryBackground,
           borderRadius: BorderRadius.circular(10.0),
         ),
         child: Padding(
           padding: EdgeInsets.all(10.0),
           child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
             children: [
-              Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Text(
-                    'Robot and Shuttle Register Successfully',
-                    textAlign: TextAlign.center,
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Raleway',
-                          color: FlutterFlowTheme.of(context).success,
-                          fontSize: 18.0,
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.bold,
-                          lineHeight: 1.5,
-                        ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
+                child: Text(
+                  valueOrDefault<String>(
+                    widget!.msg,
+                    '--',
                   ),
-                ],
-              ),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(0.0),
-                child: Image.asset(
-                  'assets/images/dbdca15d8fb3e9d11a8f3e7ccc92acc6.gif',
-                  width: 160.0,
-                  height: 150.0,
-                  fit: BoxFit.cover,
+                  textAlign: TextAlign.center,
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Open Sans',
+                        color: FlutterFlowTheme.of(context).error,
+                        fontSize: 16.0,
+                        letterSpacing: 0.0,
+                        fontWeight: FontWeight.w600,
+                      ),
                 ),
               ),
               FlutterFlowTimer(
@@ -104,27 +98,17 @@ class _RobotRegisterWidgetState extends State<RobotRegisterWidget> {
                   if (shouldUpdate) setState(() {});
                 },
                 onEnded: () async {
-                  context.pushNamed(
-                    'login_page',
-                    extra: <String, dynamic>{
-                      kTransitionInfoKey: TransitionInfo(
-                        hasTransition: true,
-                        transitionType: PageTransitionType.fade,
-                        duration: Duration(milliseconds: 0),
-                      ),
-                    },
-                  );
+                  Navigator.pop(context);
                 },
                 textAlign: TextAlign.start,
                 style: FlutterFlowTheme.of(context).headlineSmall.override(
                       fontFamily: 'Open Sans',
                       color: FlutterFlowTheme.of(context).primaryBackground,
-                      fontSize: 0.2,
+                      fontSize: 2.0,
                       letterSpacing: 0.0,
-                      fontWeight: FontWeight.w100,
                     ),
               ),
-            ].divide(SizedBox(height: 10.0)),
+            ],
           ),
         ),
       ),

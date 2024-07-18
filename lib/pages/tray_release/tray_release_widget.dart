@@ -9,9 +9,11 @@ import '/popup/wrong/wrong_widget.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'tray_release_model.dart';
 export 'tray_release_model.dart';
@@ -64,15 +66,15 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: const AlignmentDirectional(0.0, -1.0),
+            alignment: AlignmentDirectional(0.0, -1.0),
             child: Container(
               width: MediaQuery.sizeOf(context).width * 1.0,
               height: MediaQuery.sizeOf(context).height * 1.0,
-              constraints: const BoxConstraints(
+              constraints: BoxConstraints(
                 minWidth: 320.0,
                 maxWidth: 450.0,
               ),
-              decoration: const BoxDecoration(),
+              decoration: BoxDecoration(),
               child: SingleChildScrollView(
                 primary: false,
                 child: Column(
@@ -85,12 +87,12 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                       decoration: BoxDecoration(
                         color: Colors.white,
                         border: Border.all(
-                          color: const Color(0xFFEEECF1),
+                          color: Color(0xFFEEECF1),
                           width: 1.0,
                         ),
                       ),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             15.0, 0.0, 10.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -107,7 +109,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                 context.pushNamed(
                                   'home',
                                   extra: <String, dynamic>{
-                                    kTransitionInfoKey: const TransitionInfo(
+                                    kTransitionInfoKey: TransitionInfo(
                                       hasTransition: true,
                                       transitionType: PageTransitionType.fade,
                                       duration: Duration(milliseconds: 0),
@@ -151,7 +153,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                       child: Padding(
                                         padding:
                                             MediaQuery.viewInsetsOf(context),
-                                        child: const MenuWidget(),
+                                        child: MenuWidget(),
                                       ),
                                     );
                                   },
@@ -165,7 +167,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                   shape: BoxShape.circle,
                                 ),
                                 child: Align(
-                                  alignment: const AlignmentDirectional(0.0, 2.6),
+                                  alignment: AlignmentDirectional(0.0, 2.6),
                                   child: Icon(
                                     Icons.person_3,
                                     color: FlutterFlowTheme.of(context).heading,
@@ -174,7 +176,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                 ),
                               ),
                             ),
-                          ].divide(const SizedBox(width: 6.0)),
+                          ].divide(SizedBox(width: 6.0)),
                         ),
                       ),
                     ),
@@ -184,12 +186,12 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                       decoration: BoxDecoration(
                         color: Colors.white,
                         border: Border.all(
-                          color: const Color(0xFFEEECF1),
+                          color: Color(0xFFEEECF1),
                           width: 1.0,
                         ),
                       ),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             10.0, 0.0, 10.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -207,15 +209,15 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),
-                          ].divide(const SizedBox(width: 6.0)),
+                          ].divide(SizedBox(width: 6.0)),
                         ),
                       ),
                     ),
                     Container(
                       width: 320.0,
-                      decoration: const BoxDecoration(),
+                      decoration: BoxDecoration(),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 15.0, 0.0, 20.0),
                         child: SingleChildScrollView(
                           primary: false,
@@ -224,13 +226,13 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                             children: [
                               if (_model.change == 2 ? false : true)
                                 Align(
-                                  alignment: const AlignmentDirectional(1.0, -1.0),
+                                  alignment: AlignmentDirectional(1.0, -1.0),
                                   child: Switch.adaptive(
                                     value: _model.switchValue!,
                                     onChanged: (newValue) async {
                                       setState(
-                                          () => _model.switchValue = newValue);
-                                      if (newValue) {
+                                          () => _model.switchValue = newValue!);
+                                      if (newValue!) {
                                         _model.change = 0;
                                         setState(() {});
                                       } else {
@@ -250,7 +252,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                   ),
                                 ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 15.0),
                                 child: FutureBuilder<ApiCallResponse>(
                                   future: AdminApiGroup.getTaskCall.call(
@@ -278,9 +280,9 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
 
                                     return Container(
                                       height: 600.0,
-                                      decoration: const BoxDecoration(),
+                                      decoration: BoxDecoration(),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 15.0, 0.0, 0.0),
                                         child: SingleChildScrollView(
                                           primary: false,
@@ -288,13 +290,13 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     -1.0, -1.0),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           10.0, 0.0, 8.0, 0.0),
-                                                  child: SizedBox(
+                                                  child: Container(
                                                     width: 250.0,
                                                     child: TextFormField(
                                                       controller: _model
@@ -304,7 +306,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                       onChanged: (_) =>
                                                           EasyDebounce.debounce(
                                                         '_model.textController1',
-                                                        const Duration(
+                                                        Duration(
                                                             milliseconds: 50),
                                                         () => setState(() {}),
                                                       ),
@@ -408,7 +410,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                 ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsets.all(10.0),
+                                                padding: EdgeInsets.all(10.0),
                                                 child: SingleChildScrollView(
                                                   primary: false,
                                                   child: Column(
@@ -430,7 +432,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
 
                                                           return ListView
                                                               .builder(
-                                                            padding: const EdgeInsets
+                                                            padding: EdgeInsets
                                                                 .fromLTRB(
                                                               0,
                                                               0,
@@ -451,11 +453,11 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                                       trayRecordsIndex];
                                                               return Align(
                                                                 alignment:
-                                                                    const AlignmentDirectional(
+                                                                    AlignmentDirectional(
                                                                         0.0,
                                                                         -1.0),
                                                                 child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           15.0,
@@ -468,7 +470,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                                     height:
                                                                         95.0,
                                                                     constraints:
-                                                                        const BoxConstraints(
+                                                                        BoxConstraints(
                                                                       minWidth:
                                                                           290.0,
                                                                       maxWidth:
@@ -479,7 +481,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primaryBackground,
-                                                                      boxShadow: const [
+                                                                      boxShadow: [
                                                                         BoxShadow(
                                                                           blurRadius:
                                                                               5.0,
@@ -499,7 +501,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                                     child:
                                                                         Padding(
                                                                       padding:
-                                                                          const EdgeInsets.all(
+                                                                          EdgeInsets.all(
                                                                               10.0),
                                                                       child:
                                                                           Row(
@@ -611,7 +613,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                                                       ),
                                                                                 ),
                                                                               ),
-                                                                            ].divide(const SizedBox(height: 6.0)),
+                                                                            ].divide(SizedBox(height: 6.0)),
                                                                           ),
                                                                           Container(
                                                                             width:
@@ -625,12 +627,12 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                                                   FlutterFlowTheme.of(context).heading,
                                                                                   FlutterFlowTheme.of(context).accent
                                                                                 ],
-                                                                                stops: const [
+                                                                                stops: [
                                                                                   0.0,
                                                                                   1.0
                                                                                 ],
-                                                                                begin: const AlignmentDirectional(1.0, 0.0),
-                                                                                end: const AlignmentDirectional(-1.0, 0),
+                                                                                begin: AlignmentDirectional(1.0, 0.0),
+                                                                                end: AlignmentDirectional(-1.0, 0),
                                                                               ),
                                                                               borderRadius: BorderRadius.circular(5.0),
                                                                             ),
@@ -652,9 +654,9 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                                               text: 'Select',
                                                                               options: FFButtonOptions(
                                                                                 height: 40.0,
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
-                                                                                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                color: const Color(0x27351C75),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
+                                                                                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                color: Color(0x27351C75),
                                                                                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                       fontFamily: 'Raleway',
                                                                                       color: Colors.white,
@@ -663,7 +665,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                                                       fontWeight: FontWeight.w600,
                                                                                     ),
                                                                                 elevation: 0.0,
-                                                                                borderSide: const BorderSide(
+                                                                                borderSide: BorderSide(
                                                                                   color: Color(0xFF8E7CC3),
                                                                                 ),
                                                                                 borderRadius: BorderRadius.circular(5.0),
@@ -694,16 +696,16 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                               ),
                               if (_model.change == 1 ? true : false)
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 15.0, 0.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 0.0, 8.0, 0.0),
-                                        child: SizedBox(
+                                        child: Container(
                                           width: 300.0,
                                           child: TextFormField(
                                             controller: _model.textController2,
@@ -792,17 +794,17 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .accent
                                             ],
-                                            stops: const [0.0, 1.0],
+                                            stops: [0.0, 1.0],
                                             begin:
-                                                const AlignmentDirectional(1.0, 0.0),
-                                            end: const AlignmentDirectional(-1.0, 0),
+                                                AlignmentDirectional(1.0, 0.0),
+                                            end: AlignmentDirectional(-1.0, 0),
                                           ),
                                           borderRadius:
                                               BorderRadius.circular(5.0),
                                         ),
                                         child: FFButtonWidget(
                                           onPressed: () async {
-                                            var shouldSetState = false;
+                                            var _shouldSetState = false;
                                             if (FFAppState().friendlyname ==
                                                 _model.textController2.text) {
                                               _model.taskComplete =
@@ -812,7 +814,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                 id: FFAppState().taskrecid,
                                               );
 
-                                              shouldSetState = true;
+                                              _shouldSetState = true;
                                               if ((_model.taskComplete
                                                       ?.succeeded ??
                                                   true)) {
@@ -839,7 +841,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                             .viewInsetsOf(
                                                                 context),
                                                         child:
-                                                            const SuccessfullWidget(),
+                                                            SuccessfullWidget(),
                                                       ),
                                                     );
                                                   },
@@ -868,7 +870,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                         padding: MediaQuery
                                                             .viewInsetsOf(
                                                                 context),
-                                                        child: const WrongWidget(),
+                                                        child: WrongWidget(),
                                                       ),
                                                     );
                                                   },
@@ -897,34 +899,32 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                           .viewInsetsOf(
                                                               context),
                                                       child:
-                                                          const FriendlyNameWrgWidget(),
+                                                          FriendlyNameWrgWidget(),
                                                     ),
                                                   );
                                                 },
                                               ).then((value) =>
                                                   safeSetState(() {}));
 
-                                              if (shouldSetState) {
+                                              if (_shouldSetState)
                                                 setState(() {});
-                                              }
                                               return;
                                             }
 
-                                            if (shouldSetState) {
+                                            if (_shouldSetState)
                                               setState(() {});
-                                            }
                                           },
                                           text: 'Release',
                                           options: FFButtonOptions(
                                             width: 150.0,
                                             height: 40.0,
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     5.0, 0.0, 5.0, 0.0),
                                             iconPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
-                                            color: const Color(0x0020124D),
+                                            color: Color(0x0020124D),
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .titleSmall
@@ -935,7 +935,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                       letterSpacing: 0.0,
                                                     ),
                                             elevation: 0.0,
-                                            borderSide: const BorderSide(
+                                            borderSide: BorderSide(
                                               color: Colors.transparent,
                                               width: 1.0,
                                             ),
@@ -944,12 +944,12 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                           ),
                                         ),
                                       ),
-                                    ].divide(const SizedBox(height: 45.0)),
+                                    ].divide(SizedBox(height: 45.0)),
                                   ),
                                 ),
                               if (_model.change == 0 ? true : false)
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 15.0, 0.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -959,7 +959,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                         height: 300.0,
                                         decoration: BoxDecoration(
                                           color: Colors.white,
-                                          boxShadow: const [
+                                          boxShadow: [
                                             BoxShadow(
                                               blurRadius: 20.0,
                                               color: Color(0x678E7CC3),
@@ -973,8 +973,8 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                               BorderRadius.circular(10.0),
                                         ),
                                         child: Padding(
-                                          padding: const EdgeInsets.all(10.0),
-                                          child: SizedBox(
+                                          padding: EdgeInsets.all(10.0),
+                                          child: Container(
                                             width: 300.0,
                                             height: 300.0,
                                             child:
@@ -988,7 +988,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 15.0, 0.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.min,
@@ -1016,10 +1016,10 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                       .secondaryText,
                                               size: 24.0,
                                             ),
-                                          ].divide(const SizedBox(width: 5.0)),
+                                          ].divide(SizedBox(width: 5.0)),
                                         ),
                                       ),
-                                    ].divide(const SizedBox(height: 20.0)),
+                                    ].divide(SizedBox(height: 20.0)),
                                   ),
                                 ),
                             ],

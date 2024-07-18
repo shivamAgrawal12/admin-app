@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:go_router/go_router.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
 import '/backend/schema/structs/index.dart';
@@ -9,8 +11,12 @@ import '/backend/schema/structs/index.dart';
 import '/auth/custom_auth/custom_auth_user_provider.dart';
 
 import '/index.dart';
+import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/lat_lng.dart';
+import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -75,120 +81,120 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const HomeWidget() : const RobotScanWidget(),
+          appStateNotifier.loggedIn ? HomeWidget() : RobotScanWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const HomeWidget() : const RobotScanWidget(),
+              appStateNotifier.loggedIn ? HomeWidget() : RobotScanWidget(),
         ),
         FFRoute(
           name: 'login_page',
           path: '/loginPage',
-          builder: (context, params) => const LoginPageWidget(),
+          builder: (context, params) => LoginPageWidget(),
         ),
         FFRoute(
           name: 'robot_scan',
           path: '/robotScan',
-          builder: (context, params) => const RobotScanWidget(),
+          builder: (context, params) => RobotScanWidget(),
         ),
         FFRoute(
           name: 'robot_info',
           path: '/robotInfo',
           requireAuth: true,
-          builder: (context, params) => const RobotInfoWidget(),
+          builder: (context, params) => RobotInfoWidget(),
         ),
         FFRoute(
           name: 'slot_info_scan',
           path: '/slotInfoScan',
-          builder: (context, params) => const SlotInfoScanWidget(),
+          builder: (context, params) => SlotInfoScanWidget(),
         ),
         FFRoute(
           name: 'tray_info_scan',
           path: '/trayInfoScan',
-          builder: (context, params) => const TrayInfoScanWidget(),
+          builder: (context, params) => TrayInfoScanWidget(),
         ),
         FFRoute(
           name: 'complete_request',
           path: '/completeRequest',
-          builder: (context, params) => const CompleteRequestWidget(),
+          builder: (context, params) => CompleteRequestWidget(),
         ),
         FFRoute(
           name: 'slot_mappimg',
           path: '/slotMappimg',
-          builder: (context, params) => const SlotMappimgWidget(),
+          builder: (context, params) => SlotMappimgWidget(),
         ),
         FFRoute(
           name: 'tray_mappimg',
           path: '/trayMappimg',
-          builder: (context, params) => const TrayMappimgWidget(),
+          builder: (context, params) => TrayMappimgWidget(),
         ),
         FFRoute(
           name: 'tray_remove',
           path: '/trayRemove',
-          builder: (context, params) => const TrayRemoveWidget(),
+          builder: (context, params) => TrayRemoveWidget(),
         ),
         FFRoute(
           name: 'tray_retrieve',
           path: '/trayRetrieve',
-          builder: (context, params) => const TrayRetrieveWidget(),
+          builder: (context, params) => TrayRetrieveWidget(),
         ),
         FFRoute(
           name: 'add_new_tray',
           path: '/addNewTray',
-          builder: (context, params) => const AddNewTrayWidget(),
+          builder: (context, params) => AddNewTrayWidget(),
         ),
         FFRoute(
           name: 'delete_tray',
           path: '/deleteTray',
-          builder: (context, params) => const DeleteTrayWidget(),
+          builder: (context, params) => DeleteTrayWidget(),
         ),
         FFRoute(
           name: 'support',
           path: '/support',
-          builder: (context, params) => const SupportWidget(),
+          builder: (context, params) => SupportWidget(),
         ),
         FFRoute(
           name: 'list_of_tray',
           path: '/listOfTray',
-          builder: (context, params) => const ListOfTrayWidget(),
+          builder: (context, params) => ListOfTrayWidget(),
         ),
         FFRoute(
           name: 'list_of_slot',
           path: '/listOfSlot',
-          builder: (context, params) => const ListOfSlotWidget(),
+          builder: (context, params) => ListOfSlotWidget(),
         ),
         FFRoute(
           name: 'tray_release',
           path: '/trayRelease',
-          builder: (context, params) => const TrayReleaseWidget(),
+          builder: (context, params) => TrayReleaseWidget(),
         ),
         FFRoute(
           name: 'home',
           path: '/home',
           requireAuth: true,
-          builder: (context, params) => const HomeWidget(),
+          builder: (context, params) => HomeWidget(),
         ),
         FFRoute(
           name: 'list_of_picking',
           path: '/listOfPicking',
-          builder: (context, params) => const ListOfPickingWidget(),
+          builder: (context, params) => ListOfPickingWidget(),
         ),
         FFRoute(
           name: 'pending_task',
           path: '/pendingTask',
-          builder: (context, params) => const PendingTaskWidget(),
+          builder: (context, params) => PendingTaskWidget(),
         ),
         FFRoute(
           name: 'register_robot',
           path: '/registerRobot',
-          builder: (context, params) => const RegisterRobotWidget(),
+          builder: (context, params) => RegisterRobotWidget(),
         ),
         FFRoute(
           name: 'register_shuttles',
           path: '/registerShuttles',
-          builder: (context, params) => const RegisterShuttlesWidget(),
+          builder: (context, params) => RegisterShuttlesWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -425,7 +431,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {
