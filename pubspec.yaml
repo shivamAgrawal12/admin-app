@@ -65,7 +65,6 @@ dependencies:
   shared_preferences_foundation: 2.3.4
   shared_preferences_platform_interface: 2.3.1
   shared_preferences_web: 2.2.1
-  simple_gradient_text: 1.2.3
   sqflite: 2.2.6
   stop_watch_timer: 3.0.2
   synchronized: 3.1.0
@@ -74,6 +73,7 @@ dependencies:
   url_launcher_android: 6.3.0
   url_launcher_ios: 6.2.5
   url_launcher_platform_interface: 2.3.2
+  vibration: ^1.9.0
 
 
   # The following adds the Cupertino Icons font to your application.

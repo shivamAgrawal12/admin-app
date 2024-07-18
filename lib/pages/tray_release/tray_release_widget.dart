@@ -255,7 +255,8 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                 child: FutureBuilder<ApiCallResponse>(
                                   future: AdminApiGroup.getTaskCall.call(
                                     robotId: FFAppState().robotid,
-                                    taskType: 'retrieve',
+                                    taskType: 'admin',
+                                    taskStatus: 'tray_ready_to_use',
                                   ),
                                   builder: (context, snapshot) {
                                     // Customize what your widget looks like when it's loading.
@@ -276,7 +277,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                         snapshot.data!;
 
                                     return Container(
-                                      height: 400.0,
+                                      height: 600.0,
                                       decoration: const BoxDecoration(),
                                       child: Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
@@ -436,6 +437,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                               0,
                                                               15.0,
                                                             ),
+                                                            primary: false,
                                                             shrinkWrap: true,
                                                             scrollDirection:
                                                                 Axis.vertical,
@@ -464,7 +466,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                                     width:
                                                                         350.0,
                                                                     height:
-                                                                        75.0,
+                                                                        95.0,
                                                                     constraints:
                                                                         const BoxConstraints(
                                                                       minWidth:
@@ -577,7 +579,39 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                                                       ),
                                                                                 ),
                                                                               ),
-                                                                            ].divide(const SizedBox(height: 8.0)),
+                                                                              RichText(
+                                                                                textScaler: MediaQuery.of(context).textScaler,
+                                                                                text: TextSpan(
+                                                                                  children: [
+                                                                                    TextSpan(
+                                                                                      text: 'Status : ',
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Open Sans',
+                                                                                            color: FlutterFlowTheme.of(context).liteText,
+                                                                                            fontSize: 15.0,
+                                                                                            letterSpacing: 0.0,
+                                                                                            fontWeight: FontWeight.w600,
+                                                                                          ),
+                                                                                    ),
+                                                                                    TextSpan(
+                                                                                      text: getJsonField(
+                                                                                        trayRecordsItem,
+                                                                                        r'''$.status''',
+                                                                                      ).toString(),
+                                                                                      style: TextStyle(
+                                                                                        color: FlutterFlowTheme.of(context).bodyText,
+                                                                                        fontWeight: FontWeight.w600,
+                                                                                        fontSize: 15.0,
+                                                                                      ),
+                                                                                    )
+                                                                                  ],
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Open Sans',
+                                                                                        letterSpacing: 0.0,
+                                                                                      ),
+                                                                                ),
+                                                                              ),
+                                                                            ].divide(const SizedBox(height: 6.0)),
                                                                           ),
                                                                           Container(
                                                                             width:

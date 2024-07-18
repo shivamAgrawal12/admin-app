@@ -32,7 +32,7 @@ class AdminApiGroup {
   static TaskDetailsCall taskDetailsCall = TaskDetailsCall();
   static ListOfTrayCall listOfTrayCall = ListOfTrayCall();
   static ListOfSlotCall listOfSlotCall = ListOfSlotCall();
-  static PendingTaskCall pendingTaskCall = PendingTaskCall();
+  static TaskByStatusCall taskByStatusCall = TaskByStatusCall();
   static RegisterNewRobotCall registerNewRobotCall = RegisterNewRobotCall();
   static GetTaskCall getTaskCall = GetTaskCall();
   static TaskCompleteCall taskCompleteCall = TaskCompleteCall();
@@ -89,6 +89,26 @@ class VerifyRobotIdCall {
   String? robotname(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.records[:].robot_name''',
+      ));
+  int? maxrow(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.records[:].max_row''',
+      ));
+  int? maxrack(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.records[:].max_rack''',
+      ));
+  int? maxslot(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.records[:].max_slot''',
+      ));
+  int? maxdepth(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.records[:].max_depth''',
+      ));
+  String? status(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.records[:].status''',
       ));
 }
 
@@ -638,15 +658,16 @@ class ListOfSlotCall {
       ));
 }
 
-class PendingTaskCall {
+class TaskByStatusCall {
   Future<ApiCallResponse> call({
     String? taskStatus = '',
     String? robotId = '',
+    String? taskType = '',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
-      callName: 'pending task',
+      callName: 'task by status',
       apiUrl: '$baseUrl/robotmanager/task/',
       callType: ApiCallType.GET,
       headers: {
@@ -658,6 +679,7 @@ class PendingTaskCall {
       params: {
         'robot_id': robotId,
         'task_status': taskStatus,
+        'task_type': taskType,
       },
       returnBody: true,
       encodeBodyUtf8: false,
@@ -737,6 +759,7 @@ class GetTaskCall {
   Future<ApiCallResponse> call({
     String? robotId = '',
     String? taskType = '',
+    String? taskStatus = '',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl();
 
@@ -753,6 +776,7 @@ class GetTaskCall {
       params: {
         'robot_id': robotId,
         'task_type': taskType,
+        'task_status': taskStatus,
       },
       returnBody: true,
       encodeBodyUtf8: false,

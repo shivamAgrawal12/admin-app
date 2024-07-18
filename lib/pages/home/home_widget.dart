@@ -389,23 +389,13 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                               0.0, 0.0),
                                                       child: Text(
                                                         valueOrDefault<String>(
-                                                          getJsonField(
-                                                                    containerVerifyRobotIdResponse
-                                                                        .jsonBody,
-                                                                    r'''$.records[0].status''',
-                                                                  ) ==
-                                                                  null
-                                                              ? 'N/A'
-                                                              : valueOrDefault<
-                                                                  String>(
-                                                                  getJsonField(
-                                                                    containerVerifyRobotIdResponse
-                                                                        .jsonBody,
-                                                                    r'''$.records[0].status''',
-                                                                  )?.toString(),
-                                                                  '0',
-                                                                ),
-                                                          'N/A',
+                                                          AdminApiGroup
+                                                              .verifyRobotIdCall
+                                                              .status(
+                                                            containerVerifyRobotIdResponse
+                                                                .jsonBody,
+                                                          ),
+                                                          '-',
                                                         ),
                                                         style: FlutterFlowTheme
                                                                 .of(context)
@@ -1543,97 +1533,77 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                       ),
                                                       child: FFButtonWidget(
                                                         onPressed: () async {
-                                                          var shouldSetState =
-                                                              false;
-                                                          if (FFAppState()
-                                                                      .trayid !=
-                                                                  '') {
-                                                            _model.trayCheckBtn =
-                                                                await AdminApiGroup
-                                                                    .slotInfoCall
-                                                                    .call(
-                                                              slotId: _model
-                                                                  .textController
-                                                                  .text,
-                                                              robotId:
-                                                                  FFAppState()
-                                                                      .robotid,
+                                                          _model.trayCheckBtn =
+                                                              await AdminApiGroup
+                                                                  .slotInfoCall
+                                                                  .call(
+                                                            slotId: _model
+                                                                .textController
+                                                                .text,
+                                                            robotId:
+                                                                FFAppState()
+                                                                    .robotid,
+                                                          );
+
+                                                          if ((_model
+                                                                  .trayCheckBtn
+                                                                  ?.succeeded ??
+                                                              true)) {
+                                                            FFAppState()
+                                                                .hideslot = 2;
+                                                            FFAppState()
+                                                                    .slotrecid =
+                                                                getJsonField(
+                                                              (_model.trayCheckBtn
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                              r'''$.id''',
                                                             );
-
-                                                            shouldSetState =
-                                                                true;
-                                                            if ((_model
-                                                                    .trayCheckBtn
-                                                                    ?.succeeded ??
-                                                                true)) {
-                                                              FFAppState()
-                                                                  .hideslot = 2;
-                                                              FFAppState()
-                                                                      .slotrecid =
-                                                                  getJsonField(
-                                                                (_model.trayCheckBtn
-                                                                        ?.jsonBody ??
-                                                                    ''),
-                                                                r'''$.id''',
-                                                              );
-                                                              FFAppState()
-                                                                      .slotid =
-                                                                  _model
-                                                                      .textController
-                                                                      .text;
-                                                              FFAppState()
-                                                                  .update(
-                                                                      () {});
-                                                            } else {
-                                                              await showModalBottomSheet(
-                                                                isScrollControlled:
-                                                                    true,
-                                                                backgroundColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                enableDrag:
-                                                                    false,
-                                                                context:
-                                                                    context,
-                                                                builder:
-                                                                    (context) {
-                                                                  return GestureDetector(
-                                                                    onTap: () => _model
-                                                                            .unfocusNode
-                                                                            .canRequestFocus
-                                                                        ? FocusScope.of(context).requestFocus(_model
-                                                                            .unfocusNode)
-                                                                        : FocusScope.of(context)
-                                                                            .unfocus(),
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: MediaQuery
-                                                                          .viewInsetsOf(
-                                                                              context),
-                                                                      child:
-                                                                          const NoRecordWidget(),
-                                                                    ),
-                                                                  );
-                                                                },
-                                                              ).then((value) =>
-                                                                  safeSetState(
-                                                                      () {}));
-                                                            }
-
-                                                            if (shouldSetState) {
-                                                              setState(() {});
-                                                            }
-                                                            return;
+                                                            FFAppState()
+                                                                    .slotid =
+                                                                _model
+                                                                    .textController
+                                                                    .text;
+                                                            FFAppState()
+                                                                .update(() {});
                                                           } else {
-                                                            if (shouldSetState) {
-                                                              setState(() {});
-                                                            }
-                                                            return;
+                                                            await showModalBottomSheet(
+                                                              isScrollControlled:
+                                                                  true,
+                                                              backgroundColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              enableDrag: false,
+                                                              context: context,
+                                                              builder:
+                                                                  (context) {
+                                                                return GestureDetector(
+                                                                  onTap: () => _model
+                                                                          .unfocusNode
+                                                                          .canRequestFocus
+                                                                      ? FocusScope.of(
+                                                                              context)
+                                                                          .requestFocus(_model
+                                                                              .unfocusNode)
+                                                                      : FocusScope.of(
+                                                                              context)
+                                                                          .unfocus(),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
+                                                                    child:
+                                                                        const NoRecordWidget(),
+                                                                  ),
+                                                                );
+                                                              },
+                                                            ).then((value) =>
+                                                                safeSetState(
+                                                                    () {}));
                                                           }
 
-                                                          if (shouldSetState) {
-                                                            setState(() {});
-                                                          }
+                                                          setState(() {});
                                                         },
                                                         text: 'Submit',
                                                         options:

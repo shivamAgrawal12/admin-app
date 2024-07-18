@@ -2,7 +2,6 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/popup/menu/menu_widget.dart';
-import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -405,23 +404,13 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                         child: Text(
                                                           valueOrDefault<
                                                               String>(
-                                                            getJsonField(
-                                                                      containerVerifyRobotIdResponse
-                                                                          .jsonBody,
-                                                                      r'''$.records[0].status''',
-                                                                    ) ==
-                                                                    null
-                                                                ? 'N/A'
-                                                                : valueOrDefault<
-                                                                    String>(
-                                                                    getJsonField(
-                                                                      containerVerifyRobotIdResponse
-                                                                          .jsonBody,
-                                                                      r'''$.records[0].status''',
-                                                                    )?.toString(),
-                                                                    '0',
-                                                                  ),
-                                                            'N/A',
+                                                            AdminApiGroup
+                                                                .verifyRobotIdCall
+                                                                .status(
+                                                              containerVerifyRobotIdResponse
+                                                                  .jsonBody,
+                                                            ),
+                                                            '-',
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -495,11 +484,13 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                         child: Text(
                                                           valueOrDefault<
                                                               String>(
-                                                            getJsonField(
-                                                              containerVerifyRobotIdResponse
-                                                                  .jsonBody,
-                                                              r'''$.max_row''',
-                                                            )?.toString(),
+                                                            AdminApiGroup
+                                                                .verifyRobotIdCall
+                                                                .maxrow(
+                                                                  containerVerifyRobotIdResponse
+                                                                      .jsonBody,
+                                                                )
+                                                                ?.toString(),
                                                             '0',
                                                           ),
                                                           style: FlutterFlowTheme
@@ -559,11 +550,13 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                         child: Text(
                                                           valueOrDefault<
                                                               String>(
-                                                            getJsonField(
-                                                              containerVerifyRobotIdResponse
-                                                                  .jsonBody,
-                                                              r'''$.max_rack''',
-                                                            )?.toString(),
+                                                            AdminApiGroup
+                                                                .verifyRobotIdCall
+                                                                .maxrack(
+                                                                  containerVerifyRobotIdResponse
+                                                                      .jsonBody,
+                                                                )
+                                                                ?.toString(),
                                                             '0',
                                                           ),
                                                           style: FlutterFlowTheme
@@ -623,11 +616,13 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                         child: Text(
                                                           valueOrDefault<
                                                               String>(
-                                                            getJsonField(
-                                                              containerVerifyRobotIdResponse
-                                                                  .jsonBody,
-                                                              r'''$.max_slot''',
-                                                            )?.toString(),
+                                                            AdminApiGroup
+                                                                .verifyRobotIdCall
+                                                                .maxslot(
+                                                                  containerVerifyRobotIdResponse
+                                                                      .jsonBody,
+                                                                )
+                                                                ?.toString(),
                                                             '0',
                                                           ),
                                                           style: FlutterFlowTheme
@@ -687,30 +682,14 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                         child: Text(
                                                           valueOrDefault<
                                                               String>(
-                                                            () {
-                                                              if (getJsonField(
-                                                                    containerVerifyRobotIdResponse
-                                                                        .jsonBody,
-                                                                    r'''$.max_depth''',
-                                                                  ) ==
-                                                                  functions
-                                                                      .jsontoint(
-                                                                          1)) {
-                                                                return 'Single';
-                                                              } else if (getJsonField(
-                                                                    containerVerifyRobotIdResponse
-                                                                        .jsonBody,
-                                                                    r'''$.max_depth''',
-                                                                  ) ==
-                                                                  functions
-                                                                      .jsontoint(
-                                                                          2)) {
-                                                                return 'Double';
-                                                              } else {
-                                                                return '-';
-                                                              }
-                                                            }(),
-                                                            '-',
+                                                            AdminApiGroup
+                                                                .verifyRobotIdCall
+                                                                .maxdepth(
+                                                                  containerVerifyRobotIdResponse
+                                                                      .jsonBody,
+                                                                )
+                                                                ?.toString(),
+                                                            '0',
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
