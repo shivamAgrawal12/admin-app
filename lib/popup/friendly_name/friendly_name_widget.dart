@@ -128,7 +128,7 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
               child: Text(
-                FFAppState().slotid,
+                FFAppState().homeslotid,
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Raleway',
                       fontSize: 30.0,

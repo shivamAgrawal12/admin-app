@@ -82,6 +82,12 @@ class FFAppState extends ChangeNotifier {
   set friendlyname(String value) {
     _friendlyname = value;
   }
+
+  String _homeslotid = '';
+  String get homeslotid => _homeslotid;
+  set homeslotid(String value) {
+    _homeslotid = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

@@ -1548,7 +1548,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                               r'''$.id''',
                                                             );
                                                             FFAppState()
-                                                                    .slotid =
+                                                                    .homeslotid =
                                                                 _model
                                                                     .textController
                                                                     .text;
@@ -1731,7 +1731,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                           ),
                                                           TextSpan(
                                                             text: FFAppState()
-                                                                .slotid,
+                                                                .homeslotid,
                                                             style: TextStyle(
                                                               color: FlutterFlowTheme
                                                                       .of(context)
