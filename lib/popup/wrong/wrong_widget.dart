@@ -94,6 +94,7 @@ class _WrongWidgetState extends State<WrongWidget> {
                   FFAppState().trayrecid = 0;
                   FFAppState().taskrecid = 0;
                   FFAppState().hideslot = 0;
+                  FFAppState().homeslotid = '';
                   FFAppState().update(() {});
                   Navigator.pop(context);
                 },
