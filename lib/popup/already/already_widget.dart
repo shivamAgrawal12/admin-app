@@ -64,11 +64,12 @@ class _AlreadyWidgetState extends State<AlreadyWidget> {
                   'The tray is already integrated with the robot.',
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Open Sans',
+                        fontFamily: 'Raleway',
                         color: FlutterFlowTheme.of(context).primaryText,
                         fontSize: 16.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
+                        lineHeight: 1.5,
                       ),
                 ),
               ),
@@ -87,6 +88,7 @@ class _AlreadyWidgetState extends State<AlreadyWidget> {
                   if (shouldUpdate) setState(() {});
                 },
                 onEnded: () async {
+                  _model.timerController.onStopTimer();
                   FFAppState().trayid = '';
                   FFAppState().update(() {});
 

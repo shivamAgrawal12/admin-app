@@ -64,7 +64,7 @@ class _NoRecordWidgetState extends State<NoRecordWidget> {
                   'No Record Found.',
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Open Sans',
+                        fontFamily: 'Raleway',
                         color: FlutterFlowTheme.of(context).error,
                         fontSize: 16.0,
                         letterSpacing: 0.0,
@@ -87,6 +87,7 @@ class _NoRecordWidgetState extends State<NoRecordWidget> {
                   if (shouldUpdate) setState(() {});
                 },
                 onEnded: () async {
+                  _model.timerController.onStopTimer();
                   Navigator.pop(context);
                 },
                 textAlign: TextAlign.start,

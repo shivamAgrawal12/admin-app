@@ -56,7 +56,7 @@ class _LogoutWidgetState extends State<LogoutWidget> {
                 'Are you sure\nDo you want to logout?',
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Open Sans',
+                      fontFamily: 'Raleway',
                       color: FlutterFlowTheme.of(context).accent,
                       fontSize: 16.0,
                       letterSpacing: 0.0,
@@ -65,7 +65,7 @@ class _LogoutWidgetState extends State<LogoutWidget> {
                     ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 35.0, 0.0, 10.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(5.0, 30.0, 5.0, 10.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -85,7 +85,7 @@ class _LogoutWidgetState extends State<LogoutWidget> {
                         color: const Color(0x00FFFFFF),
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Open Sans',
+                                  fontFamily: 'Raleway',
                                   color: FlutterFlowTheme.of(context).accent1,
                                   letterSpacing: 1.0,
                                   fontWeight: FontWeight.w600,
@@ -134,7 +134,7 @@ class _LogoutWidgetState extends State<LogoutWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Open Sans',
+                                    fontFamily: 'Raleway',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     fontSize: 16.0,

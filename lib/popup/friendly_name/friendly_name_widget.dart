@@ -141,7 +141,7 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
             Align(
               alignment: const AlignmentDirectional(-1.0, -1.0),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(30.0, 10.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(30.0, 15.0, 0.0, 0.0),
                 child: Text(
                   'Enter Friendly Name',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -156,7 +156,7 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(8.0, 10.0, 8.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 0.0),
               child: SizedBox(
                 width: 220.0,
                 child: TextFormField(
@@ -203,7 +203,7 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
                     ),
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Open Sans',
+                        fontFamily: 'Raleway',
                         fontSize: 15.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
@@ -314,7 +314,7 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
 
                         setState(() {});
                       },
-                      text: 'Confirm',
+                      text: 'Change',
                       options: FFButtonOptions(
                         height: 40.0,
                         padding:

@@ -56,7 +56,7 @@ class _WrongNumWidgetState extends State<WrongNumWidget> {
                   'Enter Valid Mobile Number',
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Open Sans',
+                        fontFamily: 'Raleway',
                         color: FlutterFlowTheme.of(context).accent,
                         fontSize: 16.0,
                         letterSpacing: 0.0,
@@ -67,12 +67,12 @@ class _WrongNumWidgetState extends State<WrongNumWidget> {
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                 child: Text(
-                  'The given number must have 10 digits',
+                  'Phone number must have 10 digits',
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Open Sans',
+                        fontFamily: 'Raleway',
                         color: FlutterFlowTheme.of(context).accent,
-                        fontSize: 15.0,
+                        fontSize: 16.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
                       ),
@@ -89,7 +89,7 @@ class _WrongNumWidgetState extends State<WrongNumWidget> {
                     Navigator.pop(context);
                   },
                   child: Container(
-                    width: 120.0,
+                    width: 110.0,
                     height: 40.0,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
@@ -111,7 +111,7 @@ class _WrongNumWidgetState extends State<WrongNumWidget> {
                           'Retry',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Open Sans',
+                                    fontFamily: 'Raleway',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     fontSize: 16.0,

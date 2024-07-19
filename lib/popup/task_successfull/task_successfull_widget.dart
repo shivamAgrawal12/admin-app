@@ -110,6 +110,7 @@ class _TaskSuccessfullWidgetState extends State<TaskSuccessfullWidget> {
                   if (shouldUpdate) setState(() {});
                 },
                 onEnded: () async {
+                  _model.timerController.onStopTimer();
                   FFAppState().slotid = '';
                   FFAppState().trayid = '';
                   FFAppState().slotrecid = 0;

@@ -72,7 +72,7 @@ class _MsgMappingWidgetState extends State<MsgMappingWidget> {
                   ),
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Open Sans',
+                        fontFamily: 'Raleway',
                         color: FlutterFlowTheme.of(context).error,
                         fontSize: 16.0,
                         letterSpacing: 0.0,
@@ -95,6 +95,7 @@ class _MsgMappingWidgetState extends State<MsgMappingWidget> {
                   if (shouldUpdate) setState(() {});
                 },
                 onEnded: () async {
+                  _model.timerController.onStopTimer();
                   FFAppState().slotid = '';
                   FFAppState().trayid = '';
                   FFAppState().update(() {});

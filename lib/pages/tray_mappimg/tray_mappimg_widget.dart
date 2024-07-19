@@ -198,38 +198,47 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget> {
                     ),
                   ),
                   Container(
-                    width: 320.0,
+                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    height: MediaQuery.sizeOf(context).height * 0.75,
+                    constraints: const BoxConstraints(
+                      minWidth: 320.0,
+                      maxWidth: 450.0,
+                    ),
                     decoration: const BoxDecoration(),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Align(
                               alignment: const AlignmentDirectional(1.0, -1.0),
-                              child: Switch.adaptive(
-                                value: _model.switchValue!,
-                                onChanged: (newValue) async {
-                                  setState(
-                                      () => _model.switchValue = newValue);
-                                  if (newValue) {
-                                    _model.change = 0;
-                                    setState(() {});
-                                  } else {
-                                    _model.change = 1;
-                                    setState(() {});
-                                  }
-                                },
-                                activeColor:
-                                    FlutterFlowTheme.of(context).liteBg,
-                                activeTrackColor:
-                                    FlutterFlowTheme.of(context).primaryText,
-                                inactiveTrackColor:
-                                    FlutterFlowTheme.of(context).liteBg,
-                                inactiveThumbColor:
-                                    FlutterFlowTheme.of(context).primaryText,
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 40.0, 0.0),
+                                child: Switch.adaptive(
+                                  value: _model.switchValue!,
+                                  onChanged: (newValue) async {
+                                    setState(
+                                        () => _model.switchValue = newValue);
+                                    if (newValue) {
+                                      _model.change = 0;
+                                      setState(() {});
+                                    } else {
+                                      _model.change = 1;
+                                      setState(() {});
+                                    }
+                                  },
+                                  activeColor:
+                                      FlutterFlowTheme.of(context).liteBg,
+                                  activeTrackColor:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  inactiveTrackColor:
+                                      FlutterFlowTheme.of(context).liteBg,
+                                  inactiveThumbColor:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                ),
                               ),
                             ),
                             if (_model.change == 0 ? true : false)
@@ -252,7 +261,7 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget> {
                                           ),
                                         )
                                       ],
-                                      borderRadius: BorderRadius.circular(10.0),
+                                      borderRadius: BorderRadius.circular(5.0),
                                     ),
                                     child: const Padding(
                                       padding: EdgeInsets.all(10.0),
@@ -465,7 +474,7 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget> {
                                   ].divide(const SizedBox(height: 45.0)),
                                 ),
                               ),
-                          ].divide(const SizedBox(height: 25.0)),
+                          ].divide(const SizedBox(height: 20.0)),
                         ),
                       ),
                     ),

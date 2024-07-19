@@ -64,11 +64,12 @@ class _FriendlyNameWrgWidgetState extends State<FriendlyNameWrgWidget> {
                   'The correct station name is required. Please provide the correct station name.',
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Open Sans',
+                        fontFamily: 'Raleway',
                         color: FlutterFlowTheme.of(context).primaryText,
                         fontSize: 16.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
+                        lineHeight: 1.5,
                       ),
                 ),
               ),
@@ -87,6 +88,7 @@ class _FriendlyNameWrgWidgetState extends State<FriendlyNameWrgWidget> {
                   if (shouldUpdate) setState(() {});
                 },
                 onEnded: () async {
+                  _model.timerController.onStopTimer();
                   FFAppState().friendlyname = '';
                   FFAppState().update(() {});
                   Navigator.pop(context);

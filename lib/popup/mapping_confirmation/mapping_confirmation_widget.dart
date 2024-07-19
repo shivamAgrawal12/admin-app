@@ -51,7 +51,7 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
         width: 290.0,
         height: 410.0,
         decoration: BoxDecoration(
-          color: const Color(0xFFEFFBE3),
+          color: FlutterFlowTheme.of(context).liteBg,
           borderRadius: BorderRadius.circular(10.0),
         ),
         child: Column(
@@ -90,7 +90,7 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                       Align(
                         alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Text(
-                          'Confirmation !',
+                          'Confirmation',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Raleway',
@@ -116,7 +116,7 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                   Text(
                     'Slot ID',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Open Sans',
+                          fontFamily: 'Raleway',
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w500,
                         ),
@@ -126,9 +126,9 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                     child: Text(
                       FFAppState().slotid,
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Open Sans',
-                            fontSize: 30.0,
-                            letterSpacing: 0.5,
+                            fontFamily: 'Raleway',
+                            fontSize: 28.0,
+                            letterSpacing: 0.0,
                             fontWeight: FontWeight.bold,
                             lineHeight: 1.0,
                           ),
@@ -137,7 +137,7 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                   Text(
                     'Tray ID',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Open Sans',
+                          fontFamily: 'Raleway',
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w500,
                         ),
@@ -147,9 +147,9 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                     child: Text(
                       FFAppState().trayid,
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Open Sans',
-                            fontSize: 25.0,
-                            letterSpacing: 0.5,
+                            fontFamily: 'Raleway',
+                            fontSize: 28.0,
+                            letterSpacing: 0.0,
                             fontWeight: FontWeight.bold,
                             lineHeight: 1.0,
                           ),
@@ -247,7 +247,7 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                       color: const Color(0x00FFFFFF),
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
-                                fontFamily: 'Open Sans',
+                                fontFamily: 'Raleway',
                                 color: FlutterFlowTheme.of(context).heading,
                                 fontSize: 16.0,
                                 letterSpacing: 0.0,

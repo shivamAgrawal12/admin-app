@@ -203,37 +203,110 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
                     ),
                   ),
                   Container(
-                    width: 320.0,
+                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    height: MediaQuery.sizeOf(context).height * 0.75,
+                    constraints: const BoxConstraints(
+                      minWidth: 320.0,
+                      maxWidth: 450.0,
+                    ),
                     decoration: const BoxDecoration(),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Align(
                             alignment: const AlignmentDirectional(1.0, -1.0),
-                            child: Switch.adaptive(
-                              value: _model.switchValue!,
-                              onChanged: (newValue) async {
-                                setState(() => _model.switchValue = newValue);
-                                if (newValue) {
-                                  _model.change = 0;
-                                  setState(() {});
-                                } else {
-                                  _model.change = 1;
-                                  setState(() {});
-                                }
-                              },
-                              activeColor: FlutterFlowTheme.of(context).liteBg,
-                              activeTrackColor:
-                                  FlutterFlowTheme.of(context).primaryText,
-                              inactiveTrackColor:
-                                  FlutterFlowTheme.of(context).liteBg,
-                              inactiveThumbColor:
-                                  FlutterFlowTheme.of(context).primaryText,
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 40.0, 0.0),
+                              child: Switch.adaptive(
+                                value: _model.switchValue!,
+                                onChanged: (newValue) async {
+                                  setState(
+                                      () => _model.switchValue = newValue);
+                                  if (newValue) {
+                                    _model.change = 0;
+                                    setState(() {});
+                                  } else {
+                                    _model.change = 1;
+                                    setState(() {});
+                                  }
+                                },
+                                activeColor:
+                                    FlutterFlowTheme.of(context).liteBg,
+                                activeTrackColor:
+                                    FlutterFlowTheme.of(context).primaryText,
+                                inactiveTrackColor:
+                                    FlutterFlowTheme.of(context).liteBg,
+                                inactiveThumbColor:
+                                    FlutterFlowTheme.of(context).primaryText,
+                              ),
                             ),
                           ),
+                          if (_model.change == 0 ? true : false)
+                            SingleChildScrollView(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    width: 300.0,
+                                    height: 300.0,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      boxShadow: const [
+                                        BoxShadow(
+                                          blurRadius: 20.0,
+                                          color: Color(0x678E7CC3),
+                                          offset: Offset(
+                                            5.0,
+                                            8.0,
+                                          ),
+                                        )
+                                      ],
+                                      borderRadius: BorderRadius.circular(5.0),
+                                    ),
+                                    child: const Padding(
+                                      padding: EdgeInsets.all(10.0),
+                                      child: SizedBox(
+                                        width: 300.0,
+                                        height: 300.0,
+                                        child: custom_widgets.QRTrayDel(
+                                          width: 300.0,
+                                          height: 300.0,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'Scan Tray QR',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Raleway',
+                                              fontSize: 18.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w600,
+                                              lineHeight: 1.0,
+                                            ),
+                                      ),
+                                      Icon(
+                                        Icons.qr_code_scanner_outlined,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        size: 24.0,
+                                      ),
+                                    ].divide(const SizedBox(width: 5.0)),
+                                  ),
+                                ].divide(const SizedBox(height: 25.0)),
+                              ),
+                            ),
                           if (_model.change == 1 ? true : false)
                             Column(
                               mainAxisSize: MainAxisSize.max,
@@ -399,7 +472,7 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
 
                                         setState(() {});
                                       },
-                                      text: 'Submit',
+                                      text: 'Delete Tray',
                                       options: FFButtonOptions(
                                         width: 140.0,
                                         height: 40.0,
@@ -430,67 +503,7 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
                                 ),
                               ].divide(const SizedBox(height: 45.0)),
                             ),
-                          if (_model.change == 0 ? true : false)
-                            Column(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Container(
-                                  width: 300.0,
-                                  height: 300.0,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    boxShadow: const [
-                                      BoxShadow(
-                                        blurRadius: 20.0,
-                                        color: Color(0x678E7CC3),
-                                        offset: Offset(
-                                          5.0,
-                                          8.0,
-                                        ),
-                                      )
-                                    ],
-                                    borderRadius: BorderRadius.circular(15.0),
-                                  ),
-                                  child: const Padding(
-                                    padding: EdgeInsets.all(10.0),
-                                    child: SizedBox(
-                                      width: 300.0,
-                                      height: 300.0,
-                                      child: custom_widgets.QRTrayDel(
-                                        width: 300.0,
-                                        height: 300.0,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      'Scan Tray QR',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Raleway',
-                                            fontSize: 18.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w600,
-                                            lineHeight: 1.0,
-                                          ),
-                                    ),
-                                    Icon(
-                                      Icons.qr_code_scanner_outlined,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      size: 24.0,
-                                    ),
-                                  ].divide(const SizedBox(width: 5.0)),
-                                ),
-                              ].divide(const SizedBox(height: 50.0)),
-                            ),
-                        ].divide(const SizedBox(height: 20.0)),
+                        ].divide(const SizedBox(height: 15.0)),
                       ),
                     ),
                   ),

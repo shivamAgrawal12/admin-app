@@ -64,7 +64,7 @@ class _WrongWidgetState extends State<WrongWidget> {
                   'Something Went wrong.',
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Open Sans',
+                        fontFamily: 'Raleway',
                         color: FlutterFlowTheme.of(context).primaryText,
                         fontSize: 16.0,
                         letterSpacing: 0.0,
@@ -87,6 +87,7 @@ class _WrongWidgetState extends State<WrongWidget> {
                   if (shouldUpdate) setState(() {});
                 },
                 onEnded: () async {
+                  _model.timerController.onStopTimer();
                   FFAppState().slotid = '';
                   FFAppState().trayid = '';
                   FFAppState().slotrecid = 0;

@@ -118,7 +118,7 @@ class _SlotInfo2WidgetState extends State<SlotInfo2Widget> {
                                 alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 4.0, 8.0, 4.0),
+                                      6.0, 4.0, 6.0, 4.0),
                                   child: Text(
                                     valueOrDefault<String>(
                                       AdminApiGroup.slotInfoCall.type(
@@ -165,7 +165,7 @@ class _SlotInfo2WidgetState extends State<SlotInfo2Widget> {
                                 alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 4.0, 10.0, 4.0),
+                                      7.0, 4.0, 7.0, 4.0),
                                   child: Text(
                                     valueOrDefault<String>(
                                       AdminApiGroup.slotInfoCall.status(
@@ -205,7 +205,7 @@ class _SlotInfo2WidgetState extends State<SlotInfo2Widget> {
                       Text(
                         'Slot ID',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Open Sans',
+                              fontFamily: 'Raleway',
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w500,
                             ),
@@ -216,7 +216,7 @@ class _SlotInfo2WidgetState extends State<SlotInfo2Widget> {
                           FFAppState().slotid,
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Open Sans',
+                                    fontFamily: 'Raleway',
                                     fontSize: 28.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
@@ -280,7 +280,7 @@ class _SlotInfo2WidgetState extends State<SlotInfo2Widget> {
                       Text(
                         'Tray ID',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Open Sans',
+                              fontFamily: 'Raleway',
                               fontSize: 14.0,
                               letterSpacing: 0.0,
                             ),
@@ -298,7 +298,7 @@ class _SlotInfo2WidgetState extends State<SlotInfo2Widget> {
                       '-',
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Open Sans',
+                          fontFamily: 'Raleway',
                           fontSize: 18.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.bold,

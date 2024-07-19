@@ -110,7 +110,7 @@ class _SlotInfo1WidgetState extends State<SlotInfo1Widget> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
-                              width: 40.0,
+                              width: 35.0,
                               height: 25.0,
                               decoration: BoxDecoration(
                                 color: const Color(0x004D8218),
@@ -183,7 +183,7 @@ class _SlotInfo1WidgetState extends State<SlotInfo1Widget> {
                       Text(
                         'Slot ID',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Open Sans',
+                              fontFamily: 'Raleway',
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w500,
                             ),
@@ -194,7 +194,7 @@ class _SlotInfo1WidgetState extends State<SlotInfo1Widget> {
                           FFAppState().slotid,
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Open Sans',
+                                    fontFamily: 'Raleway',
                                     fontSize: 28.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,

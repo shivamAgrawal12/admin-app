@@ -164,7 +164,7 @@ class _DirectPicableWidgetState extends State<DirectPicableWidget> {
                     width: 230.0,
                     height: 45.0,
                     textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Open Sans',
+                          fontFamily: 'Raleway',
                           fontSize: 16.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w500,
@@ -282,7 +282,7 @@ class _DirectPicableWidgetState extends State<DirectPicableWidget> {
 
                             setState(() {});
                           },
-                          text: 'Register',
+                          text: 'Make',
                           options: FFButtonOptions(
                             height: 40.0,
                             padding: const EdgeInsetsDirectional.fromSTEB(

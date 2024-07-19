@@ -109,7 +109,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Container(
-                            width: 50.0,
+                            width: 45.0,
                             height: 10.0,
                             decoration: const BoxDecoration(),
                           ),
@@ -137,7 +137,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                               alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 4.0, 10.0, 4.0),
+                                    8.0, 4.0, 8.0, 4.0),
                                 child: Text(
                                   valueOrDefault<String>(
                                     getJsonField(
@@ -177,7 +177,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                       Text(
                         'Slot ID',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Open Sans',
+                              fontFamily: 'Raleway',
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w500,
                             ),
@@ -191,7 +191,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Open Sans',
+                                    fontFamily: 'Raleway',
                                     fontSize: 30.0,
                                     letterSpacing: 0.5,
                                     fontWeight: FontWeight.bold,
@@ -255,7 +255,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                       Text(
                         'Tray ID',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Open Sans',
+                              fontFamily: 'Raleway',
                               fontSize: 13.0,
                               letterSpacing: 0.0,
                             ),
@@ -271,7 +271,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                       '-',
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Open Sans',
+                          fontFamily: 'Raleway',
                           fontSize: 18.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.bold,
@@ -309,10 +309,10 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                               5.0, 0.0, 5.0, 0.0),
                           iconPadding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primary,
+                          color: const Color(0x00FFFFFF),
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Open Sans',
+                                    fontFamily: 'Raleway',
                                     color: FlutterFlowTheme.of(context).heading,
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
@@ -393,7 +393,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                                   fontFamily: 'Raleway',
                                   color: Colors.white,
                                   fontSize: 16.0,
-                                  letterSpacing: 1.0,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
                                 ),
                             elevation: 0.0,

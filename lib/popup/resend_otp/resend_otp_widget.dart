@@ -88,6 +88,7 @@ class _ResendOtpWidgetState extends State<ResendOtpWidget> {
                   if (shouldUpdate) setState(() {});
                 },
                 onEnded: () async {
+                  _model.timerController.onStopTimer();
                   Navigator.pop(context);
                 },
                 textAlign: TextAlign.start,

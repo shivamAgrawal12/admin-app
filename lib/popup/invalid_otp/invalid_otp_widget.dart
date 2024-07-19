@@ -56,7 +56,7 @@ class _InvalidOtpWidgetState extends State<InvalidOtpWidget> {
                   'Invalid OTP, Please Try Again',
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Open Sans',
+                        fontFamily: 'Raleway',
                         color: FlutterFlowTheme.of(context).accent,
                         fontSize: 16.0,
                         letterSpacing: 0.0,
@@ -79,7 +79,7 @@ class _InvalidOtpWidgetState extends State<InvalidOtpWidget> {
                         Navigator.pop(context);
                       },
                       child: Container(
-                        width: 120.0,
+                        width: 100.0,
                         height: 40.0,
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
@@ -102,11 +102,11 @@ class _InvalidOtpWidgetState extends State<InvalidOtpWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Open Sans',
+                                    fontFamily: 'Raleway',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     fontSize: 16.0,
-                                    letterSpacing: 1.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),

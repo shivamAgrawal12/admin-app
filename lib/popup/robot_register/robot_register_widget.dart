@@ -64,12 +64,12 @@ class _RobotRegisterWidgetState extends State<RobotRegisterWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Text(
-                    'Robot and Shuttle Register Successfully',
+                    'Uploded Successfully',
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Raleway',
                           color: FlutterFlowTheme.of(context).success,
-                          fontSize: 18.0,
+                          fontSize: 16.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.bold,
                           lineHeight: 1.5,
@@ -101,6 +101,8 @@ class _RobotRegisterWidgetState extends State<RobotRegisterWidget> {
                   if (shouldUpdate) setState(() {});
                 },
                 onEnded: () async {
+                  _model.timerController.onStopTimer();
+
                   context.pushNamed(
                     'login_page',
                     extra: <String, dynamic>{
