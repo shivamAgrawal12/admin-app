@@ -557,6 +557,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
+                                                FFAppState().homeslotid = '';
+                                                FFAppState().hideslot = 0;
+                                                FFAppState().update(() {});
+
                                                 context.pushNamed(
                                                   'slot_mappimg',
                                                   extra: <String, dynamic>{
@@ -650,6 +654,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
+                                                FFAppState().homeslotid = '';
+                                                FFAppState().hideslot = 0;
+                                                FFAppState().update(() {});
+
                                                 context.pushNamed(
                                                   'tray_remove',
                                                   extra: <String, dynamic>{
@@ -756,6 +764,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
+                                                FFAppState().homeslotid = '';
+                                                FFAppState().hideslot = 0;
+                                                FFAppState().update(() {});
+
                                                 context.pushNamed(
                                                   'tray_retrieve',
                                                   extra: <String, dynamic>{
@@ -849,6 +861,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
+                                                FFAppState().homeslotid = '';
+                                                FFAppState().hideslot = 0;
+                                                FFAppState().update(() {});
+
                                                 context.pushNamed(
                                                   'tray_release',
                                                   extra: <String, dynamic>{
@@ -955,6 +971,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
+                                                FFAppState().homeslotid = '';
+                                                FFAppState().hideslot = 0;
+                                                FFAppState().update(() {});
+
                                                 context.pushNamed(
                                                   'add_new_tray',
                                                   extra: <String, dynamic>{
@@ -1048,6 +1068,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
+                                                FFAppState().homeslotid = '';
+                                                FFAppState().hideslot = 0;
+                                                FFAppState().update(() {});
+
                                                 context.pushNamed(
                                                   'delete_tray',
                                                   extra: <String, dynamic>{
@@ -2667,6 +2691,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
+                                      FFAppState().homeslotid = '';
+                                      FFAppState().hideslot = 0;
+                                      FFAppState().update(() {});
                                       _model.cancelTask = await AdminApiGroup
                                           .cancelPendingTaskCall
                                           .call(
