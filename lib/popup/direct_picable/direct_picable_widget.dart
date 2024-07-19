@@ -180,7 +180,7 @@ class _DirectPicableWidgetState extends State<DirectPicableWidget> {
                     borderWidth: 1.5,
                     borderRadius: 5.0,
                     margin:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 4.0),
+                        const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                     hidesUnderline: true,
                     isOverButton: true,
                     isSearchable: false,

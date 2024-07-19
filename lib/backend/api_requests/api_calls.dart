@@ -882,6 +882,7 @@ class ChangeSlotTypeCall {
   Future<ApiCallResponse> call({
     int? id,
     String? type = '',
+    String? friendlyName = '',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl();
 

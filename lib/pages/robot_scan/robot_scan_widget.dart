@@ -255,90 +255,75 @@ class _RobotScanWidgetState extends State<RobotScanWidget> {
                                   ),
                                   child: FFButtonWidget(
                                     onPressed: () async {
-                                      var shouldSetState = false;
                                       FFAppState().robotid =
                                           _model.textController.text;
                                       FFAppState().update(() {});
-                                      if (FFAppState().robotid != '') {
-                                        _model.robotDetailBtn =
-                                            await AdminApiGroup
-                                                .verifyRobotIdCall
-                                                .call(
-                                          robotId: FFAppState().robotid,
-                                        );
+                                      _model.robotDetailBtn =
+                                          await AdminApiGroup.verifyRobotIdCall
+                                              .call(
+                                        robotId: FFAppState().robotid,
+                                      );
 
-                                        shouldSetState = true;
-                                        if ((_model.robotDetailBtn?.succeeded ??
-                                            true)) {
-                                          if (loggedIn) {
-                                            context.pushNamed(
-                                              'home',
-                                              extra: <String, dynamic>{
-                                                kTransitionInfoKey:
-                                                    const TransitionInfo(
-                                                  hasTransition: true,
-                                                  transitionType:
-                                                      PageTransitionType.fade,
-                                                  duration:
-                                                      Duration(milliseconds: 0),
-                                                ),
-                                              },
-                                            );
-                                          } else {
-                                            context.pushNamed(
-                                              'login_page',
-                                              extra: <String, dynamic>{
-                                                kTransitionInfoKey:
-                                                    const TransitionInfo(
-                                                  hasTransition: true,
-                                                  transitionType:
-                                                      PageTransitionType.fade,
-                                                  duration:
-                                                      Duration(milliseconds: 0),
-                                                ),
-                                              },
-                                            );
-                                          }
-
-                                          if (shouldSetState) setState(() {});
-                                          return;
-                                        } else {
-                                          await showModalBottomSheet(
-                                            isScrollControlled: true,
-                                            backgroundColor: Colors.transparent,
-                                            enableDrag: false,
-                                            context: context,
-                                            builder: (context) {
-                                              return GestureDetector(
-                                                onTap: () => _model.unfocusNode
-                                                        .canRequestFocus
-                                                    ? FocusScope.of(context)
-                                                        .requestFocus(
-                                                            _model.unfocusNode)
-                                                    : FocusScope.of(context)
-                                                        .unfocus(),
-                                                child: Padding(
-                                                  padding:
-                                                      MediaQuery.viewInsetsOf(
-                                                          context),
-                                                  child: const NewRobotWidget(),
-                                                ),
-                                              );
+                                      if ((_model.robotDetailBtn?.succeeded ??
+                                          true)) {
+                                        if (loggedIn) {
+                                          context.pushNamed(
+                                            'home',
+                                            extra: <String, dynamic>{
+                                              kTransitionInfoKey:
+                                                  const TransitionInfo(
+                                                hasTransition: true,
+                                                transitionType:
+                                                    PageTransitionType.fade,
+                                                duration:
+                                                    Duration(milliseconds: 0),
+                                              ),
                                             },
-                                          ).then(
-                                              (value) => safeSetState(() {}));
-
-                                          if (shouldSetState) setState(() {});
-                                          return;
+                                          );
+                                        } else {
+                                          context.pushNamed(
+                                            'login_page',
+                                            extra: <String, dynamic>{
+                                              kTransitionInfoKey:
+                                                  const TransitionInfo(
+                                                hasTransition: true,
+                                                transitionType:
+                                                    PageTransitionType.fade,
+                                                duration:
+                                                    Duration(milliseconds: 0),
+                                              ),
+                                            },
+                                          );
                                         }
                                       } else {
-                                        if (shouldSetState) setState(() {});
-                                        return;
+                                        await showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor: Colors.transparent,
+                                          enableDrag: false,
+                                          context: context,
+                                          builder: (context) {
+                                            return GestureDetector(
+                                              onTap: () => _model.unfocusNode
+                                                      .canRequestFocus
+                                                  ? FocusScope.of(context)
+                                                      .requestFocus(
+                                                          _model.unfocusNode)
+                                                  : FocusScope.of(context)
+                                                      .unfocus(),
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child: const NewRobotWidget(),
+                                              ),
+                                            );
+                                          },
+                                        ).then((value) => safeSetState(() {}));
                                       }
 
-                                      if (shouldSetState) setState(() {});
+                                      setState(() {});
                                     },
-                                    text: 'Submit',
+                                    text: 'Check',
                                     options: FFButtonOptions(
                                       width: 140.0,
                                       height: 40.0,
@@ -400,35 +385,31 @@ class _RobotScanWidgetState extends State<RobotScanWidget> {
                                     ),
                                   ),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 25.0, 0.0, 0.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        'Scan Robot QR',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Raleway',
-                                              fontSize: 18.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w600,
-                                              lineHeight: 1.0,
-                                            ),
-                                      ),
-                                      Icon(
-                                        Icons.qr_code_scanner_outlined,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        size: 24.0,
-                                      ),
-                                    ].divide(const SizedBox(width: 5.0)),
-                                  ),
+                                Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Scan Robot QR',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Raleway',
+                                            fontSize: 18.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w600,
+                                            lineHeight: 1.0,
+                                          ),
+                                    ),
+                                    Icon(
+                                      Icons.qr_code_scanner_outlined,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      size: 24.0,
+                                    ),
+                                  ].divide(const SizedBox(width: 5.0)),
                                 ),
-                              ],
+                              ].divide(const SizedBox(height: 50.0)),
                             ),
                         ].divide(const SizedBox(height: 20.0)),
                       ),

@@ -431,7 +431,7 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget> {
                                             ).then(
                                                 (value) => safeSetState(() {}));
                                           },
-                                          text: 'Submit',
+                                          text: 'Mapping',
                                           options: FFButtonOptions(
                                             width: 150.0,
                                             height: 40.0,

@@ -281,6 +281,7 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
                             await AdminApiGroup.changeSlotTypeCall.call(
                           id: FFAppState().slotrecid,
                           type: 'picking_station',
+                          friendlyName: _model.textController.text,
                         );
 
                         if ((_model.addPickingStation?.succeeded ?? true)) {

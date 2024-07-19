@@ -1344,8 +1344,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   MainAxisAlignment.center,
                                               children: [
                                                 Container(
-                                                  width: 200.0,
-                                                  height: 200.0,
+                                                  width: 250.0,
+                                                  height: 250.0,
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
                                                             context)
@@ -1369,12 +1369,12 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                     padding:
                                                         EdgeInsets.all(7.0),
                                                     child: SizedBox(
-                                                      width: 200.0,
-                                                      height: 200.0,
+                                                      width: 250.0,
+                                                      height: 250.0,
                                                       child: custom_widgets
                                                           .HomeQrScan(
-                                                        width: 200.0,
-                                                        height: 200.0,
+                                                        width: 250.0,
+                                                        height: 250.0,
                                                       ),
                                                     ),
                                                   ),

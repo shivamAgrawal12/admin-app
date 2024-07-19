@@ -328,91 +328,76 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
                                     ),
                                     child: FFButtonWidget(
                                       onPressed: () async {
-                                        var shouldSetState = false;
                                         FFAppState().trayid =
                                             _model.textController.text;
                                         FFAppState().update(() {});
-                                        if (FFAppState().trayid != '') {
-                                          _model.trayDeleteBtn =
-                                              await AdminApiGroup.trayInfoCall
-                                                  .call(
-                                            trayId: FFAppState().trayid,
-                                            robotId: FFAppState().robotid,
-                                          );
+                                        _model.trayDeleteBtn =
+                                            await AdminApiGroup.trayInfoCall
+                                                .call(
+                                          trayId: FFAppState().trayid,
+                                          robotId: FFAppState().robotid,
+                                        );
 
-                                          shouldSetState = true;
-                                          if ((_model
-                                                  .trayDeleteBtn?.succeeded ??
-                                              true)) {
-                                            FFAppState().trayrecid =
-                                                getJsonField(
-                                              (_model.trayDeleteBtn?.jsonBody ??
-                                                  ''),
-                                              r'''$.id''',
-                                            );
-                                            FFAppState().update(() {});
-                                            await showModalBottomSheet(
-                                              isScrollControlled: true,
-                                              backgroundColor:
-                                                  Colors.transparent,
-                                              enableDrag: false,
-                                              context: context,
-                                              builder: (context) {
-                                                return GestureDetector(
-                                                  onTap: () => _model
-                                                          .unfocusNode
-                                                          .canRequestFocus
-                                                      ? FocusScope.of(context)
-                                                          .requestFocus(_model
-                                                              .unfocusNode)
-                                                      : FocusScope.of(context)
-                                                          .unfocus(),
-                                                  child: Padding(
-                                                    padding:
-                                                        MediaQuery.viewInsetsOf(
-                                                            context),
-                                                    child: const TrayDeleteWidget(),
-                                                  ),
-                                                );
-                                              },
-                                            ).then(
-                                                (value) => safeSetState(() {}));
-                                          } else {
-                                            FFAppState().trayid = '';
-                                            FFAppState().update(() {});
-                                            await showModalBottomSheet(
-                                              isScrollControlled: true,
-                                              backgroundColor:
-                                                  Colors.transparent,
-                                              enableDrag: false,
-                                              context: context,
-                                              builder: (context) {
-                                                return GestureDetector(
-                                                  onTap: () => _model
-                                                          .unfocusNode
-                                                          .canRequestFocus
-                                                      ? FocusScope.of(context)
-                                                          .requestFocus(_model
-                                                              .unfocusNode)
-                                                      : FocusScope.of(context)
-                                                          .unfocus(),
-                                                  child: Padding(
-                                                    padding:
-                                                        MediaQuery.viewInsetsOf(
-                                                            context),
-                                                    child: const NoRecordWidget(),
-                                                  ),
-                                                );
-                                              },
-                                            ).then(
-                                                (value) => safeSetState(() {}));
-                                          }
+                                        if ((_model.trayDeleteBtn?.succeeded ??
+                                            true)) {
+                                          FFAppState().trayrecid = getJsonField(
+                                            (_model.trayDeleteBtn?.jsonBody ??
+                                                ''),
+                                            r'''$.id''',
+                                          );
+                                          FFAppState().update(() {});
+                                          await showModalBottomSheet(
+                                            isScrollControlled: true,
+                                            backgroundColor: Colors.transparent,
+                                            enableDrag: false,
+                                            context: context,
+                                            builder: (context) {
+                                              return GestureDetector(
+                                                onTap: () => _model.unfocusNode
+                                                        .canRequestFocus
+                                                    ? FocusScope.of(context)
+                                                        .requestFocus(
+                                                            _model.unfocusNode)
+                                                    : FocusScope.of(context)
+                                                        .unfocus(),
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child: const TrayDeleteWidget(),
+                                                ),
+                                              );
+                                            },
+                                          ).then(
+                                              (value) => safeSetState(() {}));
                                         } else {
-                                          if (shouldSetState) setState(() {});
-                                          return;
+                                          await showModalBottomSheet(
+                                            isScrollControlled: true,
+                                            backgroundColor: Colors.transparent,
+                                            enableDrag: false,
+                                            context: context,
+                                            builder: (context) {
+                                              return GestureDetector(
+                                                onTap: () => _model.unfocusNode
+                                                        .canRequestFocus
+                                                    ? FocusScope.of(context)
+                                                        .requestFocus(
+                                                            _model.unfocusNode)
+                                                    : FocusScope.of(context)
+                                                        .unfocus(),
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child: const NoRecordWidget(),
+                                                ),
+                                              );
+                                            },
+                                          ).then(
+                                              (value) => safeSetState(() {}));
                                         }
 
-                                        if (shouldSetState) setState(() {});
+                                        setState(() {});
                                       },
                                       text: 'Submit',
                                       options: FFButtonOptions(
@@ -503,7 +488,7 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
                                     ),
                                   ].divide(const SizedBox(width: 5.0)),
                                 ),
-                              ].divide(const SizedBox(height: 25.0)),
+                              ].divide(const SizedBox(height: 50.0)),
                             ),
                         ].divide(const SizedBox(height: 20.0)),
                       ),

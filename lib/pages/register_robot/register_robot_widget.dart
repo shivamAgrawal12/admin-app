@@ -748,7 +748,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 30.0, 0.0, 0.0),
+                                      0.0, 40.0, 0.0, 0.0),
                                   child: Container(
                                     width: 140.0,
                                     height: 40.0,

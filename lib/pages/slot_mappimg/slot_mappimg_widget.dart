@@ -417,7 +417,7 @@ class _SlotMappimgWidgetState extends State<SlotMappimgWidget> {
                                               },
                                             );
                                           },
-                                          text: 'Submit',
+                                          text: 'Check',
                                           options: FFButtonOptions(
                                             height: 40.0,
                                             padding:
@@ -431,7 +431,7 @@ class _SlotMappimgWidgetState extends State<SlotMappimgWidget> {
                                                 FlutterFlowTheme.of(context)
                                                     .titleSmall
                                                     .override(
-                                                      fontFamily: 'Open Sans',
+                                                      fontFamily: 'Raleway',
                                                       color: Colors.white,
                                                       fontSize: 16.0,
                                                       letterSpacing: 0.0,
