@@ -495,7 +495,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                       ),
                       Container(
                         width: MediaQuery.sizeOf(context).width * 1.0,
-                        height: MediaQuery.sizeOf(context).height * 0.65,
+                        height: MediaQuery.sizeOf(context).height * 0.75,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).primaryBackground,
                           borderRadius: const BorderRadius.only(
@@ -1355,7 +1355,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   ),
                                                   child: const Padding(
                                                     padding:
-                                                        EdgeInsets.all(7.0),
+                                                        EdgeInsets.all(8.0),
                                                     child: SizedBox(
                                                       width: 250.0,
                                                       height: 250.0,

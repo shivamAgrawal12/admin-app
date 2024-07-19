@@ -208,6 +208,7 @@ class _SlotMappimgWidgetState extends State<SlotMappimgWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: SingleChildScrollView(
+                        primary: false,
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -250,7 +251,8 @@ class _SlotMappimgWidgetState extends State<SlotMappimgWidget> {
                                       width: 300.0,
                                       height: 300.0,
                                       decoration: BoxDecoration(
-                                        color: Colors.white,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
                                         boxShadow: const [
                                           BoxShadow(
                                             blurRadius: 20.0,
@@ -301,7 +303,7 @@ class _SlotMappimgWidgetState extends State<SlotMappimgWidget> {
                                         ),
                                       ].divide(const SizedBox(width: 5.0)),
                                     ),
-                                  ].divide(const SizedBox(height: 30.0)),
+                                  ].divide(const SizedBox(height: 40.0)),
                                 ),
                               ),
                             if (_model.change == 1 ? true : false)

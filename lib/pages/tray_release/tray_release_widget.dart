@@ -965,7 +965,8 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                       width: 300.0,
                                       height: 300.0,
                                       decoration: BoxDecoration(
-                                        color: Colors.white,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
                                         boxShadow: const [
                                           BoxShadow(
                                             blurRadius: 20.0,
@@ -977,7 +978,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                           )
                                         ],
                                         borderRadius:
-                                            BorderRadius.circular(10.0),
+                                            BorderRadius.circular(5.0),
                                       ),
                                       child: Padding(
                                         padding: const EdgeInsets.all(10.0),

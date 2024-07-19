@@ -45,7 +45,7 @@ class _NewRobotWidgetState extends State<NewRobotWidget> {
       alignment: const AlignmentDirectional(0.0, -0.6),
       child: Container(
         width: 270.0,
-        height: 225.0,
+        height: 230.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
           borderRadius: BorderRadius.circular(10.0),
@@ -55,7 +55,7 @@ class _NewRobotWidgetState extends State<NewRobotWidget> {
           children: [
             Container(
               width: 290.0,
-              height: 55.0,
+              height: 65.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).primaryBackground,
                 boxShadow: const [
@@ -80,7 +80,7 @@ class _NewRobotWidgetState extends State<NewRobotWidget> {
                 child: Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
                   child: Text(
-                    'The robot is not registered.',
+                    'New robot detected. Would you like to register the robot?',
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Raleway',

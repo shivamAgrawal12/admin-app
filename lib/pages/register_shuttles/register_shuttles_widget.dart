@@ -2,10 +2,8 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/popup/robot_register/robot_register_widget.dart';
 import '/popup/wrong/wrong_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'register_shuttles_model.dart';
 export 'register_shuttles_model.dart';
@@ -94,34 +92,8 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget> {
                           const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 10.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              FFAppState().robotid = '';
-                              FFAppState().update(() {});
-
-                              context.pushNamed(
-                                'robot_scan',
-                                extra: <String, dynamic>{
-                                  kTransitionInfoKey: const TransitionInfo(
-                                    hasTransition: true,
-                                    transitionType: PageTransitionType.fade,
-                                    duration: Duration(milliseconds: 0),
-                                  ),
-                                },
-                              );
-                            },
-                            child: FaIcon(
-                              FontAwesomeIcons.arrowLeft,
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              size: 24.0,
-                            ),
-                          ),
                           ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: Image.asset(
@@ -129,13 +101,6 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget> {
                               width: 130.0,
                               height: 40.0,
                               fit: BoxFit.contain,
-                            ),
-                          ),
-                          Container(
-                            width: 31.0,
-                            height: 31.0,
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
                             ),
                           ),
                         ].divide(const SizedBox(width: 6.0)),
@@ -685,29 +650,18 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget> {
 
                                       if ((_model.newShuttle?.succeeded ??
                                           true)) {
-                                        await showModalBottomSheet(
-                                          isScrollControlled: true,
-                                          backgroundColor: Colors.transparent,
-                                          enableDrag: false,
-                                          context: context,
-                                          builder: (context) {
-                                            return GestureDetector(
-                                              onTap: () => _model.unfocusNode
-                                                      .canRequestFocus
-                                                  ? FocusScope.of(context)
-                                                      .requestFocus(
-                                                          _model.unfocusNode)
-                                                  : FocusScope.of(context)
-                                                      .unfocus(),
-                                              child: Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
-                                                child: const RobotRegisterWidget(),
-                                              ),
-                                            );
+                                        context.pushNamed(
+                                          'uplode_csv',
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: const TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType:
+                                                  PageTransitionType.fade,
+                                              duration:
+                                                  Duration(milliseconds: 0),
+                                            ),
                                           },
-                                        ).then((value) => safeSetState(() {}));
+                                        );
                                       } else {
                                         await showModalBottomSheet(
                                           isScrollControlled: true,

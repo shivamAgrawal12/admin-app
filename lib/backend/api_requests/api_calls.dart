@@ -43,6 +43,7 @@ class AdminApiGroup {
   static MappingTrayAsnShuttleCall mappingTrayAsnShuttleCall =
       MappingTrayAsnShuttleCall();
   static TaskByIdCall taskByIdCall = TaskByIdCall();
+  static UplodeSlotCsvCall uplodeSlotCsvCall = UplodeSlotCsvCall();
 }
 
 class VerifyRobotIdCall {
@@ -1102,6 +1103,38 @@ class TaskByIdCall {
         response,
         r'''$.statusbool''',
       ));
+}
+
+class UplodeSlotCsvCall {
+  Future<ApiCallResponse> call({
+    String? robotId = '',
+    FFUploadedFile? inFile,
+  }) async {
+    final baseUrl = AdminApiGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'uplode slot csv',
+      apiUrl: '$baseUrl/robotmanager/slots/upload_csv/',
+      callType: ApiCallType.PATCH,
+      headers: {
+        'Authorization':
+            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+      },
+      params: {
+        'robot_id': robotId,
+        'in_file': inFile,
+      },
+      bodyType: BodyType.MULTIPART,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
 }
 
 /// End admin api Group Code

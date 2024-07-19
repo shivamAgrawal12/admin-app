@@ -255,7 +255,8 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
                                     width: 300.0,
                                     height: 300.0,
                                     decoration: BoxDecoration(
-                                      color: Colors.white,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
                                       boxShadow: const [
                                         BoxShadow(
                                           blurRadius: 20.0,
@@ -304,7 +305,7 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
                                       ),
                                     ].divide(const SizedBox(width: 5.0)),
                                   ),
-                                ].divide(const SizedBox(height: 25.0)),
+                                ].divide(const SizedBox(height: 40.0)),
                               ),
                             ),
                           if (_model.change == 1 ? true : false)

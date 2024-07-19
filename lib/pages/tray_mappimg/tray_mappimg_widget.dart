@@ -250,7 +250,8 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget> {
                                     width: 300.0,
                                     height: 300.0,
                                     decoration: BoxDecoration(
-                                      color: Colors.white,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
                                       boxShadow: const [
                                         BoxShadow(
                                           blurRadius: 20.0,

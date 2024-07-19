@@ -143,6 +143,7 @@ class _RobotScanWidgetState extends State<RobotScanWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: SingleChildScrollView(
+                        primary: false,
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -383,7 +384,8 @@ class _RobotScanWidgetState extends State<RobotScanWidget> {
                                       width: 300.0,
                                       height: 300.0,
                                       decoration: BoxDecoration(
-                                        color: Colors.white,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
                                         boxShadow: const [
                                           BoxShadow(
                                             blurRadius: 20.0,
@@ -435,7 +437,7 @@ class _RobotScanWidgetState extends State<RobotScanWidget> {
                                         ),
                                       ].divide(const SizedBox(width: 5.0)),
                                     ),
-                                  ].divide(const SizedBox(height: 50.0)),
+                                  ].divide(const SizedBox(height: 40.0)),
                                 ),
                               ),
                           ].divide(const SizedBox(height: 20.0)),

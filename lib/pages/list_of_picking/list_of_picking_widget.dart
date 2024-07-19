@@ -224,7 +224,7 @@ class _ListOfPickingWidgetState extends State<ListOfPickingWidget> {
                       ),
                       Container(
                         width: MediaQuery.sizeOf(context).width * 1.0,
-                        height: MediaQuery.sizeOf(context).height * 0.75,
+                        height: MediaQuery.sizeOf(context).height * 0.8,
                         constraints: const BoxConstraints(
                           minWidth: 320.0,
                           maxWidth: 450.0,

@@ -697,7 +697,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                     ),
                     Container(
                       width: MediaQuery.sizeOf(context).width * 1.0,
-                      height: MediaQuery.sizeOf(context).height * 0.56,
+                      height: MediaQuery.sizeOf(context).height * 0.65,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).primaryBackground,
                         borderRadius: const BorderRadius.only(
@@ -711,6 +711,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                         padding: const EdgeInsetsDirectional.fromSTEB(
                             10.0, 10.0, 10.0, 15.0),
                         child: SingleChildScrollView(
+                          primary: false,
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             crossAxisAlignment: CrossAxisAlignment.start,
