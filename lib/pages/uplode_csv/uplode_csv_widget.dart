@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/popup/robot_register/robot_register_widget.dart';
-import '/popup/uplode_file/uplode_file_widget.dart';
 import '/popup/wrong/wrong_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -376,66 +375,37 @@ class _UplodeCsvWidgetState extends State<UplodeCsvWidget> {
                                 ),
                                 child: FFButtonWidget(
                                   onPressed: () async {
-                                    if ((_model.uploadedLocalFile.bytes
-                                                ?.isEmpty ??
-                                            true)) {
-                                      _model.slotUplode = await AdminApiGroup
-                                          .uplodeSlotCsvCall
-                                          .call(
-                                        robotId: FFAppState().robotid,
-                                        inFile: _model.uploadedLocalFile,
-                                      );
+                                    _model.slotUplode = await AdminApiGroup
+                                        .uplodeSlotCsvCall
+                                        .call(
+                                      robotId: FFAppState().robotid,
+                                      inFile: _model.uploadedLocalFile,
+                                    );
 
-                                      if ((_model.slotUplode?.succeeded ??
-                                          true)) {
-                                        await showModalBottomSheet(
-                                          isScrollControlled: true,
-                                          backgroundColor: Colors.transparent,
-                                          enableDrag: false,
-                                          context: context,
-                                          builder: (context) {
-                                            return GestureDetector(
-                                              onTap: () => _model.unfocusNode
-                                                      .canRequestFocus
-                                                  ? FocusScope.of(context)
-                                                      .requestFocus(
-                                                          _model.unfocusNode)
-                                                  : FocusScope.of(context)
-                                                      .unfocus(),
-                                              child: Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
-                                                child: const RobotRegisterWidget(),
-                                              ),
-                                            );
-                                          },
-                                        ).then((value) => safeSetState(() {}));
-                                      } else {
-                                        await showModalBottomSheet(
-                                          isScrollControlled: true,
-                                          backgroundColor: Colors.transparent,
-                                          enableDrag: false,
-                                          context: context,
-                                          builder: (context) {
-                                            return GestureDetector(
-                                              onTap: () => _model.unfocusNode
-                                                      .canRequestFocus
-                                                  ? FocusScope.of(context)
-                                                      .requestFocus(
-                                                          _model.unfocusNode)
-                                                  : FocusScope.of(context)
-                                                      .unfocus(),
-                                              child: Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
-                                                child: const WrongWidget(),
-                                              ),
-                                            );
-                                          },
-                                        ).then((value) => safeSetState(() {}));
-                                      }
+                                    if ((_model.slotUplode?.succeeded ??
+                                        true)) {
+                                      await showModalBottomSheet(
+                                        isScrollControlled: true,
+                                        backgroundColor: Colors.transparent,
+                                        enableDrag: false,
+                                        context: context,
+                                        builder: (context) {
+                                          return GestureDetector(
+                                            onTap: () => _model
+                                                    .unfocusNode.canRequestFocus
+                                                ? FocusScope.of(context)
+                                                    .requestFocus(
+                                                        _model.unfocusNode)
+                                                : FocusScope.of(context)
+                                                    .unfocus(),
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: const RobotRegisterWidget(),
+                                            ),
+                                          );
+                                        },
+                                      ).then((value) => safeSetState(() {}));
                                     } else {
                                       await showModalBottomSheet(
                                         isScrollControlled: true,
@@ -454,7 +424,7 @@ class _UplodeCsvWidgetState extends State<UplodeCsvWidget> {
                                             child: Padding(
                                               padding: MediaQuery.viewInsetsOf(
                                                   context),
-                                              child: const UplodeFileWidget(),
+                                              child: const WrongWidget(),
                                             ),
                                           );
                                         },

@@ -418,19 +418,7 @@ class _SlotMappimgWidgetState extends State<SlotMappimgWidget> {
                                                 _model.textController.text;
                                             FFAppState().update(() {});
 
-                                            context.pushNamed(
-                                              'tray_mappimg',
-                                              extra: <String, dynamic>{
-                                                kTransitionInfoKey:
-                                                    const TransitionInfo(
-                                                  hasTransition: true,
-                                                  transitionType:
-                                                      PageTransitionType.fade,
-                                                  duration:
-                                                      Duration(milliseconds: 0),
-                                                ),
-                                              },
-                                            );
+                                            context.pushNamed('tray_mappimg');
                                           },
                                           text: 'Mapping',
                                           options: FFButtonOptions(
