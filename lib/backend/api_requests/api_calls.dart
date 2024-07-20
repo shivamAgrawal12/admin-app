@@ -368,6 +368,7 @@ class AddNewTrayCall {
 
     final ffApiRequestBody = '''
 {
+  "status": "active",
   "tray_id": "$trayId",
   "robot_id": "$robotId",
   "tray_status": "$trayStatus",
