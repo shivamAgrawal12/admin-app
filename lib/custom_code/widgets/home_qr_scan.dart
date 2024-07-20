@@ -34,17 +34,30 @@ class HomeQrScan extends StatefulWidget {
 class _HomeQrScanState extends State<HomeQrScan> {
   MobileScannerController controller = MobileScannerController();
   bool isProcessing = false;
+  double currentZoom = 0.7; // Initial zoom scale
 
   @override
   void initState() {
     super.initState();
-    controller.start();
+    initializeScanner();
+  }
+
+  void initializeScanner() async {
+    await controller.start();
+    try {
+      await controller.setZoomScale(currentZoom);
+    } catch (e) {
+      print('Error setting initial zoom scale: $e');
+    }
   }
 
   @override
   void reassemble() {
     super.reassemble();
-    controller.start();
+    if (Platform.isAndroid) {
+      controller.stop();
+    }
+    initializeScanner();
   }
 
   @override
@@ -81,7 +94,69 @@ class _HomeQrScanState extends State<HomeQrScan> {
               });
             },
           ),
-          // Add any additional UI elements or controls here
+          Positioned(
+            bottom: 12.0,
+            left: 12.0,
+            child: SizedBox(
+              width: 35,
+              height: 35,
+              child: FloatingActionButton(
+                onPressed: () async {
+                  // Zoom out logic
+                  try {
+                    currentZoom -= 0.1;
+                    if (currentZoom < 0.1) currentZoom = 0.1; // Minimum zoom
+                    await controller.setZoomScale(currentZoom);
+                  } catch (e) {
+                    print('Error setting zoom scale: $e');
+                  }
+                },
+                child: Icon(Icons.zoom_out),
+                mini: true,
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 12.0,
+            left: MediaQuery.of(context).size.width / 2 - 60,
+            child: SizedBox(
+              width: 35,
+              height: 35,
+              child: FloatingActionButton(
+                onPressed: () async {
+                  try {
+                    await controller.toggleTorch();
+                  } catch (e) {
+                    print('Error toggling torch: $e');
+                  }
+                },
+                child: Icon(Icons.flash_on),
+                mini: true,
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 12.0,
+            right: 12.0,
+            child: SizedBox(
+              width: 35,
+              height: 35,
+              child: FloatingActionButton(
+                onPressed: () async {
+                  // Zoom in logic
+                  try {
+                    currentZoom += 0.1;
+                    if (currentZoom > 1.0) currentZoom = 1.0; // Maximum zoom
+                    await controller.setZoomScale(currentZoom);
+                  } catch (e) {
+                    print('Error setting zoom scale: $e');
+                  }
+                },
+                child: Icon(Icons.zoom_in),
+                mini: true,
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -107,10 +182,13 @@ class _HomeQrScanState extends State<HomeQrScan> {
       print("scanned Value: $scannedValue");
       // Update the app state
       FFAppState().hideslot = 2;
-      FFAppState().slotid = scannedValue;
+      FFAppState().homeslotid = scannedValue;
       FFAppState().slotrecid = slotId;
       FFAppState().update(() {});
+
+      controller.stop();
     } else {
+      controller.stop();
       await showModalBottomSheet(
         isScrollControlled: true,
         backgroundColor: Colors.transparent,

@@ -10,13 +10,18 @@ import 'package:flutter/material.dart';
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 import 'index.dart'; // Imports other custom widgets
+import '/custom_code/actions/index.dart' as actions; // Imports custom actions
+
+import 'index.dart'; // Imports other custom widgets
 
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'dart:io';
 import 'package:flutter/services.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/popup/no_record/no_record_widget.dart';
-import '/popup/tray_info/tray_info_widget.dart';
+import '/popup/tray_info_1/tray_info1_widget.dart';
+import '/popup/menu/menu_widget.dart';
+
 import '/popup/tray_info_1/tray_info1_widget.dart';
 
 class QRTrayInfo extends StatefulWidget {
@@ -36,12 +41,21 @@ class QRTrayInfo extends StatefulWidget {
 class _QRTrayInfoState extends State<QRTrayInfo> {
   MobileScannerController controller = MobileScannerController();
   bool isProcessing = false; // Variable to prevent multiple scans at once
+  double currentZoom = 0.7; // Initial zoom scale
 
   @override
   void initState() {
     super.initState();
-    // Start the scanner and set the initial zoom scale when the widget is first created
-    controller.start();
+    initializeScanner();
+  }
+
+  void initializeScanner() async {
+    await controller.start();
+    try {
+      await controller.setZoomScale(currentZoom);
+    } catch (e) {
+      print('Error setting initial zoom scale: $e');
+    }
   }
 
   @override
@@ -50,7 +64,13 @@ class _QRTrayInfoState extends State<QRTrayInfo> {
     if (Platform.isAndroid) {
       controller.stop();
     }
-    controller.start();
+    initializeScanner();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -91,9 +111,11 @@ class _QRTrayInfoState extends State<QRTrayInfo> {
               height: 35,
               child: FloatingActionButton(
                 onPressed: () async {
-                  // Add your zoom out logic here
+                  // Zoom out logic
                   try {
-                    // Implement zoom out logic if supported by MobileScanner
+                    currentZoom -= 0.1;
+                    if (currentZoom < 0.1) currentZoom = 0.1; // Minimum zoom
+                    await controller.setZoomScale(currentZoom);
                   } catch (e) {
                     print('Error setting zoom scale: $e');
                   }
@@ -130,9 +152,11 @@ class _QRTrayInfoState extends State<QRTrayInfo> {
               height: 35,
               child: FloatingActionButton(
                 onPressed: () async {
-                  // Add your zoom in logic here
+                  // Zoom in logic
                   try {
-                    // Implement zoom in logic if supported by MobileScanner
+                    currentZoom += 0.1;
+                    if (currentZoom > 1.0) currentZoom = 1.0; // Maximum zoom
+                    await controller.setZoomScale(currentZoom);
                   } catch (e) {
                     print('Error setting zoom scale: $e');
                   }
@@ -148,13 +172,14 @@ class _QRTrayInfoState extends State<QRTrayInfo> {
   }
 
   Future<void> _handleScannedValue(String scannedValue) async {
+    FFAppState().trayid = scannedValue;
+    print("Tray scanned Value : ${FFAppState().trayid}");
     bool _shouldSetState = false;
     var trayDetailBtn;
-
     _shouldSetState = true;
     trayDetailBtn = await AdminApiGroup.trayInfoCall.call(
-      trayId: scannedValue,
       robotId: FFAppState().robotid,
+      trayId: scannedValue,
     );
     _shouldSetState = true;
 
@@ -180,43 +205,29 @@ class _QRTrayInfoState extends State<QRTrayInfo> {
             );
           },
         ).then((value) => safeSetState(() {}));
-      } else {
-        await showModalBottomSheet(
-          isScrollControlled: true,
-          backgroundColor: Colors.transparent,
-          enableDrag: false,
-          context: context,
-          builder: (context) {
-            return GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
-              child: Padding(
-                padding: MediaQuery.viewInsetsOf(context),
-                child: TrayInfoWidget(),
-              ),
-            );
-          },
-        ).then((value) => safeSetState(() {}));
       }
+
       if (_shouldSetState) setState(() {});
       return;
     } else {
       FFAppState().trayid = '';
       FFAppState().update(() {});
-      await showModalBottomSheet(
-        isScrollControlled: true,
-        backgroundColor: Colors.transparent,
-        enableDrag: false,
-        context: context,
-        builder: (context) {
-          return GestureDetector(
-            onTap: () => FocusScope.of(context).unfocus(),
-            child: Padding(
-              padding: MediaQuery.viewInsetsOf(context),
-              child: NoRecordWidget(),
-            ),
-          );
-        },
-      ).then((value) => safeSetState(() {}));
+      await actions.continuousVibration(500, 1000, 500, 1000);
+      // await showModalBottomSheet(
+      //   isScrollControlled: true,
+      //   backgroundColor: Colors.transparent,
+      //   enableDrag: false,
+      //   context: context,
+      //   builder: (context) {
+      //     return GestureDetector(
+      //       onTap: () => FocusScope.of(context).unfocus(),
+      //       child: Padding(
+      //         padding: MediaQuery.viewInsetsOf(context),
+      //         child: NoRecordWidget(),
+      //       ),
+      //     );
+      //   },
+      // ).then((value) => safeSetState(() {}));
       if (_shouldSetState) setState(() {});
       return;
     }
@@ -240,11 +251,5 @@ class _QRTrayInfoState extends State<QRTrayInfo> {
         );
       },
     );
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
   }
 }

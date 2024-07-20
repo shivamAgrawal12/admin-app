@@ -12,10 +12,8 @@ import 'package:flutter/material.dart';
 import 'index.dart'; // Imports other custom widgets
 import '/backend/api_requests/api_calls.dart';
 import '/auth/custom_auth/auth_util.dart';
-import '/pages/robot_scan/robot_scan_model.dart';
 import '/popup/new_robot/new_robot_widget.dart';
 import '/pages/robot_scan/robot_scan_widget.dart' show RobotScanWidget;
-// import 'package:just_audio/just_audio.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'dart:io';
 import 'package:flutter/services.dart';
@@ -39,11 +37,21 @@ class _QRCodeScannerScreenState extends State<QRCodeScannerScreen> {
   bool isProcessing = false;
   bool _shouldSetState = false;
   bool loggedIn = false;
+  double currentZoom = 0.7; // Initial zoom scale
 
   @override
   void initState() {
     super.initState();
-    controller.start();
+    initializeScanner();
+  }
+
+  void initializeScanner() async {
+    await controller.start();
+    try {
+      await controller.setZoomScale(currentZoom);
+    } catch (e) {
+      print('Error setting initial zoom scale: $e');
+    }
   }
 
   @override
@@ -52,7 +60,7 @@ class _QRCodeScannerScreenState extends State<QRCodeScannerScreen> {
     if (Platform.isAndroid) {
       controller.stop();
     }
-    controller.start();
+    initializeScanner();
   }
 
   @override
@@ -92,15 +100,17 @@ class _QRCodeScannerScreenState extends State<QRCodeScannerScreen> {
               height: 35,
               child: FloatingActionButton(
                 onPressed: () async {
-                  // Add your zoom out logic here
+                  // Zoom out logic
                   try {
-                    // Implement zoom out logic if supported by MobileScanner
+                    currentZoom -= 0.1;
+                    if (currentZoom < 0.1) currentZoom = 0.1; // Minimum zoom
+                    await controller.setZoomScale(currentZoom);
                   } catch (e) {
                     print('Error setting zoom scale: $e');
                   }
                 },
                 child: Icon(Icons.zoom_out),
-                mini: true, // Make the button smaller
+                mini: true,
               ),
             ),
           ),
@@ -112,6 +122,7 @@ class _QRCodeScannerScreenState extends State<QRCodeScannerScreen> {
               height: 35,
               child: FloatingActionButton(
                 onPressed: () async {
+                  // Torch toggle logic
                   try {
                     await controller.toggleTorch();
                   } catch (e) {
@@ -119,7 +130,7 @@ class _QRCodeScannerScreenState extends State<QRCodeScannerScreen> {
                   }
                 },
                 child: Icon(Icons.flash_on),
-                mini: true, // Make the button smaller
+                mini: true,
               ),
             ),
           ),
@@ -131,15 +142,17 @@ class _QRCodeScannerScreenState extends State<QRCodeScannerScreen> {
               height: 35,
               child: FloatingActionButton(
                 onPressed: () async {
-                  // Add your zoom in logic here
+                  // Zoom in logic
                   try {
-                    // Implement zoom in logic if supported by MobileScanner
+                    currentZoom += 0.1;
+                    if (currentZoom > 1.0) currentZoom = 1.0; // Maximum zoom
+                    await controller.setZoomScale(currentZoom);
                   } catch (e) {
                     print('Error setting zoom scale: $e');
                   }
                 },
                 child: Icon(Icons.zoom_in),
-                mini: true, // Make the button smaller
+                mini: true,
               ),
             ),
           ),
@@ -195,7 +208,8 @@ class _QRCodeScannerScreenState extends State<QRCodeScannerScreen> {
             ),
           );
         },
-      ).then((value) => safeSetState(() {}));
+      );
+      // ).then((value) => safeSetState(() {}));
       if (_shouldSetState) setState(() {});
     }
   }

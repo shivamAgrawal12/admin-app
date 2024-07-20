@@ -11,6 +11,8 @@ import 'package:flutter/material.dart';
 
 import 'index.dart'; // Imports other custom widgets
 
+import 'index.dart'; // Imports other custom widgets
+
 import 'dart:io';
 import '/backend/api_requests/api_calls.dart';
 import 'package:mobile_scanner/mobile_scanner.dart'; // Import MobileScanner
@@ -34,11 +36,21 @@ class QRTrayDel extends StatefulWidget {
 class _QRTrayDelState extends State<QRTrayDel> {
   MobileScannerController controller = MobileScannerController();
   bool isProcessing = false;
+  double currentZoom = 0.7; // Initial zoom scale
 
   @override
   void initState() {
     super.initState();
-    controller.start();
+    initializeScanner();
+  }
+
+  void initializeScanner() async {
+    await controller.start();
+    try {
+      await controller.setZoomScale(currentZoom);
+    } catch (e) {
+      print('Error setting initial zoom scale: $e');
+    }
   }
 
   @override
@@ -47,7 +59,7 @@ class _QRTrayDelState extends State<QRTrayDel> {
     if (Platform.isAndroid) {
       controller.stop();
     }
-    controller.start();
+    initializeScanner();
   }
 
   @override
@@ -73,24 +85,88 @@ class _QRTrayDelState extends State<QRTrayDel> {
                   barcodeCapture.barcodes.first.rawValue;
 
               if (scannedValue != null) {
-                // Handle your API call and UI updates here
                 await _handleScannedValue(scannedValue);
               } else {
-                // Handle no value scenario if needed
+                await _showNoRecordDialog(context, 'No value found');
               }
 
-              setState(() {
-                isProcessing = false;
+              Future.delayed(Duration(seconds: 1), () {
+                setState(() {
+                  isProcessing = false;
+                });
               });
             },
           ),
-          // Add any additional UI elements or controls here
+          Positioned(
+            bottom: 12.0,
+            left: 12.0,
+            child: SizedBox(
+              width: 35,
+              height: 35,
+              child: FloatingActionButton(
+                onPressed: () async {
+                  // Zoom out logic
+                  try {
+                    currentZoom -= 0.1;
+                    if (currentZoom < 0.1) currentZoom = 0.1; // Minimum zoom
+                    await controller.setZoomScale(currentZoom);
+                  } catch (e) {
+                    print('Error setting zoom scale: $e');
+                  }
+                },
+                child: Icon(Icons.zoom_out),
+                mini: true,
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 12.0,
+            left: MediaQuery.of(context).size.width / 2 - 60,
+            child: SizedBox(
+              width: 35,
+              height: 35,
+              child: FloatingActionButton(
+                onPressed: () async {
+                  try {
+                    await controller.toggleTorch();
+                  } catch (e) {
+                    print('Error toggling torch: $e');
+                  }
+                },
+                child: Icon(Icons.flash_on),
+                mini: true,
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 12.0,
+            right: 12.0,
+            child: SizedBox(
+              width: 35,
+              height: 35,
+              child: FloatingActionButton(
+                onPressed: () async {
+                  // Zoom in logic
+                  try {
+                    currentZoom += 0.1;
+                    if (currentZoom > 1.0) currentZoom = 1.0; // Maximum zoom
+                    await controller.setZoomScale(currentZoom);
+                  } catch (e) {
+                    print('Error setting zoom scale: $e');
+                  }
+                },
+                child: Icon(Icons.zoom_in),
+                mini: true,
+              ),
+            ),
+          ),
         ],
       ),
     );
   }
 
   Future<void> _handleScannedValue(String scannedValue) async {
+    FFAppState().trayid = scannedValue;
     final result = await AdminApiGroup.trayInfoCall.call(
       trayId: scannedValue,
       robotId: FFAppState().robotid,
@@ -136,6 +212,24 @@ class _QRTrayDelState extends State<QRTrayDel> {
         },
       ).then((value) => setState(() {}));
     }
+  }
+
+  Future<void> _showNoRecordDialog(BuildContext context, String message) async {
+    await showDialog(
+      context: context,
+      builder: (alertDialogContext) {
+        return AlertDialog(
+          title: Text('No Record Found'),
+          content: Text(message),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(alertDialogContext),
+              child: Text('Ok'),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   void _unfocusIfNeeded(BuildContext context) {
