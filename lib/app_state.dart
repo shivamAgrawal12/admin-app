@@ -88,6 +88,12 @@ class FFAppState extends ChangeNotifier {
   set homeslotid(String value) {
     _homeslotid = value;
   }
+
+  int _shuttles = 0;
+  int get shuttles => _shuttles;
+  set shuttles(int value) {
+    _shuttles = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

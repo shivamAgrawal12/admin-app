@@ -10,6 +10,10 @@ class ListOfTrayModel extends FlutterFlowModel<ListOfTrayWidget> {
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
+  // State field(s) for TabBar widget.
+  TabController? tabBarController;
+  int get tabBarCurrentIndex =>
+      tabBarController != null ? tabBarController!.index : 0;
 
   @override
   void initState(BuildContext context) {}
@@ -19,5 +23,7 @@ class ListOfTrayModel extends FlutterFlowModel<ListOfTrayWidget> {
     unfocusNode.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
+
+    tabBarController?.dispose();
   }
 }

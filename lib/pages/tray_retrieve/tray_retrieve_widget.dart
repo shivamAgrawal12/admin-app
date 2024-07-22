@@ -240,7 +240,7 @@ class _TrayRetrieveWidgetState extends State<TrayRetrieveWidget> {
                                   alignment: const AlignmentDirectional(-1.0, -1.0),
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        15.0, 0.0, 8.0, 0.0),
+                                        20.0, 0.0, 8.0, 0.0),
                                     child: SizedBox(
                                       width: 300.0,
                                       child: TextFormField(
@@ -373,7 +373,7 @@ class _TrayRetrieveWidgetState extends State<TrayRetrieveWidget> {
                                                                 15.0, 0.0, 0.0),
                                                     child: Container(
                                                       width: 350.0,
-                                                      height: 70.0,
+                                                      height: 100.0,
                                                       constraints:
                                                           const BoxConstraints(
                                                         minWidth: 290.0,
@@ -492,6 +492,54 @@ class _TrayRetrieveWidgetState extends State<TrayRetrieveWidget> {
                                                                             getJsonField(
                                                                           trayRecordsItem,
                                                                           r'''$.status''',
+                                                                        ).toString(),
+                                                                        style:
+                                                                            TextStyle(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).bodyText,
+                                                                          fontWeight:
+                                                                              FontWeight.w600,
+                                                                          fontSize:
+                                                                              15.0,
+                                                                        ),
+                                                                      )
+                                                                    ],
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Open Sans',
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                                RichText(
+                                                                  textScaler: MediaQuery.of(
+                                                                          context)
+                                                                      .textScaler,
+                                                                  text:
+                                                                      TextSpan(
+                                                                    children: [
+                                                                      TextSpan(
+                                                                        text:
+                                                                            'Type : ',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Open Sans',
+                                                                              color: FlutterFlowTheme.of(context).liteText,
+                                                                              fontSize: 15.0,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.w600,
+                                                                            ),
+                                                                      ),
+                                                                      TextSpan(
+                                                                        text:
+                                                                            getJsonField(
+                                                                          trayRecordsItem,
+                                                                          r'''$.type''',
                                                                         ).toString(),
                                                                         style:
                                                                             TextStyle(

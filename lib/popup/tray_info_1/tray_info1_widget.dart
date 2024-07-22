@@ -68,7 +68,7 @@ class _TrayInfo1WidgetState extends State<TrayInfo1Widget> {
 
           return Container(
             width: 280.0,
-            height: 340.0,
+            height: 370.0,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).liteBg,
               borderRadius: BorderRadius.circular(10.0),
@@ -297,6 +297,46 @@ class _TrayInfo1WidgetState extends State<TrayInfo1Widget> {
                         ),
                         TextSpan(
                           text: '‘Available’',
+                          style: TextStyle(
+                            color: FlutterFlowTheme.of(context).heading,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16.0,
+                          ),
+                        )
+                      ],
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Raleway',
+                            fontSize: 16.0,
+                            letterSpacing: 0.5,
+                          ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                  child: RichText(
+                    textScaler: MediaQuery.of(context).textScaler,
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: 'Tray type ',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Open Sans',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                fontSize: 16.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w600,
+                              ),
+                        ),
+                        TextSpan(
+                          text: valueOrDefault<String>(
+                            AdminApiGroup.trayInfoCall.type(
+                              containerTrayInfoResponse.jsonBody,
+                            ),
+                            '-',
+                          ),
                           style: TextStyle(
                             color: FlutterFlowTheme.of(context).heading,
                             fontWeight: FontWeight.w600,

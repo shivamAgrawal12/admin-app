@@ -1,7 +1,9 @@
 import '/backend/api_requests/api_calls.dart';
+import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
 import '/popup/successfull/successfull_widget.dart';
 import '/popup/wrong/wrong_widget.dart';
 import 'package:flutter/material.dart';
@@ -48,13 +50,12 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
       alignment: const AlignmentDirectional(0.0, -0.6),
       child: Container(
         width: 280.0,
-        height: 220.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).liteBg,
           borderRadius: BorderRadius.circular(10.0),
         ),
         child: Column(
-          mainAxisSize: MainAxisSize.max,
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Container(
@@ -120,7 +121,57 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 15.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+              child: Text(
+                'Tray ID',
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: 'Raleway',
+                      fontSize: 15.0,
+                      letterSpacing: 0.0,
+                      fontWeight: FontWeight.w500,
+                      lineHeight: 1.0,
+                    ),
+              ),
+            ),
+            Form(
+              key: _model.formKey,
+              autovalidateMode: AutovalidateMode.disabled,
+              child: Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                child: FlutterFlowDropDown<String>(
+                  controller: _model.dropDownValueController ??=
+                      FormFieldController<String>(null),
+                  options: const ['plastic_tray', 'metal_tray'],
+                  onChanged: (val) =>
+                      setState(() => _model.dropDownValue = val),
+                  width: 230.0,
+                  height: 45.0,
+                  textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Open Sans',
+                        fontSize: 15.0,
+                        letterSpacing: 0.0,
+                        fontWeight: FontWeight.w500,
+                      ),
+                  hintText: 'Please select type...',
+                  icon: Icon(
+                    Icons.keyboard_arrow_down_rounded,
+                    color: FlutterFlowTheme.of(context).secondaryText,
+                    size: 24.0,
+                  ),
+                  elevation: 0.0,
+                  borderColor: FlutterFlowTheme.of(context).subHeader,
+                  borderWidth: 1.0,
+                  borderRadius: 5.0,
+                  margin: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 4.0),
+                  hidesUnderline: true,
+                  isOverButton: true,
+                  isSearchable: false,
+                  isMultiSelect: false,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 15.0, 20.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -182,10 +233,16 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
                     ),
                     child: FFButtonWidget(
                       onPressed: () async {
+                        if (_model.formKey.currentState == null ||
+                            !_model.formKey.currentState!.validate()) {
+                          return;
+                        }
+                        if (_model.dropDownValue == null) {
+                          return;
+                        }
                         _model.addNewTray =
                             await AdminApiGroup.addNewTrayCall.call(
-                          traySize: 'medium',
-                          trayStatus: 'free',
+                          trayType: _model.dropDownValue,
                           robotId: FFAppState().robotid,
                           trayId: FFAppState().trayid,
                         );

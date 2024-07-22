@@ -243,7 +243,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                 alignment: const AlignmentDirectional(1.0, -1.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 40.0, 0.0),
+                                      0.0, 0.0, 25.0, 0.0),
                                   child: Switch.adaptive(
                                     value: _model.switchValue!,
                                     onChanged: (newValue) async {
@@ -464,7 +464,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                             return Align(
                                                               alignment:
                                                                   const AlignmentDirectional(
-                                                                      -1.0,
+                                                                      0.0,
                                                                       -1.0),
                                                               child: Padding(
                                                                 padding:
@@ -477,7 +477,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                                 child:
                                                                     Container(
                                                                   width: 350.0,
-                                                                  height: 100.0,
+                                                                  height: 130.0,
                                                                   constraints:
                                                                       const BoxConstraints(
                                                                     minWidth:
@@ -621,6 +621,38 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                                                         text: getJsonField(
                                                                                           trayRecordsItem,
                                                                                           r'''$.id''',
+                                                                                        ).toString(),
+                                                                                        style: TextStyle(
+                                                                                          color: FlutterFlowTheme.of(context).bodyText,
+                                                                                          fontWeight: FontWeight.w600,
+                                                                                          fontSize: 15.0,
+                                                                                        ),
+                                                                                      )
+                                                                                    ],
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                          fontFamily: 'Open Sans',
+                                                                                          letterSpacing: 0.0,
+                                                                                        ),
+                                                                                  ),
+                                                                                ),
+                                                                                RichText(
+                                                                                  textScaler: MediaQuery.of(context).textScaler,
+                                                                                  text: TextSpan(
+                                                                                    children: [
+                                                                                      TextSpan(
+                                                                                        text: 'Task Type : ',
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              fontFamily: 'Open Sans',
+                                                                                              color: FlutterFlowTheme.of(context).liteText,
+                                                                                              fontSize: 15.0,
+                                                                                              letterSpacing: 0.0,
+                                                                                              fontWeight: FontWeight.w600,
+                                                                                            ),
+                                                                                      ),
+                                                                                      TextSpan(
+                                                                                        text: getJsonField(
+                                                                                          trayRecordsItem,
+                                                                                          r'''$.type''',
                                                                                         ).toString(),
                                                                                         style: TextStyle(
                                                                                           color: FlutterFlowTheme.of(context).bodyText,

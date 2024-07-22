@@ -68,7 +68,7 @@ class _SlotInfo1WidgetState extends State<SlotInfo1Widget> {
 
           return Container(
             width: 275.0,
-            height: 340.0,
+            height: 380.0,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).liteBg,
               borderRadius: BorderRadius.circular(10.0),
@@ -247,7 +247,7 @@ class _SlotInfo1WidgetState extends State<SlotInfo1Widget> {
                     text: TextSpan(
                       children: [
                         TextSpan(
-                          text: 'Slot type  ',
+                          text: 'Slot Type  ',
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
@@ -261,6 +261,46 @@ class _SlotInfo1WidgetState extends State<SlotInfo1Widget> {
                         TextSpan(
                           text: valueOrDefault<String>(
                             AdminApiGroup.slotInfoCall.type(
+                              containerSlotInfoResponse.jsonBody,
+                            ),
+                            '-',
+                          ),
+                          style: TextStyle(
+                            color: FlutterFlowTheme.of(context).heading,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16.0,
+                          ),
+                        )
+                      ],
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Raleway',
+                            fontSize: 16.0,
+                            letterSpacing: 0.0,
+                          ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                  child: RichText(
+                    textScaler: MediaQuery.of(context).textScaler,
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: 'Support Type ',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Open Sans',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                fontSize: 16.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w600,
+                              ),
+                        ),
+                        TextSpan(
+                          text: valueOrDefault<String>(
+                            AdminApiGroup.slotInfoCall.supporttype(
                               containerSlotInfoResponse.jsonBody,
                             ),
                             '-',

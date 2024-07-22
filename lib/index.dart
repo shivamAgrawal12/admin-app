@@ -27,3 +27,5 @@ export '/pages/register_robot/register_robot_widget.dart'
 export '/pages/register_shuttles/register_shuttles_widget.dart'
     show RegisterShuttlesWidget;
 export '/pages/uplode_csv/uplode_csv_widget.dart' show UplodeCsvWidget;
+export '/pages/add_shuttle_details/add_shuttle_details_widget.dart'
+    show AddShuttleDetailsWidget;

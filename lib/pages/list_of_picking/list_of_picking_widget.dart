@@ -318,7 +318,8 @@ class _ListOfPickingWidgetState extends State<ListOfPickingWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(10.0),
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 10.0, 0.0, 10.0),
                                   child: SingleChildScrollView(
                                     primary: false,
                                     child: Column(
@@ -367,12 +368,12 @@ class _ListOfPickingWidgetState extends State<ListOfPickingWidget> {
                                                   child: Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            -1.0, -1.0),
+                                                            0.0, -1.0),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  5.0,
+                                                                  0.0,
                                                                   10.0,
                                                                   0.0,
                                                                   0.0),

@@ -44,6 +44,10 @@ class AdminApiGroup {
       MappingTrayAsnShuttleCall();
   static TaskByIdCall taskByIdCall = TaskByIdCall();
   static UplodeSlotCsvCall uplodeSlotCsvCall = UplodeSlotCsvCall();
+  static SpeedInShuttleCall speedInShuttleCall = SpeedInShuttleCall();
+  static AddBufferInShutttleCall addBufferInShutttleCall =
+      AddBufferInShutttleCall();
+  static AddSpeedInShuttleCall addSpeedInShuttleCall = AddSpeedInShuttleCall();
 }
 
 class VerifyRobotIdCall {
@@ -258,12 +262,17 @@ class SlotInfoCall {
         response,
         r'''$.records[:].direct_pickable''',
       ));
+  String? supporttype(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.records[:].support_type''',
+      ));
 }
 
 class TrayInfoCall {
   Future<ApiCallResponse> call({
     String? trayId = '',
     String? robotId = '',
+    String? trayType = '',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl();
 
@@ -280,6 +289,7 @@ class TrayInfoCall {
       params: {
         'tray_id': trayId,
         'robot_id': robotId,
+        'tray_type': trayType,
       },
       returnBody: true,
       encodeBodyUtf8: false,
@@ -307,6 +317,10 @@ class TrayInfoCall {
         r'''$.records''',
         true,
       ) as List?;
+  String? type(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.records[:].type''',
+      ));
 }
 
 class PatchTrayIdInSlotCall {
@@ -361,22 +375,14 @@ class AddNewTrayCall {
   Future<ApiCallResponse> call({
     String? trayId = '',
     String? robotId = '',
-    String? trayStatus = '',
-    String? traySize = '',
+    String? trayType = '',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl();
 
-    final ffApiRequestBody = '''
-{
-  "status": "active",
-  "tray_id": "$trayId",
-  "robot_id": "$robotId",
-  "tray_status": "$trayStatus",
-  "tray_size": "$traySize"
-}''';
     return ApiManager.instance.makeApiCall(
       callName: 'add new tray',
-      apiUrl: '$baseUrl/robotmanager/trays/',
+      apiUrl:
+          '$baseUrl/robotmanager/trays/?robot_id=$robotId&tray_type=$trayType&tray_id=$trayId',
       callType: ApiCallType.POST,
       headers: {
         'Authorization':
@@ -385,8 +391,7 @@ class AddNewTrayCall {
         'accept': 'application/json',
       },
       params: {},
-      body: ffApiRequestBody,
-      bodyType: BodyType.JSON,
+      bodyType: BodyType.NONE,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -581,6 +586,7 @@ class TaskDetailsCall {
 class ListOfTrayCall {
   Future<ApiCallResponse> call({
     String? robotId = '',
+    String? trayType = '',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl();
 
@@ -596,6 +602,7 @@ class ListOfTrayCall {
       },
       params: {
         'robot_id': robotId,
+        'tray_type': trayType,
       },
       returnBody: true,
       encodeBodyUtf8: false,
@@ -1019,6 +1026,10 @@ class AddShuttlesCall {
         response,
         r'''$.statusbool''',
       ));
+  int? id(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.records[:].id''',
+      ));
 }
 
 class MappingTrayAsnShuttleCall {
@@ -1128,6 +1139,168 @@ class UplodeSlotCsvCall {
         'in_file': inFile,
       },
       bodyType: BodyType.MULTIPART,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class SpeedInShuttleCall {
+  Future<ApiCallResponse> call({
+    int? id,
+    String? speed = '',
+  }) async {
+    final baseUrl = AdminApiGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'speed in shuttle',
+      apiUrl: '$baseUrl/robotmanager/shuttles/speed$id?speed=$speed',
+      callType: ApiCallType.PATCH,
+      headers: {
+        'Authorization':
+            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+      },
+      params: {},
+      bodyType: BodyType.NONE,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  bool? statusbool(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.statusbool''',
+      ));
+}
+
+class AddBufferInShutttleCall {
+  Future<ApiCallResponse> call({
+    int? id,
+    String? trayType = '',
+    int? highDdRetrieve,
+    int? highDdStore,
+    int? highSdRetrieve,
+    int? highSdStore,
+    int? mediumDdRetrieve,
+    int? mediumDdStore,
+    int? mediumSdRetrieve,
+    int? mediumSdStore,
+    int? lowSdStore,
+    int? lowSdRetrieve,
+    int? lowDdStore,
+    int? lowDdRetrieve,
+  }) async {
+    final baseUrl = AdminApiGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "high": {
+    "sd_store": $highSdStore,
+    "sd_retrieve": $highSdRetrieve,
+    "dd_store": $highDdStore,
+    "dd_retrieve": $highDdRetrieve
+  },
+  "medium": {
+    "sd_store": $mediumDdStore,
+    "sd_retrieve": $mediumSdRetrieve,
+    "dd_store": $mediumDdStore,
+    "dd_retrieve": $mediumDdRetrieve
+  },
+  "low": {
+    "sd_store": $lowSdStore,
+    "sd_retrieve": $lowSdRetrieve,
+    "dd_store": $lowDdStore,
+    "dd_retrieve": $lowDdRetrieve
+  }
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'add buffer in shutttle',
+      apiUrl:
+          '$baseUrl/robotmanager/shuttles/add_buffer$id?tray_type=$trayType',
+      callType: ApiCallType.PATCH,
+      headers: {
+        'Authorization':
+            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class AddSpeedInShuttleCall {
+  Future<ApiCallResponse> call({
+    String? trayType = '',
+    int? id,
+    int? lowDdStore,
+    int? mediumDdStore,
+    int? highDdStore,
+    int? lowSdRetrieve,
+    int? mediumSdRetrieve,
+    int? highSdRetrieve,
+    int? lowSdStore,
+    int? mediumSdStore,
+    int? hightSdStore,
+    int? lowDdRetrieve,
+    int? mediumDdRetrieve,
+    int? highDdRetrieve,
+  }) async {
+    final baseUrl = AdminApiGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "high": {
+    "sd_store": $hightSdStore,
+    "sd_retrieve": $highSdRetrieve,
+    "dd_store": $highDdStore,
+    "dd_retrieve": $highDdRetrieve
+  },
+  "medium": {
+    "sd_store": $mediumSdStore,
+    "sd_retrieve": $mediumSdRetrieve,
+    "dd_store": $mediumDdStore,
+    "dd_retrieve": $mediumDdRetrieve
+  },
+  "low": {
+    "sd_store": $lowSdStore,
+    "sd_retrieve":$lowSdRetrieve,
+    "dd_store": $lowDdStore,
+    "dd_retrieve": $lowDdRetrieve
+  }
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'add speed in shuttle',
+      apiUrl:
+          '$baseUrl/robotmanager/shuttles/add_speed$id?tray_type=$trayType',
+      callType: ApiCallType.PATCH,
+      headers: {
+        'Authorization':
+            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,

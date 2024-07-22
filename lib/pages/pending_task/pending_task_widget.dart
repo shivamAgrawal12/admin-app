@@ -203,7 +203,8 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                     ),
                     decoration: const BoxDecoration(),
                     child: Padding(
-                      padding: const EdgeInsets.all(10.0),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
                       child: SingleChildScrollView(
                         primary: false,
                         child: Column(
@@ -272,12 +273,12 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                                           final taskpendingItem =
                                               taskpending[taskpendingIndex];
                                           return Align(
-                                            alignment: const AlignmentDirectional(
-                                                -1.0, -1.0),
+                                            alignment:
+                                                const AlignmentDirectional(0.0, -1.0),
                                             child: Padding(
                                               padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      10.0, 15.0, 0.0, 0.0),
+                                                      0.0, 15.0, 0.0, 0.0),
                                               child: Container(
                                                 width: 350.0,
                                                 height: 180.0,
