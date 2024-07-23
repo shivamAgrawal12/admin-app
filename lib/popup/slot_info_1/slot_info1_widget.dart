@@ -353,17 +353,7 @@ class _SlotInfo1WidgetState extends State<SlotInfo1Widget> {
                       onPressed: () async {
                         FFAppState().slotid = '';
                         FFAppState().update(() {});
-
-                        context.pushNamed(
-                          'slot_info_scan',
-                          extra: <String, dynamic>{
-                            kTransitionInfoKey: const TransitionInfo(
-                              hasTransition: true,
-                              transitionType: PageTransitionType.fade,
-                              duration: Duration(milliseconds: 0),
-                            ),
-                          },
-                        );
+                        Navigator.pop(context);
                       },
                       text: 'Return Back',
                       options: FFButtonOptions(
