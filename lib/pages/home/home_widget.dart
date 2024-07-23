@@ -1244,7 +1244,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     ),
                                   ),
                                 ),
-                                if (FFAppState().hideslot == 1 ? true : false)
+                                if (FFAppState().hideslot == 1)
                                   Container(
                                     width:
                                         MediaQuery.sizeOf(context).width * 1.0,
@@ -1349,7 +1349,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               ],
                                             ),
                                           ),
-                                          if (_model.change == 0 ? true : false)
+                                          if (_model.change == 0)
                                             Column(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -1393,7 +1393,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 ),
                                               ],
                                             ),
-                                          if (_model.change == 1 ? true : false)
+                                          if (_model.change == 1)
                                             Padding(
                                               padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 5.0),
