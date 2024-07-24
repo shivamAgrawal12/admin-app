@@ -89,9 +89,6 @@ class _SlotMappimgWidgetState extends State<SlotMappimgWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                FFAppState().slotid = '';
-                                FFAppState().update(() {});
-
                                 context.pushNamed(
                                   'home',
                                   extra: <String, dynamic>{
@@ -272,7 +269,7 @@ class _SlotMappimgWidgetState extends State<SlotMappimgWidget> {
                                               BorderRadius.circular(5.0),
                                         ),
                                         child: const Padding(
-                                          padding: EdgeInsets.all(10.0),
+                                          padding: EdgeInsets.all(13.0),
                                           child: SizedBox(
                                             width: 300.0,
                                             height: 300.0,
@@ -423,7 +420,7 @@ class _SlotMappimgWidgetState extends State<SlotMappimgWidget> {
                                             onPressed: () async {
                                               FFAppState().slotid =
                                                   _model.textController.text;
-                                              FFAppState().update(() {});
+                                              setState(() {});
 
                                               context.pushNamed('tray_mappimg');
                                             },

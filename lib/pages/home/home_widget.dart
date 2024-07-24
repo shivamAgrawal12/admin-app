@@ -8,7 +8,6 @@ import '/popup/menu/menu_widget.dart';
 import '/popup/no_record/no_record_widget.dart';
 import '/popup/successfull/successfull_widget.dart';
 import '/popup/wrong/wrong_widget.dart';
-import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -656,7 +655,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               onTap: () async {
                                                 FFAppState().homeslotid = '';
                                                 FFAppState().hideslot = 0;
-                                                FFAppState().update(() {});
+                                                setState(() {});
 
                                                 context.pushNamed(
                                                   'tray_remove',
@@ -766,7 +765,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               onTap: () async {
                                                 FFAppState().homeslotid = '';
                                                 FFAppState().hideslot = 0;
-                                                FFAppState().update(() {});
+                                                setState(() {});
 
                                                 context.pushNamed(
                                                   'tray_retrieve',
@@ -863,7 +862,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               onTap: () async {
                                                 FFAppState().homeslotid = '';
                                                 FFAppState().hideslot = 0;
-                                                FFAppState().update(() {});
+                                                setState(() {});
 
                                                 context.pushNamed(
                                                   'tray_release',
@@ -973,7 +972,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               onTap: () async {
                                                 FFAppState().homeslotid = '';
                                                 FFAppState().hideslot = 0;
-                                                FFAppState().update(() {});
+                                                setState(() {});
 
                                                 context.pushNamed(
                                                   'add_new_tray',
@@ -1070,7 +1069,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               onTap: () async {
                                                 FFAppState().homeslotid = '';
                                                 FFAppState().hideslot = 0;
-                                                FFAppState().update(() {});
+                                                setState(() {});
 
                                                 context.pushNamed(
                                                   'delete_tray',
@@ -1377,19 +1376,6 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                         BorderRadius.circular(
                                                             5.0),
                                                   ),
-                                                  child: const Padding(
-                                                    padding:
-                                                        EdgeInsets.all(8.0),
-                                                    child: SizedBox(
-                                                      width: 250.0,
-                                                      height: 250.0,
-                                                      child: custom_widgets
-                                                          .HomeQrScan(
-                                                        width: 250.0,
-                                                        height: 250.0,
-                                                      ),
-                                                    ),
-                                                  ),
                                                 ),
                                               ],
                                             ),
@@ -1576,8 +1562,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                 _model
                                                                     .textController
                                                                     .text;
-                                                            FFAppState()
-                                                                .update(() {});
+                                                            setState(() {});
                                                           } else {
                                                             await showModalBottomSheet(
                                                               isScrollControlled:
@@ -2693,7 +2678,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     onTap: () async {
                                       FFAppState().homeslotid = '';
                                       FFAppState().hideslot = 0;
-                                      FFAppState().update(() {});
+                                      setState(() {});
                                       _model.cancelTask = await AdminApiGroup
                                           .cancelPendingTaskCall
                                           .call(

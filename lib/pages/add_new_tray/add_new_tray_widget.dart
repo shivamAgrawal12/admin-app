@@ -7,7 +7,6 @@ import '/popup/menu/menu_widget.dart';
 import '/popup/tray_added/tray_added_widget.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'add_new_tray_model.dart';
@@ -29,12 +28,6 @@ class _AddNewTrayWidgetState extends State<AddNewTrayWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AddNewTrayModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.change = 0;
-      setState(() {});
-    });
 
     _model.switchValue = true;
     _model.textController ??= TextEditingController();
@@ -102,9 +95,6 @@ class _AddNewTrayWidgetState extends State<AddNewTrayWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                FFAppState().trayid = '';
-                                FFAppState().update(() {});
-
                                 context.pushNamed(
                                   'home',
                                   extra: <String, dynamic>{
@@ -285,7 +275,7 @@ class _AddNewTrayWidgetState extends State<AddNewTrayWidget> {
                                               BorderRadius.circular(5.0),
                                         ),
                                         child: const Padding(
-                                          padding: EdgeInsets.all(10.0),
+                                          padding: EdgeInsets.all(13.0),
                                           child: SizedBox(
                                             width: 300.0,
                                             height: 300.0,
@@ -431,7 +421,7 @@ class _AddNewTrayWidgetState extends State<AddNewTrayWidget> {
                                           onPressed: () async {
                                             FFAppState().trayid =
                                                 _model.textController.text;
-                                            FFAppState().update(() {});
+                                            setState(() {});
                                             _model.trayCheckBtn =
                                                 await AdminApiGroup.trayInfoCall
                                                     .call(

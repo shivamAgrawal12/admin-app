@@ -203,7 +203,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 10.0, 0.0, 0.0),
                                 child: Text(
-                                  'Login',
+                                  'Login ',
                                   textAlign: TextAlign.center,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium

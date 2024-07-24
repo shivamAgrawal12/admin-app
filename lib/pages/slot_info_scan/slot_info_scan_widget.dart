@@ -96,9 +96,6 @@ class _SlotInfoScanWidgetState extends State<SlotInfoScanWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                FFAppState().slotid = '';
-                                FFAppState().update(() {});
-
                                 context.pushNamed(
                                   'robot_info',
                                   extra: <String, dynamic>{
@@ -278,7 +275,7 @@ class _SlotInfoScanWidgetState extends State<SlotInfoScanWidget> {
                                             BorderRadius.circular(5.0),
                                       ),
                                       child: const Padding(
-                                        padding: EdgeInsets.all(10.0),
+                                        padding: EdgeInsets.all(13.0),
                                         child: SizedBox(
                                           width: 300.0,
                                           height: 300.0,
@@ -428,7 +425,7 @@ class _SlotInfoScanWidgetState extends State<SlotInfoScanWidget> {
                                             onPressed: () async {
                                               FFAppState().slotid =
                                                   _model.textController.text;
-                                              FFAppState().update(() {});
+                                              setState(() {});
                                               _model.slotDetailBtn =
                                                   await AdminApiGroup
                                                       .slotInfoCall
