@@ -445,10 +445,10 @@ class _TrayInfoScanWidgetState extends State<TrayInfoScanWidget> {
                                               FFAppState().update(() {});
                                               _model.trayDetailBtn =
                                                   await AdminApiGroup
-                                                      .trayInfoCall
+                                                      .trayInfoWithoutTypeCall
                                                       .call(
-                                                trayId: FFAppState().trayid,
                                                 robotId: FFAppState().robotid,
+                                                trayId: FFAppState().trayid,
                                               );
 
                                               if ((_model.trayDetailBtn

@@ -436,10 +436,10 @@ class _AddNewTrayWidgetState extends State<AddNewTrayWidget> {
                                                 _model.textController.text;
                                             setState(() {});
                                             _model.trayCheckBtn =
-                                                await AdminApiGroup.trayInfoCall
+                                                await AdminApiGroup
+                                                    .trayInfoWithoutTypeCall
                                                     .call(
-                                              trayId:
-                                                  _model.textController.text,
+                                              trayId: FFAppState().trayid,
                                               robotId: FFAppState().robotid,
                                             );
 

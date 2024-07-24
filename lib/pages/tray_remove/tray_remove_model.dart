@@ -19,7 +19,7 @@ class TrayRemoveModel extends FlutterFlowModel<TrayRemoveWidget> {
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
-  // Stores action output result for [Backend Call - API (tray info)] action in Button widget.
+  // Stores action output result for [Backend Call - API (tray info  without type)] action in Button widget.
   ApiCallResponse? trayDetailsBtn;
   // Stores action output result for [Backend Call - API (slot info by tray id)] action in Button widget.
   ApiCallResponse? slotIdByTrayBtn;

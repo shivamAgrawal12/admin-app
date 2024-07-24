@@ -46,7 +46,7 @@ class _TrayInfo1WidgetState extends State<TrayInfo1Widget> {
     return Align(
       alignment: const AlignmentDirectional(0.0, -0.6),
       child: FutureBuilder<ApiCallResponse>(
-        future: AdminApiGroup.trayInfoCall.call(
+        future: AdminApiGroup.trayInfoWithoutTypeCall.call(
           trayId: FFAppState().trayid,
           robotId: FFAppState().robotid,
         ),
@@ -64,7 +64,7 @@ class _TrayInfo1WidgetState extends State<TrayInfo1Widget> {
               ),
             );
           }
-          final containerTrayInfoResponse = snapshot.data!;
+          final containerTrayInfoWithoutTypeResponse = snapshot.data!;
 
           return Container(
             width: 280.0,
@@ -139,7 +139,8 @@ class _TrayInfo1WidgetState extends State<TrayInfo1Widget> {
                                 child: Text(
                                   valueOrDefault<String>(
                                     getJsonField(
-                                      containerTrayInfoResponse.jsonBody,
+                                      containerTrayInfoWithoutTypeResponse
+                                          .jsonBody,
                                       r'''$.status''',
                                     )?.toString(),
                                     '-',
@@ -332,8 +333,8 @@ class _TrayInfo1WidgetState extends State<TrayInfo1Widget> {
                         ),
                         TextSpan(
                           text: valueOrDefault<String>(
-                            AdminApiGroup.trayInfoCall.type(
-                              containerTrayInfoResponse.jsonBody,
+                            AdminApiGroup.trayInfoWithoutTypeCall.type(
+                              containerTrayInfoWithoutTypeResponse.jsonBody,
                             ),
                             '-',
                           ),
@@ -385,17 +386,7 @@ class _TrayInfo1WidgetState extends State<TrayInfo1Widget> {
                       onPressed: () async {
                         FFAppState().trayid = '';
                         FFAppState().update(() {});
-
-                        context.pushNamed(
-                          'tray_info_scan',
-                          extra: <String, dynamic>{
-                            kTransitionInfoKey: const TransitionInfo(
-                              hasTransition: true,
-                              transitionType: PageTransitionType.fade,
-                              duration: Duration(milliseconds: 0),
-                            ),
-                          },
-                        );
+                        Navigator.pop(context);
                       },
                       text: 'Return Back',
                       options: FFButtonOptions(

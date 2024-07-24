@@ -19,7 +19,7 @@ class TrayInfoScanModel extends FlutterFlowModel<TrayInfoScanWidget> {
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
-  // Stores action output result for [Backend Call - API (tray info)] action in Button widget.
+  // Stores action output result for [Backend Call - API (tray info  without type)] action in Button widget.
   ApiCallResponse? trayDetailBtn;
 
   @override

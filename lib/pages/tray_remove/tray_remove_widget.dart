@@ -442,10 +442,10 @@ class _TrayRemoveWidgetState extends State<TrayRemoveWidget> {
                                               FFAppState().update(() {});
                                               _model.trayDetailsBtn =
                                                   await AdminApiGroup
-                                                      .trayInfoCall
+                                                      .trayInfoWithoutTypeCall
                                                       .call(
-                                                robotId: FFAppState().robotid,
                                                 trayId: FFAppState().trayid,
+                                                robotId: FFAppState().robotid,
                                               );
 
                                               if ((_model.trayDetailsBtn

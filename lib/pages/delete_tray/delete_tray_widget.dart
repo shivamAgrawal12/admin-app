@@ -433,7 +433,8 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
                                               _model.textController.text;
                                           FFAppState().update(() {});
                                           _model.trayDeleteBtn =
-                                              await AdminApiGroup.trayInfoCall
+                                              await AdminApiGroup
+                                                  .trayInfoWithoutTypeCall
                                                   .call(
                                             trayId: FFAppState().trayid,
                                             robotId: FFAppState().robotid,
