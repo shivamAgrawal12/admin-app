@@ -2,7 +2,9 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/popup/menu/menu_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
@@ -25,6 +27,17 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => RobotInfoModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      FFAppState().scannerpage = 'roboinfo';
+      setState(() {});
+      _model.routh = await actions.routhpage(
+        context,
+      );
+      FFAppState().rothpage = _model.routh!;
+      setState(() {});
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }

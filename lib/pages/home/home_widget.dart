@@ -8,7 +8,10 @@ import '/popup/menu/menu_widget.dart';
 import '/popup/no_record/no_record_widget.dart';
 import '/popup/successfull/successfull_widget.dart';
 import '/popup/wrong/wrong_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
@@ -31,6 +34,17 @@ class _HomeWidgetState extends State<HomeWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomeModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      FFAppState().scannerpage = 'home';
+      setState(() {});
+      _model.routh = await actions.routhpage(
+        context,
+      );
+      FFAppState().rothpage = _model.routh!;
+      setState(() {});
+    });
 
     _model.switchValue = true;
     _model.textController ??= TextEditingController();
@@ -1375,6 +1389,19 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             5.0),
+                                                  ),
+                                                  child: const Padding(
+                                                    padding:
+                                                        EdgeInsets.all(9.0),
+                                                    child: SizedBox(
+                                                      width: 300.0,
+                                                      height: 300.0,
+                                                      child: custom_widgets
+                                                          .HomeQrScan(
+                                                        width: 300.0,
+                                                        height: 300.0,
+                                                      ),
+                                                    ),
                                                   ),
                                                 ),
                                               ],

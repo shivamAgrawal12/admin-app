@@ -5,8 +5,10 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/popup/already/already_widget.dart';
 import '/popup/menu/menu_widget.dart';
 import '/popup/tray_added/tray_added_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'add_new_tray_model.dart';
@@ -28,6 +30,17 @@ class _AddNewTrayWidgetState extends State<AddNewTrayWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AddNewTrayModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      FFAppState().scannerpage = 'trayadd';
+      setState(() {});
+      _model.routh = await actions.routhpage(
+        context,
+      );
+      FFAppState().rothpage = _model.routh!;
+      setState(() {});
+    });
 
     _model.switchValue = true;
     _model.textController ??= TextEditingController();

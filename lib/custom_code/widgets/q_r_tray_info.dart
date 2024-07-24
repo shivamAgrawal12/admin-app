@@ -10,6 +10,8 @@ import 'package:flutter/material.dart';
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 import 'index.dart'; // Imports other custom widgets
+
+import 'index.dart'; // Imports other custom widgets
 import '/custom_code/actions/index.dart' as actions; // Imports custom actions
 
 import 'index.dart'; // Imports other custom widgets
@@ -50,11 +52,18 @@ class _QRTrayInfoState extends State<QRTrayInfo> {
   }
 
   void initializeScanner() async {
-    await controller.start();
-    try {
-      await controller.setZoomScale(currentZoom);
-    } catch (e) {
-      print('Error setting initial zoom scale: $e');
+    if (FFAppState().scannerpage == "trayinfo") {
+      print("Slot map QR initialized");
+      await controller.start();
+      try {
+        await controller.setZoomScale(currentZoom);
+      } catch (e) {
+        print('Error setting initial zoom scale: $e');
+      }
+    } else {
+      controller.stop();
+      print(
+          "Scanner not initialized. FFAppState().scannerpage is not 'trayinfo'.");
     }
   }
 
@@ -177,12 +186,15 @@ class _QRTrayInfoState extends State<QRTrayInfo> {
     bool _shouldSetState = false;
     var trayDetailBtn;
     _shouldSetState = true;
-    trayDetailBtn = await AdminApiGroup.trayInfoCall.call(
+    trayDetailBtn = await AdminApiGroup.trayInfoWithoutTypeCall.call(
       robotId: FFAppState().robotid,
       trayId: scannedValue,
     );
     _shouldSetState = true;
+    final jsonBody = trayDetailBtn.jsonBody;
 
+    // Print the details of jsonBody
+    print("Tray info details: $jsonBody");
     if ((trayDetailBtn?.succeeded ?? true)) {
       final status = AdminApiGroup.trayInfoCall.traystatus(
         (trayDetailBtn?.jsonBody ?? ''),

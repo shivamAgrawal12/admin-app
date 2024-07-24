@@ -94,6 +94,18 @@ class FFAppState extends ChangeNotifier {
   set shuttles(int value) {
     _shuttles = value;
   }
+
+  String _scannerpage = '';
+  String get scannerpage => _scannerpage;
+  set scannerpage(String value) {
+    _scannerpage = value;
+  }
+
+  String _rothpage = '';
+  String get rothpage => _rothpage;
+  set rothpage(String value) {
+    _rothpage = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

@@ -24,6 +24,8 @@ class AdminApiGroup {
   static ValidateOtpCall validateOtpCall = ValidateOtpCall();
   static SlotInfoCall slotInfoCall = SlotInfoCall();
   static TrayInfoCall trayInfoCall = TrayInfoCall();
+  static TrayInfoWithoutTypeCall trayInfoWithoutTypeCall =
+      TrayInfoWithoutTypeCall();
   static PatchTrayIdInSlotCall patchTrayIdInSlotCall = PatchTrayIdInSlotCall();
   static AddNewTrayCall addNewTrayCall = AddNewTrayCall();
   static DeleteTrayCall deleteTrayCall = DeleteTrayCall();
@@ -290,6 +292,59 @@ class TrayInfoCall {
         'tray_id': trayId,
         'robot_id': robotId,
         'tray_type': trayType,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  String? traysize(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.records[:].tray_size''',
+      ));
+  String? traystatus(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.records[:].tray_status''',
+      ));
+  String? trayid(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.records[:].tray_id''',
+      ));
+  List? records(dynamic response) => getJsonField(
+        response,
+        r'''$.records''',
+        true,
+      ) as List?;
+  String? type(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.records[:].type''',
+      ));
+}
+
+class TrayInfoWithoutTypeCall {
+  Future<ApiCallResponse> call({
+    String? trayId = '',
+    String? robotId = '',
+  }) async {
+    final baseUrl = AdminApiGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'tray info  without type',
+      apiUrl: '$baseUrl/robotmanager/trays/',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization':
+            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+      },
+      params: {
+        'tray_id': trayId,
+        'robot_id': robotId,
       },
       returnBody: true,
       encodeBodyUtf8: false,

@@ -12,6 +12,8 @@ import 'package:flutter/material.dart';
 import 'index.dart'; // Imports other custom widgets
 
 import 'index.dart'; // Imports other custom widgets
+
+import 'index.dart'; // Imports other custom widgets
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'dart:io';
 import 'package:flutter/services.dart';
@@ -46,11 +48,18 @@ class _QRSlotMapState extends State<QRSlotMap> {
   }
 
   void initializeScanner() async {
-    await controller.start();
-    try {
-      await controller.setZoomScale(currentZoom);
-    } catch (e) {
-      print('Error setting initial zoom scale: $e');
+    if (FFAppState().scannerpage == "slotmap") {
+      print("Slot map QR initialized");
+      await controller.start();
+      try {
+        await controller.setZoomScale(currentZoom);
+      } catch (e) {
+        print('Error setting initial zoom scale: $e');
+      }
+    } else {
+      controller.stop();
+      print(
+          "Scanner not initialized. FFAppState().scannerpage is not 'slotmap'.");
     }
   }
 
@@ -167,6 +176,7 @@ class _QRSlotMapState extends State<QRSlotMap> {
     FFAppState().slotid = scannedValue;
     print("slot id :${FFAppState().slotid}");
     setState(() {});
+    controller.stop();
     context.pushNamed(
       'tray_mappimg',
       extra: <String, dynamic>{

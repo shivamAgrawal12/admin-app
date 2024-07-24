@@ -12,6 +12,8 @@ class RobotInfoModel extends FlutterFlowModel<RobotInfoWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Stores action output result for [Custom Action - routhpage] action in robot_info widget.
+  String? routh;
 
   @override
   void initState(BuildContext context) {}

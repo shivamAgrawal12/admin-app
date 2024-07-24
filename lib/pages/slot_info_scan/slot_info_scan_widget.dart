@@ -6,8 +6,10 @@ import '/popup/menu/menu_widget.dart';
 import '/popup/no_record/no_record_widget.dart';
 import '/popup/slot_info_1/slot_info1_widget.dart';
 import '/popup/slot_info_2/slot_info2_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'slot_info_scan_model.dart';
@@ -29,6 +31,17 @@ class _SlotInfoScanWidgetState extends State<SlotInfoScanWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SlotInfoScanModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      FFAppState().scannerpage = 'slotinfo';
+      setState(() {});
+      _model.routh = await actions.routhpage(
+        context,
+      );
+      FFAppState().rothpage = _model.routh!;
+      setState(() {});
+    });
 
     _model.switchValue = true;
     _model.textController ??= TextEditingController();

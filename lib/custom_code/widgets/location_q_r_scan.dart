@@ -13,6 +13,8 @@ import 'index.dart'; // Imports other custom widgets
 
 import 'index.dart'; // Imports other custom widgets
 
+import 'index.dart'; // Imports other custom widgets
+
 import 'dart:io';
 import '/backend/api_requests/api_calls.dart';
 import 'package:mobile_scanner/mobile_scanner.dart'; // Import MobileScanner
@@ -40,15 +42,30 @@ class LocationQRScan extends StatefulWidget {
 class _LocationQRScanState extends State<LocationQRScan> {
   MobileScannerController controller = MobileScannerController();
   bool isProcessing = false;
-
   @override
   void initState() {
     super.initState();
-    controller.start();
+    initializeScanner();
+  }
+
+  void initializeScanner() async {
+    if (FFAppState().scannerpage == "location") {
+      print("Slot map QR initialized");
+      await controller.start();
+      // try {
+      //   await controller.setZoomScale(currentZoom);
+      // } catch (e) {
+      //   print('Error setting initial zoom scale: $e');
+      // }
+    } else {
+      print(
+          "Scanner not initialized. FFAppState().scannerpage is not 'locationqr'.");
+    }
   }
 
   @override
   void reassemble() {
+    print("location qr initialized");
     super.reassemble();
     if (Platform.isAndroid) {
       controller.stop();
@@ -58,6 +75,7 @@ class _LocationQRScanState extends State<LocationQRScan> {
 
   @override
   void dispose() {
+    print("location qr disposed");
     controller.dispose();
     super.dispose();
   }

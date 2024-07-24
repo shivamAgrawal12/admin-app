@@ -10,6 +10,8 @@ class TrayMappimgModel extends FlutterFlowModel<TrayMappimgWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Stores action output result for [Custom Action - routhpage] action in tray_mappimg widget.
+  String? routh;
   // State field(s) for Switch widget.
   bool? switchValue;
   // State field(s) for TextField widget.
