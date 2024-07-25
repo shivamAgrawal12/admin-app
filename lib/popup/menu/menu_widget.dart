@@ -206,7 +206,17 @@ class _MenuWidgetState extends State<MenuWidget> {
                           await authManager.signOut();
                           GoRouter.of(context).clearRedirectLocation();
 
-                          context.goNamedAuth('robot_scan', context.mounted);
+                          context.goNamedAuth(
+                            'robot_scan',
+                            context.mounted,
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: const TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 500),
+                              ),
+                            },
+                          );
                         },
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
