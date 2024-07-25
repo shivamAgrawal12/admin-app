@@ -15,7 +15,10 @@ import 'index.dart'; // Imports other custom widgets
 
 import 'index.dart'; // Imports other custom widgets
 
+import 'index.dart'; // Imports other custom widgets
+
 import 'package:mobile_scanner/mobile_scanner.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'dart:io';
 import 'package:flutter/services.dart';
 import '/backend/api_requests/api_calls.dart';
@@ -188,7 +191,7 @@ class _QRSlotInfoState extends State<QRSlotInfo> {
       final status =
           AdminApiGroup.slotInfoCall.status((slotDetailBtn?.jsonBody ?? ''));
       print("Slot Status: $status");
-
+      actions.continuousVibration(0, 0, 0, 500);
       if (status == 'free') {
         await showModalBottomSheet(
           isScrollControlled: true,
@@ -207,6 +210,7 @@ class _QRSlotInfoState extends State<QRSlotInfo> {
         );
         // ).then((value) => safeSetState(() {}));
       } else {
+        actions.continuousVibration(500, 1000, 500, 1000);
         await showModalBottomSheet(
           isScrollControlled: true,
           backgroundColor: Colors.transparent,
@@ -228,7 +232,7 @@ class _QRSlotInfoState extends State<QRSlotInfo> {
       return;
     } else {
       FFAppState().slotid = '';
-
+      actions.continuousVibration(500, 1000, 500, 1000);
       // FFAppState().update(() {});
       await showModalBottomSheet(
         isScrollControlled: true,

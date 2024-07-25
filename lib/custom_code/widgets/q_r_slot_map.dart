@@ -14,6 +14,9 @@ import 'index.dart'; // Imports other custom widgets
 import 'index.dart'; // Imports other custom widgets
 
 import 'index.dart'; // Imports other custom widgets
+
+import 'index.dart'; // Imports other custom widgets
+import '/custom_code/actions/index.dart' as actions;
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'dart:io';
 import 'package:flutter/services.dart';
@@ -172,7 +175,8 @@ class _QRSlotMapState extends State<QRSlotMap> {
     bool _shouldSetState = false;
     var slotDetailBtn;
     _shouldSetState = true;
-
+    actions.continuousVibration(0, 0, 0, 500);
+    await Future.delayed(Duration(seconds: 2));
     FFAppState().slotid = scannedValue;
     print("slot id :${FFAppState().slotid}");
     setState(() {});

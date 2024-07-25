@@ -15,12 +15,15 @@ import 'index.dart'; // Imports other custom widgets
 
 import 'index.dart'; // Imports other custom widgets
 
+import 'index.dart'; // Imports other custom widgets
+
 import 'dart:io';
 import '/backend/api_requests/api_calls.dart';
 import 'package:mobile_scanner/mobile_scanner.dart'; // Import MobileScanner
 import '/popup/menu/menu_widget.dart';
 import '/popup/friendly_name_wrg/friendly_name_wrg_widget.dart';
 import '/popup/successfull/successfull_widget.dart' show SuccessfullWidget;
+import '/custom_code/actions/index.dart' as actions;
 import '/popup/wrong/wrong_widget.dart';
 
 class LocationQRScan extends StatefulWidget {
@@ -123,6 +126,7 @@ class _LocationQRScanState extends State<LocationQRScan> {
       );
       _shouldSetState = true;
       if (taskCompleteResult.succeeded) {
+        actions.continuousVibration(0, 0, 0, 500);
         await showModalBottomSheet(
           isScrollControlled: true,
           backgroundColor: Colors.transparent,
@@ -156,6 +160,7 @@ class _LocationQRScanState extends State<LocationQRScan> {
         ).then((value) => setState(() {}));
       }
     } else {
+      await actions.continuousVibration(500, 1000, 500, 1000);
       await showModalBottomSheet(
         isScrollControlled: true,
         backgroundColor: Colors.transparent,

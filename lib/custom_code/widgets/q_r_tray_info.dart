@@ -12,10 +12,12 @@ import 'package:flutter/material.dart';
 import 'index.dart'; // Imports other custom widgets
 
 import 'index.dart'; // Imports other custom widgets
+
+import 'index.dart'; // Imports other custom widgets
 import '/custom_code/actions/index.dart' as actions; // Imports custom actions
 
 import 'index.dart'; // Imports other custom widgets
-
+import '/custom_code/actions/index.dart' as actions;
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'dart:io';
 import 'package:flutter/services.dart';
@@ -200,31 +202,29 @@ class _QRTrayInfoState extends State<QRTrayInfo> {
         (trayDetailBtn?.jsonBody ?? ''),
       );
       print("Tray Status: $status");
-
-      if (status == 'free') {
-        await showModalBottomSheet(
-          isScrollControlled: true,
-          backgroundColor: Colors.transparent,
-          enableDrag: false,
-          context: context,
-          builder: (context) {
-            return GestureDetector(
-              onTap: () => FocusScope.of(context).unfocus(),
-              child: Padding(
-                padding: MediaQuery.viewInsetsOf(context),
-                child: TrayInfo1Widget(),
-              ),
-            );
-          },
-        ).then((value) => safeSetState(() {}));
-      }
+      actions.continuousVibration(0, 0, 0, 500);
+      await showModalBottomSheet(
+        isScrollControlled: true,
+        backgroundColor: Colors.transparent,
+        enableDrag: false,
+        context: context,
+        builder: (context) {
+          return GestureDetector(
+            onTap: () => FocusScope.of(context).unfocus(),
+            child: Padding(
+              padding: MediaQuery.viewInsetsOf(context),
+              child: TrayInfo1Widget(),
+            ),
+          );
+        },
+      ).then((value) => safeSetState(() {}));
 
       if (_shouldSetState) setState(() {});
       return;
     } else {
       FFAppState().trayid = '';
       FFAppState().update(() {});
-      await actions.continuousVibration(500, 1000, 500, 1000);
+      actions.continuousVibration(500, 1000, 500, 1000);
       // await showModalBottomSheet(
       //   isScrollControlled: true,
       //   backgroundColor: Colors.transparent,

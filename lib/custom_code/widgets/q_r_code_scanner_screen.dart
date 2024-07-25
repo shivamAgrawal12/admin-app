@@ -12,10 +12,13 @@ import 'package:flutter/material.dart';
 import 'index.dart'; // Imports other custom widgets
 
 import 'index.dart'; // Imports other custom widgets
+
+import 'index.dart'; // Imports other custom widgets
 import '/backend/api_requests/api_calls.dart';
 import '/auth/custom_auth/auth_util.dart';
 import '/popup/new_robot/new_robot_widget.dart';
 import '/pages/robot_scan/robot_scan_widget.dart' show RobotScanWidget;
+import '/custom_code/actions/index.dart' as actions;
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'dart:io';
 import 'package:flutter/services.dart';
@@ -171,6 +174,7 @@ class _QRCodeScannerScreenState extends State<QRCodeScannerScreen> {
     );
 
     if (result.succeeded) {
+      actions.continuousVibration(0, 0, 0, 500);
       FFAppState().robotid = code;
       setState(() {});
       if (loggedIn) {

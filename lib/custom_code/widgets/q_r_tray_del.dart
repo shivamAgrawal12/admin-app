@@ -15,6 +15,8 @@ import 'index.dart'; // Imports other custom widgets
 
 import 'index.dart'; // Imports other custom widgets
 
+import 'index.dart'; // Imports other custom widgets
+import '/custom_code/actions/index.dart' as actions;
 import 'dart:io';
 import '/backend/api_requests/api_calls.dart';
 import 'package:mobile_scanner/mobile_scanner.dart'; // Import MobileScanner
@@ -188,6 +190,7 @@ class _QRTrayDelState extends State<QRTrayDel> {
         r'$.records[0].id',
       );
       FFAppState().update(() {});
+      actions.continuousVibration(0, 0, 0, 500);
       await showModalBottomSheet(
         isScrollControlled: true,
         backgroundColor: Colors.transparent,
@@ -204,6 +207,7 @@ class _QRTrayDelState extends State<QRTrayDel> {
         },
       ).then((value) => setState(() {}));
     } else {
+      actions.continuousVibration(500, 1000, 500, 1000);
       FFAppState().trayid = '';
       FFAppState().update(() {});
       await showModalBottomSheet(

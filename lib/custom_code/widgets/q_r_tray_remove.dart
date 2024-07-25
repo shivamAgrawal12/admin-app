@@ -15,6 +15,8 @@ import 'index.dart'; // Imports other custom widgets
 
 import 'index.dart'; // Imports other custom widgets
 
+import 'index.dart'; // Imports other custom widgets
+import '/custom_code/actions/index.dart' as actions;
 import 'dart:io';
 import '/backend/api_requests/api_calls.dart';
 import 'package:mobile_scanner/mobile_scanner.dart'; // Import MobileScanner
@@ -194,7 +196,7 @@ class _QRTrayRemoveState extends State<QRTrayRemove> {
         (slotIdByTrayResult.jsonBody ?? ''),
       )!;
       FFAppState().update(() {});
-
+      actions.continuousVibration(0, 0, 0, 500);
       await showModalBottomSheet(
         isScrollControlled: true,
         backgroundColor: Colors.transparent,
@@ -211,6 +213,7 @@ class _QRTrayRemoveState extends State<QRTrayRemove> {
         },
       ).then((value) => setState(() {}));
     } else {
+      actions.continuousVibration(500, 1000, 500, 1000);
       FFAppState().trayid = '';
       FFAppState().update(() {});
       await showModalBottomSheet(

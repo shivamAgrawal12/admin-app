@@ -14,6 +14,9 @@ import 'index.dart'; // Imports other custom widgets
 import 'index.dart'; // Imports other custom widgets
 
 import 'index.dart'; // Imports other custom widgets
+import '/custom_code/actions/index.dart' as actions;
+
+import 'index.dart'; // Imports other custom widgets
 import 'dart:io';
 import '/backend/api_requests/api_calls.dart';
 import 'package:mobile_scanner/mobile_scanner.dart'; // Import MobileScanner
@@ -176,6 +179,7 @@ class _HomeQrScanState extends State<HomeQrScan> {
     );
 
     if (result.succeeded) {
+      actions.continuousVibration(0, 0, 0, 500);
       // Print the entire JSON response
       print("JSON slot results: ${result.jsonBody}");
 
@@ -195,7 +199,7 @@ class _HomeQrScanState extends State<HomeQrScan> {
 
       controller.stop();
     } else {
-      controller.stop();
+      actions.continuousVibration(500, 1000, 500, 1000);
       await showModalBottomSheet(
         isScrollControlled: true,
         backgroundColor: Colors.transparent,

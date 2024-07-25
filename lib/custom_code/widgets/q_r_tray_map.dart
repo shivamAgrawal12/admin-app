@@ -15,7 +15,10 @@ import 'index.dart'; // Imports other custom widgets
 
 import 'index.dart'; // Imports other custom widgets
 
+import 'index.dart'; // Imports other custom widgets
+
 import 'dart:io';
+import '/custom_code/actions/index.dart' as actions;
 import '/backend/api_requests/api_calls.dart';
 import 'package:mobile_scanner/mobile_scanner.dart'; // Import MobileScanner
 import '/popup/mapping_confirmation/mapping_confirmation_widget.dart';
@@ -176,7 +179,7 @@ class _QRTrayMapState extends State<QRTrayMap> {
   Future<void> _handleScannedValue(String scannedValue) async {
     FFAppState().trayid = scannedValue;
     print("tray id : ${FFAppState().trayid}");
-
+    actions.continuousVibration(0, 0, 0, 500);
     await showModalBottomSheet(
       isScrollControlled: true,
       backgroundColor: Colors.transparent,

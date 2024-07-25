@@ -15,6 +15,8 @@ import 'index.dart'; // Imports other custom widgets
 
 import 'index.dart'; // Imports other custom widgets
 
+import 'index.dart'; // Imports other custom widgets
+import '/custom_code/actions/index.dart' as actions;
 import 'dart:io';
 import '/backend/api_requests/api_calls.dart';
 import 'package:mobile_scanner/mobile_scanner.dart'; // Import MobileScanner
@@ -184,6 +186,7 @@ class _QRTrayAddNewState extends State<QRTrayAddNew> {
     );
 
     if (result.succeeded) {
+      actions.continuousVibration(0, 0, 0, 500);
       await showModalBottomSheet(
         isScrollControlled: true,
         backgroundColor: Colors.transparent,
@@ -200,6 +203,7 @@ class _QRTrayAddNewState extends State<QRTrayAddNew> {
         },
       ).then((value) => setState(() {}));
     } else {
+      actions.continuousVibration(500, 1000, 500, 1000);
       await showModalBottomSheet(
         isScrollControlled: true,
         backgroundColor: Colors.transparent,
