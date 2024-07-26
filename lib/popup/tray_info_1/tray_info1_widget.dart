@@ -68,13 +68,12 @@ class _TrayInfo1WidgetState extends State<TrayInfo1Widget> {
 
           return Container(
             width: 280.0,
-            height: 370.0,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).liteBg,
               borderRadius: BorderRadius.circular(10.0),
             ),
             child: Column(
-              mainAxisSize: MainAxisSize.max,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
                   width: 290.0,
@@ -366,7 +365,7 @@ class _TrayInfo1WidgetState extends State<TrayInfo1Widget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 15.0),
                   child: Container(
                     width: 140.0,
                     height: 40.0,

@@ -72,7 +72,6 @@ class _DirectPicableWidgetState extends State<DirectPicableWidget> {
 
           return Container(
             width: 270.0,
-            height: 275.0,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).primaryBackground,
               borderRadius: BorderRadius.circular(10.0),
@@ -189,7 +188,7 @@ class _DirectPicableWidgetState extends State<DirectPicableWidget> {
                 ),
                 Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 15.0, 0.0),
+                      const EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 15.0, 15.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -282,7 +281,7 @@ class _DirectPicableWidgetState extends State<DirectPicableWidget> {
 
                             setState(() {});
                           },
-                          text: 'Make',
+                          text: 'Change',
                           options: FFButtonOptions(
                             height: 40.0,
                             padding: const EdgeInsetsDirectional.fromSTEB(

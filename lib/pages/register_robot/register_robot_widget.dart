@@ -1,7 +1,9 @@
 import '/backend/api_requests/api_calls.dart';
+import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
 import '/popup/wrong/wrong_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -193,6 +195,64 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
+                              Align(
+                                alignment: const AlignmentDirectional(-1.0, -1.0),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      5.0, 5.0, 0.0, 0.0),
+                                  child: Text(
+                                    'Slot Type',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Open Sans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .liteText,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 5.0, 8.0, 0.0),
+                                child: FlutterFlowDropDown<String>(
+                                  controller: _model.dropDownValueController ??=
+                                      FormFieldController<String>(null),
+                                  options: const ['metal_tray', 'plastic_tray'],
+                                  onChanged: (val) => setState(
+                                      () => _model.dropDownValue = val),
+                                  width: 310.0,
+                                  height: 50.0,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Open Sans',
+                                        fontSize: 16.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                  hintText: 'Please select slot type',
+                                  icon: Icon(
+                                    Icons.keyboard_arrow_down_rounded,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    size: 24.0,
+                                  ),
+                                  elevation: 0.0,
+                                  borderColor:
+                                      FlutterFlowTheme.of(context).subHeader,
+                                  borderWidth: 1.0,
+                                  borderRadius: 5.0,
+                                  margin: const EdgeInsetsDirectional.fromSTEB(
+                                      10.0, 2.0, 10.0, 4.0),
+                                  hidesUnderline: true,
+                                  isOverButton: true,
+                                  isSearchable: false,
+                                  isMultiSelect: false,
+                                ),
+                              ),
                               Align(
                                 alignment: const AlignmentDirectional(-1.0, -1.0),
                                 child: Padding(
@@ -762,6 +822,9 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                       if (_model.formKey.currentState == null ||
                                           !_model.formKey.currentState!
                                               .validate()) {
+                                        return;
+                                      }
+                                      if (_model.dropDownValue == null) {
                                         return;
                                       }
                                       _model.newRobot = await AdminApiGroup

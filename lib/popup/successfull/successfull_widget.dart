@@ -49,7 +49,6 @@ class _SuccessfullWidgetState extends State<SuccessfullWidget> {
       alignment: const AlignmentDirectional(0.0, -0.6),
       child: Container(
         width: 270.0,
-        height: 230.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).liteBg,
           borderRadius: BorderRadius.circular(10.0),
@@ -57,7 +56,7 @@ class _SuccessfullWidgetState extends State<SuccessfullWidget> {
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
-            mainAxisSize: MainAxisSize.max,
+            mainAxisSize: MainAxisSize.min,
             children: [
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
@@ -120,17 +119,7 @@ class _SuccessfullWidgetState extends State<SuccessfullWidget> {
                   FFAppState().hideslot = 0;
                   FFAppState().homeslotid = '';
                   FFAppState().update(() {});
-
-                  context.pushNamed(
-                    'home',
-                    extra: <String, dynamic>{
-                      kTransitionInfoKey: const TransitionInfo(
-                        hasTransition: true,
-                        transitionType: PageTransitionType.fade,
-                        duration: Duration(milliseconds: 0),
-                      ),
-                    },
-                  );
+                  Navigator.pop(context);
                 },
                 textAlign: TextAlign.start,
                 style: FlutterFlowTheme.of(context).headlineSmall.override(

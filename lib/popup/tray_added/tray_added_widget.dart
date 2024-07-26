@@ -171,7 +171,7 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 15.0, 20.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 15.0, 15.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -180,17 +180,7 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
                     onPressed: () async {
                       FFAppState().trayid = '';
                       FFAppState().update(() {});
-
-                      context.pushNamed(
-                        'add_new_tray',
-                        extra: <String, dynamic>{
-                          kTransitionInfoKey: const TransitionInfo(
-                            hasTransition: true,
-                            transitionType: PageTransitionType.fade,
-                            duration: Duration(milliseconds: 0),
-                          ),
-                        },
-                      );
+                      Navigator.pop(context);
                     },
                     text: 'Cancel',
                     options: FFButtonOptions(
@@ -274,6 +264,8 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
                             },
                           ).then((value) => safeSetState(() {}));
                         }
+
+                        Navigator.pop(context);
 
                         setState(() {});
                       },

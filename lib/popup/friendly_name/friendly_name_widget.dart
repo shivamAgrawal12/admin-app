@@ -67,13 +67,12 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
       alignment: const AlignmentDirectional(0.0, -0.6),
       child: Container(
         width: 280.0,
-        height: 310.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).liteBg,
           borderRadius: BorderRadius.circular(10.0),
         ),
         child: Column(
-          mainAxisSize: MainAxisSize.max,
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Container(
@@ -214,7 +213,7 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 15.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 15.0, 15.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -224,17 +223,7 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
                       FFAppState().slotid = '';
                       FFAppState().hideslot = 0;
                       FFAppState().update(() {});
-
-                      context.pushNamed(
-                        'home',
-                        extra: <String, dynamic>{
-                          kTransitionInfoKey: const TransitionInfo(
-                            hasTransition: true,
-                            transitionType: PageTransitionType.fade,
-                            duration: Duration(milliseconds: 0),
-                          ),
-                        },
-                      );
+                      Navigator.pop(context);
                     },
                     text: 'Cancel',
                     options: FFButtonOptions(

@@ -45,7 +45,6 @@ class _NewRobotWidgetState extends State<NewRobotWidget> {
       alignment: const AlignmentDirectional(0.0, -0.6),
       child: Container(
         width: 270.0,
-        height: 230.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
           borderRadius: BorderRadius.circular(10.0),
@@ -120,7 +119,7 @@ class _NewRobotWidgetState extends State<NewRobotWidget> {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 15.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 15.0, 15.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -61,8 +61,7 @@ class _MenuWidgetState extends State<MenuWidget> {
             child: Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 15.0, 0.0),
               child: Container(
-                width: 180.0,
-                height: 180.0,
+                width: 170.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).primaryBackground,
                   borderRadius: const BorderRadius.only(

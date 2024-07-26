@@ -49,7 +49,6 @@ class _RobotRegisterWidgetState extends State<RobotRegisterWidget> {
       alignment: const AlignmentDirectional(0.0, -0.6),
       child: Container(
         width: 260.0,
-        height: 230.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).liteBg,
           borderRadius: BorderRadius.circular(10.0),
@@ -57,7 +56,7 @@ class _RobotRegisterWidgetState extends State<RobotRegisterWidget> {
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
-            mainAxisSize: MainAxisSize.max,
+            mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Column(

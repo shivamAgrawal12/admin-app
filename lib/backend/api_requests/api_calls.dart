@@ -12,7 +12,7 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 /// Start admin api Group Code
 
 class AdminApiGroup {
-  static String getBaseUrl() => 'https://robotmanagerv1.qikpod.com:8981';
+  static String getBaseUrl() => 'https://robotdemov1.qikpod.com:8981';
   static Map<String, String> headers = {
     'Authorization':
         'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
@@ -774,6 +774,7 @@ class RegisterNewRobotCall {
     int? maxRack,
     int? maxSlot,
     int? maxDepth,
+    String? slotType = '',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl();
 
@@ -789,7 +790,7 @@ class RegisterNewRobotCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'register new robot',
-      apiUrl: '$baseUrl/robotmanager/robots/',
+      apiUrl: '$baseUrl/robotmanager/robots/?slot_type=$slotType',
       callType: ApiCallType.POST,
       headers: {
         'Authorization':
@@ -1181,16 +1182,16 @@ class UplodeSlotCsvCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'uplode slot csv',
-      apiUrl: '$baseUrl/robotmanager/slots/upload_csv/',
+      apiUrl: '$baseUrl/robotmanager/slots/upload_csv/?robot_id=$robotId',
       callType: ApiCallType.PATCH,
       headers: {
         'Authorization':
             'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
         'Content-Type': 'application/json',
         'accept': 'application/json',
+        'Content-Type': 'multipart/form-data',
       },
       params: {
-        'robot_id': robotId,
         'in_file': inFile,
       },
       bodyType: BodyType.MULTIPART,
@@ -1314,7 +1315,7 @@ class AddSpeedInShuttleCall {
     int? highSdRetrieve,
     int? lowSdStore,
     int? mediumSdStore,
-    int? hightSdStore,
+    int? highSdStore,
     int? lowDdRetrieve,
     int? mediumDdRetrieve,
     int? highDdRetrieve,
@@ -1324,7 +1325,7 @@ class AddSpeedInShuttleCall {
     final ffApiRequestBody = '''
 {
   "high": {
-    "sd_store": $hightSdStore,
+    "sd_store": <hight_sd_store>,
     "sd_retrieve": $highSdRetrieve,
     "dd_store": $highDdStore,
     "dd_retrieve": $highDdRetrieve

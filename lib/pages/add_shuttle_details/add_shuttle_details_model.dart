@@ -14,6 +14,7 @@ class AddShuttleDetailsModel extends FlutterFlowModel<AddShuttleDetailsWidget> {
   final unfocusNode = FocusNode();
   final formKey2 = GlobalKey<FormState>();
   final formKey1 = GlobalKey<FormState>();
+  final formKey3 = GlobalKey<FormState>();
   // State field(s) for speed widget.
   String? speedValue;
   FormFieldController<String>? speedValueController;
@@ -166,57 +167,61 @@ class AddShuttleDetailsModel extends FlutterFlowModel<AddShuttleDetailsWidget> {
     return null;
   }
 
-  // State field(s) for DropDown widget.
-  String? dropDownValue;
-  FormFieldController<String>? dropDownValueController;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode1;
-  TextEditingController? textController13;
-  String? Function(BuildContext, String?)? textController13Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode2;
-  TextEditingController? textController14;
-  String? Function(BuildContext, String?)? textController14Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode3;
-  TextEditingController? textController15;
-  String? Function(BuildContext, String?)? textController15Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode4;
-  TextEditingController? textController16;
-  String? Function(BuildContext, String?)? textController16Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode5;
-  TextEditingController? textController17;
-  String? Function(BuildContext, String?)? textController17Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode6;
-  TextEditingController? textController18;
-  String? Function(BuildContext, String?)? textController18Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode7;
-  TextEditingController? textController19;
-  String? Function(BuildContext, String?)? textController19Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode8;
-  TextEditingController? textController20;
-  String? Function(BuildContext, String?)? textController20Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode9;
-  TextEditingController? textController21;
-  String? Function(BuildContext, String?)? textController21Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode10;
-  TextEditingController? textController22;
-  String? Function(BuildContext, String?)? textController22Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode11;
-  TextEditingController? textController23;
-  String? Function(BuildContext, String?)? textController23Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode12;
-  TextEditingController? textController24;
-  String? Function(BuildContext, String?)? textController24Validator;
+  // Stores action output result for [Backend Call - API (add buffer in shutttle)] action in Button widget.
+  ApiCallResponse? addBufferShuttle;
+  // State field(s) for as_DropDown widget.
+  String? asDropDownValue;
+  FormFieldController<String>? asDropDownValueController;
+  // State field(s) for ash_ss widget.
+  FocusNode? ashSsFocusNode;
+  TextEditingController? ashSsTextController;
+  String? Function(BuildContext, String?)? ashSsTextControllerValidator;
+  // State field(s) for ash_sr widget.
+  FocusNode? ashSrFocusNode;
+  TextEditingController? ashSrTextController;
+  String? Function(BuildContext, String?)? ashSrTextControllerValidator;
+  // State field(s) for ash_ds widget.
+  FocusNode? ashDsFocusNode;
+  TextEditingController? ashDsTextController;
+  String? Function(BuildContext, String?)? ashDsTextControllerValidator;
+  // State field(s) for ash_dr widget.
+  FocusNode? ashDrFocusNode;
+  TextEditingController? ashDrTextController;
+  String? Function(BuildContext, String?)? ashDrTextControllerValidator;
+  // State field(s) for asm_ss widget.
+  FocusNode? asmSsFocusNode;
+  TextEditingController? asmSsTextController;
+  String? Function(BuildContext, String?)? asmSsTextControllerValidator;
+  // State field(s) for asm_sr widget.
+  FocusNode? asmSrFocusNode;
+  TextEditingController? asmSrTextController;
+  String? Function(BuildContext, String?)? asmSrTextControllerValidator;
+  // State field(s) for asm_ds widget.
+  FocusNode? asmDsFocusNode;
+  TextEditingController? asmDsTextController;
+  String? Function(BuildContext, String?)? asmDsTextControllerValidator;
+  // State field(s) for asm_dr widget.
+  FocusNode? asmDrFocusNode;
+  TextEditingController? asmDrTextController;
+  String? Function(BuildContext, String?)? asmDrTextControllerValidator;
+  // State field(s) for asl_ss widget.
+  FocusNode? aslSsFocusNode;
+  TextEditingController? aslSsTextController;
+  String? Function(BuildContext, String?)? aslSsTextControllerValidator;
+  // State field(s) for asl_sr widget.
+  FocusNode? aslSrFocusNode;
+  TextEditingController? aslSrTextController;
+  String? Function(BuildContext, String?)? aslSrTextControllerValidator;
+  // State field(s) for asl_ds widget.
+  FocusNode? aslDsFocusNode;
+  TextEditingController? aslDsTextController;
+  String? Function(BuildContext, String?)? aslDsTextControllerValidator;
+  // State field(s) for asl_dr widget.
+  FocusNode? aslDrFocusNode;
+  TextEditingController? aslDrTextController;
+  String? Function(BuildContext, String?)? aslDrTextControllerValidator;
+  // Stores action output result for [Backend Call - API (add speed in shuttle)] action in Button widget.
+  ApiCallResponse? addSpeedShuttle;
 
   @override
   void initState(BuildContext context) {
@@ -273,40 +278,40 @@ class AddShuttleDetailsModel extends FlutterFlowModel<AddShuttleDetailsWidget> {
     ablDrFocusNode?.dispose();
     ablDrTextController?.dispose();
 
-    textFieldFocusNode1?.dispose();
-    textController13?.dispose();
+    ashSsFocusNode?.dispose();
+    ashSsTextController?.dispose();
 
-    textFieldFocusNode2?.dispose();
-    textController14?.dispose();
+    ashSrFocusNode?.dispose();
+    ashSrTextController?.dispose();
 
-    textFieldFocusNode3?.dispose();
-    textController15?.dispose();
+    ashDsFocusNode?.dispose();
+    ashDsTextController?.dispose();
 
-    textFieldFocusNode4?.dispose();
-    textController16?.dispose();
+    ashDrFocusNode?.dispose();
+    ashDrTextController?.dispose();
 
-    textFieldFocusNode5?.dispose();
-    textController17?.dispose();
+    asmSsFocusNode?.dispose();
+    asmSsTextController?.dispose();
 
-    textFieldFocusNode6?.dispose();
-    textController18?.dispose();
+    asmSrFocusNode?.dispose();
+    asmSrTextController?.dispose();
 
-    textFieldFocusNode7?.dispose();
-    textController19?.dispose();
+    asmDsFocusNode?.dispose();
+    asmDsTextController?.dispose();
 
-    textFieldFocusNode8?.dispose();
-    textController20?.dispose();
+    asmDrFocusNode?.dispose();
+    asmDrTextController?.dispose();
 
-    textFieldFocusNode9?.dispose();
-    textController21?.dispose();
+    aslSsFocusNode?.dispose();
+    aslSsTextController?.dispose();
 
-    textFieldFocusNode10?.dispose();
-    textController22?.dispose();
+    aslSrFocusNode?.dispose();
+    aslSrTextController?.dispose();
 
-    textFieldFocusNode11?.dispose();
-    textController23?.dispose();
+    aslDsFocusNode?.dispose();
+    aslDsTextController?.dispose();
 
-    textFieldFocusNode12?.dispose();
-    textController24?.dispose();
+    aslDrFocusNode?.dispose();
+    aslDrTextController?.dispose();
   }
 }

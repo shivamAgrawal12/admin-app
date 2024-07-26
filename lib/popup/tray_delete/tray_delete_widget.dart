@@ -64,13 +64,12 @@ class _TrayDeleteWidgetState extends State<TrayDeleteWidget> {
       alignment: const AlignmentDirectional(0.0, -0.6),
       child: Container(
         width: 280.0,
-        height: 240.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).liteBg,
           borderRadius: BorderRadius.circular(10.0),
         ),
         child: Column(
-          mainAxisSize: MainAxisSize.max,
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Container(
@@ -137,7 +136,7 @@ class _TrayDeleteWidgetState extends State<TrayDeleteWidget> {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 40.0, 15.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 40.0, 15.0, 15.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -147,17 +146,7 @@ class _TrayDeleteWidgetState extends State<TrayDeleteWidget> {
                       FFAppState().trayid = '';
                       FFAppState().trayrecid = 0;
                       FFAppState().update(() {});
-
-                      context.pushNamed(
-                        'delete_tray',
-                        extra: <String, dynamic>{
-                          kTransitionInfoKey: const TransitionInfo(
-                            hasTransition: true,
-                            transitionType: PageTransitionType.fade,
-                            duration: Duration(milliseconds: 0),
-                          ),
-                        },
-                      );
+                      Navigator.pop(context);
                     },
                     text: 'Cancel',
                     options: FFButtonOptions(
@@ -232,6 +221,8 @@ class _TrayDeleteWidgetState extends State<TrayDeleteWidget> {
                             },
                           ).then((value) => safeSetState(() {}));
                         }
+
+                        Navigator.pop(context);
 
                         setState(() {});
                       },

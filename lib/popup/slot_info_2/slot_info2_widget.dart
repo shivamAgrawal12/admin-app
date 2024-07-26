@@ -68,13 +68,12 @@ class _SlotInfo2WidgetState extends State<SlotInfo2Widget> {
 
           return Container(
             width: 280.0,
-            height: 355.0,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).liteBg,
               borderRadius: BorderRadius.circular(10.0),
             ),
             child: Column(
-              mainAxisSize: MainAxisSize.max,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
                   width: 290.0,
@@ -346,7 +345,7 @@ class _SlotInfo2WidgetState extends State<SlotInfo2Widget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 15.0),
                   child: Container(
                     width: 140.0,
                     height: 40.0,
@@ -366,17 +365,7 @@ class _SlotInfo2WidgetState extends State<SlotInfo2Widget> {
                       onPressed: () async {
                         FFAppState().slotid = '';
                         FFAppState().update(() {});
-
-                        context.pushNamed(
-                          'slot_info_scan',
-                          extra: <String, dynamic>{
-                            kTransitionInfoKey: const TransitionInfo(
-                              hasTransition: true,
-                              transitionType: PageTransitionType.fade,
-                              duration: Duration(milliseconds: 0),
-                            ),
-                          },
-                        );
+                        Navigator.pop(context);
                       },
                       text: 'Return Back',
                       options: FFButtonOptions(

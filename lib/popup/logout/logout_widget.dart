@@ -65,7 +65,7 @@ class _LogoutWidgetState extends State<LogoutWidget> {
                     ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(5.0, 30.0, 5.0, 10.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(5.0, 30.0, 5.0, 15.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -49,13 +49,12 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
       alignment: const AlignmentDirectional(0.0, -0.6),
       child: Container(
         width: 290.0,
-        height: 410.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).liteBg,
           borderRadius: BorderRadius.circular(10.0),
         ),
         child: Column(
-          mainAxisSize: MainAxisSize.max,
+          mainAxisSize: MainAxisSize.min,
           children: [
             Container(
               width: 290.0,
@@ -214,7 +213,7 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 25.0, 15.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 25.0, 15.0, 15.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
