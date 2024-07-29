@@ -204,7 +204,7 @@ class _TrayRetrieveWidgetState extends State<TrayRetrieveWidget> {
                       ),
                     ),
                     FutureBuilder<ApiCallResponse>(
-                      future: AdminApiGroup.listOfTrayCall.call(
+                      future: AdminApiGroup.listOfTrayRetrieveCall.call(
                         robotId: FFAppState().robotid,
                       ),
                       builder: (context, snapshot) {
@@ -221,7 +221,8 @@ class _TrayRetrieveWidgetState extends State<TrayRetrieveWidget> {
                             ),
                           );
                         }
-                        final containerListOfTrayResponse = snapshot.data!;
+                        final containerListOfTrayRetrieveResponse =
+                            snapshot.data!;
 
                         return Container(
                           width: MediaQuery.sizeOf(context).width * 1.0,
@@ -340,9 +341,9 @@ class _TrayRetrieveWidgetState extends State<TrayRetrieveWidget> {
                                               final trayRecords = functions
                                                       .searchalltray(
                                                           AdminApiGroup
-                                                              .listOfTrayCall
+                                                              .listOfTrayRetrieveCall
                                                               .records(
-                                                                containerListOfTrayResponse
+                                                                containerListOfTrayRetrieveResponse
                                                                     .jsonBody,
                                                               )
                                                               ?.toList(),
@@ -369,12 +370,12 @@ class _TrayRetrieveWidgetState extends State<TrayRetrieveWidget> {
                                                   return Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            -1.0, -1.0),
+                                                            0.0, -1.0),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10.0,
+                                                                  0.0,
                                                                   15.0,
                                                                   0.0,
                                                                   0.0),

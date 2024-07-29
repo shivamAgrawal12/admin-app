@@ -33,6 +33,8 @@ class AdminApiGroup {
   static PostTaskCall postTaskCall = PostTaskCall();
   static TaskDetailsCall taskDetailsCall = TaskDetailsCall();
   static ListOfTrayCall listOfTrayCall = ListOfTrayCall();
+  static ListOfTrayRetrieveCall listOfTrayRetrieveCall =
+      ListOfTrayRetrieveCall();
   static ListOfSlotCall listOfSlotCall = ListOfSlotCall();
   static TaskByStatusCall taskByStatusCall = TaskByStatusCall();
   static RegisterNewRobotCall registerNewRobotCall = RegisterNewRobotCall();
@@ -658,6 +660,49 @@ class ListOfTrayCall {
       params: {
         'robot_id': robotId,
         'tray_type': trayType,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  List? records(dynamic response) => getJsonField(
+        response,
+        r'''$.records''',
+        true,
+      ) as List?;
+  bool? statusbool(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.statusbool''',
+      ));
+  int? count(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.count''',
+      ));
+}
+
+class ListOfTrayRetrieveCall {
+  Future<ApiCallResponse> call({
+    String? robotId = '',
+  }) async {
+    final baseUrl = AdminApiGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'list of tray retrieve',
+      apiUrl: '$baseUrl/robotmanager/trays/',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization':
+            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+      },
+      params: {
+        'robot_id': robotId,
       },
       returnBody: true,
       encodeBodyUtf8: false,
