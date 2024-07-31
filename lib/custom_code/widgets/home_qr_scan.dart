@@ -14,6 +14,8 @@ import 'index.dart'; // Imports other custom widgets
 import 'index.dart'; // Imports other custom widgets
 
 import 'index.dart'; // Imports other custom widgets
+
+import 'index.dart'; // Imports other custom widgets
 import '/custom_code/actions/index.dart' as actions;
 
 import 'index.dart'; // Imports other custom widgets
@@ -52,7 +54,7 @@ class _HomeQrScanState extends State<HomeQrScan> {
       print("Slot map QR initialized");
       await controller.start();
       try {
-        await controller.setZoomScale(currentZoom);
+        await controller.setZoomScale(0.7);
       } catch (e) {
         print('Error setting initial zoom scale: $e');
       }

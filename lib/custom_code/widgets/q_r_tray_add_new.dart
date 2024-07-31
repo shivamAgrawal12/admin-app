@@ -180,7 +180,7 @@ class _QRTrayAddNewState extends State<QRTrayAddNew> {
 
   Future<void> _handleScannedValue(String scannedValue) async {
     FFAppState().trayid = scannedValue;
-    final result = await AdminApiGroup.trayInfoCall.call(
+    final result = await AdminApiGroup.trayInfoWithoutTypeCall.call(
       trayId: scannedValue,
       robotId: FFAppState().robotid,
     );

@@ -17,6 +17,8 @@ import 'index.dart'; // Imports other custom widgets
 
 import 'index.dart'; // Imports other custom widgets
 
+import 'index.dart'; // Imports other custom widgets
+
 import 'dart:io';
 import '/custom_code/actions/index.dart' as actions;
 import '/backend/api_requests/api_calls.dart';
@@ -54,7 +56,7 @@ class _QRTrayMapState extends State<QRTrayMap> {
       print("Slot map QR initialized");
       await controller.start();
       try {
-        await controller.setZoomScale(currentZoom);
+        await controller.setZoomScale(0.7);
       } catch (e) {
         print('Error setting initial zoom scale: $e');
       }

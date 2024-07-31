@@ -16,6 +16,8 @@ import 'index.dart'; // Imports other custom widgets
 import 'index.dart'; // Imports other custom widgets
 
 import 'index.dart'; // Imports other custom widgets
+
+import 'index.dart'; // Imports other custom widgets
 import '/custom_code/actions/index.dart' as actions;
 import 'dart:io';
 import '/backend/api_requests/api_calls.dart';
@@ -54,7 +56,7 @@ class _QRTrayDelState extends State<QRTrayDel> {
       print("Slot map QR initialized");
       await controller.start();
       try {
-        await controller.setZoomScale(currentZoom);
+        await controller.setZoomScale(0.7);
       } catch (e) {
         print('Error setting initial zoom scale: $e');
       }
@@ -179,7 +181,7 @@ class _QRTrayDelState extends State<QRTrayDel> {
 
   Future<void> _handleScannedValue(String scannedValue) async {
     FFAppState().trayid = scannedValue;
-    final result = await AdminApiGroup.trayInfoCall.call(
+    final result = await AdminApiGroup.trayInfoWithoutTypeCall.call(
       trayId: scannedValue,
       robotId: FFAppState().robotid,
     );
