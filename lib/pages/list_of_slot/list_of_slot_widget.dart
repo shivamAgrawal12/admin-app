@@ -228,7 +228,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                     const Duration(milliseconds: 50),
                                     () => setState(() {}),
                                   ),
-                                  autofocus: true,
+                                  autofocus: false,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     hintText: 'Search by slot id',

@@ -223,14 +223,15 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                       FFAppState().slotid = '';
                       FFAppState().trayid = '';
                       FFAppState().update(() {});
+                      Navigator.pop(context);
 
-                      context.pushNamed(
+                      context.goNamed(
                         'slot_mappimg',
                         extra: <String, dynamic>{
                           kTransitionInfoKey: const TransitionInfo(
                             hasTransition: true,
                             transitionType: PageTransitionType.fade,
-                            duration: Duration(milliseconds: 0),
+                            duration: Duration(milliseconds: 300),
                           ),
                         },
                       );
@@ -285,7 +286,8 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                         );
 
                         if ((_model.trayMapingBtn?.succeeded ?? true)) {
-                          await showModalBottomSheet(
+                          Navigator.pop(context);
+                          showModalBottomSheet(
                             isScrollControlled: true,
                             backgroundColor: Colors.transparent,
                             enableDrag: false,
@@ -297,7 +299,22 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                               );
                             },
                           ).then((value) => safeSetState(() {}));
+
+                          await Future.delayed(
+                              const Duration(milliseconds: 1200));
+
+                          context.goNamed(
+                            'slot_mappimg',
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: const TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 500),
+                              ),
+                            },
+                          );
                         } else {
+                          Navigator.pop(context);
                           await showModalBottomSheet(
                             isScrollControlled: true,
                             backgroundColor: Colors.transparent,

@@ -274,6 +274,7 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
                         );
 
                         if ((_model.addPickingStation?.succeeded ?? true)) {
+                          Navigator.pop(context);
                           await showModalBottomSheet(
                             isScrollControlled: true,
                             backgroundColor: Colors.transparent,
@@ -287,6 +288,7 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
                             },
                           ).then((value) => safeSetState(() {}));
                         } else {
+                          Navigator.pop(context);
                           await showModalBottomSheet(
                             isScrollControlled: true,
                             backgroundColor: Colors.transparent,

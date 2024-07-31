@@ -12,7 +12,7 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 /// Start admin api Group Code
 
 class AdminApiGroup {
-  static String getBaseUrl() => 'https://robotdemov1.qikpod.com:8981';
+  static String getBaseUrl() => 'https://robotmanagerv1.qikpod.com:8981';
   static Map<String, String> headers = {
     'Authorization':
         'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
@@ -52,6 +52,9 @@ class AdminApiGroup {
   static AddBufferInShutttleCall addBufferInShutttleCall =
       AddBufferInShutttleCall();
   static AddSpeedInShuttleCall addSpeedInShuttleCall = AddSpeedInShuttleCall();
+  static BlockRackCall blockRackCall = BlockRackCall();
+  static ChangeTheTypeOfSlotCall changeTheTypeOfSlotCall =
+      ChangeTheTypeOfSlotCall();
 }
 
 class VerifyRobotIdCall {
@@ -998,7 +1001,8 @@ class ChangeSlotTypeCall {
 
     final ffApiRequestBody = '''
 {
-  "type": "$type"
+  "type": "$type",
+  "friendly_name": "$friendlyName"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'change slot type',
@@ -1410,6 +1414,87 @@ class AddSpeedInShuttleCall {
       alwaysAllowBody: false,
     );
   }
+}
+
+class BlockRackCall {
+  Future<ApiCallResponse> call({
+    String? robotId = '',
+    int? rack,
+  }) async {
+    final baseUrl = AdminApiGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'block rack',
+      apiUrl:
+          '$baseUrl/robotmanager/slots/block/?robot_id=$robotId&rack=$rack',
+      callType: ApiCallType.PATCH,
+      headers: {
+        'Authorization':
+            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+      },
+      params: {},
+      bodyType: BodyType.NONE,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  bool? statusbool(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.statusbool''',
+      ));
+  List? records(dynamic response) => getJsonField(
+        response,
+        r'''$.records''',
+        true,
+      ) as List?;
+}
+
+class ChangeTheTypeOfSlotCall {
+  Future<ApiCallResponse> call({
+    String? type = '',
+    String? robotId = '',
+    int? rack,
+  }) async {
+    final baseUrl = AdminApiGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'Change the type of slot',
+      apiUrl:
+          '$baseUrl/robotmanager/slots/type/?robot_id=$robotId&rack=$rack&support_type=$type',
+      callType: ApiCallType.PATCH,
+      headers: {
+        'Authorization':
+            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+      },
+      params: {},
+      bodyType: BodyType.NONE,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  List? records(dynamic response) => getJsonField(
+        response,
+        r'''$.records''',
+        true,
+      ) as List?;
+  bool? statusbool(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.statusbool''',
+      ));
 }
 
 /// End admin api Group Code

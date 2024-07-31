@@ -91,17 +91,7 @@ class _AlreadyWidgetState extends State<AlreadyWidget> {
                   _model.timerController.onStopTimer();
                   FFAppState().trayid = '';
                   FFAppState().update(() {});
-
-                  context.pushNamed(
-                    'add_new_tray',
-                    extra: <String, dynamic>{
-                      kTransitionInfoKey: const TransitionInfo(
-                        hasTransition: true,
-                        transitionType: PageTransitionType.fade,
-                        duration: Duration(milliseconds: 0),
-                      ),
-                    },
-                  );
+                  Navigator.pop(context);
                 },
                 textAlign: TextAlign.start,
                 style: FlutterFlowTheme.of(context).headlineSmall.override(

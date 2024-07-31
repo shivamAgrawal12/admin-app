@@ -252,7 +252,7 @@ class _ListOfPickingWidgetState extends State<ListOfPickingWidget> {
                                         const Duration(milliseconds: 50),
                                         () => setState(() {}),
                                       ),
-                                      autofocus: true,
+                                      autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         hintText: 'Search by friendly name',

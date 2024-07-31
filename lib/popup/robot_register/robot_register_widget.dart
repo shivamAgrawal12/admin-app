@@ -102,13 +102,13 @@ class _RobotRegisterWidgetState extends State<RobotRegisterWidget> {
                 onEnded: () async {
                   _model.timerController.onStopTimer();
 
-                  context.pushNamed(
+                  context.goNamed(
                     'login_page',
                     extra: <String, dynamic>{
                       kTransitionInfoKey: const TransitionInfo(
                         hasTransition: true,
                         transitionType: PageTransitionType.fade,
-                        duration: Duration(milliseconds: 0),
+                        duration: Duration(milliseconds: 500),
                       ),
                     },
                   );

@@ -235,7 +235,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                       const Duration(milliseconds: 50),
                                       () => setState(() {}),
                                     ),
-                                    autofocus: true,
+                                    autofocus: false,
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       hintText: 'Search by tray id',
