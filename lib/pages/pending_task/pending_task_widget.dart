@@ -2,7 +2,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/popup/menu/menu_widget.dart';
-import '/popup/no_record/no_record_widget.dart';
+import '/popup/no_recordforlist/no_recordforlist_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
 import 'package:flutter/material.dart';
@@ -237,7 +237,7 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                                     ?.toList() ??
                                 [];
                             if (taskpending.isEmpty) {
-                              return const NoRecordWidget();
+                              return const NoRecordforlistWidget();
                             }
 
                             return RefreshIndicator(

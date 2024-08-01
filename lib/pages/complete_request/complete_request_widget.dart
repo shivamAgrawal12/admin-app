@@ -2,6 +2,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/popup/menu/menu_widget.dart';
+import '/popup/no_recordforlist/no_recordforlist_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
 import 'package:flutter/material.dart';
@@ -285,6 +286,9 @@ class _CompleteRequestWidgetState extends State<CompleteRequestWidget>
                                                   )
                                                   ?.toList() ??
                                               [];
+                                      if (inprocess.isEmpty) {
+                                        return const NoRecordforlistWidget();
+                                      }
 
                                       return RefreshIndicator(
                                         color: FlutterFlowTheme.of(context)
@@ -749,6 +753,9 @@ class _CompleteRequestWidgetState extends State<CompleteRequestWidget>
                                                   )
                                                   ?.toList() ??
                                               [];
+                                      if (inprocess.isEmpty) {
+                                        return const NoRecordforlistWidget();
+                                      }
 
                                       return RefreshIndicator(
                                         color: FlutterFlowTheme.of(context)

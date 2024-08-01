@@ -5,7 +5,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/instant_timer.dart';
 import '/popup/friendly_name_wrg/friendly_name_wrg_widget.dart';
 import '/popup/menu/menu_widget.dart';
-import '/popup/no_record/no_record_widget.dart';
+import '/popup/no_recordforlist/no_recordforlist_widget.dart';
 import '/popup/successfull/successfull_widget.dart';
 import '/popup/wrong/wrong_widget.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
@@ -42,7 +42,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
       FFAppState().scannerpage = 'trayrelease';
       setState(() {});
       _model.instantTimer = InstantTimer.periodic(
-        duration: const Duration(milliseconds: 1000),
+        duration: const Duration(milliseconds: 2000),
         callback: (timer) async {
           if (FFAppState().scannerpage == 'trayrelease') {
             setState(() => _model.apiRequestCompleter = null);
@@ -302,10 +302,10 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                         EasyDebounce.debounce(
                                                       '_model.textController1',
                                                       const Duration(
-                                                          milliseconds: 50),
+                                                          milliseconds: 600),
                                                       () => setState(() {}),
                                                     ),
-                                                    autofocus: true,
+                                                    autofocus: false,
                                                     obscureText: false,
                                                     decoration: InputDecoration(
                                                       hintText:
@@ -411,7 +411,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                         ?.toList() ??
                                                     [];
                                                 if (trayRecords.isEmpty) {
-                                                  return const NoRecordWidget();
+                                                  return const NoRecordforlistWidget();
                                                 }
 
                                                 return Column(
@@ -754,6 +754,8 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                                               BorderRadius.circular(5.0),
                                                                           border:
                                                                               Border.all(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).heading,
                                                                             width:
                                                                                 1.0,
                                                                           ),
@@ -768,7 +770,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                                                 '';
                                                                             FFAppState().update(() {});
                                                                             _model.change =
-                                                                                8;
+                                                                                2;
                                                                             setState(() {});
                                                                           },
                                                                           text:
@@ -800,7 +802,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                                                 0.0,
                                                                             borderSide:
                                                                                 const BorderSide(
-                                                                              color: Color(0xFF8E7CC3),
+                                                                              width: 0.0,
                                                                             ),
                                                                             borderRadius:
                                                                                 BorderRadius.circular(5.0),
@@ -1140,72 +1142,61 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                 ),
                               ),
                             if (_model.change == 0 ? true : false)
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 15.0, 0.0, 10.0),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Container(
+                              Container(
+                                width: 300.0,
+                                height: 300.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                  boxShadow: const [
+                                    BoxShadow(
+                                      blurRadius: 20.0,
+                                      color: Color(0x678E7CC3),
+                                      offset: Offset(
+                                        5.0,
+                                        8.0,
+                                      ),
+                                    )
+                                  ],
+                                  borderRadius: BorderRadius.circular(5.0),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: SizedBox(
+                                    width: 300.0,
+                                    height: 300.0,
+                                    child: custom_widgets.LocationQRScan(
                                       width: 300.0,
                                       height: 300.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBackground,
-                                        boxShadow: const [
-                                          BoxShadow(
-                                            blurRadius: 20.0,
-                                            color: Color(0x678E7CC3),
-                                            offset: Offset(
-                                              5.0,
-                                              8.0,
-                                            ),
-                                          )
-                                        ],
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(10.0),
-                                        child: SizedBox(
-                                          width: 300.0,
-                                          height: 300.0,
-                                          child: custom_widgets.LocationQRScan(
-                                            width: 300.0,
-                                            height: 300.0,
-                                            locationid:
-                                                FFAppState().friendlyname,
-                                          ),
-                                        ),
-                                      ),
+                                      locationid: FFAppState().friendlyname,
                                     ),
-                                    Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          'Scan Location QR To Confirm',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Raleway',
-                                                fontSize: 18.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
-                                                lineHeight: 1.0,
-                                              ),
-                                        ),
-                                        Icon(
-                                          Icons.qr_code_scanner_outlined,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          size: 24.0,
-                                        ),
-                                      ].divide(const SizedBox(width: 5.0)),
-                                    ),
-                                  ].divide(const SizedBox(height: 30.0)),
+                                  ),
                                 ),
+                              ),
+                            if (_model.change == 0 ? true : false)
+                              Row(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Scan Location QR To Confirm',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Raleway',
+                                          fontSize: 18.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                          lineHeight: 1.0,
+                                        ),
+                                  ),
+                                  Icon(
+                                    Icons.qr_code_scanner_outlined,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    size: 24.0,
+                                  ),
+                                ].divide(const SizedBox(width: 5.0)),
                               ),
                           ].addToEnd(const SizedBox(height: 40.0)),
                         ),

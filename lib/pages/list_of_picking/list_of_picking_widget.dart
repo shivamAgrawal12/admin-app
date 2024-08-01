@@ -2,7 +2,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/popup/menu/menu_widget.dart';
-import '/popup/no_record/no_record_widget.dart';
+import '/popup/no_recordforlist/no_recordforlist_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -329,7 +329,9 @@ class _ListOfPickingWidgetState extends State<ListOfPickingWidget> {
                                               ?.toList() ??
                                           [];
                                       if (slotRecords.isEmpty) {
-                                        return const NoRecordWidget();
+                                        return const Center(
+                                          child: NoRecordforlistWidget(),
+                                        );
                                       }
 
                                       return SingleChildScrollView(
