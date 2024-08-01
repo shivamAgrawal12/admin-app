@@ -359,7 +359,7 @@ class _ListOfPickingWidgetState extends State<ListOfPickingWidget> {
                                                       .fromSTEB(
                                                           0.0, 10.0, 0.0, 0.0),
                                                   child: Container(
-                                                    width: 350.0,
+                                                    width: 340.0,
                                                     height: 120.0,
                                                     constraints: const BoxConstraints(
                                                       minWidth: 270.0,

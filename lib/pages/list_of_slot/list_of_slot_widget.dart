@@ -453,7 +453,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                                             .fromSTEB(0.0, 10.0,
                                                                 0.0, 0.0),
                                                     child: Container(
-                                                      width: 350.0,
+                                                      width: 340.0,
                                                       height: 235.0,
                                                       constraints:
                                                           const BoxConstraints(

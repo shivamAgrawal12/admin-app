@@ -316,7 +316,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                         0.0, 15.0, 0.0, 5.0),
                                     child: Container(
                                       width: MediaQuery.sizeOf(context).width *
-                                          0.9,
+                                          0.95,
                                       constraints: const BoxConstraints(
                                         minWidth: 300.0,
                                         maxWidth: 420.0,
@@ -740,7 +740,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                       ),
                       Container(
                         width: MediaQuery.sizeOf(context).width * 1.0,
-                        height: MediaQuery.sizeOf(context).height * 0.65,
+                        height: MediaQuery.sizeOf(context).height * 0.7,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).primaryBackground,
                           borderRadius: const BorderRadius.only(
@@ -1058,7 +1058,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                   alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Container(
                                     width:
-                                        MediaQuery.sizeOf(context).width * 0.9,
+                                        MediaQuery.sizeOf(context).width * 0.95,
                                     constraints: const BoxConstraints(
                                       minWidth: 300.0,
                                       maxWidth: 420.0,
@@ -1106,8 +1106,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                             Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
+                                                  MainAxisAlignment.spaceEvenly,
                                               children: [
                                                 InkWell(
                                                   splashColor:
@@ -1135,7 +1134,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                     );
                                                   },
                                                   child: Container(
-                                                    width: 160.0,
+                                                    width: 140.0,
                                                     height: 140.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
@@ -1264,7 +1263,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                     );
                                                   },
                                                   child: Container(
-                                                    width: 160.0,
+                                                    width: 140.0,
                                                     height: 140.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
@@ -1367,7 +1366,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                              ],
+                                              ].divide(const SizedBox(width: 10.0)),
                                             ),
                                             Padding(
                                               padding: const EdgeInsetsDirectional
@@ -1806,7 +1805,9 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 15.0)),
+                              ]
+                                  .divide(const SizedBox(height: 15.0))
+                                  .addToEnd(const SizedBox(height: 50.0)),
                             ),
                           ),
                         ),

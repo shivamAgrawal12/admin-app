@@ -262,7 +262,7 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                                         padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 15.0, 0.0, 0.0),
                                         child: Container(
-                                          width: 350.0,
+                                          width: 340.0,
                                           height: 180.0,
                                           constraints: const BoxConstraints(
                                             minWidth: 270.0,

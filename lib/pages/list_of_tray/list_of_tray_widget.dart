@@ -443,7 +443,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                                   child:
                                                                       Container(
                                                                     width:
-                                                                        350.0,
+                                                                        340.0,
                                                                     height:
                                                                         120.0,
                                                                     constraints:
@@ -727,7 +727,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                                   child:
                                                                       Container(
                                                                     width:
-                                                                        350.0,
+                                                                        340.0,
                                                                     height:
                                                                         120.0,
                                                                     constraints:
