@@ -46,6 +46,13 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
         callback: (timer) async {
           if (FFAppState().scannerpage == 'trayrelease') {
             setState(() => _model.apiRequestCompleter = null);
+            if (FFAppState().friendlyname == '') {
+              FFAppState().taskrecid = 0;
+              FFAppState().friendlyname = '';
+              FFAppState().update(() {});
+              _model.change = 2;
+              setState(() {});
+            }
           } else {
             _model.instantTimer?.cancel();
           }
