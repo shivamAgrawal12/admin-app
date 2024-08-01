@@ -2976,7 +2976,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       FFAppState().hideslot = 0;
                                       setState(() {});
                                       _model.cancelTask = await AdminApiGroup
-                                          .cancelPendingTaskCall
+                                          .cancelAllPendingCall
                                           .call(
                                         robotId: FFAppState().robotid,
                                       );

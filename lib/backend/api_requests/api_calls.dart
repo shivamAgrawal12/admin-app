@@ -40,7 +40,6 @@ class AdminApiGroup {
   static RegisterNewRobotCall registerNewRobotCall = RegisterNewRobotCall();
   static GetTaskCall getTaskCall = GetTaskCall();
   static TaskCompleteCall taskCompleteCall = TaskCompleteCall();
-  static CancelPendingTaskCall cancelPendingTaskCall = CancelPendingTaskCall();
   static ChangeSlotTypeCall changeSlotTypeCall = ChangeSlotTypeCall();
   static ChangeSlotTypeWithoutFriendlyNameCall
       changeSlotTypeWithoutFriendlyNameCall =
@@ -58,6 +57,7 @@ class AdminApiGroup {
   static BlockRackCall blockRackCall = BlockRackCall();
   static ChangeTheTypeOfSlotCall changeTheTypeOfSlotCall =
       ChangeTheTypeOfSlotCall();
+  static CancelAllPendingCall cancelAllPendingCall = CancelAllPendingCall();
 }
 
 class VerifyRobotIdCall {
@@ -956,44 +956,6 @@ class TaskCompleteCall {
       ) as List?;
 }
 
-class CancelPendingTaskCall {
-  Future<ApiCallResponse> call({
-    String? robotId = '',
-  }) async {
-    final baseUrl = AdminApiGroup.getBaseUrl();
-
-    return ApiManager.instance.makeApiCall(
-      callName: 'cancel pending task',
-      apiUrl:
-          '$baseUrl/robotmanager/task/cancel_pending_task/{record_id}?robot_id=$robotId',
-      callType: ApiCallType.PATCH,
-      headers: {
-        'Authorization':
-            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
-        'Content-Type': 'application/json',
-        'accept': 'application/json',
-      },
-      params: {},
-      bodyType: BodyType.NONE,
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      isStreamingApi: false,
-      alwaysAllowBody: false,
-    );
-  }
-
-  int? count(dynamic response) => castToType<int>(getJsonField(
-        response,
-        r'''$.count''',
-      ));
-  bool? statusbool(dynamic response) => castToType<bool>(getJsonField(
-        response,
-        r'''$.statusbool''',
-      ));
-}
-
 class ChangeSlotTypeCall {
   Future<ApiCallResponse> call({
     int? id,
@@ -1547,6 +1509,35 @@ class ChangeTheTypeOfSlotCall {
         response,
         r'''$.statusbool''',
       ));
+}
+
+class CancelAllPendingCall {
+  Future<ApiCallResponse> call({
+    String? robotId = '',
+  }) async {
+    final baseUrl = AdminApiGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'cancel all pending',
+      apiUrl:
+          '$baseUrl/robotmanager/task/cancel_pending_task/?robot_id=$robotId',
+      callType: ApiCallType.PATCH,
+      headers: {
+        'Authorization':
+            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+      },
+      params: {},
+      bodyType: BodyType.NONE,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
 }
 
 /// End admin api Group Code
