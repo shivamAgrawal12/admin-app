@@ -114,7 +114,7 @@ class _UplodeCsvWidgetState extends State<UplodeCsvWidget> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Uplode Slots Details',
+                              'Uplode Slots Details ',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
