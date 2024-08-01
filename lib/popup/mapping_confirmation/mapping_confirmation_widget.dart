@@ -287,7 +287,7 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
 
                         if ((_model.trayMapingBtn?.succeeded ?? true)) {
                           Navigator.pop(context);
-                          showModalBottomSheet(
+                          await showModalBottomSheet(
                             isScrollControlled: true,
                             backgroundColor: Colors.transparent,
                             enableDrag: false,
@@ -299,9 +299,6 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                               );
                             },
                           ).then((value) => safeSetState(() {}));
-
-                          await Future.delayed(
-                              const Duration(milliseconds: 1200));
 
                           context.goNamed(
                             'slot_mappimg',

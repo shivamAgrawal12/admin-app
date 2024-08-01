@@ -109,13 +109,13 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget> {
                                 FFAppState().trayid = '';
                                 FFAppState().update(() {});
 
-                                context.pushNamed(
-                                  'slot_info_scan',
+                                context.goNamed(
+                                  'slot_mappimg',
                                   extra: <String, dynamic>{
                                     kTransitionInfoKey: const TransitionInfo(
                                       hasTransition: true,
                                       transitionType: PageTransitionType.fade,
-                                      duration: Duration(milliseconds: 0),
+                                      duration: Duration(milliseconds: 500),
                                     ),
                                   },
                                 );

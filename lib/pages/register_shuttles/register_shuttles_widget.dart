@@ -31,13 +31,13 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget> {
     _model.ipTextController ??= TextEditingController();
     _model.ipFocusNode ??= FocusNode();
 
-    _model.rowTextController ??= TextEditingController();
+    _model.rowTextController ??= TextEditingController(text: '0');
     _model.rowFocusNode ??= FocusNode();
 
-    _model.rackTextController ??= TextEditingController();
+    _model.rackTextController ??= TextEditingController(text: '0');
     _model.rackFocusNode ??= FocusNode();
 
-    _model.slotTextController ??= TextEditingController();
+    _model.slotTextController ??= TextEditingController(text: '0');
     _model.slotFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -75,85 +75,86 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget> {
                   maxWidth: 450.0,
                 ),
                 decoration: const BoxDecoration(),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
-                      height: 70.0,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(
-                          color: const Color(0xFFEEECF1),
-                          width: 1.0,
+                child: SingleChildScrollView(
+                  primary: false,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        height: 70.0,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(
+                            color: const Color(0xFFEEECF1),
+                            width: 1.0,
+                          ),
                         ),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            15.0, 0.0, 10.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
-                              child: Image.asset(
-                                'assets/images/Group_42_(2).png',
-                                width: 130.0,
-                                height: 40.0,
-                                fit: BoxFit.contain,
-                              ),
-                            ),
-                          ].divide(const SizedBox(width: 6.0)),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
-                      height: 60.0,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(
-                          color: const Color(0xFFEEECF1),
-                          width: 1.0,
-                        ),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            10.0, 0.0, 10.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Register New Shuttle',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Raleway',
-                                    color: FlutterFlowTheme.of(context).heading,
-                                    fontSize: 16.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                            ),
-                          ].divide(const SizedBox(width: 6.0)),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: 300.0,
-                      height: MediaQuery.sizeOf(context).height * 0.75,
-                      decoration: const BoxDecoration(),
-                      child: Form(
-                        key: _model.formKey,
-                        autovalidateMode: AutovalidateMode.disabled,
                         child: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 15.0, 0.0, 10.0),
-                          child: SingleChildScrollView(
-                            primary: false,
+                              15.0, 0.0, 10.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: Image.asset(
+                                  'assets/images/Group_42_(2).png',
+                                  width: 130.0,
+                                  height: 40.0,
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                            ].divide(const SizedBox(width: 6.0)),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        height: 60.0,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(
+                            color: const Color(0xFFEEECF1),
+                            width: 1.0,
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              10.0, 0.0, 10.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Register New Shuttle',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Raleway',
+                                      color:
+                                          FlutterFlowTheme.of(context).heading,
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                              ),
+                            ].divide(const SizedBox(width: 6.0)),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: 300.0,
+                        height: MediaQuery.sizeOf(context).height * 0.78,
+                        decoration: const BoxDecoration(),
+                        child: Form(
+                          key: _model.formKey,
+                          autovalidateMode: AutovalidateMode.disabled,
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 15.0, 0.0, 10.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
@@ -741,8 +742,8 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget> {
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ].addToEnd(const SizedBox(height: 50.0)),
+                  ),
                 ),
               ),
             ),

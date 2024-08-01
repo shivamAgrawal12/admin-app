@@ -1252,6 +1252,11 @@ class UplodeSlotCsvCall {
       alwaysAllowBody: false,
     );
   }
+
+  String? msg(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.detail[:].msg''',
+      ));
 }
 
 class SpeedInShuttleCall {

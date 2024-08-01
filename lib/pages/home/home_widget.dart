@@ -96,39 +96,41 @@ class _HomeWidgetState extends State<HomeWidget> {
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      FutureBuilder<ApiCallResponse>(
-                        future: AdminApiGroup.verifyRobotIdCall.call(
-                          robotId: FFAppState().robotid,
+                      Container(
+                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        decoration: const BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [Color(0xFF351C75), Color(0xFF8E7CC3)],
+                            stops: [0.0, 1.0],
+                            begin: AlignmentDirectional(0.0, -1.0),
+                            end: AlignmentDirectional(0, 1.0),
+                          ),
                         ),
-                        builder: (context, snapshot) {
-                          // Customize what your widget looks like when it's loading.
-                          if (!snapshot.hasData) {
-                            return Center(
-                              child: SizedBox(
-                                width: 40.0,
-                                height: 40.0,
-                                child: SpinKitThreeBounce(
-                                  color: FlutterFlowTheme.of(context).subHeader,
-                                  size: 40.0,
-                                ),
-                              ),
-                            );
-                          }
-                          final containerVerifyRobotIdResponse = snapshot.data!;
-
-                          return Container(
-                            width: MediaQuery.sizeOf(context).width * 1.0,
-                            decoration: const BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [Color(0xFF351C75), Color(0xFF8E7CC3)],
-                                stops: [0.0, 1.0],
-                                begin: AlignmentDirectional(0.0, -1.0),
-                                end: AlignmentDirectional(0, 1.0),
-                              ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(6.0),
+                          child: FutureBuilder<ApiCallResponse>(
+                            future: AdminApiGroup.verifyRobotIdCall.call(
+                              robotId: FFAppState().robotid,
                             ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(6.0),
-                              child: Column(
+                            builder: (context, snapshot) {
+                              // Customize what your widget looks like when it's loading.
+                              if (!snapshot.hasData) {
+                                return Center(
+                                  child: SizedBox(
+                                    width: 40.0,
+                                    height: 40.0,
+                                    child: SpinKitThreeBounce(
+                                      color: FlutterFlowTheme.of(context)
+                                          .subHeader,
+                                      size: 40.0,
+                                    ),
+                                  ),
+                                );
+                              }
+                              final columnVerifyRobotIdResponse =
+                                  snapshot.data!;
+
+                              return Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
@@ -274,7 +276,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                     AdminApiGroup
                                                         .verifyRobotIdCall
                                                         .robotname(
-                                                      containerVerifyRobotIdResponse
+                                                      columnVerifyRobotIdResponse
                                                           .jsonBody,
                                                     ),
                                                     '-',
@@ -398,7 +400,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                         AdminApiGroup
                                                             .verifyRobotIdCall
                                                             .status(
-                                                          containerVerifyRobotIdResponse
+                                                          columnVerifyRobotIdResponse
                                                               .jsonBody,
                                                         ),
                                                         '-',
@@ -509,10 +511,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     ),
                                   ),
                                 ],
-                              ),
-                            ),
-                          );
-                        },
+                              );
+                            },
+                          ),
+                        ),
                       ),
                       Container(
                         width: MediaQuery.sizeOf(context).width * 1.0,
@@ -2094,37 +2096,47 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                     highlightColor:
                                                         Colors.transparent,
                                                     onTap: () async {
-                                                      await showModalBottomSheet(
-                                                        isScrollControlled:
-                                                            true,
-                                                        backgroundColor:
-                                                            Colors.transparent,
-                                                        enableDrag: false,
-                                                        context: context,
-                                                        builder: (context) {
-                                                          return GestureDetector(
-                                                            onTap: () => _model
-                                                                    .unfocusNode
-                                                                    .canRequestFocus
-                                                                ? FocusScope.of(
-                                                                        context)
-                                                                    .requestFocus(
-                                                                        _model
-                                                                            .unfocusNode)
-                                                                : FocusScope.of(
-                                                                        context)
-                                                                    .unfocus(),
-                                                            child: Padding(
-                                                              padding: MediaQuery
-                                                                  .viewInsetsOf(
-                                                                      context),
-                                                              child:
-                                                                  const FriendlyNameWidget(),
-                                                            ),
-                                                          );
-                                                        },
-                                                      ).then((value) =>
-                                                          safeSetState(() {}));
+                                                      if (AdminApiGroup
+                                                              .slotInfoCall
+                                                              .type(
+                                                            containerSlotInfoResponse
+                                                                .jsonBody,
+                                                          ) !=
+                                                          'picking_station') {
+                                                        await showModalBottomSheet(
+                                                          isScrollControlled:
+                                                              true,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                          enableDrag: false,
+                                                          context: context,
+                                                          builder: (context) {
+                                                            return GestureDetector(
+                                                              onTap: () => _model
+                                                                      .unfocusNode
+                                                                      .canRequestFocus
+                                                                  ? FocusScope.of(
+                                                                          context)
+                                                                      .requestFocus(
+                                                                          _model
+                                                                              .unfocusNode)
+                                                                  : FocusScope.of(
+                                                                          context)
+                                                                      .unfocus(),
+                                                              child: Padding(
+                                                                padding: MediaQuery
+                                                                    .viewInsetsOf(
+                                                                        context),
+                                                                child:
+                                                                    const FriendlyNameWidget(),
+                                                              ),
+                                                            );
+                                                          },
+                                                        ).then((value) =>
+                                                            safeSetState(
+                                                                () {}));
+                                                      }
                                                     },
                                                     child: Container(
                                                       width: 115.0,
@@ -2226,121 +2238,124 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                                InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    _model.removePickingStation =
-                                                        await AdminApiGroup
-                                                            .changeSlotTypeCall
-                                                            .call(
-                                                      id: FFAppState()
-                                                          .slotrecid,
-                                                      type: 'regular',
-                                                    );
+                                                Opacity(
+                                                  opacity: AdminApiGroup
+                                                              .slotInfoCall
+                                                              .type(
+                                                            containerSlotInfoResponse
+                                                                .jsonBody,
+                                                          ) ==
+                                                          'picking_station'
+                                                      ? 1.0
+                                                      : 0.3,
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      _model.removePickingStation =
+                                                          await AdminApiGroup
+                                                              .changeSlotTypeCall
+                                                              .call(
+                                                        id: FFAppState()
+                                                            .slotrecid,
+                                                        type: 'regular',
+                                                      );
 
-                                                    if ((_model
-                                                            .removePickingStation
-                                                            ?.succeeded ??
-                                                        true)) {
-                                                      await showModalBottomSheet(
-                                                        isScrollControlled:
-                                                            true,
-                                                        backgroundColor:
-                                                            Colors.transparent,
-                                                        enableDrag: false,
-                                                        context: context,
-                                                        builder: (context) {
-                                                          return GestureDetector(
-                                                            onTap: () => _model
-                                                                    .unfocusNode
-                                                                    .canRequestFocus
-                                                                ? FocusScope.of(
-                                                                        context)
-                                                                    .requestFocus(
-                                                                        _model
-                                                                            .unfocusNode)
-                                                                : FocusScope.of(
-                                                                        context)
-                                                                    .unfocus(),
-                                                            child: Padding(
-                                                              padding: MediaQuery
-                                                                  .viewInsetsOf(
-                                                                      context),
-                                                              child:
-                                                                  const SuccessfullWidget(),
-                                                            ),
-                                                          );
-                                                        },
-                                                      ).then((value) =>
-                                                          safeSetState(() {}));
-                                                    } else {
-                                                      await showModalBottomSheet(
-                                                        isScrollControlled:
-                                                            true,
-                                                        backgroundColor:
-                                                            Colors.transparent,
-                                                        enableDrag: false,
-                                                        context: context,
-                                                        builder: (context) {
-                                                          return GestureDetector(
-                                                            onTap: () => _model
-                                                                    .unfocusNode
-                                                                    .canRequestFocus
-                                                                ? FocusScope.of(
-                                                                        context)
-                                                                    .requestFocus(
-                                                                        _model
-                                                                            .unfocusNode)
-                                                                : FocusScope.of(
-                                                                        context)
-                                                                    .unfocus(),
-                                                            child: Padding(
-                                                              padding: MediaQuery
-                                                                  .viewInsetsOf(
-                                                                      context),
-                                                              child:
-                                                                  const WrongWidget(),
-                                                            ),
-                                                          );
-                                                        },
-                                                      ).then((value) =>
-                                                          safeSetState(() {}));
-                                                    }
+                                                      if ((_model
+                                                              .removePickingStation
+                                                              ?.succeeded ??
+                                                          true)) {
+                                                        await showModalBottomSheet(
+                                                          isScrollControlled:
+                                                              true,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                          enableDrag: false,
+                                                          context: context,
+                                                          builder: (context) {
+                                                            return GestureDetector(
+                                                              onTap: () => _model
+                                                                      .unfocusNode
+                                                                      .canRequestFocus
+                                                                  ? FocusScope.of(
+                                                                          context)
+                                                                      .requestFocus(
+                                                                          _model
+                                                                              .unfocusNode)
+                                                                  : FocusScope.of(
+                                                                          context)
+                                                                      .unfocus(),
+                                                              child: Padding(
+                                                                padding: MediaQuery
+                                                                    .viewInsetsOf(
+                                                                        context),
+                                                                child:
+                                                                    const SuccessfullWidget(),
+                                                              ),
+                                                            );
+                                                          },
+                                                        ).then((value) =>
+                                                            safeSetState(
+                                                                () {}));
+                                                      } else {
+                                                        await showModalBottomSheet(
+                                                          isScrollControlled:
+                                                              true,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                          enableDrag: false,
+                                                          context: context,
+                                                          builder: (context) {
+                                                            return GestureDetector(
+                                                              onTap: () => _model
+                                                                      .unfocusNode
+                                                                      .canRequestFocus
+                                                                  ? FocusScope.of(
+                                                                          context)
+                                                                      .requestFocus(
+                                                                          _model
+                                                                              .unfocusNode)
+                                                                  : FocusScope.of(
+                                                                          context)
+                                                                      .unfocus(),
+                                                              child: Padding(
+                                                                padding: MediaQuery
+                                                                    .viewInsetsOf(
+                                                                        context),
+                                                                child:
+                                                                    const WrongWidget(),
+                                                              ),
+                                                            );
+                                                          },
+                                                        ).then((value) =>
+                                                            safeSetState(
+                                                                () {}));
+                                                      }
 
-                                                    setState(() {});
-                                                  },
-                                                  child: Container(
-                                                    width: 115.0,
-                                                    height: 140.0,
-                                                    decoration: BoxDecoration(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              5.0),
-                                                      border: Border.all(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .liteText,
-                                                        width: 1.0,
+                                                      setState(() {});
+                                                    },
+                                                    child: Container(
+                                                      width: 115.0,
+                                                      height: 140.0,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(5.0),
+                                                        border: Border.all(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .liteText,
+                                                          width: 1.0,
+                                                        ),
                                                       ),
-                                                    ),
-                                                    child: Opacity(
-                                                      opacity: AdminApiGroup
-                                                                  .slotInfoCall
-                                                                  .type(
-                                                                containerSlotInfoResponse
-                                                                    .jsonBody,
-                                                              ) ==
-                                                              'picking_station'
-                                                          ? 1.0
-                                                          : 0.3,
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,

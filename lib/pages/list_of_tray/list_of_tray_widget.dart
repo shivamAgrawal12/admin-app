@@ -2,6 +2,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/popup/menu/menu_widget.dart';
+import '/popup/no_record/no_record_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -393,6 +394,10 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                                     _model.textController.text)
                                                                 ?.toList() ??
                                                             [];
+                                                        if (metalTrayRecords
+                                                            .isEmpty) {
+                                                          return const NoRecordWidget();
+                                                        }
 
                                                         return ListView.builder(
                                                           padding: const EdgeInsets
@@ -400,7 +405,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                             0,
                                                             0,
                                                             0,
-                                                            15.0,
+                                                            30.0,
                                                           ),
                                                           shrinkWrap: true,
                                                           scrollDirection:
@@ -673,6 +678,10 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                                     _model.textController.text)
                                                                 ?.toList() ??
                                                             [];
+                                                        if (plasticTrayRecords
+                                                            .isEmpty) {
+                                                          return const NoRecordWidget();
+                                                        }
 
                                                         return ListView.builder(
                                                           padding: const EdgeInsets
@@ -680,7 +689,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                             0,
                                                             0,
                                                             0,
-                                                            15.0,
+                                                            30.0,
                                                           ),
                                                           shrinkWrap: true,
                                                           scrollDirection:

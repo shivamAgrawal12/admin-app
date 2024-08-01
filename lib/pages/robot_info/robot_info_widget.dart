@@ -80,39 +80,41 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      FutureBuilder<ApiCallResponse>(
-                        future: AdminApiGroup.verifyRobotIdCall.call(
-                          robotId: FFAppState().robotid,
+                      Container(
+                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        decoration: const BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [Color(0xFF351C75), Color(0xFF8E7CC3)],
+                            stops: [0.0, 1.0],
+                            begin: AlignmentDirectional(0.0, -1.0),
+                            end: AlignmentDirectional(0, 1.0),
+                          ),
                         ),
-                        builder: (context, snapshot) {
-                          // Customize what your widget looks like when it's loading.
-                          if (!snapshot.hasData) {
-                            return Center(
-                              child: SizedBox(
-                                width: 40.0,
-                                height: 40.0,
-                                child: SpinKitThreeBounce(
-                                  color: FlutterFlowTheme.of(context).subHeader,
-                                  size: 40.0,
-                                ),
-                              ),
-                            );
-                          }
-                          final containerVerifyRobotIdResponse = snapshot.data!;
-
-                          return Container(
-                            width: MediaQuery.sizeOf(context).width * 1.0,
-                            decoration: const BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [Color(0xFF351C75), Color(0xFF8E7CC3)],
-                                stops: [0.0, 1.0],
-                                begin: AlignmentDirectional(0.0, -1.0),
-                                end: AlignmentDirectional(0, 1.0),
-                              ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: FutureBuilder<ApiCallResponse>(
+                            future: AdminApiGroup.verifyRobotIdCall.call(
+                              robotId: FFAppState().robotid,
                             ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: Column(
+                            builder: (context, snapshot) {
+                              // Customize what your widget looks like when it's loading.
+                              if (!snapshot.hasData) {
+                                return Center(
+                                  child: SizedBox(
+                                    width: 40.0,
+                                    height: 40.0,
+                                    child: SpinKitThreeBounce(
+                                      color: FlutterFlowTheme.of(context)
+                                          .subHeader,
+                                      size: 40.0,
+                                    ),
+                                  ),
+                                );
+                              }
+                              final columnVerifyRobotIdResponse =
+                                  snapshot.data!;
+
+                              return Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
@@ -154,7 +156,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                           borderRadius:
                                               BorderRadius.circular(8.0),
                                           child: Image.asset(
-                                            'assets/images/leapmile_2.png',
+                                            'assets/images/leapmile_2_(1).png',
                                             width: 130.0,
                                             height: 35.0,
                                             fit: BoxFit.contain,
@@ -280,7 +282,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                     AdminApiGroup
                                                         .verifyRobotIdCall
                                                         .robotname(
-                                                      containerVerifyRobotIdResponse
+                                                      columnVerifyRobotIdResponse
                                                           .jsonBody,
                                                     ),
                                                     '-',
@@ -420,7 +422,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                             AdminApiGroup
                                                                 .verifyRobotIdCall
                                                                 .status(
-                                                              containerVerifyRobotIdResponse
+                                                              columnVerifyRobotIdResponse
                                                                   .jsonBody,
                                                             ),
                                                             '-',
@@ -500,7 +502,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                             AdminApiGroup
                                                                 .verifyRobotIdCall
                                                                 .maxrow(
-                                                                  containerVerifyRobotIdResponse
+                                                                  columnVerifyRobotIdResponse
                                                                       .jsonBody,
                                                                 )
                                                                 ?.toString(),
@@ -566,7 +568,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                             AdminApiGroup
                                                                 .verifyRobotIdCall
                                                                 .maxrack(
-                                                                  containerVerifyRobotIdResponse
+                                                                  columnVerifyRobotIdResponse
                                                                       .jsonBody,
                                                                 )
                                                                 ?.toString(),
@@ -632,7 +634,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                             AdminApiGroup
                                                                 .verifyRobotIdCall
                                                                 .maxslot(
-                                                                  containerVerifyRobotIdResponse
+                                                                  columnVerifyRobotIdResponse
                                                                       .jsonBody,
                                                                 )
                                                                 ?.toString(),
@@ -698,7 +700,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                             AdminApiGroup
                                                                 .verifyRobotIdCall
                                                                 .maxdepth(
-                                                                  containerVerifyRobotIdResponse
+                                                                  columnVerifyRobotIdResponse
                                                                       .jsonBody,
                                                                 )
                                                                 ?.toString(),
@@ -731,10 +733,10 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                     ),
                                   ),
                                 ],
-                              ),
-                            ),
-                          );
-                        },
+                              );
+                            },
+                          ),
+                        ),
                       ),
                       Container(
                         width: MediaQuery.sizeOf(context).width * 1.0,

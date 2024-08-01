@@ -278,80 +278,78 @@ class _UplodeCsvWidgetState extends State<UplodeCsvWidget> {
                                       ),
                                 ),
                               ),
-                              Container(
-                                width: 250.0,
-                                height: 50.0,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(5.0),
-                                  border: Border.all(
-                                    color: FlutterFlowTheme.of(context).heading,
-                                    width: 1.5,
-                                  ),
-                                ),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Align(
-                                      alignment: const AlignmentDirectional(0.0, 0.0),
-                                      child: InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          final selectedFiles =
-                                              await selectFiles(
-                                            multiFile: false,
-                                          );
-                                          if (selectedFiles != null) {
-                                            setState(() =>
-                                                _model.isDataUploading = true);
-                                            var selectedUploadedFiles =
-                                                <FFUploadedFile>[];
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  final selectedFiles = await selectFiles(
+                                    multiFile: false,
+                                  );
+                                  if (selectedFiles != null) {
+                                    setState(
+                                        () => _model.isDataUploading = true);
+                                    var selectedUploadedFiles =
+                                        <FFUploadedFile>[];
 
-                                            try {
-                                              showUploadMessage(
-                                                context,
-                                                'Uploading file...',
-                                                showLoading: true,
-                                              );
-                                              selectedUploadedFiles =
-                                                  selectedFiles
-                                                      .map(
-                                                          (m) => FFUploadedFile(
-                                                                name: m
-                                                                    .storagePath
-                                                                    .split('/')
-                                                                    .last,
-                                                                bytes: m.bytes,
-                                                              ))
-                                                      .toList();
-                                            } finally {
-                                              ScaffoldMessenger.of(context)
-                                                  .hideCurrentSnackBar();
-                                              _model.isDataUploading = false;
-                                            }
-                                            if (selectedUploadedFiles.length ==
-                                                selectedFiles.length) {
-                                              setState(() {
-                                                _model.uploadedLocalFile =
-                                                    selectedUploadedFiles.first;
-                                              });
-                                              showUploadMessage(
-                                                context,
-                                                'Success!',
-                                              );
-                                            } else {
-                                              setState(() {});
-                                              showUploadMessage(
-                                                context,
-                                                'Failed to upload file',
-                                              );
-                                              return;
-                                            }
-                                          }
-                                        },
+                                    try {
+                                      showUploadMessage(
+                                        context,
+                                        'Uploading file...',
+                                        showLoading: true,
+                                      );
+                                      selectedUploadedFiles = selectedFiles
+                                          .map((m) => FFUploadedFile(
+                                                name: m.storagePath
+                                                    .split('/')
+                                                    .last,
+                                                bytes: m.bytes,
+                                              ))
+                                          .toList();
+                                    } finally {
+                                      ScaffoldMessenger.of(context)
+                                          .hideCurrentSnackBar();
+                                      _model.isDataUploading = false;
+                                    }
+                                    if (selectedUploadedFiles.length ==
+                                        selectedFiles.length) {
+                                      setState(() {
+                                        _model.uploadedLocalFile =
+                                            selectedUploadedFiles.first;
+                                      });
+                                      showUploadMessage(
+                                        context,
+                                        'Success!',
+                                      );
+                                    } else {
+                                      setState(() {});
+                                      showUploadMessage(
+                                        context,
+                                        'Failed to upload file',
+                                      );
+                                      return;
+                                    }
+                                  }
+                                },
+                                child: Container(
+                                  width: 250.0,
+                                  height: 50.0,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5.0),
+                                    border: Border.all(
+                                      color:
+                                          FlutterFlowTheme.of(context).heading,
+                                      width: 1.5,
+                                    ),
+                                  ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Align(
+                                        alignment:
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: FaIcon(
                                           FontAwesomeIcons.cloudUploadAlt,
                                           color: FlutterFlowTheme.of(context)
@@ -359,8 +357,8 @@ class _UplodeCsvWidgetState extends State<UplodeCsvWidget> {
                                           size: 24.0,
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                               Padding(
@@ -415,6 +413,29 @@ class _UplodeCsvWidgetState extends State<UplodeCsvWidget> {
                                             );
                                           },
                                         ).then((value) => safeSetState(() {}));
+                                      } else {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return AlertDialog(
+                                              title: const Text('CSV Not Uploaded'),
+                                              content: Text(AdminApiGroup
+                                                  .uplodeSlotCsvCall
+                                                  .msg(
+                                                (_model.slotUplode?.jsonBody ??
+                                                    ''),
+                                              )!),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: const Text('Ok'),
+                                                ),
+                                              ],
+                                            );
+                                          },
+                                        );
                                       }
 
                                       setState(() {});
