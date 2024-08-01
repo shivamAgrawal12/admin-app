@@ -844,6 +844,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                         robotId: _model.idTextController.text,
                                         robotName:
                                             _model.nameTextController.text,
+                                        slotType: _model.dropDownValue,
                                       );
 
                                       if ((_model.newRobot?.succeeded ??
