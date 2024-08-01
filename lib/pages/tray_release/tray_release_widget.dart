@@ -39,10 +39,16 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      FFAppState().scannerpage = 'trayrelease';
+      setState(() {});
       _model.instantTimer = InstantTimer.periodic(
         duration: const Duration(milliseconds: 1000),
         callback: (timer) async {
-          setState(() => _model.apiRequestCompleter = null);
+          if (FFAppState().scannerpage == 'trayrelease') {
+            setState(() => _model.apiRequestCompleter = null);
+          } else {
+            _model.instantTimer?.cancel();
+          }
         },
         startImmediately: true,
       );
@@ -117,8 +123,6 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                FFAppState().update(() {});
-
                                 context.pushNamed(
                                   'home',
                                   extra: <String, dynamic>{
@@ -825,35 +829,76 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                               ),
                             ),
                             if (_model.change == 2 ? false : true)
-                              Align(
-                                alignment: const AlignmentDirectional(1.0, -1.0),
-                                child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 25.0, 0.0),
-                                  child: Switch.adaptive(
-                                    value: _model.switchValue!,
-                                    onChanged: (newValue) async {
-                                      setState(
-                                          () => _model.switchValue = newValue);
-                                      if (newValue) {
-                                        _model.change = 0;
-                                        setState(() {});
-                                      } else {
-                                        _model.change = 1;
-                                        setState(() {});
-                                      }
-                                    },
-                                    activeColor:
-                                        FlutterFlowTheme.of(context).primary,
-                                    activeTrackColor:
-                                        FlutterFlowTheme.of(context).accent1,
-                                    inactiveTrackColor:
-                                        FlutterFlowTheme.of(context).alternate,
-                                    inactiveThumbColor:
-                                        FlutterFlowTheme.of(context)
-                                            .secondaryText,
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  RichText(
+                                    textScaler:
+                                        MediaQuery.of(context).textScaler,
+                                    text: TextSpan(
+                                      children: [
+                                        TextSpan(
+                                          text: 'Friendly Name : ',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Open Sans',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .liteText,
+                                                fontSize: 15.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                        ),
+                                        TextSpan(
+                                          text: FFAppState().friendlyname,
+                                          style: TextStyle(
+                                            color: FlutterFlowTheme.of(context)
+                                                .bodyText,
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 15.0,
+                                          ),
+                                        )
+                                      ],
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Open Sans',
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ),
                                   ),
-                                ),
+                                  Align(
+                                    alignment: const AlignmentDirectional(1.0, -1.0),
+                                    child: Switch.adaptive(
+                                      value: _model.switchValue!,
+                                      onChanged: (newValue) async {
+                                        setState(() =>
+                                            _model.switchValue = newValue);
+                                        if (newValue) {
+                                          _model.change = 0;
+                                          setState(() {});
+                                        } else {
+                                          _model.change = 1;
+                                          setState(() {});
+                                        }
+                                      },
+                                      activeColor:
+                                          FlutterFlowTheme.of(context).primary,
+                                      activeTrackColor:
+                                          FlutterFlowTheme.of(context).accent1,
+                                      inactiveTrackColor:
+                                          FlutterFlowTheme.of(context)
+                                              .alternate,
+                                      inactiveThumbColor:
+                                          FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                    ),
+                                  ),
+                                ],
                               ),
                             if (_model.change == 1 ? true : false)
                               Padding(
