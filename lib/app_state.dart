@@ -19,6 +19,9 @@ class FFAppState extends ChangeNotifier {
   Future initializePersistedState() async {
     secureStorage = const FlutterSecureStorage();
     await _safeInitAsync(() async {
+      _robotid = await secureStorage.getString('ff_robotid') ?? _robotid;
+    });
+    await _safeInitAsync(() async {
       _hideslot = await secureStorage.getInt('ff_hideslot') ?? _hideslot;
     });
   }
@@ -34,6 +37,11 @@ class FFAppState extends ChangeNotifier {
   String get robotid => _robotid;
   set robotid(String value) {
     _robotid = value;
+    secureStorage.setString('ff_robotid', value);
+  }
+
+  void deleteRobotid() {
+    secureStorage.delete(key: 'ff_robotid');
   }
 
   String _slotid = '';

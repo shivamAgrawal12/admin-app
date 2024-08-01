@@ -1422,6 +1422,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   onTap: () async {
                                     FFAppState().hideslot = 1;
                                     setState(() {});
+                                    _model.change = 0;
+                                    setState(() {});
                                   },
                                   child: Container(
                                     width:
@@ -1594,48 +1596,38 @@ class _HomeWidgetState extends State<HomeWidget> {
                                             ),
                                           ),
                                           if (_model.change == 0)
-                                            Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Container(
-                                                  width: 250.0,
-                                                  height: 250.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
+                                            Container(
+                                              width: 250.0,
+                                              height: 250.0,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
                                                         .primaryBackground,
-                                                    boxShadow: const [
-                                                      BoxShadow(
-                                                        blurRadius: 20.0,
-                                                        color:
-                                                            Color(0x678E7CC3),
-                                                        offset: Offset(
-                                                          5.0,
-                                                          8.0,
-                                                        ),
-                                                      )
-                                                    ],
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            5.0),
-                                                  ),
-                                                  child: const Padding(
-                                                    padding:
-                                                        EdgeInsets.all(9.0),
-                                                    child: SizedBox(
-                                                      width: 300.0,
-                                                      height: 300.0,
-                                                      child: custom_widgets
-                                                          .HomeQrScan(
-                                                        width: 300.0,
-                                                        height: 300.0,
-                                                      ),
+                                                boxShadow: const [
+                                                  BoxShadow(
+                                                    blurRadius: 20.0,
+                                                    color: Color(0x678E7CC3),
+                                                    offset: Offset(
+                                                      5.0,
+                                                      8.0,
                                                     ),
+                                                  )
+                                                ],
+                                                borderRadius:
+                                                    BorderRadius.circular(5.0),
+                                              ),
+                                              child: const Padding(
+                                                padding: EdgeInsets.all(9.0),
+                                                child: SizedBox(
+                                                  width: 300.0,
+                                                  height: 300.0,
+                                                  child:
+                                                      custom_widgets.HomeQrScan(
+                                                    width: 300.0,
+                                                    height: 300.0,
                                                   ),
                                                 ),
-                                              ],
+                                              ),
                                             ),
                                           if (_model.change == 1)
                                             Padding(
