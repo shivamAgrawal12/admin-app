@@ -286,7 +286,6 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                         );
 
                         if ((_model.trayMapingBtn?.succeeded ?? true)) {
-                          Navigator.pop(context);
                           await showModalBottomSheet(
                             isScrollControlled: true,
                             backgroundColor: Colors.transparent,
@@ -300,6 +299,10 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                             },
                           ).then((value) => safeSetState(() {}));
 
+                          FFAppState().slotid = '';
+                          FFAppState().trayid = '';
+                          FFAppState().update(() {});
+
                           context.goNamed(
                             'slot_mappimg',
                             extra: <String, dynamic>{
@@ -310,6 +313,8 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                               ),
                             },
                           );
+
+                          Navigator.pop(context);
                         } else {
                           Navigator.pop(context);
                           await showModalBottomSheet(

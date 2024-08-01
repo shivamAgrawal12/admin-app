@@ -42,6 +42,9 @@ class AdminApiGroup {
   static TaskCompleteCall taskCompleteCall = TaskCompleteCall();
   static CancelPendingTaskCall cancelPendingTaskCall = CancelPendingTaskCall();
   static ChangeSlotTypeCall changeSlotTypeCall = ChangeSlotTypeCall();
+  static ChangeSlotTypeWithoutFriendlyNameCall
+      changeSlotTypeWithoutFriendlyNameCall =
+      ChangeSlotTypeWithoutFriendlyNameCall();
   static DirectPickableCall directPickableCall = DirectPickableCall();
   static AddShuttlesCall addShuttlesCall = AddShuttlesCall();
   static MappingTrayAsnShuttleCall mappingTrayAsnShuttleCall =
@@ -1006,6 +1009,50 @@ class ChangeSlotTypeCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'change slot type',
+      apiUrl: '$baseUrl/robotmanager/slots/$id',
+      callType: ApiCallType.PATCH,
+      headers: {
+        'Authorization':
+            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  bool? statusbool(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.statusbool''',
+      ));
+  List? records(dynamic response) => getJsonField(
+        response,
+        r'''$.records''',
+        true,
+      ) as List?;
+}
+
+class ChangeSlotTypeWithoutFriendlyNameCall {
+  Future<ApiCallResponse> call({
+    int? id,
+    String? type = '',
+  }) async {
+    final baseUrl = AdminApiGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "type": "$type"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'change slot type without friendly name',
       apiUrl: '$baseUrl/robotmanager/slots/$id',
       callType: ApiCallType.PATCH,
       headers: {

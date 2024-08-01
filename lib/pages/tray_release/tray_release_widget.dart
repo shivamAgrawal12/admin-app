@@ -432,7 +432,6 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                                     0.0,
                                                                     0.0),
                                                         child: Container(
-                                                          width: 350.0,
                                                           height: 130.0,
                                                           constraints:
                                                               const BoxConstraints(
@@ -648,93 +647,162 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                                       ].divide(const SizedBox(
                                                                               height: 8.0)),
                                                                     ),
-                                                                    Container(
-                                                                      width:
-                                                                          80.0,
-                                                                      height:
-                                                                          35.0,
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        gradient:
-                                                                            LinearGradient(
-                                                                          colors: [
-                                                                            FlutterFlowTheme.of(context).heading,
-                                                                            FlutterFlowTheme.of(context).accent
-                                                                          ],
-                                                                          stops: const [
-                                                                            0.0,
-                                                                            1.0
-                                                                          ],
-                                                                          begin: const AlignmentDirectional(
-                                                                              1.0,
-                                                                              0.0),
-                                                                          end: const AlignmentDirectional(
-                                                                              -1.0,
-                                                                              0),
-                                                                        ),
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(5.0),
-                                                                      ),
-                                                                      child:
-                                                                          FFButtonWidget(
-                                                                        onPressed:
-                                                                            () async {
-                                                                          FFAppState().taskrecid =
-                                                                              getJsonField(
-                                                                            trayRecordsItem,
-                                                                            r'''$.id''',
-                                                                          );
-                                                                          FFAppState().friendlyname =
-                                                                              getJsonField(
-                                                                            trayRecordsItem,
-                                                                            r'''$.slot_friendly_name''',
-                                                                          ).toString();
-                                                                          FFAppState()
-                                                                              .update(() {});
-                                                                          _model.change =
-                                                                              0;
-                                                                          setState(
-                                                                              () {});
-                                                                        },
-                                                                        text:
-                                                                            'Select',
-                                                                        options:
-                                                                            FFButtonOptions(
-                                                                          height:
-                                                                              40.0,
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                              5.0,
+                                                                    if (FFAppState()
+                                                                            .taskrecid !=
+                                                                        getJsonField(
+                                                                          trayRecordsItem,
+                                                                          r'''$.id''',
+                                                                        ))
+                                                                      Container(
+                                                                        width:
+                                                                            80.0,
+                                                                        height:
+                                                                            35.0,
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          gradient:
+                                                                              LinearGradient(
+                                                                            colors: [
+                                                                              FlutterFlowTheme.of(context).heading,
+                                                                              FlutterFlowTheme.of(context).accent
+                                                                            ],
+                                                                            stops: const [
                                                                               0.0,
-                                                                              5.0,
-                                                                              0.0),
-                                                                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          color:
-                                                                              const Color(0x27351C75),
-                                                                          textStyle: FlutterFlowTheme.of(context)
-                                                                              .titleSmall
-                                                                              .override(
-                                                                                fontFamily: 'Raleway',
-                                                                                color: Colors.white,
-                                                                                fontSize: 15.0,
-                                                                                letterSpacing: 0.0,
-                                                                                fontWeight: FontWeight.w600,
-                                                                              ),
-                                                                          elevation:
-                                                                              0.0,
-                                                                          borderSide:
-                                                                              const BorderSide(
-                                                                            color:
-                                                                                Color(0xFF8E7CC3),
+                                                                              1.0
+                                                                            ],
+                                                                            begin:
+                                                                                const AlignmentDirectional(1.0, 0.0),
+                                                                            end:
+                                                                                const AlignmentDirectional(-1.0, 0),
                                                                           ),
                                                                           borderRadius:
                                                                               BorderRadius.circular(5.0),
                                                                         ),
+                                                                        child:
+                                                                            FFButtonWidget(
+                                                                          onPressed:
+                                                                              () async {
+                                                                            FFAppState().taskrecid =
+                                                                                getJsonField(
+                                                                              trayRecordsItem,
+                                                                              r'''$.id''',
+                                                                            );
+                                                                            FFAppState().friendlyname =
+                                                                                getJsonField(
+                                                                              trayRecordsItem,
+                                                                              r'''$.slot_friendly_name''',
+                                                                            ).toString();
+                                                                            FFAppState().update(() {});
+                                                                            _model.change =
+                                                                                0;
+                                                                            setState(() {});
+                                                                          },
+                                                                          text:
+                                                                              'Select',
+                                                                          options:
+                                                                              FFButtonOptions(
+                                                                            height:
+                                                                                40.0,
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                                5.0,
+                                                                                0.0,
+                                                                                5.0,
+                                                                                0.0),
+                                                                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            color:
+                                                                                const Color(0x27351C75),
+                                                                            textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                  fontFamily: 'Raleway',
+                                                                                  color: Colors.white,
+                                                                                  fontSize: 15.0,
+                                                                                  letterSpacing: 0.0,
+                                                                                  fontWeight: FontWeight.w600,
+                                                                                ),
+                                                                            elevation:
+                                                                                0.0,
+                                                                            borderSide:
+                                                                                const BorderSide(
+                                                                              color: Color(0xFF8E7CC3),
+                                                                            ),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(5.0),
+                                                                          ),
+                                                                        ),
                                                                       ),
-                                                                    ),
+                                                                    if (FFAppState()
+                                                                            .taskrecid ==
+                                                                        getJsonField(
+                                                                          trayRecordsItem,
+                                                                          r'''$.id''',
+                                                                        ))
+                                                                      Container(
+                                                                        width:
+                                                                            80.0,
+                                                                        height:
+                                                                            35.0,
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(5.0),
+                                                                          border:
+                                                                              Border.all(
+                                                                            width:
+                                                                                1.0,
+                                                                          ),
+                                                                        ),
+                                                                        child:
+                                                                            FFButtonWidget(
+                                                                          onPressed:
+                                                                              () async {
+                                                                            FFAppState().taskrecid =
+                                                                                0;
+                                                                            FFAppState().friendlyname =
+                                                                                '';
+                                                                            FFAppState().update(() {});
+                                                                            _model.change =
+                                                                                8;
+                                                                            setState(() {});
+                                                                          },
+                                                                          text:
+                                                                              'Close',
+                                                                          options:
+                                                                              FFButtonOptions(
+                                                                            height:
+                                                                                40.0,
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                                5.0,
+                                                                                0.0,
+                                                                                5.0,
+                                                                                0.0),
+                                                                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                            textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                  fontFamily: 'Raleway',
+                                                                                  color: FlutterFlowTheme.of(context).primaryText,
+                                                                                  fontSize: 15.0,
+                                                                                  letterSpacing: 0.0,
+                                                                                  fontWeight: FontWeight.w600,
+                                                                                ),
+                                                                            elevation:
+                                                                                0.0,
+                                                                            borderSide:
+                                                                                const BorderSide(
+                                                                              color: Color(0xFF8E7CC3),
+                                                                            ),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(5.0),
+                                                                          ),
+                                                                        ),
+                                                                      ),
                                                                   ],
                                                                 ),
                                                               ].divide(const SizedBox(

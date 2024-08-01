@@ -145,6 +145,7 @@ class _LocationQRScanState extends State<LocationQRScan> {
           },
         ).then((value) => setState(() {}));
       } else {
+        await actions.continuousVibration(500, 1000, 500, 1000);
         await showModalBottomSheet(
           isScrollControlled: true,
           backgroundColor: Colors.transparent,

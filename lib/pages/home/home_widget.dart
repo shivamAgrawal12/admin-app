@@ -2267,14 +2267,11 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                           'picking_station') {
                                                         _model.removePickingStation =
                                                             await AdminApiGroup
-                                                                .changeSlotTypeCall
+                                                                .changeSlotTypeWithoutFriendlyNameCall
                                                                 .call(
                                                           id: FFAppState()
                                                               .slotrecid,
                                                           type: 'regular',
-                                                          friendlyName:
-                                                              FFAppState()
-                                                                  .homeslotid,
                                                         );
 
                                                         if ((_model
@@ -2810,7 +2807,13 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                     .call(
                                                               id: FFAppState()
                                                                   .slotrecid,
-                                                              type: 'block',
+                                                              type: 'blocked',
+                                                              friendlyName:
+                                                                  getJsonField(
+                                                                containerSlotInfoResponse
+                                                                    .jsonBody,
+                                                                r'''$.friendly_name''',
+                                                              ).toString(),
                                                             );
 
                                                             if ((_model
