@@ -1484,13 +1484,17 @@ class BlockRackCall {
   Future<ApiCallResponse> call({
     String? robotId = '',
     int? rack,
+    String? type = '',
+    int? row,
+    int? slot,
+    int? depth,
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'block rack',
       apiUrl:
-          '$baseUrl/robotmanager/slots/block/?robot_id=$robotId&rack=$rack',
+          '$baseUrl/robotmanager/slots/type/?robot_id=$robotId&type=$type&row=$row&rack=$rack&slot=$slot&depth=$depth',
       callType: ApiCallType.PATCH,
       headers: {
         'Authorization':
@@ -1522,16 +1526,19 @@ class BlockRackCall {
 
 class ChangeTheTypeOfSlotCall {
   Future<ApiCallResponse> call({
-    String? type = '',
+    String? supportType = '',
     String? robotId = '',
     int? rack,
+    int? row,
+    int? slot,
+    int? depth,
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'Change the type of slot',
       apiUrl:
-          '$baseUrl/robotmanager/slots/type/?robot_id=$robotId&rack=$rack&support_type=$type',
+          '$baseUrl/robotmanager/slots/support_type/?robot_id=$robotId&support_type=$supportType&row=$row&rack=$rack&slot=$slot&depth=$depth',
       callType: ApiCallType.PATCH,
       headers: {
         'Authorization':

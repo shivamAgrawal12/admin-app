@@ -1732,7 +1732,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                               _model
                                                                   .textController
                                                                   .text;
-                                                          setState(() {});
+                                                          FFAppState()
+                                                              .update(() {});
                                                         } else {
                                                           await showModalBottomSheet(
                                                             isScrollControlled:
@@ -1984,12 +1985,26 @@ class _HomeWidgetState extends State<HomeWidget> {
                                             children: [
                                               Opacity(
                                                 opacity: valueOrDefault<double>(
-                                                  AdminApiGroup.slotInfoCall
-                                                              .type(
-                                                            containerSlotInfoResponse
-                                                                .jsonBody,
-                                                          ) !=
-                                                          'picking_station'
+                                                  (AdminApiGroup.slotInfoCall
+                                                                  .type(
+                                                                containerSlotInfoResponse
+                                                                    .jsonBody,
+                                                              ) !=
+                                                              'picking_station') ||
+                                                          (AdminApiGroup
+                                                                  .slotInfoCall
+                                                                  .type(
+                                                                containerSlotInfoResponse
+                                                                    .jsonBody,
+                                                              ) !=
+                                                              'regular') ||
+                                                          (AdminApiGroup
+                                                                  .slotInfoCall
+                                                                  .type(
+                                                                containerSlotInfoResponse
+                                                                    .jsonBody,
+                                                              ) !=
+                                                              'unused')
                                                       ? 0.3
                                                       : 1.0,
                                                   1.0,
@@ -2004,13 +2019,27 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
-                                                    if (AdminApiGroup
-                                                            .slotInfoCall
-                                                            .type(
-                                                          containerSlotInfoResponse
-                                                              .jsonBody,
-                                                        ) !=
-                                                        'picking_station') {
+                                                    if ((AdminApiGroup
+                                                                .slotInfoCall
+                                                                .type(
+                                                              containerSlotInfoResponse
+                                                                  .jsonBody,
+                                                            ) !=
+                                                            'picking_station') ||
+                                                        (AdminApiGroup
+                                                                .slotInfoCall
+                                                                .type(
+                                                              containerSlotInfoResponse
+                                                                  .jsonBody,
+                                                            ) !=
+                                                            'regular') ||
+                                                        (AdminApiGroup
+                                                                .slotInfoCall
+                                                                .type(
+                                                              containerSlotInfoResponse
+                                                                  .jsonBody,
+                                                            ) !=
+                                                            'unused')) {
                                                       await showModalBottomSheet(
                                                         isScrollControlled:
                                                             true,
