@@ -19,6 +19,8 @@ import 'index.dart'; // Imports other custom widgets
 
 import 'index.dart'; // Imports other custom widgets
 
+import 'index.dart'; // Imports other custom widgets
+
 import 'dart:io';
 import '/custom_code/actions/index.dart' as actions;
 import '/backend/api_requests/api_calls.dart';
@@ -182,6 +184,7 @@ class _QRTrayMapState extends State<QRTrayMap> {
     FFAppState().trayid = scannedValue;
     print("tray id : ${FFAppState().trayid}");
     actions.continuousVibration(0, 0, 0, 500);
+    controller.stop();
     await showModalBottomSheet(
       isScrollControlled: true,
       backgroundColor: Colors.transparent,

@@ -16,6 +16,8 @@ import 'index.dart'; // Imports other custom widgets
 import 'index.dart'; // Imports other custom widgets
 
 import 'index.dart'; // Imports other custom widgets
+
+import 'index.dart'; // Imports other custom widgets
 import '/custom_code/actions/index.dart' as actions;
 import 'dart:io';
 import '/backend/api_requests/api_calls.dart';
@@ -51,6 +53,12 @@ class _QRTrayAddNewState extends State<QRTrayAddNew> {
   }
 
   void initializeScanner() async {
+    await controller.start();
+    try {
+      await controller.setZoomScale(0.8);
+    } catch (e) {
+      print('Error setting initial zoom scale: $e');
+    }
     if (FFAppState().scannerpage == "trayadd") {
       print("trayadd QR initialized");
       await controller.start();

@@ -16,6 +16,8 @@ import 'index.dart'; // Imports other custom widgets
 import 'index.dart'; // Imports other custom widgets
 
 import 'index.dart'; // Imports other custom widgets
+
+import 'index.dart'; // Imports other custom widgets
 import '/custom_code/actions/index.dart' as actions;
 
 import 'index.dart'; // Imports other custom widgets
@@ -50,6 +52,12 @@ class _HomeQrScanState extends State<HomeQrScan> {
   }
 
   void initializeScanner() async {
+    await controller.start();
+    try {
+      await controller.setZoomScale(0.8);
+    } catch (e) {
+      print('Error setting initial zoom scale: $e');
+    }
     if (FFAppState().scannerpage == "home") {
       print("Slot map QR initialized");
       await controller.start();

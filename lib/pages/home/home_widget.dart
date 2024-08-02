@@ -138,10 +138,14 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      const FaIcon(
-                                        FontAwesomeIcons.arrowLeft,
-                                        color: Color(0x00351C75),
-                                        size: 24.0,
+                                      const Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            15.0, 0.0, 0.0, 0.0),
+                                        child: FaIcon(
+                                          FontAwesomeIcons.arrowLeft,
+                                          color: Color(0x00351C75),
+                                          size: 24.0,
+                                        ),
                                       ),
                                       ClipRRect(
                                         borderRadius:
@@ -153,54 +157,61 @@ class _HomeWidgetState extends State<HomeWidget> {
                                           fit: BoxFit.contain,
                                         ),
                                       ),
-                                      InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          await showModalBottomSheet(
-                                            isScrollControlled: true,
-                                            backgroundColor: Colors.transparent,
-                                            enableDrag: false,
-                                            context: context,
-                                            builder: (context) {
-                                              return GestureDetector(
-                                                onTap: () => _model.unfocusNode
-                                                        .canRequestFocus
-                                                    ? FocusScope.of(context)
-                                                        .requestFocus(
-                                                            _model.unfocusNode)
-                                                    : FocusScope.of(context)
-                                                        .unfocus(),
-                                                child: Padding(
-                                                  padding:
-                                                      MediaQuery.viewInsetsOf(
-                                                          context),
-                                                  child: const MenuWidget(),
-                                                ),
-                                              );
-                                            },
-                                          ).then(
-                                              (value) => safeSetState(() {}));
-                                        },
-                                        child: Container(
-                                          width: 31.0,
-                                          height: 31.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryBackground,
-                                            shape: BoxShape.circle,
-                                          ),
-                                          child: Align(
-                                            alignment:
-                                                const AlignmentDirectional(0.0, 2.6),
-                                            child: Icon(
-                                              Icons.person_3,
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 15.0, 0.0),
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return GestureDetector(
+                                                  onTap: () => _model
+                                                          .unfocusNode
+                                                          .canRequestFocus
+                                                      ? FocusScope.of(context)
+                                                          .requestFocus(_model
+                                                              .unfocusNode)
+                                                      : FocusScope.of(context)
+                                                          .unfocus(),
+                                                  child: Padding(
+                                                    padding:
+                                                        MediaQuery.viewInsetsOf(
+                                                            context),
+                                                    child: const MenuWidget(),
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+                                          },
+                                          child: Container(
+                                            width: 31.0,
+                                            height: 31.0,
+                                            decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .heading,
-                                              size: 28.0,
+                                                      .primaryBackground,
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Align(
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, 2.6),
+                                              child: Icon(
+                                                Icons.person_3,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .heading,
+                                                size: 28.0,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -1985,12 +1996,19 @@ class _HomeWidgetState extends State<HomeWidget> {
                                             children: [
                                               Opacity(
                                                 opacity: valueOrDefault<double>(
-                                                  AdminApiGroup.slotInfoCall
-                                                              .type(
-                                                            containerSlotInfoResponse
-                                                                .jsonBody,
-                                                          ) ==
-                                                          'picking_station'
+                                                  (AdminApiGroup.slotInfoCall
+                                                                  .type(
+                                                                containerSlotInfoResponse
+                                                                    .jsonBody,
+                                                              ) ==
+                                                              'picking_station') ||
+                                                          (AdminApiGroup
+                                                                  .slotInfoCall
+                                                                  .type(
+                                                                containerSlotInfoResponse
+                                                                    .jsonBody,
+                                                              ) ==
+                                                              'blocked')
                                                       ? 0.3
                                                       : 1.0,
                                                   1.0,
@@ -2011,7 +2029,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                               containerSlotInfoResponse
                                                                   .jsonBody,
                                                             ) !=
-                                                            'picking_station') ||
+                                                            'picking_station') &&
                                                         (AdminApiGroup
                                                                 .slotInfoCall
                                                                 .type(
@@ -2687,12 +2705,19 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 Opacity(
                                                   opacity:
                                                       valueOrDefault<double>(
-                                                    AdminApiGroup.slotInfoCall
-                                                                .type(
-                                                              containerSlotInfoResponse
-                                                                  .jsonBody,
-                                                            ) ==
-                                                            'blocked'
+                                                    (AdminApiGroup.slotInfoCall
+                                                                    .type(
+                                                                  containerSlotInfoResponse
+                                                                      .jsonBody,
+                                                                ) ==
+                                                                'blocked') ||
+                                                            (AdminApiGroup
+                                                                    .slotInfoCall
+                                                                    .type(
+                                                                  containerSlotInfoResponse
+                                                                      .jsonBody,
+                                                                ) ==
+                                                                'picking_station')
                                                         ? 0.3
                                                         : 1.0,
                                                     1.0,
@@ -2704,13 +2729,20 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                 3.0, 0.0),
                                                     child: FFButtonWidget(
                                                       onPressed: () async {
-                                                        if (AdminApiGroup
-                                                                .slotInfoCall
-                                                                .type(
-                                                              containerSlotInfoResponse
-                                                                  .jsonBody,
-                                                            ) !=
-                                                            'blocked') {
+                                                        if ((AdminApiGroup
+                                                                    .slotInfoCall
+                                                                    .type(
+                                                                  containerSlotInfoResponse
+                                                                      .jsonBody,
+                                                                ) !=
+                                                                'blocked') &&
+                                                            (AdminApiGroup
+                                                                    .slotInfoCall
+                                                                    .type(
+                                                                  containerSlotInfoResponse
+                                                                      .jsonBody,
+                                                                ) !=
+                                                                'picking_station')) {
                                                           _model.blockSlot =
                                                               await AdminApiGroup
                                                                   .changeSlotTypeCall

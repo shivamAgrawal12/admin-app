@@ -18,6 +18,8 @@ import 'index.dart'; // Imports other custom widgets
 import 'index.dart'; // Imports other custom widgets
 
 import 'index.dart'; // Imports other custom widgets
+
+import 'index.dart'; // Imports other custom widgets
 import '/custom_code/actions/index.dart' as actions;
 import 'dart:io';
 import '/backend/api_requests/api_calls.dart';
@@ -52,6 +54,12 @@ class _QRTrayDelState extends State<QRTrayDel> {
   }
 
   void initializeScanner() async {
+    await controller.start();
+    try {
+      await controller.setZoomScale(0.8);
+    } catch (e) {
+      print('Error setting initial zoom scale: $e');
+    }
     if (FFAppState().scannerpage == "traydel") {
       print("Slot map QR initialized");
       await controller.start();
