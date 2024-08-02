@@ -1,3 +1,4 @@
+import '/auth/custom_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -101,17 +102,29 @@ class _RobotRegisterWidgetState extends State<RobotRegisterWidget> {
                 },
                 onEnded: () async {
                   _model.timerController.onStopTimer();
-
-                  context.goNamed(
-                    'login_page',
-                    extra: <String, dynamic>{
-                      kTransitionInfoKey: const TransitionInfo(
-                        hasTransition: true,
-                        transitionType: PageTransitionType.fade,
-                        duration: Duration(milliseconds: 500),
-                      ),
-                    },
-                  );
+                  if (loggedIn) {
+                    context.goNamed(
+                      'home',
+                      extra: <String, dynamic>{
+                        kTransitionInfoKey: const TransitionInfo(
+                          hasTransition: true,
+                          transitionType: PageTransitionType.fade,
+                          duration: Duration(milliseconds: 500),
+                        ),
+                      },
+                    );
+                  } else {
+                    context.goNamed(
+                      'login_page',
+                      extra: <String, dynamic>{
+                        kTransitionInfoKey: const TransitionInfo(
+                          hasTransition: true,
+                          transitionType: PageTransitionType.fade,
+                          duration: Duration(milliseconds: 500),
+                        ),
+                      },
+                    );
+                  }
                 },
                 textAlign: TextAlign.start,
                 style: FlutterFlowTheme.of(context).headlineSmall.override(

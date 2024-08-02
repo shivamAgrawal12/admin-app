@@ -2005,13 +2005,20 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
-                                                    if (AdminApiGroup
-                                                            .slotInfoCall
-                                                            .type(
-                                                          containerSlotInfoResponse
-                                                              .jsonBody,
-                                                        ) !=
-                                                        'picking_station') {
+                                                    if ((AdminApiGroup
+                                                                .slotInfoCall
+                                                                .type(
+                                                              containerSlotInfoResponse
+                                                                  .jsonBody,
+                                                            ) !=
+                                                            'picking_station') ||
+                                                        (AdminApiGroup
+                                                                .slotInfoCall
+                                                                .type(
+                                                              containerSlotInfoResponse
+                                                                  .jsonBody,
+                                                            ) !=
+                                                            'blocked')) {
                                                       await showModalBottomSheet(
                                                         isScrollControlled:
                                                             true,
@@ -2516,9 +2523,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                               containerSlotInfoResponse
                                                                   .jsonBody,
                                                             ) ==
-                                                            'regular'
-                                                        ? 0.3
-                                                        : 1.0,
+                                                            'blocked'
+                                                        ? 1.0
+                                                        : 0.3,
                                                     1.0,
                                                   ),
                                                   child: Padding(
@@ -2534,7 +2541,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                               containerSlotInfoResponse
                                                                   .jsonBody,
                                                             ) ==
-                                                            'regular') {
+                                                            'blocked') {
                                                           _model.unblockSlot =
                                                               await AdminApiGroup
                                                                   .changeSlotTypeCall
@@ -2702,7 +2709,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                 .type(
                                                               containerSlotInfoResponse
                                                                   .jsonBody,
-                                                            ) ==
+                                                            ) !=
                                                             'blocked') {
                                                           _model.blockSlot =
                                                               await AdminApiGroup
@@ -2957,7 +2964,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
-                                            MainAxisAlignment.center,
+                                            MainAxisAlignment.spaceEvenly,
                                         children: [
                                           Container(
                                             width: 50.0,

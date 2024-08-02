@@ -201,6 +201,52 @@ class _MenuWidgetState extends State<MenuWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          context.pushNamed(
+                            'uplode_csv',
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: const TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 500),
+                              ),
+                            },
+                          );
+                        },
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Icon(
+                                  Icons.file_open_rounded,
+                                  color: FlutterFlowTheme.of(context).heading,
+                                  size: 22.0,
+                                ),
+                                Text(
+                                  'Upload CSV',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Raleway',
+                                        fontSize: 14.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                ),
+                              ].divide(const SizedBox(width: 6.0)),
+                            ),
+                          ],
+                        ),
+                      ),
+                      InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
                           GoRouter.of(context).prepareAuthEvent();
                           await authManager.signOut();
                           GoRouter.of(context).clearRedirectLocation();
@@ -260,7 +306,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                           ],
                         ),
                       ),
-                    ].divide(const SizedBox(height: 40.0)),
+                    ].divide(const SizedBox(height: 30.0)),
                   ),
                 ),
               ),
