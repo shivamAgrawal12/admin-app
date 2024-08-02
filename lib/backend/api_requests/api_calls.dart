@@ -30,6 +30,8 @@ class AdminApiGroup {
   static AddNewTrayCall addNewTrayCall = AddNewTrayCall();
   static DeleteTrayCall deleteTrayCall = DeleteTrayCall();
   static SlotInfoByTrayIdCall slotInfoByTrayIdCall = SlotInfoByTrayIdCall();
+  static SlotDetailByFriendlyNameCall slotDetailByFriendlyNameCall =
+      SlotDetailByFriendlyNameCall();
   static PostTaskCall postTaskCall = PostTaskCall();
   static TaskDetailsCall taskDetailsCall = TaskDetailsCall();
   static ListOfTrayCall listOfTrayCall = ListOfTrayCall();
@@ -525,6 +527,54 @@ class SlotInfoByTrayIdCall {
       },
       params: {
         'tray_id': trayId,
+        'robot_id': robotId,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  int? id(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.records[:].id''',
+      ));
+  bool? statusbool(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.statusbool''',
+      ));
+  String? slotid(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.records[:].slot_id''',
+      ));
+  String? status(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.records[:].status''',
+      ));
+}
+
+class SlotDetailByFriendlyNameCall {
+  Future<ApiCallResponse> call({
+    String? slotFriendlyName = '',
+    String? robotId = '',
+  }) async {
+    final baseUrl = AdminApiGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'slot detail by friendly name',
+      apiUrl: '$baseUrl/robotmanager/slots/',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization':
+            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+      },
+      params: {
+        'slot_friendly_name': slotFriendlyName,
         'robot_id': robotId,
       },
       returnBody: true,

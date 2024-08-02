@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/popup/msg_mapping/msg_mapping_widget.dart';
 import '/popup/successfull/successfull_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
 import 'mapping_confirmation_model.dart';
 export 'mapping_confirmation_model.dart';
@@ -30,6 +31,24 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MappingConfirmationModel());
+
+    // On component load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      FFAppState().trayqrscan = 0;
+      FFAppState().update(() {});
+      _model.apiResultuws =
+          await AdminApiGroup.slotDetailByFriendlyNameCall.call(
+        slotFriendlyName: FFAppState().slotid,
+        robotId: FFAppState().robotid,
+      );
+
+      if ((_model.apiResultuws?.succeeded ?? true)) {
+        _model.slotid = AdminApiGroup.slotDetailByFriendlyNameCall.slotid(
+          (_model.apiResultuws?.jsonBody ?? ''),
+        );
+        setState(() {});
+      }
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -113,7 +132,7 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                     ),
                   ),
                   Text(
-                    'Slot ID',
+                    'Slot ID / Location',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Raleway',
                           letterSpacing: 0.0,
@@ -223,6 +242,8 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                       FFAppState().slotid = '';
                       FFAppState().trayid = '';
                       FFAppState().update(() {});
+                      _model.slotid = null;
+                      _model.updatePage(() {});
                       Navigator.pop(context);
 
                       context.goNamed(
@@ -280,7 +301,7 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                       onPressed: () async {
                         _model.trayMapingBtn =
                             await AdminApiGroup.mappingTrayAsnShuttleCall.call(
-                          slotId: FFAppState().slotid,
+                          slotId: _model.slotid,
                           trayId: FFAppState().trayid,
                           robotId: FFAppState().robotid,
                         );

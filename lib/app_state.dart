@@ -114,6 +114,12 @@ class FFAppState extends ChangeNotifier {
   set rothpage(String value) {
     _rothpage = value;
   }
+
+  int _trayqrscan = 0;
+  int get trayqrscan => _trayqrscan;
+  set trayqrscan(int value) {
+    _trayqrscan = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

@@ -5,8 +5,14 @@ import 'package:flutter/material.dart';
 
 class MappingConfirmationModel
     extends FlutterFlowModel<MappingConfirmationWidget> {
+  ///  Local state fields for this component.
+
+  String? slotid;
+
   ///  State fields for stateful widgets in this component.
 
+  // Stores action output result for [Backend Call - API (slot detail by friendly name)] action in mapping_confirmation widget.
+  ApiCallResponse? apiResultuws;
   // Stores action output result for [Backend Call - API (mapping tray asn shuttle)] action in Button widget.
   ApiCallResponse? trayMapingBtn;
 

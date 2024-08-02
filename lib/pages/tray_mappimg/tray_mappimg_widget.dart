@@ -241,11 +241,9 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget> {
                                     onChanged: (newValue) async {
                                       setState(
                                           () => _model.switchValue = newValue);
-                                      if (newValue) {
-                                        _model.change = 0;
-                                        setState(() {});
-                                      } else {
-                                        _model.change = 1;
+
+                                      if (!newValue) {
+                                        FFAppState().trayqrscan = 1;
                                         setState(() {});
                                       }
                                     },
@@ -262,42 +260,45 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget> {
                                   ),
                                 ),
                               ),
-                              if (_model.change == 0 ? true : false)
+                              if (FFAppState().trayqrscan == 0 ? true : false)
                                 Column(
                                   mainAxisSize: MainAxisSize.min,
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
-                                    Container(
-                                      width: 300.0,
-                                      height: 300.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBackground,
-                                        boxShadow: const [
-                                          BoxShadow(
-                                            blurRadius: 20.0,
-                                            color: Color(0x678E7CC3),
-                                            offset: Offset(
-                                              5.0,
-                                              8.0,
-                                            ),
-                                          )
-                                        ],
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
-                                      ),
-                                      child: const Padding(
-                                        padding: EdgeInsets.all(10.0),
-                                        child: SizedBox(
-                                          width: 300.0,
-                                          height: 300.0,
-                                          child: custom_widgets.QRTrayMap(
+                                    if (FFAppState().trayqrscan == 2
+                                        ? true
+                                        : false)
+                                      Container(
+                                        width: 300.0,
+                                        height: 300.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                          boxShadow: const [
+                                            BoxShadow(
+                                              blurRadius: 20.0,
+                                              color: Color(0x678E7CC3),
+                                              offset: Offset(
+                                                5.0,
+                                                8.0,
+                                              ),
+                                            )
+                                          ],
+                                          borderRadius:
+                                              BorderRadius.circular(5.0),
+                                        ),
+                                        child: const Padding(
+                                          padding: EdgeInsets.all(10.0),
+                                          child: SizedBox(
                                             width: 300.0,
                                             height: 300.0,
+                                            child: custom_widgets.QRTrayMap(
+                                              width: 300.0,
+                                              height: 300.0,
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
                                     Row(
                                       mainAxisSize: MainAxisSize.min,
                                       mainAxisAlignment:
@@ -325,7 +326,116 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget> {
                                     ),
                                   ].divide(const SizedBox(height: 30.0)),
                                 ),
-                              if (_model.change == 1 ? true : false)
+                              if (FFAppState().trayqrscan == 0 ? true : false)
+                                Container(
+                                  width: 300.0,
+                                  height: 300.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    boxShadow: const [
+                                      BoxShadow(
+                                        blurRadius: 20.0,
+                                        color: Color(0x678E7CC3),
+                                        offset: Offset(
+                                          5.0,
+                                          8.0,
+                                        ),
+                                      )
+                                    ],
+                                    borderRadius: BorderRadius.circular(5.0),
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 20.0, 10.0, 0.0),
+                                        child: Container(
+                                          width: 140.0,
+                                          height: 40.0,
+                                          decoration: BoxDecoration(
+                                            gradient: LinearGradient(
+                                              colors: [
+                                                FlutterFlowTheme.of(context)
+                                                    .heading,
+                                                FlutterFlowTheme.of(context)
+                                                    .accent
+                                              ],
+                                              stops: const [0.0, 1.0],
+                                              begin: const AlignmentDirectional(
+                                                  1.0, 0.0),
+                                              end:
+                                                  const AlignmentDirectional(-1.0, 0),
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(5.0),
+                                          ),
+                                          child: FFButtonWidget(
+                                            onPressed: () async {
+                                              FFAppState().trayqrscan = 2;
+                                              setState(() {});
+                                            },
+                                            text: 'Scan',
+                                            options: FFButtonOptions(
+                                              width: 150.0,
+                                              height: 40.0,
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(5.0, 0.0, 5.0, 0.0),
+                                              iconPadding: const EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              color: const Color(0x00EEECF1),
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily: 'Raleway',
+                                                        color: Colors.white,
+                                                        fontSize: 16.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              elevation: 0.0,
+                                              borderSide: const BorderSide(
+                                                color: Colors.transparent,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(5.0),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            'Scan Tray QR',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Raleway',
+                                                  fontSize: 18.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  lineHeight: 1.0,
+                                                ),
+                                          ),
+                                          Icon(
+                                            Icons.qr_code_scanner_outlined,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            size: 24.0,
+                                          ),
+                                        ].divide(const SizedBox(width: 5.0)),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              if (FFAppState().trayqrscan == 1 ? true : false)
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       10.0, 0.0, 10.0, 0.0),
