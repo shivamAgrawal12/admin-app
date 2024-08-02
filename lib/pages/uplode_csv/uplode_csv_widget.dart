@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/popup/robot_register/robot_register_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'uplode_csv_model.dart';
@@ -26,6 +27,12 @@ class _UplodeCsvWidgetState extends State<UplodeCsvWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => UplodeCsvModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      FFAppState().scannerpage = 'uploadcsv';
+      FFAppState().update(() {});
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
