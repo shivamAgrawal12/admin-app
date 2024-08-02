@@ -1985,26 +1985,12 @@ class _HomeWidgetState extends State<HomeWidget> {
                                             children: [
                                               Opacity(
                                                 opacity: valueOrDefault<double>(
-                                                  (AdminApiGroup.slotInfoCall
-                                                                  .type(
-                                                                containerSlotInfoResponse
-                                                                    .jsonBody,
-                                                              ) !=
-                                                              'picking_station') ||
-                                                          (AdminApiGroup
-                                                                  .slotInfoCall
-                                                                  .type(
-                                                                containerSlotInfoResponse
-                                                                    .jsonBody,
-                                                              ) !=
-                                                              'regular') ||
-                                                          (AdminApiGroup
-                                                                  .slotInfoCall
-                                                                  .type(
-                                                                containerSlotInfoResponse
-                                                                    .jsonBody,
-                                                              ) !=
-                                                              'unused')
+                                                  AdminApiGroup.slotInfoCall
+                                                              .type(
+                                                            containerSlotInfoResponse
+                                                                .jsonBody,
+                                                          ) ==
+                                                          'picking_station'
                                                       ? 0.3
                                                       : 1.0,
                                                   1.0,
@@ -2019,27 +2005,13 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
-                                                    if ((AdminApiGroup
-                                                                .slotInfoCall
-                                                                .type(
-                                                              containerSlotInfoResponse
-                                                                  .jsonBody,
-                                                            ) !=
-                                                            'picking_station') ||
-                                                        (AdminApiGroup
-                                                                .slotInfoCall
-                                                                .type(
-                                                              containerSlotInfoResponse
-                                                                  .jsonBody,
-                                                            ) !=
-                                                            'regular') ||
-                                                        (AdminApiGroup
-                                                                .slotInfoCall
-                                                                .type(
-                                                              containerSlotInfoResponse
-                                                                  .jsonBody,
-                                                            ) !=
-                                                            'unused')) {
+                                                    if (AdminApiGroup
+                                                            .slotInfoCall
+                                                            .type(
+                                                          containerSlotInfoResponse
+                                                              .jsonBody,
+                                                        ) !=
+                                                        'picking_station') {
                                                       await showModalBottomSheet(
                                                         isScrollControlled:
                                                             true,

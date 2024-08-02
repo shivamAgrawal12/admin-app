@@ -241,6 +241,7 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                     onPressed: () async {
                       FFAppState().slotid = '';
                       FFAppState().trayid = '';
+                      FFAppState().trayqrscan = 0;
                       FFAppState().update(() {});
                       _model.slotid = null;
                       _model.updatePage(() {});
@@ -322,6 +323,7 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
 
                           FFAppState().slotid = '';
                           FFAppState().trayid = '';
+                          FFAppState().trayqrscan = 0;
                           FFAppState().update(() {});
 
                           context.goNamed(
@@ -338,6 +340,10 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                           Navigator.pop(context);
                         } else {
                           Navigator.pop(context);
+                          FFAppState().slotid = '';
+                          FFAppState().trayid = '';
+                          FFAppState().trayqrscan = 0;
+                          FFAppState().update(() {});
                           await showModalBottomSheet(
                             isScrollControlled: true,
                             backgroundColor: Colors.transparent,

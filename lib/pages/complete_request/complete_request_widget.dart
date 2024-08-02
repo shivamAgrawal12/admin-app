@@ -318,7 +318,6 @@ class _CompleteRequestWidgetState extends State<CompleteRequestWidget>
                                                           0.0, 10.0, 0.0, 0.0),
                                                   child: Container(
                                                     width: 340.0,
-                                                    height: 185.0,
                                                     constraints: const BoxConstraints(
                                                       minWidth: 270.0,
                                                       maxWidth: 360.0,
@@ -521,6 +520,61 @@ class _CompleteRequestWidgetState extends State<CompleteRequestWidget>
                                                                       ),
                                                                 ),
                                                               ),
+                                                              Padding(
+                                                                padding:
+                                                                    const EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            10.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child: Text(
+                                                                  'Task Id',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Raleway',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .liteText,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.w500,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                              Padding(
+                                                                padding:
+                                                                    const EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child: Text(
+                                                                  getJsonField(
+                                                                    inprocessItem,
+                                                                    r'''$.id''',
+                                                                  ).toString(),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Raleway',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                        fontSize:
+                                                                            14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.w600,
+                                                                      ),
+                                                                ),
+                                                              ),
                                                             ],
                                                           ),
                                                           Column(
@@ -698,6 +752,61 @@ class _CompleteRequestWidgetState extends State<CompleteRequestWidget>
                                                                       ),
                                                                 ),
                                                               ),
+                                                              Padding(
+                                                                padding:
+                                                                    const EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            10.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child: Text(
+                                                                  'Tray Type',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Raleway',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .liteText,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.w500,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                              Padding(
+                                                                padding:
+                                                                    const EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child: Text(
+                                                                  getJsonField(
+                                                                    inprocessItem,
+                                                                    r'''$.tray_type''',
+                                                                  ).toString(),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Raleway',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                        fontSize:
+                                                                            14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.w600,
+                                                                      ),
+                                                                ),
+                                                              ),
                                                             ],
                                                           ),
                                                         ],
@@ -782,7 +891,6 @@ class _CompleteRequestWidgetState extends State<CompleteRequestWidget>
                                                         0.0, 10.0, 0.0, 0.0),
                                                 child: Container(
                                                   width: 340.0,
-                                                  height: 185.0,
                                                   constraints: const BoxConstraints(
                                                     minWidth: 270.0,
                                                     maxWidth: 350.0,
@@ -994,6 +1102,65 @@ class _CompleteRequestWidgetState extends State<CompleteRequestWidget>
                                                                     ),
                                                               ),
                                                             ),
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          10.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                'Task Id',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Raleway',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .liteText,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                getJsonField(
+                                                                  inprocessItem,
+                                                                  r'''$.id''',
+                                                                ).toString(),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Raleway',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                      fontSize:
+                                                                          14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                    ),
+                                                              ),
+                                                            ),
                                                           ],
                                                         ),
                                                         Column(
@@ -1161,6 +1328,65 @@ class _CompleteRequestWidgetState extends State<CompleteRequestWidget>
                                                                   ).toString()),
                                                                   '-',
                                                                 ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Raleway',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                      fontSize:
+                                                                          14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          10.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                'Tray Type',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Raleway',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .liteText,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                getJsonField(
+                                                                  inprocessItem,
+                                                                  r'''$.tray_type''',
+                                                                ).toString(),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium

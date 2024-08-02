@@ -107,6 +107,7 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget> {
                               highlightColor: Colors.transparent,
                               onTap: () async {
                                 FFAppState().trayid = '';
+                                FFAppState().trayqrscan = 0;
                                 FFAppState().update(() {});
 
                                 context.goNamed(

@@ -227,21 +227,21 @@ class _QRTrayInfoState extends State<QRTrayInfo> {
       FFAppState().trayid = '';
       FFAppState().update(() {});
       actions.continuousVibration(500, 1000, 500, 1000);
-      // await showModalBottomSheet(
-      //   isScrollControlled: true,
-      //   backgroundColor: Colors.transparent,
-      //   enableDrag: false,
-      //   context: context,
-      //   builder: (context) {
-      //     return GestureDetector(
-      //       onTap: () => FocusScope.of(context).unfocus(),
-      //       child: Padding(
-      //         padding: MediaQuery.viewInsetsOf(context),
-      //         child: NoRecordWidget(),
-      //       ),
-      //     );
-      //   },
-      // ).then((value) => safeSetState(() {}));
+      await showModalBottomSheet(
+        isScrollControlled: true,
+        backgroundColor: Colors.transparent,
+        enableDrag: false,
+        context: context,
+        builder: (context) {
+          return GestureDetector(
+            onTap: () => FocusScope.of(context).unfocus(),
+            child: Padding(
+              padding: MediaQuery.viewInsetsOf(context),
+              child: NoRecordWidget(),
+            ),
+          );
+        },
+      ).then((value) => safeSetState(() {}));
       if (_shouldSetState) setState(() {});
       return;
     }

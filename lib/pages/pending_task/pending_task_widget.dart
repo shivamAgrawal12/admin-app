@@ -263,7 +263,6 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                                             0.0, 15.0, 0.0, 0.0),
                                         child: Container(
                                           width: 340.0,
-                                          height: 180.0,
                                           constraints: const BoxConstraints(
                                             minWidth: 270.0,
                                             maxWidth: 350.0,
@@ -291,6 +290,8 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment
                                                       .spaceBetween,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
                                               children: [
                                                 Column(
                                                   mainAxisSize:
@@ -450,6 +451,67 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                                                         getJsonField(
                                                           taskpendingItem,
                                                           r'''$.status''',
+                                                        ).toString(),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Open Sans',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                  fontSize:
+                                                                      14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  10.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        'Task Id',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Open Sans',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .liteText,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  5.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        getJsonField(
+                                                          taskpendingItem,
+                                                          r'''$.id''',
                                                         ).toString(),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -637,6 +699,67 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                                                           ).toString()),
                                                           '-',
                                                         ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Open Sans',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                                  fontSize:
+                                                                      14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  10.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        'Tray Type',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Open Sans',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .liteText,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  5.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        getJsonField(
+                                                          taskpendingItem,
+                                                          r'''$.tray_type''',
+                                                        ).toString(),
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
