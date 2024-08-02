@@ -241,8 +241,10 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget> {
                                     onChanged: (newValue) async {
                                       setState(
                                           () => _model.switchValue = newValue);
-
-                                      if (!newValue) {
+                                      if (newValue) {
+                                        FFAppState().trayqrscan = 0;
+                                        setState(() {});
+                                      } else {
                                         FFAppState().trayqrscan = 1;
                                         setState(() {});
                                       }
@@ -260,7 +262,7 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget> {
                                   ),
                                 ),
                               ),
-                              if (FFAppState().trayqrscan == 0 ? true : false)
+                              if (FFAppState().trayqrscan == 2 ? true : false)
                                 Column(
                                   mainAxisSize: MainAxisSize.min,
                                   mainAxisAlignment: MainAxisAlignment.start,
