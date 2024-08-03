@@ -911,6 +911,51 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                   ),
                                 ],
                               ),
+                            if (_model.change == 2 ? false : true)
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  RichText(
+                                    textScaler:
+                                        MediaQuery.of(context).textScaler,
+                                    text: TextSpan(
+                                      children: [
+                                        TextSpan(
+                                          text: 'record id : ',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Open Sans',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .liteText,
+                                                fontSize: 15.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                        ),
+                                        TextSpan(
+                                          text:
+                                              FFAppState().taskrecid.toString(),
+                                          style: TextStyle(
+                                            color: FlutterFlowTheme.of(context)
+                                                .bodyText,
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 15.0,
+                                          ),
+                                        )
+                                      ],
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Open Sans',
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             if (_model.change == 1 ? true : false)
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(

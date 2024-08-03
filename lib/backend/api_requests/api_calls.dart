@@ -1050,6 +1050,10 @@ class ChangeSlotTypeCall {
         r'''$.records''',
         true,
       ) as List?;
+  String? msg(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
 }
 
 class ChangeSlotTypeWithoutFriendlyNameCall {

@@ -2,8 +2,8 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/pages/popup/msg_mapping/msg_mapping_widget.dart';
 import '/pages/popup/successfull/successfull_widget.dart';
-import '/pages/popup/wrong/wrong_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
@@ -297,7 +297,9 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
                             builder: (context) {
                               return Padding(
                                 padding: MediaQuery.viewInsetsOf(context),
-                                child: const WrongWidget(),
+                                child: const MsgMappingWidget(
+                                  msg: '',
+                                ),
                               );
                             },
                           ).then((value) => safeSetState(() {}));

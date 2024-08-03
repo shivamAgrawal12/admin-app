@@ -6,6 +6,7 @@ import '/pages/popup/block_rack/block_rack_widget.dart';
 import '/pages/popup/direct_picable/direct_picable_widget.dart';
 import '/pages/popup/friendly_name/friendly_name_widget.dart';
 import '/pages/popup/menu/menu_widget.dart';
+import '/pages/popup/msg_mapping/msg_mapping_widget.dart';
 import '/pages/popup/no_record/no_record_widget.dart';
 import '/pages/popup/select_type/select_type_widget.dart';
 import '/pages/popup/successfull/successfull_widget.dart';
@@ -2273,7 +2274,15 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                     .viewInsetsOf(
                                                                         context),
                                                                 child:
-                                                                    const WrongWidget(),
+                                                                    MsgMappingWidget(
+                                                                  msg: AdminApiGroup
+                                                                      .changeSlotTypeCall
+                                                                      .msg(
+                                                                    (_model.removePickingStation
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  )!,
+                                                                ),
                                                               ),
                                                             );
                                                           },
