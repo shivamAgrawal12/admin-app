@@ -1,8 +1,8 @@
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/pages/popup/menu/menu_widget.dart';
-import '/pages/popup/no_recordforlist/no_recordforlist_widget.dart';
+import '/popup/menu/menu_widget.dart';
+import '/popup/no_recordforlist/no_recordforlist_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
 import 'package:easy_debounce/easy_debounce.dart';
