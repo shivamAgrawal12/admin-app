@@ -2,23 +2,23 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/popup/successfull/successfull_widget.dart';
-import '/popup/wrong/wrong_widget.dart';
+import '/pages/popup/successfull/successfull_widget.dart';
+import '/pages/popup/wrong/wrong_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
-import 'friendly_name_model.dart';
-export 'friendly_name_model.dart';
+import 'tray_delete_model.dart';
+export 'tray_delete_model.dart';
 
-class FriendlyNameWidget extends StatefulWidget {
-  const FriendlyNameWidget({super.key});
+class TrayDeleteWidget extends StatefulWidget {
+  const TrayDeleteWidget({super.key});
 
   @override
-  State<FriendlyNameWidget> createState() => _FriendlyNameWidgetState();
+  State<TrayDeleteWidget> createState() => _TrayDeleteWidgetState();
 }
 
-class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
-  late FriendlyNameModel _model;
+class _TrayDeleteWidgetState extends State<TrayDeleteWidget> {
+  late TrayDeleteModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -29,7 +29,7 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => FriendlyNameModel());
+    _model = createModel(context, () => TrayDeleteModel());
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
@@ -45,9 +45,6 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
         FFAppState().update(() {});
       }
     });
-
-    _model.textController ??= TextEditingController();
-    _model.textFieldFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -100,7 +97,7 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
               child: Align(
                 alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Text(
-                  'Change Slot To Picking Station',
+                  'Confirm To Delete Tray',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Raleway',
                         color: FlutterFlowTheme.of(context).heading,
@@ -112,22 +109,23 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
               child: Text(
-                'Slot Id',
+                'Tray ID',
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Raleway',
                       color: FlutterFlowTheme.of(context).heading,
-                      fontSize: 14.0,
+                      fontSize: 15.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w500,
+                      lineHeight: 1.0,
                     ),
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
               child: Text(
-                FFAppState().homeslotid,
+                FFAppState().trayid,
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Raleway',
                       fontSize: 30.0,
@@ -137,91 +135,16 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
                     ),
               ),
             ),
-            Align(
-              alignment: const AlignmentDirectional(-1.0, -1.0),
-              child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(30.0, 15.0, 0.0, 0.0),
-                child: Text(
-                  'Enter Friendly Name',
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Raleway',
-                        color: FlutterFlowTheme.of(context).liteText,
-                        fontSize: 15.0,
-                        letterSpacing: 0.0,
-                        fontWeight: FontWeight.w500,
-                        lineHeight: 1.0,
-                      ),
-                ),
-              ),
-            ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 0.0),
-              child: SizedBox(
-                width: 220.0,
-                child: TextFormField(
-                  controller: _model.textController,
-                  focusNode: _model.textFieldFocusNode,
-                  autofocus: false,
-                  obscureText: false,
-                  decoration: InputDecoration(
-                    hintText: 'friendly name',
-                    hintStyle:
-                        FlutterFlowTheme.of(context).labelMedium.override(
-                              fontFamily: 'Open Sans',
-                              fontSize: 15.0,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.w500,
-                            ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).liteText,
-                        width: 1.5,
-                      ),
-                      borderRadius: BorderRadius.circular(5.0),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).heading,
-                        width: 1.5,
-                      ),
-                      borderRadius: BorderRadius.circular(5.0),
-                    ),
-                    errorBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).error,
-                        width: 1.5,
-                      ),
-                      borderRadius: BorderRadius.circular(5.0),
-                    ),
-                    focusedErrorBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).error,
-                        width: 1.5,
-                      ),
-                      borderRadius: BorderRadius.circular(5.0),
-                    ),
-                  ),
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Raleway',
-                        fontSize: 15.0,
-                        letterSpacing: 0.0,
-                        fontWeight: FontWeight.w600,
-                      ),
-                  validator:
-                      _model.textControllerValidator.asValidator(context),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 15.0, 15.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 40.0, 15.0, 15.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   FFButtonWidget(
                     onPressed: () async {
-                      FFAppState().slotid = '';
-                      FFAppState().hideslot = 0;
+                      FFAppState().trayid = '';
+                      FFAppState().trayrecid = 0;
                       FFAppState().update(() {});
                       Navigator.pop(context);
                     },
@@ -266,15 +189,12 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
                     ),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        _model.addPickingStation =
-                            await AdminApiGroup.changeSlotTypeCall.call(
-                          id: FFAppState().slotrecid,
-                          type: 'picking_station',
-                          friendlyName: _model.textController.text,
+                        _model.addNewTray =
+                            await AdminApiGroup.deleteTrayCall.call(
+                          id: FFAppState().trayrecid,
                         );
 
-                        if ((_model.addPickingStation?.succeeded ?? true)) {
-                          Navigator.pop(context);
+                        if ((_model.addNewTray?.succeeded ?? true)) {
                           await showModalBottomSheet(
                             isScrollControlled: true,
                             backgroundColor: Colors.transparent,
@@ -288,7 +208,6 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
                             },
                           ).then((value) => safeSetState(() {}));
                         } else {
-                          Navigator.pop(context);
                           await showModalBottomSheet(
                             isScrollControlled: true,
                             backgroundColor: Colors.transparent,
@@ -303,9 +222,11 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
                           ).then((value) => safeSetState(() {}));
                         }
 
+                        Navigator.pop(context);
+
                         setState(() {});
                       },
-                      text: 'Change',
+                      text: 'Confirm',
                       options: FFButtonOptions(
                         height: 40.0,
                         padding:

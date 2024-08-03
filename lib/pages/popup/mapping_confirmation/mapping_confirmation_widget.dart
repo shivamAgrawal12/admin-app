@@ -2,8 +2,8 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/popup/msg_mapping/msg_mapping_widget.dart';
-import '/popup/successfull/successfull_widget.dart';
+import '/pages/popup/msg_mapping/msg_mapping_widget.dart';
+import '/pages/popup/successfull/successfull_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
@@ -361,6 +361,17 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                               );
                             },
                           ).then((value) => safeSetState(() {}));
+
+                          context.goNamed(
+                            'slot_mappimg',
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: const TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 500),
+                              ),
+                            },
+                          );
                         }
 
                         setState(() {});

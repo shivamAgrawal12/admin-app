@@ -2,7 +2,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/popup/wrong/wrong_widget.dart';
+import '/pages/popup/wrong/wrong_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'register_shuttles_model.dart';

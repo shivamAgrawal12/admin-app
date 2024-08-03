@@ -2,14 +2,14 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/popup/block_rack/block_rack_widget.dart';
-import '/popup/direct_picable/direct_picable_widget.dart';
-import '/popup/friendly_name/friendly_name_widget.dart';
-import '/popup/menu/menu_widget.dart';
-import '/popup/no_record/no_record_widget.dart';
-import '/popup/select_type/select_type_widget.dart';
-import '/popup/successfull/successfull_widget.dart';
-import '/popup/wrong/wrong_widget.dart';
+import '/pages/popup/block_rack/block_rack_widget.dart';
+import '/pages/popup/direct_picable/direct_picable_widget.dart';
+import '/pages/popup/friendly_name/friendly_name_widget.dart';
+import '/pages/popup/menu/menu_widget.dart';
+import '/pages/popup/no_record/no_record_widget.dart';
+import '/pages/popup/select_type/select_type_widget.dart';
+import '/pages/popup/successfull/successfull_widget.dart';
+import '/pages/popup/wrong/wrong_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
@@ -2199,11 +2199,14 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                         'picking_station') {
                                                       _model.removePickingStation =
                                                           await AdminApiGroup
-                                                              .changeSlotTypeWithoutFriendlyNameCall
+                                                              .changeSlotTypeCall
                                                               .call(
                                                         id: FFAppState()
                                                             .slotrecid,
                                                         type: 'regular',
+                                                        friendlyName:
+                                                            FFAppState()
+                                                                .homeslotid,
                                                       );
 
                                                       if ((_model

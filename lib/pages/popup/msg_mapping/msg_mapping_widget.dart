@@ -98,18 +98,13 @@ class _MsgMappingWidgetState extends State<MsgMappingWidget> {
                   _model.timerController.onStopTimer();
                   FFAppState().slotid = '';
                   FFAppState().trayid = '';
+                  FFAppState().slotrecid = 0;
+                  FFAppState().trayrecid = 0;
+                  FFAppState().taskrecid = 0;
+                  FFAppState().hideslot = 0;
+                  FFAppState().homeslotid = '';
                   FFAppState().update(() {});
-
-                  context.pushNamed(
-                    'slot_mappimg',
-                    extra: <String, dynamic>{
-                      kTransitionInfoKey: const TransitionInfo(
-                        hasTransition: true,
-                        transitionType: PageTransitionType.fade,
-                        duration: Duration(milliseconds: 0),
-                      ),
-                    },
-                  );
+                  Navigator.pop(context);
                 },
                 textAlign: TextAlign.start,
                 style: FlutterFlowTheme.of(context).headlineSmall.override(

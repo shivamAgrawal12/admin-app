@@ -13,14 +13,6 @@ import 'index.dart'; // Imports other custom widgets
 
 import 'index.dart'; // Imports other custom widgets
 
-import 'index.dart'; // Imports other custom widgets
-
-import 'index.dart'; // Imports other custom widgets
-
-import 'index.dart'; // Imports other custom widgets
-
-import 'index.dart'; // Imports other custom widgets
-
 import 'dart:io';
 import '/backend/api_requests/api_calls.dart';
 import 'package:mobile_scanner/mobile_scanner.dart'; // Import MobileScanner
@@ -49,6 +41,8 @@ class LocationQRScan extends StatefulWidget {
 class _LocationQRScanState extends State<LocationQRScan> {
   MobileScannerController controller = MobileScannerController();
   bool isProcessing = false;
+  double currentZoom = 0.8; // Initial zoom scale
+
   @override
   void initState() {
     super.initState();
@@ -56,17 +50,18 @@ class _LocationQRScanState extends State<LocationQRScan> {
   }
 
   void initializeScanner() async {
+    await controller.start();
+    try {
+      await controller.setZoomScale(currentZoom);
+    } catch (e) {
+      print('Error setting initial zoom scale: $e');
+    }
     if (FFAppState().scannerpage == "location") {
       print("Slot map QR initialized");
       await controller.start();
-      // try {
-      //   await controller.setZoomScale(currentZoom);
-      // } catch (e) {
-      //   print('Error setting initial zoom scale: $e');
-      // }
     } else {
       print(
-          "Scanner not initialized. FFAppState().scannerpage is not 'locationqr'.");
+          "Scanner not initialized. FFAppState().scannerpage is not 'location'.");
     }
   }
 
@@ -115,7 +110,70 @@ class _LocationQRScanState extends State<LocationQRScan> {
               });
             },
           ),
-          // Add any additional UI elements or controls here
+          Positioned(
+            bottom: 12.0,
+            left: 12.0,
+            child: SizedBox(
+              width: 35,
+              height: 35,
+              child: FloatingActionButton(
+                onPressed: () async {
+                  // Zoom out logic
+                  try {
+                    currentZoom -= 0.1;
+                    if (currentZoom < 0.1) currentZoom = 0.1; // Minimum zoom
+                    await controller.setZoomScale(currentZoom);
+                  } catch (e) {
+                    print('Error setting zoom scale: $e');
+                  }
+                },
+                child: Icon(Icons.zoom_out),
+                mini: true,
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 12.0,
+            left: MediaQuery.of(context).size.width / 2 - 60,
+            child: SizedBox(
+              width: 35,
+              height: 35,
+              child: FloatingActionButton(
+                onPressed: () async {
+                  // Torch toggle logic
+                  try {
+                    await controller.toggleTorch();
+                  } catch (e) {
+                    print('Error toggling torch: $e');
+                  }
+                },
+                child: Icon(Icons.flash_on),
+                mini: true,
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 12.0,
+            right: 12.0,
+            child: SizedBox(
+              width: 35,
+              height: 35,
+              child: FloatingActionButton(
+                onPressed: () async {
+                  // Zoom in logic
+                  try {
+                    currentZoom += 0.1;
+                    if (currentZoom > 1.0) currentZoom = 1.0; // Maximum zoom
+                    await controller.setZoomScale(currentZoom);
+                  } catch (e) {
+                    print('Error setting zoom scale: $e');
+                  }
+                },
+                child: Icon(Icons.zoom_in),
+                mini: true,
+              ),
+            ),
+          ),
         ],
       ),
     );

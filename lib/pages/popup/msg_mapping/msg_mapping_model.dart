@@ -8,10 +8,10 @@ class MsgMappingModel extends FlutterFlowModel<MsgMappingWidget> {
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for Timer widget.
-  final timerInitialTimeMs = 2000;
-  int timerMilliseconds = 2000;
+  final timerInitialTimeMs = 3500;
+  int timerMilliseconds = 3500;
   String timerValue = StopWatchTimer.getDisplayTime(
-    2000,
+    3500,
     hours: false,
     milliSecond: false,
   );

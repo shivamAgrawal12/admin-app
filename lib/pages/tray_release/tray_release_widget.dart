@@ -3,11 +3,11 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/instant_timer.dart';
-import '/popup/friendly_name_wrg/friendly_name_wrg_widget.dart';
-import '/popup/menu/menu_widget.dart';
-import '/popup/no_recordforlist/no_recordforlist_widget.dart';
-import '/popup/successfull/successfull_widget.dart';
-import '/popup/wrong/wrong_widget.dart';
+import '/pages/popup/friendly_name_wrg/friendly_name_wrg_widget.dart';
+import '/pages/popup/menu/menu_widget.dart';
+import '/pages/popup/no_recordforlist/no_recordforlist_widget.dart';
+import '/pages/popup/successfull/successfull_widget.dart';
+import '/pages/popup/wrong/wrong_widget.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
@@ -40,6 +40,8 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().scannerpage = 'trayrelease';
+      setState(() {});
+      _model.change = 0;
       setState(() {});
       _model.instantTimer = InstantTimer.periodic(
         duration: const Duration(milliseconds: 2000),

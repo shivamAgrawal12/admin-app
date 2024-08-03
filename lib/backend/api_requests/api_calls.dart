@@ -1522,6 +1522,15 @@ class BlockRackCall {
         r'''$.records''',
         true,
       ) as List?;
+  List<String>? msg(dynamic response) => (getJsonField(
+        response,
+        r'''$.detail[:].msg''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class ChangeTheTypeOfSlotCall {
@@ -1566,6 +1575,15 @@ class ChangeTheTypeOfSlotCall {
         response,
         r'''$.statusbool''',
       ));
+  List<String>? msg(dynamic response) => (getJsonField(
+        response,
+        r'''$.detail[:].msg''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class CancelAllPendingCall {

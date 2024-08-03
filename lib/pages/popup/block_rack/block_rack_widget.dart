@@ -4,8 +4,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/popup/successfull/successfull_widget.dart';
-import '/popup/wrong/wrong_widget.dart';
+import '/pages/popup/msg_mapping/msg_mapping_widget.dart';
+import '/pages/popup/successfull/successfull_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
@@ -670,15 +670,23 @@ class _BlockRackWidgetState extends State<BlockRackWidget> {
                                 _model.blockedRack =
                                     await AdminApiGroup.blockRackCall.call(
                                   robotId: _model.textController1.text,
-                                  rack:
-                                      int.tryParse(_model.textController2.text),
+                                  rack: _model.textController3.text == ''
+                                      ? null
+                                      : int.tryParse(
+                                          _model.textController3.text),
                                   type: _model.dropDownValue,
-                                  row:
-                                      int.tryParse(_model.textController2.text),
-                                  slot:
-                                      int.tryParse(_model.textController4.text),
-                                  depth:
-                                      int.tryParse(_model.textController5.text),
+                                  row: _model.textController2.text == ''
+                                      ? null
+                                      : int.tryParse(
+                                          _model.textController2.text),
+                                  slot: _model.textController4.text == ''
+                                      ? null
+                                      : int.tryParse(
+                                          _model.textController4.text),
+                                  depth: _model.textController5.text == ''
+                                      ? null
+                                      : int.tryParse(
+                                          _model.textController5.text),
                                 );
 
                                 if ((_model.blockedRack?.succeeded ?? true)) {
@@ -705,7 +713,9 @@ class _BlockRackWidgetState extends State<BlockRackWidget> {
                                       return Padding(
                                         padding:
                                             MediaQuery.viewInsetsOf(context),
-                                        child: const WrongWidget(),
+                                        child: const MsgMappingWidget(
+                                          msg: '',
+                                        ),
                                       );
                                     },
                                   ).then((value) => safeSetState(() {}));

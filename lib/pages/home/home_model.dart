@@ -21,7 +21,7 @@ class HomeModel extends FlutterFlowModel<HomeWidget> {
   String? Function(BuildContext, String?)? textControllerValidator;
   // Stores action output result for [Backend Call - API (slot info)] action in Button widget.
   ApiCallResponse? trayCheckBtn;
-  // Stores action output result for [Backend Call - API (change slot type without friendly name)] action in Container widget.
+  // Stores action output result for [Backend Call - API (change slot type)] action in Container widget.
   ApiCallResponse? removePickingStation;
   // Stores action output result for [Backend Call - API (change slot type)] action in Button widget.
   ApiCallResponse? unblockSlot;
