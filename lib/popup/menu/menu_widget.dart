@@ -1,6 +1,7 @@
 import '/auth/custom_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/popup/logout/logout_widget.dart';
 import 'package:flutter/material.dart';
 import 'menu_model.dart';
 export 'menu_model.dart';
@@ -247,21 +248,18 @@ class _MenuWidgetState extends State<MenuWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          GoRouter.of(context).prepareAuthEvent();
-                          await authManager.signOut();
-                          GoRouter.of(context).clearRedirectLocation();
-
-                          context.goNamedAuth(
-                            'robot_scan',
-                            context.mounted,
-                            extra: <String, dynamic>{
-                              kTransitionInfoKey: const TransitionInfo(
-                                hasTransition: true,
-                                transitionType: PageTransitionType.fade,
-                                duration: Duration(milliseconds: 500),
-                              ),
+                          await showModalBottomSheet(
+                            isScrollControlled: true,
+                            backgroundColor: Colors.transparent,
+                            enableDrag: false,
+                            context: context,
+                            builder: (context) {
+                              return Padding(
+                                padding: MediaQuery.viewInsetsOf(context),
+                                child: const LogoutWidget(),
+                              );
                             },
-                          );
+                          ).then((value) => safeSetState(() {}));
                         },
                         child: Row(
                           mainAxisSize: MainAxisSize.max,

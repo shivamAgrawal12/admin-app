@@ -1,4 +1,3 @@
-import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'select_type_widget.dart' show SelectTypeWidget;
@@ -30,8 +29,6 @@ class SelectTypeModel extends FlutterFlowModel<SelectTypeWidget> {
   FocusNode? textFieldFocusNode5;
   TextEditingController? textController5;
   String? Function(BuildContext, String?)? textController5Validator;
-  // Stores action output result for [Backend Call - API (Change the type of slot)] action in Button widget.
-  ApiCallResponse? selectType;
 
   @override
   void initState(BuildContext context) {}

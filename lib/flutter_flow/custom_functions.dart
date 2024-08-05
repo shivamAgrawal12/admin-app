@@ -186,3 +186,7 @@ dynamic searchalltray(
 
   return result.isNotEmpty ? result : records;
 }
+
+dynamic booltruecondition() {
+  return true;
+}

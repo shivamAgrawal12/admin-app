@@ -1320,6 +1320,10 @@ class UplodeSlotCsvCall {
         response,
         r'''$.detail[:].msg''',
       ));
+  dynamic status(dynamic response) => getJsonField(
+        response,
+        r'''$.statusbool''',
+      );
 }
 
 class SpeedInShuttleCall {

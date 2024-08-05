@@ -1,8 +1,10 @@
+import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
+import '/popup/msg_mapping/msg_mapping_widget.dart';
 import '/popup/robot_register/robot_register_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -86,15 +88,61 @@ class _UplodeCsvWidgetState extends State<UplodeCsvWidget> {
                           const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 10.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(8.0),
-                            child: Image.asset(
-                              'assets/images/Group_42_(2).png',
-                              width: 130.0,
-                              height: 40.0,
-                              fit: BoxFit.contain,
+                          Opacity(
+                            opacity: loggedIn ? 1.0 : 0.0,
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 12.0, 0.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  if (loggedIn) {
+                                    context.pushNamed(
+                                      'home',
+                                      extra: <String, dynamic>{
+                                        kTransitionInfoKey: const TransitionInfo(
+                                          hasTransition: true,
+                                          transitionType:
+                                              PageTransitionType.fade,
+                                          duration: Duration(milliseconds: 0),
+                                        ),
+                                      },
+                                    );
+                                  }
+                                },
+                                child: FaIcon(
+                                  FontAwesomeIcons.arrowLeft,
+                                  color: FlutterFlowTheme.of(context).bodyText,
+                                  size: 26.0,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: Image.asset(
+                                'assets/images/Group_42_(2).png',
+                                width: 130.0,
+                                height: 40.0,
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                12.0, 0.0, 0.0, 0.0),
+                            child: FaIcon(
+                              FontAwesomeIcons.arrowLeft,
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              size: 26.0,
                             ),
                           ),
                         ].divide(const SizedBox(width: 6.0)),
@@ -385,8 +433,10 @@ class _UplodeCsvWidgetState extends State<UplodeCsvWidget> {
                                       inFile: _model.uploadedLocalFile,
                                     );
 
-                                    if ((_model.slotUplode?.succeeded ??
-                                        true)) {
+                                    if (getJsonField(
+                                      (_model.slotUplode?.jsonBody ?? ''),
+                                      r'''$.statusbool''',
+                                    )) {
                                       await showModalBottomSheet(
                                         isScrollControlled: true,
                                         backgroundColor: Colors.transparent,
@@ -410,27 +460,38 @@ class _UplodeCsvWidgetState extends State<UplodeCsvWidget> {
                                         },
                                       ).then((value) => safeSetState(() {}));
                                     } else {
-                                      await showDialog(
+                                      await showModalBottomSheet(
+                                        isScrollControlled: true,
+                                        backgroundColor: Colors.transparent,
+                                        enableDrag: false,
                                         context: context,
-                                        builder: (alertDialogContext) {
-                                          return AlertDialog(
-                                            title: const Text('CSV Not Uploaded'),
-                                            content: Text(AdminApiGroup
-                                                .uplodeSlotCsvCall
-                                                .msg(
-                                              (_model.slotUplode?.jsonBody ??
-                                                  ''),
-                                            )!),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: const Text('Ok'),
+                                        builder: (context) {
+                                          return GestureDetector(
+                                            onTap: () => _model
+                                                    .unfocusNode.canRequestFocus
+                                                ? FocusScope.of(context)
+                                                    .requestFocus(
+                                                        _model.unfocusNode)
+                                                : FocusScope.of(context)
+                                                    .unfocus(),
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: MsgMappingWidget(
+                                                msg: valueOrDefault<String>(
+                                                  getJsonField(
+                                                    (_model.slotUplode
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                    r'''$.message''',
+                                                  )?.toString(),
+                                                  '-',
+                                                ),
                                               ),
-                                            ],
+                                            ),
                                           );
                                         },
-                                      );
+                                      ).then((value) => safeSetState(() {}));
                                     }
 
                                     setState(() {});

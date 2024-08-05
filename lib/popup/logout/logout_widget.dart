@@ -108,7 +108,17 @@ class _LogoutWidgetState extends State<LogoutWidget> {
                         await authManager.signOut();
                         GoRouter.of(context).clearRedirectLocation();
 
-                        context.goNamedAuth('robot_scan', context.mounted);
+                        context.goNamedAuth(
+                          'robot_scan',
+                          context.mounted,
+                          extra: <String, dynamic>{
+                            kTransitionInfoKey: const TransitionInfo(
+                              hasTransition: true,
+                              transitionType: PageTransitionType.fade,
+                              duration: Duration(milliseconds: 500),
+                            ),
+                          },
+                        );
                       },
                       child: Container(
                         width: 100.0,

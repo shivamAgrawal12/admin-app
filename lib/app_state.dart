@@ -120,6 +120,12 @@ class FFAppState extends ChangeNotifier {
   set trayqrscan(int value) {
     _trayqrscan = value;
   }
+
+  String _apimsg = '';
+  String get apimsg => _apimsg;
+  set apimsg(String value) {
+    _apimsg = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

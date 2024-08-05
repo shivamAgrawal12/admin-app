@@ -1,4 +1,3 @@
-import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'block_rack_widget.dart' show BlockRackWidget;
@@ -30,8 +29,6 @@ class BlockRackModel extends FlutterFlowModel<BlockRackWidget> {
   FocusNode? textFieldFocusNode5;
   TextEditingController? textController5;
   String? Function(BuildContext, String?)? textController5Validator;
-  // Stores action output result for [Backend Call - API (block rack)] action in Button widget.
-  ApiCallResponse? blockedRack;
 
   @override
   void initState(BuildContext context) {}
