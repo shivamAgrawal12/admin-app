@@ -528,6 +528,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                             10.0, 10.0, 10.0, 15.0),
                         child: SingleChildScrollView(
                           primary: false,
+                          controller: _model.columnController1,
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -1449,6 +1450,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   decoration: const BoxDecoration(),
                                   child: SingleChildScrollView(
                                     primary: false,
+                                    controller: _model.columnController2,
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
@@ -1746,6 +1748,18 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                   .text;
                                                           FFAppState()
                                                               .update(() {});
+                                                          await _model
+                                                              .columnController2
+                                                              ?.animateTo(
+                                                            _model
+                                                                .columnController2!
+                                                                .position
+                                                                .maxScrollExtent,
+                                                            duration: const Duration(
+                                                                milliseconds:
+                                                                    1000),
+                                                            curve: Curves.ease,
+                                                          );
                                                         } else {
                                                           await showModalBottomSheet(
                                                             isScrollControlled:

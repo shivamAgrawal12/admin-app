@@ -116,7 +116,6 @@ class _SuccessfullWidgetState extends State<SuccessfullWidget> {
                   FFAppState().trayrecid = 0;
                   FFAppState().taskrecid = 0;
                   FFAppState().friendlyname = '';
-                  FFAppState().hideslot = 0;
                   FFAppState().homeslotid = '';
                   FFAppState().update(() {});
                   Navigator.pop(context);

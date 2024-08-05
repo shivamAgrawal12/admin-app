@@ -13,6 +13,10 @@ class HomeModel extends FlutterFlowModel<HomeWidget> {
   final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - routhpage] action in home widget.
   String? routh;
+  // State field(s) for Column widget.
+  ScrollController? columnController1;
+  // State field(s) for Column widget.
+  ScrollController? columnController2;
   // State field(s) for Switch widget.
   bool? switchValue;
   // State field(s) for TextField widget.
@@ -31,11 +35,16 @@ class HomeModel extends FlutterFlowModel<HomeWidget> {
   ApiCallResponse? cancelTask;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    columnController1 = ScrollController();
+    columnController2 = ScrollController();
+  }
 
   @override
   void dispose() {
     unfocusNode.dispose();
+    columnController1?.dispose();
+    columnController2?.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }
