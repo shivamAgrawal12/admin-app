@@ -371,7 +371,6 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                           Navigator.pop(context);
                         } else {
                           Navigator.pop(context);
-                          FFAppState().slotid = '';
                           FFAppState().trayid = '';
                           FFAppState().trayqrscan = 0;
                           FFAppState().update(() {});
