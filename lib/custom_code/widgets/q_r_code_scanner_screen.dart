@@ -10,14 +10,6 @@ import 'package:flutter/material.dart';
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 import 'index.dart'; // Imports other custom widgets
-
-import 'index.dart'; // Imports other custom widgets
-
-import 'index.dart'; // Imports other custom widgets
-
-import 'index.dart'; // Imports other custom widgets
-
-import 'index.dart'; // Imports other custom widgets
 import '/backend/api_requests/api_calls.dart';
 import '/auth/custom_auth/auth_util.dart';
 import '/popup/new_robot/new_robot_widget.dart';
@@ -44,8 +36,6 @@ class QRCodeScannerScreen extends StatefulWidget {
 class _QRCodeScannerScreenState extends State<QRCodeScannerScreen> {
   MobileScannerController controller = MobileScannerController();
   bool isProcessing = false;
-  bool _shouldSetState = false;
-  bool loggedIn = false;
   double currentZoom = 0.7; // Initial zoom scale
 
   @override
@@ -55,7 +45,7 @@ class _QRCodeScannerScreenState extends State<QRCodeScannerScreen> {
   }
 
   void initializeScanner() async {
-    print("qr code scanner initialized");
+    print("QR code scanner initialized");
     await controller.start();
     try {
       await controller.setZoomScale(0.7);
@@ -89,7 +79,7 @@ class _QRCodeScannerScreenState extends State<QRCodeScannerScreen> {
               final String? code = barcodeCapture.barcodes.first.rawValue;
 
               if (code != null) {
-                FFAppState().robotid = code; // Store scanned value in robotid
+                // Handle the scanned value
                 await _handleScannedCode(code, context);
               } else {
                 await _showWrongStoreDialog(context, 'No value found');
@@ -172,57 +162,24 @@ class _QRCodeScannerScreenState extends State<QRCodeScannerScreen> {
   }
 
   Future<void> _handleScannedCode(String code, BuildContext context) async {
-    _shouldSetState = true;
-    final result = await AdminApiGroup.verifyRobotIdCall.call(
-      robotId: FFAppState().robotid,
-    );
+    // Set robotid in the app state
+    FFAppState().robotid = code;
+    FFAppState().update(() {});
 
-    if (result.succeeded) {
-      actions.continuousVibration(0, 0, 0, 500);
-      FFAppState().robotid = code;
-      setState(() {});
-      if (loggedIn) {
-        context.pushNamed(
-          'home',
-          extra: <String, dynamic>{
-            kTransitionInfoKey: TransitionInfo(
-              hasTransition: true,
-              transitionType: PageTransitionType.fade,
-              duration: Duration(milliseconds: 0),
-            ),
-          },
-        );
-      } else {
-        context.pushNamed(
-          'login_page',
-          extra: <String, dynamic>{
-            kTransitionInfoKey: TransitionInfo(
-              hasTransition: true,
-              transitionType: PageTransitionType.fade,
-              duration: Duration(milliseconds: 0),
-            ),
-          },
-        );
-      }
-    } else {
-      await showModalBottomSheet(
-        isScrollControlled: true,
-        backgroundColor: Colors.transparent,
-        enableDrag: false,
-        context: context,
-        builder: (context) {
-          return GestureDetector(
-            onTap: () => FocusScope.of(context).unfocus(),
-            child: Padding(
-              padding: MediaQuery.of(context).viewInsets,
-              child: NewRobotWidget(),
-            ),
-          );
-        },
-      );
-      // ).then((value) => safeSetState(() {}));
-      if (_shouldSetState) setState(() {});
-    }
+    // Stop the scanner
+    await controller.stop();
+    actions.continuousVibration(0, 0, 0, 500);
+    // Navigate to the login_page
+    context.pushNamed(
+      'login_page',
+      extra: <String, dynamic>{
+        kTransitionInfoKey: TransitionInfo(
+          hasTransition: true,
+          transitionType: PageTransitionType.fade,
+          duration: Duration(milliseconds: 500),
+        ),
+      },
+    );
   }
 
   Future<void> _showWrongStoreDialog(

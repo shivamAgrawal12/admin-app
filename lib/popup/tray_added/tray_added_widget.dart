@@ -4,8 +4,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/popup/msg_mapping/msg_mapping_widget.dart';
 import '/popup/successfull/successfull_widget.dart';
-import '/popup/wrong/wrong_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'tray_added_model.dart';
@@ -31,6 +31,9 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => TrayAddedModel());
+
+    _model.textController ??= TextEditingController();
+    _model.textFieldFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -121,9 +124,9 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 10.0),
               child: Text(
-                'Tray ID',
+                'Tray Height',
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Raleway',
                       fontSize: 15.0,
@@ -136,38 +139,112 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
             Form(
               key: _model.formKey,
               autovalidateMode: AutovalidateMode.disabled,
-              child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
-                child: FlutterFlowDropDown<String>(
-                  controller: _model.dropDownValueController ??=
-                      FormFieldController<String>(null),
-                  options: const ['plastic_tray', 'metal_tray'],
-                  onChanged: (val) =>
-                      setState(() => _model.dropDownValue = val),
-                  width: 230.0,
-                  height: 45.0,
-                  textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Open Sans',
-                        fontSize: 15.0,
-                        letterSpacing: 0.0,
-                        fontWeight: FontWeight.w500,
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Container(
+                    width: 230.0,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(0.0),
+                        bottomRight: Radius.circular(0.0),
+                        topLeft: Radius.circular(0.0),
+                        topRight: Radius.circular(0.0),
                       ),
-                  hintText: 'Please select type...',
-                  icon: Icon(
-                    Icons.keyboard_arrow_down_rounded,
-                    color: FlutterFlowTheme.of(context).secondaryText,
-                    size: 24.0,
+                    ),
+                    child: TextFormField(
+                      controller: _model.textController,
+                      focusNode: _model.textFieldFocusNode,
+                      autofocus: true,
+                      textInputAction: TextInputAction.next,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        labelStyle:
+                            FlutterFlowTheme.of(context).labelMedium.override(
+                                  fontFamily: 'Open Sans',
+                                  letterSpacing: 0.0,
+                                ),
+                        hintText: 'Enter Tray Height',
+                        hintStyle:
+                            FlutterFlowTheme.of(context).labelMedium.override(
+                                  fontFamily: 'Open Sans',
+                                  letterSpacing: 0.0,
+                                ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).bodyText,
+                            width: 0.5,
+                          ),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).primary,
+                            width: 0.5,
+                          ),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).error,
+                            width: 0.5,
+                          ),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).error,
+                            width: 0.5,
+                          ),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Open Sans',
+                            letterSpacing: 0.0,
+                          ),
+                      keyboardType: TextInputType.number,
+                      validator:
+                          _model.textControllerValidator.asValidator(context),
+                    ),
                   ),
-                  elevation: 0.0,
-                  borderColor: FlutterFlowTheme.of(context).subHeader,
-                  borderWidth: 1.0,
-                  borderRadius: 5.0,
-                  margin: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 4.0),
-                  hidesUnderline: true,
-                  isOverButton: true,
-                  isSearchable: false,
-                  isMultiSelect: false,
-                ),
+                  Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                    child: FlutterFlowDropDown<String>(
+                      controller: _model.dropDownValueController ??=
+                          FormFieldController<String>(null),
+                      options: const ['plastic_tray', 'metal_tray'],
+                      onChanged: (val) =>
+                          setState(() => _model.dropDownValue = val),
+                      width: 230.0,
+                      height: 45.0,
+                      textStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.override(
+                                fontFamily: 'Open Sans',
+                                fontSize: 15.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w500,
+                              ),
+                      hintText: 'Please select type...',
+                      icon: Icon(
+                        Icons.keyboard_arrow_down_rounded,
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                        size: 24.0,
+                      ),
+                      elevation: 0.0,
+                      borderColor: FlutterFlowTheme.of(context).subHeader,
+                      borderWidth: 1.0,
+                      borderRadius: 5.0,
+                      margin:
+                          const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 4.0),
+                      hidesUnderline: true,
+                      isOverButton: true,
+                      isSearchable: false,
+                      isMultiSelect: false,
+                    ),
+                  ),
+                ],
               ),
             ),
             Padding(
@@ -235,6 +312,7 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
                           trayType: _model.dropDownValue,
                           robotId: FFAppState().robotid,
                           trayId: FFAppState().trayid,
+                          trayHeight: int.tryParse(_model.textController.text),
                         );
 
                         if ((_model.addNewTray?.succeeded ?? true)) {
@@ -259,7 +337,9 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
                             builder: (context) {
                               return Padding(
                                 padding: MediaQuery.viewInsetsOf(context),
-                                child: const WrongWidget(),
+                                child: const MsgMappingWidget(
+                                  msg: '',
+                                ),
                               );
                             },
                           ).then((value) => safeSetState(() {}));

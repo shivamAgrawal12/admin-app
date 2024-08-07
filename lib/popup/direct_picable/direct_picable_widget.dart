@@ -137,7 +137,10 @@ class _DirectPicableWidgetState extends State<DirectPicableWidget> {
                 Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                   child: Text(
-                    FFAppState().slotid,
+                    valueOrDefault<String>(
+                      FFAppState().homeslotid,
+                      '-',
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Raleway',
                           fontSize: 28.0,
@@ -196,8 +199,6 @@ class _DirectPicableWidgetState extends State<DirectPicableWidget> {
                       FFButtonWidget(
                         onPressed: () async {
                           FFAppState().slotid = '';
-                          FFAppState().slotrecid = 0;
-                          FFAppState().hideslot = 0;
                           FFAppState().update(() {});
                           Navigator.pop(context);
                         },
@@ -264,6 +265,8 @@ class _DirectPicableWidgetState extends State<DirectPicableWidget> {
                                   );
                                 },
                               ).then((value) => safeSetState(() {}));
+
+                              Navigator.pop(context);
                             } else {
                               await showModalBottomSheet(
                                 isScrollControlled: true,

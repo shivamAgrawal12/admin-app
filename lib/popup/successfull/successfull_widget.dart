@@ -112,11 +112,9 @@ class _SuccessfullWidgetState extends State<SuccessfullWidget> {
                   _model.timerController.onStopTimer();
                   FFAppState().slotid = '';
                   FFAppState().trayid = '';
-                  FFAppState().slotrecid = 0;
                   FFAppState().trayrecid = 0;
                   FFAppState().taskrecid = 0;
                   FFAppState().friendlyname = '';
-                  FFAppState().homeslotid = '';
                   FFAppState().update(() {});
                   Navigator.pop(context);
                 },

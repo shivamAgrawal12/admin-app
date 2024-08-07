@@ -12,7 +12,6 @@ class TrayReleaseModel extends FlutterFlowModel<TrayReleaseWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   InstantTimer? instantTimer;
   Completer<ApiCallResponse>? apiRequestCompleter;
   // State field(s) for TextField widget.
@@ -33,7 +32,6 @@ class TrayReleaseModel extends FlutterFlowModel<TrayReleaseWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     instantTimer?.cancel();
     textFieldFocusNode1?.dispose();
     textController1?.dispose();

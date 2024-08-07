@@ -46,6 +46,9 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
         _model.slotid = AdminApiGroup.slotDetailByFriendlyNameCall.slotid(
           (_model.apiResultuws?.jsonBody ?? ''),
         );
+        _model.slottype = AdminApiGroup.slotDetailByFriendlyNameCall.slottype(
+          (_model.apiResultuws?.jsonBody ?? ''),
+        );
         setState(() {});
       }
     });
@@ -308,6 +311,34 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                         );
 
                         if ((_model.trayMapingBtn?.succeeded ?? true)) {
+                          if (_model.slottype == 'picking_station') {
+                            _model.taskPost1 =
+                                await AdminApiGroup.postTaskCall.call(
+                              trayId: FFAppState().trayid,
+                              robotId: FFAppState().robotid,
+                              taskType: 'admin',
+                            );
+
+                            if (!(_model.taskPost1?.succeeded ?? true)) {
+                              await showModalBottomSheet(
+                                isScrollControlled: true,
+                                backgroundColor: Colors.transparent,
+                                enableDrag: false,
+                                context: context,
+                                builder: (context) {
+                                  return Padding(
+                                    padding: MediaQuery.viewInsetsOf(context),
+                                    child: MsgMappingWidget(
+                                      msg: getJsonField(
+                                        (_model.taskPost1?.jsonBody ?? ''),
+                                        r'''$.message''',
+                                      ).toString(),
+                                    ),
+                                  );
+                                },
+                              ).then((value) => safeSetState(() {}));
+                            }
+                          }
                           await showModalBottomSheet(
                             isScrollControlled: true,
                             backgroundColor: Colors.transparent,

@@ -36,6 +36,8 @@ class _SlotMappimgWidgetState extends State<SlotMappimgWidget> {
         context,
       );
       FFAppState().rothpage = _model.routh!;
+      FFAppState().slotrecid = 0;
+      FFAppState().slotid = '';
       setState(() {});
     });
 
@@ -58,9 +60,7 @@ class _SlotMappimgWidgetState extends State<SlotMappimgWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -94,7 +94,7 @@ class _SlotMappimgWidgetState extends State<SlotMappimgWidget> {
                       ),
                       child: Padding(
                         padding: const EdgeInsetsDirectional.fromSTEB(
-                            15.0, 0.0, 10.0, 0.0),
+                            25.0, 0.0, 25.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -144,11 +144,8 @@ class _SlotMappimgWidgetState extends State<SlotMappimgWidget> {
                                   context: context,
                                   builder: (context) {
                                     return GestureDetector(
-                                      onTap: () => _model
-                                              .unfocusNode.canRequestFocus
-                                          ? FocusScope.of(context)
-                                              .requestFocus(_model.unfocusNode)
-                                          : FocusScope.of(context).unfocus(),
+                                      onTap: () =>
+                                          FocusScope.of(context).unfocus(),
                                       child: Padding(
                                         padding:
                                             MediaQuery.viewInsetsOf(context),

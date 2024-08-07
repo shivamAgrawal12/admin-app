@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/popup/invalid_otp/invalid_otp_widget.dart';
+import '/popup/new_robot/new_robot_widget.dart';
 import '/popup/resend_otp/resend_otp_widget.dart';
 import '/popup/wrong_num/wrong_num_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -15,6 +16,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 import 'login_page_model.dart';
 export 'login_page_model.dart';
 
@@ -71,6 +73,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
@@ -105,11 +109,64 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                     ),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
+                          Column(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              if (_model.logincondition == 0)
+                                InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed(
+                                      'robot_scan',
+                                      extra: <String, dynamic>{
+                                        kTransitionInfoKey: const TransitionInfo(
+                                          hasTransition: true,
+                                          transitionType:
+                                              PageTransitionType.fade,
+                                          duration: Duration(milliseconds: 500),
+                                        ),
+                                      },
+                                    );
+                                  },
+                                  child: FaIcon(
+                                    FontAwesomeIcons.arrowLeft,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 24.0,
+                                  ),
+                                ),
+                              if (_model.logincondition == 1)
+                                InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    _model.logincondition = 0;
+                                    setState(() {});
+                                    setState(() {
+                                      _model.textFieldOtpTextController
+                                          ?.clear();
+                                    });
+                                  },
+                                  child: FaIcon(
+                                    FontAwesomeIcons.arrowLeft,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 24.0,
+                                  ),
+                                ),
+                            ],
+                          ),
                           ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: Image.asset(
@@ -117,6 +174,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                               width: 140.0,
                               height: 40.0,
                               fit: BoxFit.contain,
+                            ),
+                          ),
+                          Opacity(
+                            opacity: 0.0,
+                            child: FaIcon(
+                              FontAwesomeIcons.arrowLeft,
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              size: 24.0,
                             ),
                           ),
                         ].divide(const SizedBox(width: 6.0)),
@@ -653,22 +718,54 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                 .text),
                                                       ),
                                                     );
-
-                                                    context.goNamedAuth(
-                                                      'home',
-                                                      context.mounted,
-                                                      extra: <String, dynamic>{
-                                                        kTransitionInfoKey:
-                                                            const TransitionInfo(
-                                                          hasTransition: true,
-                                                          transitionType:
-                                                              PageTransitionType
-                                                                  .fade,
-                                                          duration: Duration(
-                                                              milliseconds: 0),
-                                                        ),
-                                                      },
+                                                    _model.robotDetailBtn2 =
+                                                        await AdminApiGroup
+                                                            .verifyRobotIdCall
+                                                            .call(
+                                                      robotId:
+                                                          FFAppState().robotid,
                                                     );
+
+                                                    if ((_model.robotDetailBtn2
+                                                            ?.succeeded ??
+                                                        true)) {
+                                                      context.goNamedAuth(
+                                                        'home',
+                                                        context.mounted,
+                                                        extra: <String,
+                                                            dynamic>{
+                                                          kTransitionInfoKey:
+                                                              const TransitionInfo(
+                                                            hasTransition: true,
+                                                            transitionType:
+                                                                PageTransitionType
+                                                                    .fade,
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    0),
+                                                          ),
+                                                        },
+                                                      );
+                                                    } else {
+                                                      await showModalBottomSheet(
+                                                        isScrollControlled:
+                                                            true,
+                                                        backgroundColor:
+                                                            Colors.transparent,
+                                                        enableDrag: false,
+                                                        context: context,
+                                                        builder: (context) {
+                                                          return Padding(
+                                                            padding: MediaQuery
+                                                                .viewInsetsOf(
+                                                                    context),
+                                                            child:
+                                                                const NewRobotWidget(),
+                                                          );
+                                                        },
+                                                      ).then((value) =>
+                                                          safeSetState(() {}));
+                                                    }
                                                   } else {
                                                     await showModalBottomSheet(
                                                       isScrollControlled: true,
@@ -811,21 +908,48 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                   _model.textController1.text),
                                             ),
                                           );
-
-                                          context.goNamedAuth(
-                                            'home',
-                                            context.mounted,
-                                            extra: <String, dynamic>{
-                                              kTransitionInfoKey:
-                                                  const TransitionInfo(
-                                                hasTransition: true,
-                                                transitionType:
-                                                    PageTransitionType.fade,
-                                                duration:
-                                                    Duration(milliseconds: 0),
-                                              ),
-                                            },
+                                          _model.robotDetailBtn =
+                                              await AdminApiGroup
+                                                  .verifyRobotIdCall
+                                                  .call(
+                                            robotId: FFAppState().robotid,
                                           );
+
+                                          if ((_model
+                                                  .robotDetailBtn?.succeeded ??
+                                              true)) {
+                                            context.goNamedAuth(
+                                              'home',
+                                              context.mounted,
+                                              extra: <String, dynamic>{
+                                                kTransitionInfoKey:
+                                                    const TransitionInfo(
+                                                  hasTransition: true,
+                                                  transitionType:
+                                                      PageTransitionType.fade,
+                                                  duration:
+                                                      Duration(milliseconds: 0),
+                                                ),
+                                              },
+                                            );
+                                          } else {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child: const NewRobotWidget(),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+                                          }
                                         } else {
                                           await showModalBottomSheet(
                                             isScrollControlled: true,

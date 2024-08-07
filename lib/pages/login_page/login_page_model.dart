@@ -28,8 +28,12 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   String? Function(BuildContext, String?)? textFieldOtpTextControllerValidator;
   // Stores action output result for [Backend Call - API (validate otp)] action in TextField_otp widget.
   ApiCallResponse? validateOtpC;
+  // Stores action output result for [Backend Call - API (verify robot id)] action in TextField_otp widget.
+  ApiCallResponse? robotDetailBtn2;
   // Stores action output result for [Backend Call - API (validate otp)] action in Button widget.
   ApiCallResponse? validateOtp;
+  // Stores action output result for [Backend Call - API (verify robot id)] action in Button widget.
+  ApiCallResponse? robotDetailBtn;
   // Stores action output result for [Backend Call - API (generate otp)] action in Text widget.
   ApiCallResponse? resendOtp;
   // State field(s) for Timer widget.

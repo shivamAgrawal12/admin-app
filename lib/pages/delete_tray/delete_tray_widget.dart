@@ -3,7 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/popup/menu/menu_widget.dart';
-import '/popup/no_record/no_record_widget.dart';
+import '/popup/msg_mapping/msg_mapping_widget.dart';
 import '/popup/tray_delete/tray_delete_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
@@ -61,9 +61,7 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -150,11 +148,8 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
                                   context: context,
                                   builder: (context) {
                                     return GestureDetector(
-                                      onTap: () => _model
-                                              .unfocusNode.canRequestFocus
-                                          ? FocusScope.of(context)
-                                              .requestFocus(_model.unfocusNode)
-                                          : FocusScope.of(context).unfocus(),
+                                      onTap: () =>
+                                          FocusScope.of(context).unfocus(),
                                       child: Padding(
                                         padding:
                                             MediaQuery.viewInsetsOf(context),
@@ -444,11 +439,12 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
                                                   .trayDeleteBtn?.succeeded ??
                                               true)) {
                                             FFAppState().trayrecid =
-                                                getJsonField(
+                                                AdminApiGroup
+                                                    .trayInfoWithoutTypeCall
+                                                    .id(
                                               (_model.trayDeleteBtn?.jsonBody ??
                                                   ''),
-                                              r'''$.id''',
-                                            );
+                                            )!;
                                             FFAppState().update(() {});
                                             await showModalBottomSheet(
                                               isScrollControlled: true,
@@ -458,13 +454,8 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
                                               context: context,
                                               builder: (context) {
                                                 return GestureDetector(
-                                                  onTap: () => _model
-                                                          .unfocusNode
-                                                          .canRequestFocus
-                                                      ? FocusScope.of(context)
-                                                          .requestFocus(_model
-                                                              .unfocusNode)
-                                                      : FocusScope.of(context)
+                                                  onTap: () =>
+                                                      FocusScope.of(context)
                                                           .unfocus(),
                                                   child: Padding(
                                                     padding:
@@ -485,19 +476,22 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
                                               context: context,
                                               builder: (context) {
                                                 return GestureDetector(
-                                                  onTap: () => _model
-                                                          .unfocusNode
-                                                          .canRequestFocus
-                                                      ? FocusScope.of(context)
-                                                          .requestFocus(_model
-                                                              .unfocusNode)
-                                                      : FocusScope.of(context)
+                                                  onTap: () =>
+                                                      FocusScope.of(context)
                                                           .unfocus(),
                                                   child: Padding(
                                                     padding:
                                                         MediaQuery.viewInsetsOf(
                                                             context),
-                                                    child: const NoRecordWidget(),
+                                                    child: MsgMappingWidget(
+                                                      msg: AdminApiGroup
+                                                          .trayInfoWithoutTypeCall
+                                                          .msg(
+                                                        (_model.trayDeleteBtn
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      )!,
+                                                    ),
                                                   ),
                                                 );
                                               },

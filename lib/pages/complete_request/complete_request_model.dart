@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 class CompleteRequestModel extends FlutterFlowModel<CompleteRequestWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for TabBar widget.
   TabController? tabBarController;
   int get tabBarCurrentIndex =>
@@ -21,7 +20,6 @@ class CompleteRequestModel extends FlutterFlowModel<CompleteRequestWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     tabBarController?.dispose();
   }
 

@@ -16,14 +16,13 @@ import 'dart:io';
 // Correct imports for ApiManager, ApiCallType, and BodyType
 import '/backend/api_requests/api_calls.dart';
 
-Future<void> selectslot(
+Future<void> slotheight(
   BuildContext context,
   String robotId,
-  String supportType,
   int? slot,
   int? row,
   int? rack,
-  int? depth,
+  int? height,
 ) async {
   // Base URL
   final baseUrl = 'https://test.qikpod.com:8981';
@@ -33,11 +32,11 @@ Future<void> selectslot(
 
   // Add non-null parameters to the query map
   if (robotId.isNotEmpty) queryParams['robot_id'] = robotId;
-  if (supportType.isNotEmpty) queryParams['support_type'] = supportType;
+
   if (slot != null) queryParams['slot'] = slot.toString();
   if (row != null) queryParams['row'] = row.toString();
   if (rack != null) queryParams['rack'] = rack.toString();
-  if (depth != null) queryParams['depth'] = depth.toString();
+  if (height != null) queryParams['height'] = height.toString();
 
   // Construct the API URL with query parameters
   final apiUrl = Uri(
@@ -46,7 +45,7 @@ Future<void> selectslot(
         .replaceAll('https://', '')
         .replaceAll(':8981', ''), // Remove scheme and port if present
     port: 8981,
-    path: '/robotmanager/slots/support_type/',
+    path: '/robotmanager/slots/height/',
     queryParameters: queryParams.isNotEmpty ? queryParams : null,
   ).toString();
 

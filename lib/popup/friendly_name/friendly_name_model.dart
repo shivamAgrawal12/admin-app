@@ -12,7 +12,7 @@ class FriendlyNameModel extends FlutterFlowModel<FriendlyNameWidget> {
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
-  // Stores action output result for [Backend Call - API (change slot type)] action in Button widget.
+  // Stores action output result for [Backend Call - API (pickingstation patch call)] action in Button widget.
   ApiCallResponse? addPickingStation;
 
   @override

@@ -9,7 +9,6 @@ class SlotMappimgModel extends FlutterFlowModel<SlotMappimgWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - routhpage] action in slot_mappimg widget.
   String? routh;
   // State field(s) for Switch widget.
@@ -24,7 +23,6 @@ class SlotMappimgModel extends FlutterFlowModel<SlotMappimgWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }

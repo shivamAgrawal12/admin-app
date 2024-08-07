@@ -126,10 +126,6 @@ class _NewRobotWidgetState extends State<NewRobotWidget> {
                 children: [
                   FFButtonWidget(
                     onPressed: () async {
-                      FFAppState().deleteRobotid();
-                      FFAppState().robotid = '';
-
-                      FFAppState().update(() {});
                       Navigator.pop(context);
                     },
                     text: 'Cancel',

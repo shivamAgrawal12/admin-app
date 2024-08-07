@@ -7,16 +7,13 @@ import 'package:flutter/material.dart';
 class PendingTaskModel extends FlutterFlowModel<PendingTaskWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   Completer<ApiCallResponse>? apiRequestCompleter;
 
   @override
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 
   /// Additional helper methods.
   Future waitForApiRequestCompleted({

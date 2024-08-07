@@ -12,7 +12,7 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 /// Start admin api Group Code
 
 class AdminApiGroup {
-  static String getBaseUrl() => 'https://robotmanagerv1.qikpod.com:8981';
+  static String getBaseUrl() => 'https://test.qikpod.com:8981';
   static Map<String, String> headers = {
     'Authorization':
         'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
@@ -43,6 +43,8 @@ class AdminApiGroup {
   static GetTaskCall getTaskCall = GetTaskCall();
   static TaskCompleteCall taskCompleteCall = TaskCompleteCall();
   static ChangeSlotTypeCall changeSlotTypeCall = ChangeSlotTypeCall();
+  static PickingstationPatchCallCall pickingstationPatchCallCall =
+      PickingstationPatchCallCall();
   static ChangeSlotTypeWithoutFriendlyNameCall
       changeSlotTypeWithoutFriendlyNameCall =
       ChangeSlotTypeWithoutFriendlyNameCall();
@@ -278,6 +280,10 @@ class SlotInfoCall {
         response,
         r'''$.records[:].support_type''',
       ));
+  int? id(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.records[:].id''',
+      ));
 }
 
 class TrayInfoCall {
@@ -386,18 +392,25 @@ class TrayInfoWithoutTypeCall {
         response,
         r'''$.records[:].type''',
       ));
+  String? msg(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  int? id(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.records[:].id''',
+      ));
 }
 
 class PatchTrayIdInSlotCall {
   Future<ApiCallResponse> call({
-    String? trayId = '',
     int? id,
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl();
 
-    final ffApiRequestBody = '''
+    const ffApiRequestBody = '''
 {
-  "tray_id": "$trayId"
+  "tray_id":null
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'patch tray id in slot',
@@ -434,6 +447,10 @@ class PatchTrayIdInSlotCall {
         response,
         r'''$.statusbool''',
       ));
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
 }
 
 class AddNewTrayCall {
@@ -441,13 +458,14 @@ class AddNewTrayCall {
     String? trayId = '',
     String? robotId = '',
     String? trayType = '',
+    int? trayHeight,
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'add new tray',
       apiUrl:
-          '$baseUrl/robotmanager/trays/?robot_id=$robotId&tray_type=$trayType&tray_id=$trayId',
+          '$baseUrl/robotmanager/trays/?robot_id=$robotId&tray_type=$trayType&tray_id=$trayId&tray_height=$trayHeight',
       callType: ApiCallType.POST,
       headers: {
         'Authorization':
@@ -601,6 +619,10 @@ class SlotDetailByFriendlyNameCall {
   String? status(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.records[:].status''',
+      ));
+  String? slottype(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.records[:].type''',
       ));
 }
 
@@ -876,6 +898,7 @@ class RegisterNewRobotCall {
     int? maxSlot,
     int? maxDepth,
     String? slotType = '',
+    int? slotHeight,
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl();
 
@@ -887,7 +910,8 @@ class RegisterNewRobotCall {
   "max_row": $maxRow,
   "max_rack": $maxRack,
   "max_slot": $maxSlot,
-  "max_depth": $maxDepth
+  "max_depth": $maxDepth,
+  "slot_height": $slotHeight
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'register new robot',
@@ -1032,6 +1056,51 @@ class ChangeSlotTypeCall {
       params: {},
       body: ffApiRequestBody,
       bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  bool? statusbool(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.statusbool''',
+      ));
+  List? records(dynamic response) => getJsonField(
+        response,
+        r'''$.records''',
+        true,
+      ) as List?;
+  String? msg(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+}
+
+class PickingstationPatchCallCall {
+  Future<ApiCallResponse> call({
+    String? robotId = '',
+    String? slotId = '',
+    String? friendlyName = '',
+  }) async {
+    final baseUrl = AdminApiGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'pickingstation patch call',
+      apiUrl:
+          '$baseUrl/robotmanager/slots/picking_station/?robot_id=$robotId&slot_id=$slotId&friendly_name=$friendlyName',
+      callType: ApiCallType.PATCH,
+      headers: {
+        'Authorization':
+            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+      },
+      params: {},
+      bodyType: BodyType.NONE,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,

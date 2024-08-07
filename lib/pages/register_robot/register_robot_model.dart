@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 class RegisterRobotModel extends FlutterFlowModel<RegisterRobotWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for DropDown widget.
   String? dropDownValue;
@@ -73,10 +72,10 @@ class RegisterRobotModel extends FlutterFlowModel<RegisterRobotWidget> {
   }
 
   // State field(s) for depth widget.
-  FocusNode? depthFocusNode;
-  TextEditingController? depthTextController;
-  String? Function(BuildContext, String?)? depthTextControllerValidator;
-  String? _depthTextControllerValidator(BuildContext context, String? val) {
+  FocusNode? depthFocusNode1;
+  TextEditingController? depthTextController1;
+  String? Function(BuildContext, String?)? depthTextController1Validator;
+  String? _depthTextController1Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'Field is required';
     }
@@ -84,6 +83,12 @@ class RegisterRobotModel extends FlutterFlowModel<RegisterRobotWidget> {
     return null;
   }
 
+  // State field(s) for depth widget.
+  FocusNode? depthFocusNode2;
+  TextEditingController? depthTextController2;
+  String? Function(BuildContext, String?)? depthTextController2Validator;
+  // Stores action output result for [Validate Form] action in Button widget.
+  bool? formvalidate;
   // Stores action output result for [Backend Call - API (register new robot)] action in Button widget.
   ApiCallResponse? newRobot;
 
@@ -94,12 +99,11 @@ class RegisterRobotModel extends FlutterFlowModel<RegisterRobotWidget> {
     rowTextControllerValidator = _rowTextControllerValidator;
     rackTextControllerValidator = _rackTextControllerValidator;
     slotTextControllerValidator = _slotTextControllerValidator;
-    depthTextControllerValidator = _depthTextControllerValidator;
+    depthTextController1Validator = _depthTextController1Validator;
   }
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     nameFocusNode?.dispose();
     nameTextController?.dispose();
 
@@ -115,7 +119,10 @@ class RegisterRobotModel extends FlutterFlowModel<RegisterRobotWidget> {
     slotFocusNode?.dispose();
     slotTextController?.dispose();
 
-    depthFocusNode?.dispose();
-    depthTextController?.dispose();
+    depthFocusNode1?.dispose();
+    depthTextController1?.dispose();
+
+    depthFocusNode2?.dispose();
+    depthTextController2?.dispose();
   }
 }

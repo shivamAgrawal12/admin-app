@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class RegisterShuttlesModel extends FlutterFlowModel<RegisterShuttlesWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for id widget.
   FocusNode? idFocusNode;
@@ -82,7 +81,6 @@ class RegisterShuttlesModel extends FlutterFlowModel<RegisterShuttlesWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     idFocusNode?.dispose();
     idTextController?.dispose();
 

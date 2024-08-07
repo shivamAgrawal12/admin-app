@@ -1,4 +1,3 @@
-import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'robot_scan_widget.dart' show RobotScanWidget;
 import 'package:flutter/material.dart';
@@ -10,7 +9,6 @@ class RobotScanModel extends FlutterFlowModel<RobotScanWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - routhpage] action in robot_scan widget.
   String? routh;
   // State field(s) for Switch widget.
@@ -19,15 +17,12 @@ class RobotScanModel extends FlutterFlowModel<RobotScanWidget> {
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
-  // Stores action output result for [Backend Call - API (verify robot id)] action in Button widget.
-  ApiCallResponse? robotDetailBtn;
 
   @override
   void initState(BuildContext context) {}
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }

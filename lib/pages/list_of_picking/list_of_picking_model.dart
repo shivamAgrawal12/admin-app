@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 class ListOfPickingModel extends FlutterFlowModel<ListOfPickingWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
@@ -16,7 +15,6 @@ class ListOfPickingModel extends FlutterFlowModel<ListOfPickingWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }

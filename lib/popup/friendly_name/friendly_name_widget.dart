@@ -266,10 +266,11 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
                     ),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        _model.addPickingStation =
-                            await AdminApiGroup.changeSlotTypeCall.call(
-                          id: FFAppState().slotrecid,
-                          type: 'picking_station',
+                        _model.addPickingStation = await AdminApiGroup
+                            .pickingstationPatchCallCall
+                            .call(
+                          robotId: FFAppState().robotid,
+                          slotId: FFAppState().homeslotid,
                           friendlyName: _model.textController.text,
                         );
 
@@ -297,8 +298,11 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
                             builder: (context) {
                               return Padding(
                                 padding: MediaQuery.viewInsetsOf(context),
-                                child: const MsgMappingWidget(
-                                  msg: '',
+                                child: MsgMappingWidget(
+                                  msg: AdminApiGroup.pickingstationPatchCallCall
+                                      .msg(
+                                    (_model.addPickingStation?.jsonBody ?? ''),
+                                  )!,
                                 ),
                               );
                             },

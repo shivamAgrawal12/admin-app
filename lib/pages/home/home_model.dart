@@ -10,13 +10,12 @@ class HomeModel extends FlutterFlowModel<HomeWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - routhpage] action in home widget.
   String? routh;
+  // State field(s) for Column12 widget.
+  ScrollController? column12;
   // State field(s) for Column widget.
-  ScrollController? columnController1;
-  // State field(s) for Column widget.
-  ScrollController? columnController2;
+  ScrollController? columnController;
   // State field(s) for Switch widget.
   bool? switchValue;
   // State field(s) for TextField widget.
@@ -36,15 +35,14 @@ class HomeModel extends FlutterFlowModel<HomeWidget> {
 
   @override
   void initState(BuildContext context) {
-    columnController1 = ScrollController();
-    columnController2 = ScrollController();
+    column12 = ScrollController();
+    columnController = ScrollController();
   }
 
   @override
   void dispose() {
-    unfocusNode.dispose();
-    columnController1?.dispose();
-    columnController2?.dispose();
+    column12?.dispose();
+    columnController?.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }

@@ -44,8 +44,11 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
     _model.slotTextController ??= TextEditingController();
     _model.slotFocusNode ??= FocusNode();
 
-    _model.depthTextController ??= TextEditingController();
-    _model.depthFocusNode ??= FocusNode();
+    _model.depthTextController1 ??= TextEditingController();
+    _model.depthFocusNode1 ??= FocusNode();
+
+    _model.depthTextController2 ??= TextEditingController(text: '100');
+    _model.depthFocusNode2 ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -62,9 +65,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -734,8 +735,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                 child: SizedBox(
                                   width: 310.0,
                                   child: TextFormField(
-                                    controller: _model.depthTextController,
-                                    focusNode: _model.depthFocusNode,
+                                    controller: _model.depthTextController1,
+                                    focusNode: _model.depthFocusNode1,
                                     autofocus: false,
                                     textCapitalization: TextCapitalization.none,
                                     obscureText: false,
@@ -796,7 +797,100 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                         ),
                                     keyboardType: TextInputType.number,
                                     validator: _model
-                                        .depthTextControllerValidator
+                                        .depthTextController1Validator
+                                        .asValidator(context),
+                                  ),
+                                ),
+                              ),
+                              Align(
+                                alignment: const AlignmentDirectional(-1.0, -1.0),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      5.0, 10.0, 0.0, 0.0),
+                                  child: Text(
+                                    'Slot Height',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Open Sans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .liteText,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 5.0, 8.0, 0.0),
+                                child: SizedBox(
+                                  width: 310.0,
+                                  child: TextFormField(
+                                    controller: _model.depthTextController2,
+                                    focusNode: _model.depthFocusNode2,
+                                    autofocus: false,
+                                    textCapitalization: TextCapitalization.none,
+                                    textInputAction: TextInputAction.done,
+                                    obscureText: false,
+                                    decoration: InputDecoration(
+                                      hintText: 'Enter slot height',
+                                      hintStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .override(
+                                            fontFamily: 'Open Sans',
+                                            fontSize: 16.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .liteText,
+                                          width: 1.5,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .subHeader,
+                                          width: 1.5,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
+                                      ),
+                                      errorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .error,
+                                          width: 1.5,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
+                                      ),
+                                      focusedErrorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .error,
+                                          width: 1.5,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
+                                      ),
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Open Sans',
+                                          fontSize: 16.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                    keyboardType: TextInputType.number,
+                                    validator: _model
+                                        .depthTextController2Validator
                                         .asValidator(context),
                                   ),
                                 ),
@@ -821,19 +915,24 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                   ),
                                   child: FFButtonWidget(
                                     onPressed: () async {
+                                      _model.formvalidate = true;
                                       if (_model.formKey.currentState == null ||
                                           !_model.formKey.currentState!
                                               .validate()) {
+                                        setState(
+                                            () => _model.formvalidate = false);
                                         return;
                                       }
                                       if (_model.dropDownValue == null) {
+                                        _model.formvalidate = false;
+                                        setState(() {});
                                         return;
                                       }
                                       _model.newRobot = await AdminApiGroup
                                           .registerNewRobotCall
                                           .call(
                                         maxDepth: int.tryParse(
-                                            _model.depthTextController.text),
+                                            _model.depthTextController1.text),
                                         maxSlot: int.tryParse(
                                             _model.slotTextController.text),
                                         maxRack: int.tryParse(
@@ -845,6 +944,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                         robotName:
                                             _model.nameTextController.text,
                                         slotType: _model.dropDownValue,
+                                        slotHeight: int.tryParse(
+                                            _model.depthTextController2.text),
                                       );
 
                                       if ((_model.newRobot?.succeeded ??
@@ -873,12 +974,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                           context: context,
                                           builder: (context) {
                                             return GestureDetector(
-                                              onTap: () => _model.unfocusNode
-                                                      .canRequestFocus
-                                                  ? FocusScope.of(context)
-                                                      .requestFocus(
-                                                          _model.unfocusNode)
-                                                  : FocusScope.of(context)
+                                              onTap: () =>
+                                                  FocusScope.of(context)
                                                       .unfocus(),
                                               child: Padding(
                                                 padding:

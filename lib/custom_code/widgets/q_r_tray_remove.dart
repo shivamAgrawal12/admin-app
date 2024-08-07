@@ -188,7 +188,7 @@ class _QRTrayRemoveState extends State<QRTrayRemove> {
   Future<void> _handleScannedValue(String scannedValue) async {
     FFAppState().trayid = scannedValue;
     var _shouldSetState = false;
-    final trayDetailsResult = await AdminApiGroup.trayInfoCall.call(
+    final trayDetailsResult = await AdminApiGroup.trayInfoWithoutTypeCall.call(
       robotId: FFAppState().robotid,
       trayId: scannedValue,
     );

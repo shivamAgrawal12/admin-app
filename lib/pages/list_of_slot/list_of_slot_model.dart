@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 class ListOfSlotModel extends FlutterFlowModel<ListOfSlotWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
@@ -19,7 +18,6 @@ class ListOfSlotModel extends FlutterFlowModel<ListOfSlotWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }
