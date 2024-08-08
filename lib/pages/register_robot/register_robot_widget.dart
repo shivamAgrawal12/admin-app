@@ -110,9 +110,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                FFAppState().deleteRobotid();
                                 FFAppState().robotid = '';
-
                                 FFAppState().update(() {});
 
                                 context.pushNamed(

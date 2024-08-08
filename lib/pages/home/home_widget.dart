@@ -171,8 +171,12 @@ class _HomeWidgetState extends State<HomeWidget> {
                                           width: 31.0,
                                           height: 31.0,
                                           decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryBackground,
+                                            color: FFAppState().connected ==
+                                                    true
+                                                ? FlutterFlowTheme.of(context)
+                                                    .success
+                                                : FlutterFlowTheme.of(context)
+                                                    .warning,
                                             shape: BoxShape.circle,
                                           ),
                                           child: Align(
@@ -1547,7 +1551,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     _model.change = 0;
                                     setState(() {});
                                     await Future.delayed(
-                                        const Duration(milliseconds: 1500));
+                                        const Duration(milliseconds: 500));
                                     await _model.column12?.animateTo(
                                       _model.column12!.position.maxScrollExtent,
                                       duration: const Duration(milliseconds: 1000),
