@@ -203,7 +203,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                     ),
                     Container(
                       width: MediaQuery.sizeOf(context).width * 1.0,
-                      height: MediaQuery.sizeOf(context).height * 0.75,
+                      height: MediaQuery.sizeOf(context).height * 0.8,
                       constraints: const BoxConstraints(
                         minWidth: 320.0,
                         maxWidth: 450.0,
@@ -286,7 +286,11 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                       .speedValueController ??=
                                                   FormFieldController<String>(
                                                       null),
-                                              options: const ['high', 'medium'],
+                                              options: const [
+                                                'high',
+                                                'medium',
+                                                'low'
+                                              ],
                                               onChanged: (val) => setState(() =>
                                                   _model.speedValue = val),
                                               width: 200.0,
@@ -4414,7 +4418,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                   ),
                                 ),
                               ),
-                            ],
+                            ].addToEnd(const SizedBox(height: 150.0)),
                           ),
                         ),
                       ),

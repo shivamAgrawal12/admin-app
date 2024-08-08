@@ -2,7 +2,9 @@ import '/auth/custom_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/popup/logout/logout_widget.dart';
+import '/popup/shuttleupdate/shuttleupdate_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'menu_model.dart';
 export 'menu_model.dart';
 
@@ -202,6 +204,54 @@ class _MenuWidgetState extends State<MenuWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
+                          await showModalBottomSheet(
+                            isScrollControlled: true,
+                            backgroundColor: Colors.transparent,
+                            enableDrag: false,
+                            context: context,
+                            builder: (context) {
+                              return Padding(
+                                padding: MediaQuery.viewInsetsOf(context),
+                                child: const ShuttleupdateWidget(),
+                              );
+                            },
+                          ).then((value) => safeSetState(() {}));
+                        },
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                FaIcon(
+                                  FontAwesomeIcons.robot,
+                                  color: FlutterFlowTheme.of(context).heading,
+                                  size: 22.0,
+                                ),
+                                Text(
+                                  'Shuttle Update',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Raleway',
+                                        fontSize: 14.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                ),
+                              ].divide(const SizedBox(width: 6.0)),
+                            ),
+                          ],
+                        ),
+                      ),
+                      InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
                           context.pushNamed(
                             'uplode_csv',
                             extra: <String, dynamic>{
@@ -304,7 +354,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                           ],
                         ),
                       ),
-                    ].divide(const SizedBox(height: 30.0)),
+                    ].divide(const SizedBox(height: 25.0)),
                   ),
                 ),
               ),

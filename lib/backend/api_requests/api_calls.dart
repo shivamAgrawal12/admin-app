@@ -20,6 +20,7 @@ class AdminApiGroup {
     'accept': 'application/json',
   };
   static VerifyRobotIdCall verifyRobotIdCall = VerifyRobotIdCall();
+  static ShuttleDetailsCall shuttleDetailsCall = ShuttleDetailsCall();
   static GenerateOtpCall generateOtpCall = GenerateOtpCall();
   static ValidateOtpCall validateOtpCall = ValidateOtpCall();
   static SlotInfoCall slotInfoCall = SlotInfoCall();
@@ -128,6 +129,61 @@ class VerifyRobotIdCall {
   String? status(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.records[:].status''',
+      ));
+}
+
+class ShuttleDetailsCall {
+  Future<ApiCallResponse> call({
+    String? robotId = '',
+  }) async {
+    final baseUrl = AdminApiGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'shuttle details',
+      apiUrl: '$baseUrl/robotmanager/shuttles/',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization':
+            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+      },
+      params: {
+        'robot_id': robotId,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  List? records(dynamic response) => getJsonField(
+        response,
+        r'''$.records''',
+        true,
+      ) as List?;
+  String? robotid(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.records[:].robot_id''',
+      ));
+  bool? statusbool(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.statusbool''',
+      ));
+  int? id(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.records[:].id''',
+      ));
+  String? shuttlename(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.records[:].shuttle_id''',
+      ));
+  String? shuttlespead(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.records[:].speed''',
       ));
 }
 
@@ -1402,9 +1458,13 @@ class SpeedInShuttleCall {
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl();
 
+    final ffApiRequestBody = '''
+{
+  "speed": "$speed"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'speed in shuttle',
-      apiUrl: '$baseUrl/robotmanager/shuttles/speed$id?speed=$speed',
+      apiUrl: '$baseUrl/robotmanager/shuttles/$id',
       callType: ApiCallType.PATCH,
       headers: {
         'Authorization':
@@ -1413,7 +1473,8 @@ class SpeedInShuttleCall {
         'accept': 'application/json',
       },
       params: {},
-      bodyType: BodyType.NONE,
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -1426,6 +1487,10 @@ class SpeedInShuttleCall {
   bool? statusbool(dynamic response) => castToType<bool>(getJsonField(
         response,
         r'''$.statusbool''',
+      ));
+  String? msg(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
       ));
 }
 

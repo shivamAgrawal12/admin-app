@@ -22,6 +22,9 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _hideslot = prefs.getInt('ff_hideslot') ?? _hideslot;
     });
+    _safeInit(() {
+      _shuttles = prefs.getInt('ff_shuttles') ?? _shuttles;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -91,6 +94,7 @@ class FFAppState extends ChangeNotifier {
   int get shuttles => _shuttles;
   set shuttles(int value) {
     _shuttles = value;
+    prefs.setInt('ff_shuttles', value);
   }
 
   String _scannerpage = '';
