@@ -1,6 +1,6 @@
-import '/auth/custom_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/popup/inproccess/inproccess_widget.dart';
 import '/popup/logout/logout_widget.dart';
 import '/popup/shuttleupdate/shuttleupdate_widget.dart';
 import 'package:flutter/material.dart';
@@ -272,7 +272,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Icon(
-                                  Icons.file_open_rounded,
+                                  Icons.margin,
                                   color: FlutterFlowTheme.of(context).heading,
                                   size: 22.0,
                                 ),
@@ -298,16 +298,18 @@ class _MenuWidgetState extends State<MenuWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          context.pushNamed(
-                            'model_csv',
-                            extra: <String, dynamic>{
-                              kTransitionInfoKey: const TransitionInfo(
-                                hasTransition: true,
-                                transitionType: PageTransitionType.fade,
-                                duration: Duration(milliseconds: 500),
-                              ),
+                          await showModalBottomSheet(
+                            isScrollControlled: true,
+                            backgroundColor: Colors.transparent,
+                            enableDrag: false,
+                            context: context,
+                            builder: (context) {
+                              return Padding(
+                                padding: MediaQuery.viewInsetsOf(context),
+                                child: const InproccessWidget(),
+                              );
                             },
-                          );
+                          ).then((value) => safeSetState(() {}));
                         },
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -344,16 +346,18 @@ class _MenuWidgetState extends State<MenuWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          context.pushNamed(
-                            'matrix_csv',
-                            extra: <String, dynamic>{
-                              kTransitionInfoKey: const TransitionInfo(
-                                hasTransition: true,
-                                transitionType: PageTransitionType.fade,
-                                duration: Duration(milliseconds: 500),
-                              ),
+                          await showModalBottomSheet(
+                            isScrollControlled: true,
+                            backgroundColor: Colors.transparent,
+                            enableDrag: false,
+                            context: context,
+                            builder: (context) {
+                              return Padding(
+                                padding: MediaQuery.viewInsetsOf(context),
+                                child: const InproccessWidget(),
+                              );
                             },
-                          );
+                          ).then((value) => safeSetState(() {}));
                         },
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -364,7 +368,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Icon(
-                                  Icons.file_open_rounded,
+                                  Icons.file_present,
                                   color: FlutterFlowTheme.of(context).heading,
                                   size: 22.0,
                                 ),
@@ -410,7 +414,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Icon(
-                                  Icons.file_download_outlined,
+                                  Icons.save_as_outlined,
                                   color: FlutterFlowTheme.of(context).heading,
                                   size: 22.0,
                                 ),
@@ -454,40 +458,26 @@ class _MenuWidgetState extends State<MenuWidget> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                GoRouter.of(context).prepareAuthEvent();
-                                await authManager.signOut();
-                                GoRouter.of(context).clearRedirectLocation();
-
-                                context.goNamedAuth(
-                                    'robot_scan', context.mounted);
-                              },
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Icon(
-                                    Icons.login_outlined,
-                                    color: FlutterFlowTheme.of(context).heading,
-                                    size: 22.0,
-                                  ),
-                                  Text(
-                                    'Logout',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Raleway',
-                                          fontSize: 14.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                  ),
-                                ].divide(const SizedBox(width: 6.0)),
-                              ),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Icon(
+                                  Icons.login_outlined,
+                                  color: FlutterFlowTheme.of(context).heading,
+                                  size: 22.0,
+                                ),
+                                Text(
+                                  'Logout',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Raleway',
+                                        fontSize: 14.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                ),
+                              ].divide(const SizedBox(width: 6.0)),
                             ),
                           ],
                         ),
