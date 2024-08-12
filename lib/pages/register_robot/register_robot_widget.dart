@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/popup/wrong/wrong_widget.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
@@ -35,20 +36,17 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
         TextEditingController(text: FFAppState().robotid);
     _model.idFocusNode ??= FocusNode();
 
-    _model.rowTextController ??= TextEditingController();
+    _model.rowTextController ??= TextEditingController(text: '2');
     _model.rowFocusNode ??= FocusNode();
 
-    _model.rackTextController ??= TextEditingController();
+    _model.rackTextController ??= TextEditingController(text: '21');
     _model.rackFocusNode ??= FocusNode();
 
-    _model.slotTextController ??= TextEditingController();
+    _model.slotTextController ??= TextEditingController(text: '5');
     _model.slotFocusNode ??= FocusNode();
 
-    _model.depthTextController1 ??= TextEditingController();
-    _model.depthFocusNode1 ??= FocusNode();
-
-    _model.depthTextController2 ??= TextEditingController(text: '100');
-    _model.depthFocusNode2 ??= FocusNode();
+    _model.depthTextController ??= TextEditingController(text: '2');
+    _model.depthFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -196,64 +194,6 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Align(
-                                alignment: const AlignmentDirectional(-1.0, -1.0),
-                                child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      5.0, 5.0, 0.0, 0.0),
-                                  child: Text(
-                                    'Slot Type',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Open Sans',
-                                          color: FlutterFlowTheme.of(context)
-                                              .liteText,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 5.0, 8.0, 0.0),
-                                child: FlutterFlowDropDown<String>(
-                                  controller: _model.dropDownValueController ??=
-                                      FormFieldController<String>(null),
-                                  options: const ['metal_tray', 'plastic_tray'],
-                                  onChanged: (val) => setState(
-                                      () => _model.dropDownValue = val),
-                                  width: 310.0,
-                                  height: 50.0,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Open Sans',
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                  hintText: 'Please select slot type',
-                                  icon: Icon(
-                                    Icons.keyboard_arrow_down_rounded,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
-                                    size: 24.0,
-                                  ),
-                                  elevation: 0.0,
-                                  borderColor:
-                                      FlutterFlowTheme.of(context).subHeader,
-                                  borderWidth: 1.0,
-                                  borderRadius: 5.0,
-                                  margin: const EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 2.0, 10.0, 4.0),
-                                  hidesUnderline: true,
-                                  isOverButton: true,
-                                  isSearchable: false,
-                                  isMultiSelect: false,
-                                ),
-                              ),
                               Align(
                                 alignment: const AlignmentDirectional(-1.0, -1.0),
                                 child: Padding(
@@ -439,7 +379,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       5.0, 10.0, 0.0, 0.0),
                                   child: Text(
-                                    'Robot Max Row',
+                                    'Max Row',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -530,7 +470,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       5.0, 10.0, 0.0, 0.0),
                                   child: Text(
-                                    'Robot Max Rack',
+                                    'Max Rack',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -622,7 +562,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       5.0, 10.0, 0.0, 0.0),
                                   child: Text(
-                                    'Robot Max Slot',
+                                    'Max Slot',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -714,7 +654,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       5.0, 10.0, 0.0, 0.0),
                                   child: Text(
-                                    'Robot Max Depth',
+                                    'Max Depth',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -733,8 +673,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                 child: SizedBox(
                                   width: 310.0,
                                   child: TextFormField(
-                                    controller: _model.depthTextController1,
-                                    focusNode: _model.depthFocusNode1,
+                                    controller: _model.depthTextController,
+                                    focusNode: _model.depthFocusNode,
                                     autofocus: false,
                                     textCapitalization: TextCapitalization.none,
                                     obscureText: false,
@@ -795,9 +735,69 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                         ),
                                     keyboardType: TextInputType.number,
                                     validator: _model
-                                        .depthTextController1Validator
+                                        .depthTextControllerValidator
                                         .asValidator(context),
                                   ),
+                                ),
+                              ),
+                              Align(
+                                alignment: const AlignmentDirectional(-1.0, -1.0),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      5.0, 5.0, 0.0, 0.0),
+                                  child: Text(
+                                    'Slot Type',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Open Sans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .liteText,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 5.0, 8.0, 0.0),
+                                child: FlutterFlowDropDown<String>(
+                                  controller: _model.dropDownValueController ??=
+                                      FormFieldController<String>(
+                                    _model.dropDownValue ??= 'plastic_tray',
+                                  ),
+                                  options: const ['metal_tray', 'plastic_tray'],
+                                  onChanged: (val) => setState(
+                                      () => _model.dropDownValue = val),
+                                  width: 310.0,
+                                  height: 50.0,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Open Sans',
+                                        fontSize: 16.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                  hintText: 'Please select slot type',
+                                  icon: Icon(
+                                    Icons.keyboard_arrow_down_rounded,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    size: 24.0,
+                                  ),
+                                  elevation: 0.0,
+                                  borderColor:
+                                      FlutterFlowTheme.of(context).subHeader,
+                                  borderWidth: 1.0,
+                                  borderRadius: 5.0,
+                                  margin: const EdgeInsetsDirectional.fromSTEB(
+                                      10.0, 2.0, 10.0, 4.0),
+                                  hidesUnderline: true,
+                                  isOverButton: true,
+                                  isSearchable: false,
+                                  isMultiSelect: false,
                                 ),
                               ),
                               Align(
@@ -822,273 +822,43 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     8.0, 5.0, 8.0, 0.0),
-                                child: SizedBox(
-                                  width: 310.0,
-                                  child: TextFormField(
-                                    controller: _model.depthTextController2,
-                                    focusNode: _model.depthFocusNode2,
-                                    autofocus: false,
-                                    textCapitalization: TextCapitalization.none,
-                                    textInputAction: TextInputAction.done,
-                                    obscureText: false,
-                                    decoration: InputDecoration(
-                                      hintText: 'Enter slot height',
-                                      hintStyle: FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .override(
-                                            fontFamily: 'Open Sans',
-                                            fontSize: 16.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.normal,
-                                          ),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .liteText,
-                                          width: 1.5,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
-                                      ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .subHeader,
-                                          width: 1.5,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
-                                      ),
-                                      errorBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .error,
-                                          width: 1.5,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
-                                      ),
-                                      focusedErrorBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .error,
-                                          width: 1.5,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
-                                      ),
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Open Sans',
-                                          fontSize: 16.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                    keyboardType: TextInputType.number,
-                                    validator: _model
-                                        .depthTextController2Validator
-                                        .asValidator(context),
+                                child: FlutterFlowDropDown<String>(
+                                  controller:
+                                      _model.slotheightValueController ??=
+                                          FormFieldController<String>(
+                                    _model.slotheightValue ??= '100',
                                   ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 15.0, 8.0, 0.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    FFButtonWidget(
-                                      onPressed: () async {
-                                        setState(() {
-                                          _model.depthTextController2?.text =
-                                              '80';
-                                          _model.depthTextController2
-                                                  ?.selection =
-                                              TextSelection.collapsed(
-                                                  offset: _model
-                                                      .depthTextController2!
-                                                      .text
-                                                      .length);
-                                        });
-                                      },
-                                      text: '80 mm',
-                                      options: FFButtonOptions(
-                                        width: 125.0,
-                                        height: 40.0,
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 0.0, 24.0, 0.0),
-                                        iconPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .override(
-                                              fontFamily: 'Open Sans',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText,
-                                              letterSpacing: 0.0,
-                                            ),
-                                        elevation: 0.0,
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .subHeader,
-                                          width: 1.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                  options: const ['80', '100', '150', '180', '200'],
+                                  onChanged: (val) => setState(
+                                      () => _model.slotheightValue = val),
+                                  width: 310.0,
+                                  height: 50.0,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Open Sans',
+                                        fontSize: 16.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
                                       ),
-                                    ),
-                                    FFButtonWidget(
-                                      onPressed: () async {
-                                        setState(() {
-                                          _model.depthTextController2?.text =
-                                              '150';
-                                          _model.depthTextController2
-                                                  ?.selection =
-                                              TextSelection.collapsed(
-                                                  offset: _model
-                                                      .depthTextController2!
-                                                      .text
-                                                      .length);
-                                        });
-                                      },
-                                      text: '150 mm',
-                                      options: FFButtonOptions(
-                                        width: 125.0,
-                                        height: 40.0,
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 0.0, 24.0, 0.0),
-                                        iconPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .override(
-                                              fontFamily: 'Open Sans',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText,
-                                              letterSpacing: 0.0,
-                                            ),
-                                        elevation: 0.0,
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .subHeader,
-                                          width: 1.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 15.0, 8.0, 0.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    FFButtonWidget(
-                                      onPressed: () async {
-                                        setState(() {
-                                          _model.depthTextController2?.text =
-                                              '180';
-                                          _model.depthTextController2
-                                                  ?.selection =
-                                              TextSelection.collapsed(
-                                                  offset: _model
-                                                      .depthTextController2!
-                                                      .text
-                                                      .length);
-                                        });
-                                      },
-                                      text: '180 mm',
-                                      options: FFButtonOptions(
-                                        width: 125.0,
-                                        height: 40.0,
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 0.0, 24.0, 0.0),
-                                        iconPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .override(
-                                              fontFamily: 'Open Sans',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText,
-                                              letterSpacing: 0.0,
-                                            ),
-                                        elevation: 0.0,
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .subHeader,
-                                          width: 1.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                    ),
-                                    FFButtonWidget(
-                                      onPressed: () async {
-                                        setState(() {
-                                          _model.depthTextController2?.text =
-                                              '200';
-                                          _model.depthTextController2
-                                                  ?.selection =
-                                              TextSelection.collapsed(
-                                                  offset: _model
-                                                      .depthTextController2!
-                                                      .text
-                                                      .length);
-                                        });
-                                      },
-                                      text: '200 mm',
-                                      options: FFButtonOptions(
-                                        width: 125.0,
-                                        height: 40.0,
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 0.0, 24.0, 0.0),
-                                        iconPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .override(
-                                              fontFamily: 'Open Sans',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText,
-                                              letterSpacing: 0.0,
-                                            ),
-                                        elevation: 0.0,
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .subHeader,
-                                          width: 1.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                    ),
-                                  ],
+                                  hintText: 'Please select slot type',
+                                  icon: Icon(
+                                    Icons.keyboard_arrow_down_rounded,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    size: 24.0,
+                                  ),
+                                  elevation: 0.0,
+                                  borderColor:
+                                      FlutterFlowTheme.of(context).subHeader,
+                                  borderWidth: 1.0,
+                                  borderRadius: 5.0,
+                                  margin: const EdgeInsetsDirectional.fromSTEB(
+                                      10.0, 2.0, 10.0, 4.0),
+                                  hidesUnderline: true,
+                                  isOverButton: true,
+                                  isSearchable: false,
+                                  isMultiSelect: false,
                                 ),
                               ),
                               Padding(
@@ -1128,7 +898,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                           .registerNewRobotCall
                                           .call(
                                         maxDepth: int.tryParse(
-                                            _model.depthTextController1.text),
+                                            _model.depthTextController.text),
                                         maxSlot: int.tryParse(
                                             _model.slotTextController.text),
                                         maxRack: int.tryParse(
@@ -1140,8 +910,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                         robotName:
                                             _model.nameTextController.text,
                                         slotType: _model.dropDownValue,
-                                        slotHeight: int.tryParse(
-                                            _model.depthTextController2.text),
+                                        slotHeight: functions.stringtoint(
+                                            _model.slotheightValue!),
                                       );
 
                                       if ((_model.newRobot?.succeeded ??

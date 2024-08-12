@@ -31,6 +31,9 @@ dependencies:
   camera: ^0.11.0+1
   collection: 1.18.0
   connectivity_plus: ^6.0.4
+  csv: ^6.0.0
+  data_table_2: ^2.5.15
+  download: ^1.0.0
   dropdown_button2: 2.3.9
   easy_debounce: 2.0.1
   equatable: 2.0.5

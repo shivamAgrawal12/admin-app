@@ -4,8 +4,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/popup/msg_mapping/msg_mapping_widget.dart';
 import '/popup/successfull/successfull_widget.dart';
-import '/popup/wrong/wrong_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
@@ -276,7 +276,12 @@ class _DirectPicableWidgetState extends State<DirectPicableWidget> {
                                 builder: (context) {
                                   return Padding(
                                     padding: MediaQuery.viewInsetsOf(context),
-                                    child: const WrongWidget(),
+                                    child: MsgMappingWidget(
+                                      msg: AdminApiGroup.directPickableCall.msg(
+                                        (_model.directPickableSlot?.jsonBody ??
+                                            ''),
+                                      )!,
+                                    ),
                                   );
                                 },
                               ).then((value) => safeSetState(() {}));

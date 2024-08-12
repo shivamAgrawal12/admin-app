@@ -36,6 +36,8 @@ class AdminApiGroup {
   static PostTaskCall postTaskCall = PostTaskCall();
   static TaskDetailsCall taskDetailsCall = TaskDetailsCall();
   static ListOfTrayCall listOfTrayCall = ListOfTrayCall();
+  static ListOfTrayWithoutTypeCall listOfTrayWithoutTypeCall =
+      ListOfTrayWithoutTypeCall();
   static ListOfTrayRetrieveCall listOfTrayRetrieveCall =
       ListOfTrayRetrieveCall();
   static ListOfSlotCall listOfSlotCall = ListOfSlotCall();
@@ -55,6 +57,7 @@ class AdminApiGroup {
       MappingTrayAsnShuttleCall();
   static TaskByIdCall taskByIdCall = TaskByIdCall();
   static UplodeSlotCsvCall uplodeSlotCsvCall = UplodeSlotCsvCall();
+  static UplodeTrayCsvCall uplodeTrayCsvCall = UplodeTrayCsvCall();
   static SpeedInShuttleCall speedInShuttleCall = SpeedInShuttleCall();
   static AddBufferInShutttleCall addBufferInShutttleCall =
       AddBufferInShutttleCall();
@@ -817,6 +820,57 @@ class ListOfTrayCall {
         response,
         r'''$.count''',
       ));
+  String? msg(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+}
+
+class ListOfTrayWithoutTypeCall {
+  Future<ApiCallResponse> call({
+    String? robotId = '',
+  }) async {
+    final baseUrl = AdminApiGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'list of tray without type',
+      apiUrl: '$baseUrl/robotmanager/trays/',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization':
+            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+      },
+      params: {
+        'robot_id': robotId,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  List? records(dynamic response) => getJsonField(
+        response,
+        r'''$.records''',
+        true,
+      ) as List?;
+  bool? statusbool(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.statusbool''',
+      ));
+  int? count(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.count''',
+      ));
+  String? msg(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
 }
 
 class ListOfTrayRetrieveCall {
@@ -898,6 +952,10 @@ class ListOfSlotCall {
   bool? statusbool(dynamic response) => castToType<bool>(getJsonField(
         response,
         r'''$.statusbool''',
+      ));
+  String? msg(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
       ));
 }
 
@@ -1050,13 +1108,13 @@ class GetTaskCall {
 
 class TaskCompleteCall {
   Future<ApiCallResponse> call({
-    int? id,
+    int? taskId,
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'task complete',
-      apiUrl: '$baseUrl/robotmanager/task/pickup_completed/$id',
+      apiUrl: '$baseUrl/robotmanager/task/pickup_completed/$taskId',
       callType: ApiCallType.PATCH,
       headers: {
         'Authorization':
@@ -1084,6 +1142,10 @@ class TaskCompleteCall {
         r'''$.records''',
         true,
       ) as List?;
+  String? msg(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
 }
 
 class ChangeSlotTypeCall {
@@ -1267,6 +1329,10 @@ class DirectPickableCall {
         r'''$.records''',
         true,
       ) as List?;
+  String? msg(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
 }
 
 class AddShuttlesCall {
@@ -1421,6 +1487,47 @@ class UplodeSlotCsvCall {
       callName: 'uplode slot csv',
       apiUrl: '$baseUrl/robotmanager/slots/upload_csv/?robot_id=$robotId',
       callType: ApiCallType.PATCH,
+      headers: {
+        'Authorization':
+            'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+        'Content-Type': 'multipart/form-data',
+      },
+      params: {
+        'in_file': inFile,
+      },
+      bodyType: BodyType.MULTIPART,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  String? msg(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.detail[:].msg''',
+      ));
+  dynamic status(dynamic response) => getJsonField(
+        response,
+        r'''$.statusbool''',
+      );
+}
+
+class UplodeTrayCsvCall {
+  Future<ApiCallResponse> call({
+    String? robotId = '',
+    FFUploadedFile? inFile,
+  }) async {
+    final baseUrl = AdminApiGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'uplode tray csv',
+      apiUrl: '$baseUrl/robotmanager/trays/upload?robot_id=$robotId',
+      callType: ApiCallType.POST,
       headers: {
         'Authorization':
             'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',

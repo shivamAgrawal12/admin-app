@@ -5,9 +5,9 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/instant_timer.dart';
 import '/popup/friendly_name_wrg/friendly_name_wrg_widget.dart';
 import '/popup/menu/menu_widget.dart';
+import '/popup/msg_mapping/msg_mapping_widget.dart';
 import '/popup/no_recordforlist/no_recordforlist_widget.dart';
 import '/popup/successfull/successfull_widget.dart';
-import '/popup/wrong/wrong_widget.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
@@ -244,6 +244,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                       decoration: const BoxDecoration(),
                       child: SingleChildScrollView(
                         primary: false,
+                        controller: _model.column3,
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -285,6 +286,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                           0.0, 15.0, 0.0, 0.0),
                                       child: SingleChildScrollView(
                                         primary: false,
+                                        controller: _model.columnController,
                                         child: Column(
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
@@ -693,7 +695,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                                             FFAppState().taskrecid =
                                                                                 getJsonField(
                                                                               trayRecordsItem,
-                                                                              r'''$.id''',
+                                                                              r'''$.task_id''',
                                                                             );
                                                                             FFAppState().friendlyname =
                                                                                 getJsonField(
@@ -704,6 +706,12 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                                             _model.change =
                                                                                 0;
                                                                             setState(() {});
+                                                                            await Future.delayed(const Duration(milliseconds: 600));
+                                                                            await _model.column3?.animateTo(
+                                                                              _model.column3!.position.maxScrollExtent,
+                                                                              duration: const Duration(milliseconds: 200),
+                                                                              curve: Curves.ease,
+                                                                            );
                                                                           },
                                                                           text:
                                                                               'Select',
@@ -1079,7 +1087,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                 await AdminApiGroup
                                                     .taskCompleteCall
                                                     .call(
-                                              id: FFAppState().taskrecid,
+                                              taskId: FFAppState().taskrecid,
                                             );
 
                                             if ((_model
@@ -1123,7 +1131,15 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                       padding: MediaQuery
                                                           .viewInsetsOf(
                                                               context),
-                                                      child: const WrongWidget(),
+                                                      child: MsgMappingWidget(
+                                                        msg: AdminApiGroup
+                                                            .taskCompleteCall
+                                                            .msg(
+                                                          (_model.taskComplete
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )!,
+                                                      ),
                                                     ),
                                                   );
                                                 },

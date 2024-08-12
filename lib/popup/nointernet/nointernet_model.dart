@@ -1,17 +1,17 @@
 import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'msg_mapping_widget.dart' show MsgMappingWidget;
+import 'nointernet_widget.dart' show NointernetWidget;
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
 
-class MsgMappingModel extends FlutterFlowModel<MsgMappingWidget> {
+class NointernetModel extends FlutterFlowModel<NointernetWidget> {
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for Timer widget.
-  final timerInitialTimeMs = 4000;
-  int timerMilliseconds = 4000;
+  final timerInitialTimeMs = 30000;
+  int timerMilliseconds = 30000;
   String timerValue = StopWatchTimer.getDisplayTime(
-    4000,
+    30000,
     hours: false,
     milliSecond: false,
   );

@@ -386,11 +386,20 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                         decoration: const BoxDecoration(
                                           shape: BoxShape.circle,
                                         ),
-                                        child: Icon(
-                                          Icons.filter_list,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          size: 24.0,
+                                        child: Visibility(
+                                          visible: responsiveVisibility(
+                                            context: context,
+                                            phone: false,
+                                            tablet: false,
+                                            tabletLandscape: false,
+                                            desktop: false,
+                                          ),
+                                          child: Icon(
+                                            Icons.filter_list,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            size: 24.0,
+                                          ),
                                         ),
                                       ),
                                     ],

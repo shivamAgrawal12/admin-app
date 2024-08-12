@@ -8,10 +8,9 @@ class TrayAddedModel extends FlutterFlowModel<TrayAddedWidget> {
   ///  State fields for stateful widgets in this component.
 
   final formKey = GlobalKey<FormState>();
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode;
-  TextEditingController? textController;
-  String? Function(BuildContext, String?)? textControllerValidator;
+  // State field(s) for trayheight widget.
+  String? trayheightValue;
+  FormFieldController<String>? trayheightValueController;
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;
@@ -22,8 +21,5 @@ class TrayAddedModel extends FlutterFlowModel<TrayAddedWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    textFieldFocusNode?.dispose();
-    textController?.dispose();
-  }
+  void dispose() {}
 }

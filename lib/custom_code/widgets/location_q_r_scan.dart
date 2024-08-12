@@ -15,6 +15,7 @@ import 'index.dart'; // Imports other custom widgets
 
 import 'dart:io';
 import '/backend/api_requests/api_calls.dart';
+import '/popup/msg_mapping/msg_mapping_widget.dart';
 import 'package:mobile_scanner/mobile_scanner.dart'; // Import MobileScanner
 import '/popup/menu/menu_widget.dart';
 import '/popup/friendly_name_wrg/friendly_name_wrg_widget.dart';
@@ -184,11 +185,14 @@ class _LocationQRScanState extends State<LocationQRScan> {
 
     if (FFAppState().friendlyname == scannedValue) {
       final taskCompleteResult = await AdminApiGroup.taskCompleteCall.call(
-        id: FFAppState().taskrecid,
+        taskId: FFAppState().taskrecid,
       );
+
       _shouldSetState = true;
+
       if (taskCompleteResult.succeeded) {
-        actions.continuousVibration(0, 0, 0, 500);
+        // Task completion succeeded
+        await actions.continuousVibration(0, 0, 0, 500);
         await showModalBottomSheet(
           isScrollControlled: true,
           backgroundColor: Colors.transparent,
@@ -205,6 +209,10 @@ class _LocationQRScanState extends State<LocationQRScan> {
           },
         ).then((value) => setState(() {}));
       } else {
+        // Task completion failed, handle with MsgMappingWidget
+        final message = taskCompleteResult
+            .jsonBody['message']; // Extract the message from the API response
+
         await actions.continuousVibration(500, 1000, 500, 1000);
         await showModalBottomSheet(
           isScrollControlled: true,
@@ -216,13 +224,16 @@ class _LocationQRScanState extends State<LocationQRScan> {
               onTap: () => _unfocusIfNeeded(context),
               child: Padding(
                 padding: MediaQuery.of(context).viewInsets,
-                child: WrongWidget(),
+                child: MsgMappingWidget(
+                  msg: message ?? 'No message available',
+                ),
               ),
             );
           },
         ).then((value) => setState(() {}));
       }
     } else {
+      // Handle wrong scanned value case
       await actions.continuousVibration(500, 1000, 500, 1000);
       await showModalBottomSheet(
         isScrollControlled: true,
@@ -239,9 +250,8 @@ class _LocationQRScanState extends State<LocationQRScan> {
           );
         },
       ).then((value) => setState(() {}));
-      if (_shouldSetState) setState(() {});
-      return;
     }
+
     if (_shouldSetState) setState(() {});
   }
 

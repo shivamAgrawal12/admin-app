@@ -8,9 +8,10 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import '/popup/nointernet/nointernet_widget.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 
-Future<void> checkAndUpdateConnectionStatus() async {
+Future<void> checkAndUpdateConnectionStatus(BuildContext context) async {
   // Check internet connection
   bool isConnected = await InternetConnection().hasInternetAccess;
 
@@ -20,4 +21,24 @@ Future<void> checkAndUpdateConnectionStatus() async {
   // Notify listeners about the state change
   FFAppState().notifyListeners();
   print('Connected2: $isConnected');
+
+  // If not connected, show the NoInternetWidget as a bottom sheet
+  if (!isConnected) {
+    await showModalBottomSheet(
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      enableDrag: false,
+      context: context,
+      builder: (context) {
+        return GestureDetector(
+          onTap: () => FocusScope.of(context).unfocus(),
+          child: Padding(
+            padding: MediaQuery.viewInsetsOf(context),
+            child:
+                const NointernetWidget(), // Assuming this widget is a modal bottom sheet
+          ),
+        );
+      },
+    );
+  }
 }

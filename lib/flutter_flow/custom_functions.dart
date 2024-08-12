@@ -190,3 +190,11 @@ dynamic searchalltray(
 dynamic booltruecondition() {
   return true;
 }
+
+int stringtoint(String stringvalue) {
+  return int.parse(stringvalue);
+}
+
+String inttostring(int intvalue) {
+  return intvalue.toString();
+}

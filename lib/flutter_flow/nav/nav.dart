@@ -191,14 +191,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const RegisterShuttlesWidget(),
         ),
         FFRoute(
-          name: 'uplode_csv',
-          path: '/uplodeCsv',
-          builder: (context, params) => const UplodeCsvWidget(),
+          name: 'matrix_csv',
+          path: '/matrixCsv',
+          builder: (context, params) => const MatrixCsvWidget(),
         ),
         FFRoute(
           name: 'add_shuttle_details',
           path: '/addShuttleDetails',
           builder: (context, params) => const AddShuttleDetailsWidget(),
+        ),
+        FFRoute(
+          name: 'model_csv',
+          path: '/modelCsv',
+          builder: (context, params) => const ModelCsvWidget(),
+        ),
+        FFRoute(
+          name: 'tray_csv',
+          path: '/trayCsv',
+          builder: (context, params) => const TrayCsvWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

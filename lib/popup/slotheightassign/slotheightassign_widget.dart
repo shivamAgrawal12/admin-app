@@ -1,7 +1,10 @@
+import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
 import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'slotheightassign_model.dart';
@@ -40,9 +43,6 @@ class _SlotheightassignWidgetState extends State<SlotheightassignWidget> {
 
     _model.textController4 ??= TextEditingController();
     _model.textFieldFocusNode4 ??= FocusNode();
-
-    _model.heightTextController ??= TextEditingController(text: '100');
-    _model.heightFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -447,225 +447,40 @@ class _SlotheightassignWidgetState extends State<SlotheightassignWidget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
-                        child: SizedBox(
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                        child: FlutterFlowDropDown<String>(
+                          controller: _model.slotheightValueController ??=
+                              FormFieldController<String>(
+                            _model.slotheightValue ??= '100',
+                          ),
+                          options: const ['80', '100', '150', '180', '200'],
+                          onChanged: (val) =>
+                              setState(() => _model.slotheightValue = val),
                           width: 240.0,
-                          child: TextFormField(
-                            controller: _model.heightTextController,
-                            focusNode: _model.heightFocusNode,
-                            autofocus: true,
-                            obscureText: false,
-                            decoration: InputDecoration(
-                              hintText: 'enter height',
-                              hintStyle: FlutterFlowTheme.of(context)
-                                  .labelMedium
-                                  .override(
-                                    fontFamily: 'Raleway',
+                          height: 50.0,
+                          textStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Open Sans',
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: FlutterFlowTheme.of(context).liteText,
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(5.0),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: FlutterFlowTheme.of(context).subHeader,
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(5.0),
-                              ),
-                              errorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: FlutterFlowTheme.of(context).error,
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(5.0),
-                              ),
-                              focusedErrorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: FlutterFlowTheme.of(context).error,
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(5.0),
-                              ),
-                            ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Open Sans',
-                                  fontSize: 16.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                            keyboardType: TextInputType.number,
-                            validator: _model.heightTextControllerValidator
-                                .asValidator(context),
+                          hintText: 'Please select slot type',
+                          icon: Icon(
+                            Icons.keyboard_arrow_down_rounded,
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            size: 24.0,
                           ),
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            FFButtonWidget(
-                              onPressed: () async {
-                                setState(() {
-                                  _model.heightTextController?.text = '80';
-                                  _model.heightTextController?.selection =
-                                      TextSelection.collapsed(
-                                          offset: _model.heightTextController!
-                                              .text.length);
-                                });
-                              },
-                              text: '80 mm',
-                              options: FFButtonOptions(
-                                width: 100.0,
-                                height: 35.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 24.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).primary,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      fontFamily: 'Open Sans',
-                                      color:
-                                          FlutterFlowTheme.of(context).bodyText,
-                                      letterSpacing: 0.0,
-                                    ),
-                                elevation: 0.0,
-                                borderSide: BorderSide(
-                                  color: FlutterFlowTheme.of(context).subHeader,
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                            ),
-                            FFButtonWidget(
-                              onPressed: () async {
-                                setState(() {
-                                  _model.heightTextController?.text = '150';
-                                  _model.heightTextController?.selection =
-                                      TextSelection.collapsed(
-                                          offset: _model.heightTextController!
-                                              .text.length);
-                                });
-                              },
-                              text: '150 mm',
-                              options: FFButtonOptions(
-                                width: 100.0,
-                                height: 35.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 24.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).primary,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      fontFamily: 'Open Sans',
-                                      color:
-                                          FlutterFlowTheme.of(context).bodyText,
-                                      letterSpacing: 0.0,
-                                    ),
-                                elevation: 0.0,
-                                borderSide: BorderSide(
-                                  color: FlutterFlowTheme.of(context).subHeader,
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            FFButtonWidget(
-                              onPressed: () async {
-                                setState(() {
-                                  _model.heightTextController?.text = '180';
-                                  _model.heightTextController?.selection =
-                                      TextSelection.collapsed(
-                                          offset: _model.heightTextController!
-                                              .text.length);
-                                });
-                              },
-                              text: '180 mm',
-                              options: FFButtonOptions(
-                                width: 100.0,
-                                height: 35.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 24.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).primary,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      fontFamily: 'Open Sans',
-                                      color:
-                                          FlutterFlowTheme.of(context).bodyText,
-                                      letterSpacing: 0.0,
-                                    ),
-                                elevation: 0.0,
-                                borderSide: BorderSide(
-                                  color: FlutterFlowTheme.of(context).subHeader,
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                            ),
-                            FFButtonWidget(
-                              onPressed: () async {
-                                setState(() {
-                                  _model.heightTextController?.text = '200';
-                                  _model.heightTextController?.selection =
-                                      TextSelection.collapsed(
-                                          offset: _model.heightTextController!
-                                              .text.length);
-                                });
-                              },
-                              text: '200 mm',
-                              options: FFButtonOptions(
-                                width: 100.0,
-                                height: 35.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 24.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).primary,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      fontFamily: 'Open Sans',
-                                      color:
-                                          FlutterFlowTheme.of(context).bodyText,
-                                      letterSpacing: 0.0,
-                                    ),
-                                elevation: 0.0,
-                                borderSide: BorderSide(
-                                  color: FlutterFlowTheme.of(context).subHeader,
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                            ),
-                          ],
+                          elevation: 0.0,
+                          borderColor: FlutterFlowTheme.of(context).subHeader,
+                          borderWidth: 1.0,
+                          borderRadius: 5.0,
+                          margin: const EdgeInsetsDirectional.fromSTEB(
+                              10.0, 2.0, 10.0, 4.0),
+                          hidesUnderline: true,
+                          isOverButton: true,
+                          isSearchable: false,
+                          isMultiSelect: false,
                         ),
                       ),
                     ],
@@ -730,7 +545,7 @@ class _SlotheightassignWidgetState extends State<SlotheightassignWidget> {
                               int.tryParse(_model.textController4.text),
                               int.tryParse(_model.textController3.text),
                               int.tryParse(_model.textController2.text),
-                              int.tryParse(_model.heightTextController.text),
+                              functions.stringtoint(_model.slotheightValue!),
                             );
                           },
                           text: 'Change',

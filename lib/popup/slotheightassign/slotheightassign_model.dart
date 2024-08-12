@@ -1,4 +1,5 @@
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/form_field_controller.dart';
 import 'slotheightassign_widget.dart' show SlotheightassignWidget;
 import 'package:flutter/material.dart';
 
@@ -21,10 +22,9 @@ class SlotheightassignModel extends FlutterFlowModel<SlotheightassignWidget> {
   FocusNode? textFieldFocusNode4;
   TextEditingController? textController4;
   String? Function(BuildContext, String?)? textController4Validator;
-  // State field(s) for height widget.
-  FocusNode? heightFocusNode;
-  TextEditingController? heightTextController;
-  String? Function(BuildContext, String?)? heightTextControllerValidator;
+  // State field(s) for slotheight widget.
+  String? slotheightValue;
+  FormFieldController<String>? slotheightValueController;
 
   @override
   void initState(BuildContext context) {}
@@ -42,8 +42,5 @@ class SlotheightassignModel extends FlutterFlowModel<SlotheightassignWidget> {
 
     textFieldFocusNode4?.dispose();
     textController4?.dispose();
-
-    heightFocusNode?.dispose();
-    heightTextController?.dispose();
   }
 }

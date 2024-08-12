@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:async';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
@@ -28,6 +29,13 @@ class _RobotScanWidgetState extends State<RobotScanWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      unawaited(
+        () async {
+          await actions.checkAndUpdateConnectionStatus(
+            context,
+          );
+        }(),
+      );
       FFAppState().scannerpage = 'robo';
       setState(() {});
       _model.routh = await actions.routhpage(
@@ -283,22 +291,28 @@ class _RobotScanWidgetState extends State<RobotScanWidget> {
                                     ),
                                     child: FFButtonWidget(
                                       onPressed: () async {
+                                        await actions
+                                            .checkAndUpdateConnectionStatus(
+                                          context,
+                                        );
                                         FFAppState().robotid =
                                             _model.textController.text;
                                         FFAppState().update(() {});
-
-                                        context.pushNamed(
-                                          'login_page',
-                                          extra: <String, dynamic>{
-                                            kTransitionInfoKey: const TransitionInfo(
-                                              hasTransition: true,
-                                              transitionType:
-                                                  PageTransitionType.fade,
-                                              duration:
-                                                  Duration(milliseconds: 500),
-                                            ),
-                                          },
-                                        );
+                                        if (_model.textController.text != '') {
+                                          context.pushNamed(
+                                            'login_page',
+                                            extra: <String, dynamic>{
+                                              kTransitionInfoKey:
+                                                  const TransitionInfo(
+                                                hasTransition: true,
+                                                transitionType:
+                                                    PageTransitionType.fade,
+                                                duration:
+                                                    Duration(milliseconds: 500),
+                                              ),
+                                            },
+                                          );
+                                        }
                                       },
                                       text: 'Next',
                                       options: FFButtonOptions(

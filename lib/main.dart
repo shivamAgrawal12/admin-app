@@ -17,7 +17,6 @@ void main() async {
 
   // Start initial custom actions code
   await actions.connected();
-  await actions.checkAndUpdateConnectionStatus();
   // End initial custom actions code
 
   await authManager.initialize();

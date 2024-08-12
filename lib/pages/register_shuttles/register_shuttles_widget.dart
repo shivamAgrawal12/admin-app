@@ -666,7 +666,7 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget> {
                                           FFAppState().update(() {});
 
                                           context.pushNamed(
-                                            'uplode_csv',
+                                            'matrix_csv',
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
                                                   const TransitionInfo(

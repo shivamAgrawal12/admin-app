@@ -38,6 +38,7 @@ abstract class FlutterFlowTheme {
   late Color liteText;
   late Color heading;
   late Color liteBg;
+  late Color csvbgclr;
 
   @Deprecated('Use displaySmallFamily instead')
   String get title1Family => displaySmallFamily;
@@ -133,6 +134,7 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color liteText = const Color(0xFFB4A7D6);
   late Color heading = const Color(0xFF8E7CC3);
   late Color liteBg = const Color(0xFFEEECF1);
+  late Color csvbgclr = const Color(0xFFF7F5FB);
 }
 
 abstract class Typography {

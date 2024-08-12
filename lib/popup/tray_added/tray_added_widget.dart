@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/popup/msg_mapping/msg_mapping_widget.dart';
 import '/popup/successfull/successfull_widget.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'tray_added_model.dart';
@@ -31,9 +32,6 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => TrayAddedModel());
-
-    _model.textController ??= TextEditingController();
-    _model.textFieldFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -152,60 +150,43 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
                         topRight: Radius.circular(0.0),
                       ),
                     ),
-                    child: TextFormField(
-                      controller: _model.textController,
-                      focusNode: _model.textFieldFocusNode,
-                      autofocus: true,
-                      textInputAction: TextInputAction.next,
-                      obscureText: false,
-                      decoration: InputDecoration(
-                        labelStyle:
-                            FlutterFlowTheme.of(context).labelMedium.override(
-                                  fontFamily: 'Open Sans',
-                                  letterSpacing: 0.0,
-                                ),
-                        hintText: 'Enter Tray Height',
-                        hintStyle:
-                            FlutterFlowTheme.of(context).labelMedium.override(
-                                  fontFamily: 'Open Sans',
-                                  letterSpacing: 0.0,
-                                ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).bodyText,
-                            width: 0.5,
-                          ),
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).primary,
-                            width: 0.5,
-                          ),
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        errorBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).error,
-                            width: 0.5,
-                          ),
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        focusedErrorBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).error,
-                            width: 0.5,
-                          ),
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(8.0, 15.0, 8.0, 0.0),
+                    child: FlutterFlowDropDown<String>(
+                      controller: _model.trayheightValueController ??=
+                          FormFieldController<String>(
+                        _model.trayheightValue ??= '100',
                       ),
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Open Sans',
-                            letterSpacing: 0.0,
-                          ),
-                      keyboardType: TextInputType.number,
-                      validator:
-                          _model.textControllerValidator.asValidator(context),
+                      options: const ['80', '100', '150', '180', '200'],
+                      onChanged: (val) =>
+                          setState(() => _model.trayheightValue = val),
+                      width: 230.0,
+                      height: 45.0,
+                      textStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.override(
+                                fontFamily: 'Open Sans',
+                                fontSize: 16.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w600,
+                              ),
+                      hintText: 'Please select slot type',
+                      icon: Icon(
+                        Icons.keyboard_arrow_down_rounded,
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                        size: 24.0,
+                      ),
+                      elevation: 0.0,
+                      borderColor: FlutterFlowTheme.of(context).subHeader,
+                      borderWidth: 1.0,
+                      borderRadius: 5.0,
+                      margin:
+                          const EdgeInsetsDirectional.fromSTEB(10.0, 2.0, 10.0, 4.0),
+                      hidesUnderline: true,
+                      isOverButton: true,
+                      isSearchable: false,
+                      isMultiSelect: false,
                     ),
                   ),
                   Padding(
@@ -312,7 +293,8 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
                           trayType: _model.dropDownValue,
                           robotId: FFAppState().robotid,
                           trayId: FFAppState().trayid,
-                          trayHeight: int.tryParse(_model.textController.text),
+                          trayHeight:
+                              functions.stringtoint(_model.trayheightValue!),
                         );
 
                         if ((_model.addNewTray?.succeeded ?? true)) {

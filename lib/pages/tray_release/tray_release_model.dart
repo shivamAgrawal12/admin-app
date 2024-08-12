@@ -14,6 +14,10 @@ class TrayReleaseModel extends FlutterFlowModel<TrayReleaseWidget> {
 
   InstantTimer? instantTimer;
   Completer<ApiCallResponse>? apiRequestCompleter;
+  // State field(s) for Column3 widget.
+  ScrollController? column3;
+  // State field(s) for Column widget.
+  ScrollController? columnController;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController1;
@@ -28,11 +32,16 @@ class TrayReleaseModel extends FlutterFlowModel<TrayReleaseWidget> {
   ApiCallResponse? taskComplete;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    column3 = ScrollController();
+    columnController = ScrollController();
+  }
 
   @override
   void dispose() {
     instantTimer?.cancel();
+    column3?.dispose();
+    columnController?.dispose();
     textFieldFocusNode1?.dispose();
     textController1?.dispose();
 

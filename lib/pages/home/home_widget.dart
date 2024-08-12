@@ -11,7 +11,7 @@ import '/popup/no_record/no_record_widget.dart';
 import '/popup/select_type/select_type_widget.dart';
 import '/popup/slotheightassign/slotheightassign_widget.dart';
 import '/popup/successfull/successfull_widget.dart';
-import '/popup/wrong/wrong_widget.dart';
+import 'dart:async';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
@@ -41,6 +41,13 @@ class _HomeWidgetState extends State<HomeWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      unawaited(
+        () async {
+          await actions.checkAndUpdateConnectionStatus(
+            context,
+          );
+        }(),
+      );
       FFAppState().scannerpage = 'home';
       FFAppState().hideslot = 7;
       setState(() {});
@@ -171,12 +178,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                           width: 31.0,
                                           height: 31.0,
                                           decoration: BoxDecoration(
-                                            color: FFAppState().connected ==
-                                                    true
-                                                ? FlutterFlowTheme.of(context)
-                                                    .success
-                                                : FlutterFlowTheme.of(context)
-                                                    .warning,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
                                             shape: BoxShape.circle,
                                           ),
                                           child: Align(
@@ -1618,7 +1621,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
-                                        ].divide(const SizedBox(width: 50.0)),
+                                        ].divide(const SizedBox(width: 15.0)),
                                       ),
                                     ),
                                   ),
@@ -2828,7 +2831,14 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                           .viewInsetsOf(
                                                                               context),
                                                                       child:
-                                                                          const WrongWidget(),
+                                                                          MsgMappingWidget(
+                                                                        msg: AdminApiGroup
+                                                                            .changeSlotTypeCall
+                                                                            .msg(
+                                                                          (_model.unblockSlot?.jsonBody ??
+                                                                              ''),
+                                                                        )!,
+                                                                      ),
                                                                     ),
                                                                   );
                                                                 },
@@ -3006,7 +3016,14 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                           .viewInsetsOf(
                                                                               context),
                                                                       child:
-                                                                          const WrongWidget(),
+                                                                          MsgMappingWidget(
+                                                                        msg: AdminApiGroup
+                                                                            .changeSlotTypeCall
+                                                                            .msg(
+                                                                          (_model.blockSlot?.jsonBody ??
+                                                                              ''),
+                                                                        )!,
+                                                                      ),
                                                                     ),
                                                                   );
                                                                 },
@@ -3176,7 +3193,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
+                                              MainAxisAlignment.start,
                                           children: [
                                             Container(
                                               width: 50.0,
@@ -3249,7 +3266,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                         ),
                                               ),
                                             ),
-                                          ].divide(const SizedBox(width: 5.0)),
+                                          ].divide(const SizedBox(width: 15.0)),
                                         ),
                                       ),
                                     ),
