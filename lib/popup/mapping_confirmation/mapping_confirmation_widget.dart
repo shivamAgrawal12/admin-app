@@ -251,7 +251,7 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                       Navigator.pop(context);
 
                       context.goNamed(
-                        'slot_mappimg',
+                        'home',
                         extra: <String, dynamic>{
                           kTransitionInfoKey: const TransitionInfo(
                             hasTransition: true,
@@ -358,7 +358,7 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                           FFAppState().update(() {});
 
                           context.goNamed(
-                            'slot_mappimg',
+                            'home',
                             extra: <String, dynamic>{
                               kTransitionInfoKey: const TransitionInfo(
                                 hasTransition: true,
@@ -370,7 +370,6 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
 
                           Navigator.pop(context);
                         } else {
-                          Navigator.pop(context);
                           FFAppState().trayid = '';
                           FFAppState().trayqrscan = 0;
                           FFAppState().update(() {});
@@ -393,7 +392,7 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                           ).then((value) => safeSetState(() {}));
 
                           context.goNamed(
-                            'slot_mappimg',
+                            'home',
                             extra: <String, dynamic>{
                               kTransitionInfoKey: const TransitionInfo(
                                 hasTransition: true,
@@ -402,6 +401,8 @@ class _MappingConfirmationWidgetState extends State<MappingConfirmationWidget> {
                               ),
                             },
                           );
+
+                          Navigator.pop(context);
                         }
 
                         setState(() {});
