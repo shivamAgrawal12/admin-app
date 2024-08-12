@@ -4,9 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'task_successfull_model.dart';
 export 'task_successfull_model.dart';
 
@@ -49,7 +46,7 @@ class _TaskSuccessfullWidgetState extends State<TaskSuccessfullWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: AlignmentDirectional(0.0, -0.6),
+      alignment: const AlignmentDirectional(0.0, -0.6),
       child: Container(
         width: 270.0,
         decoration: BoxDecoration(
@@ -57,18 +54,18 @@ class _TaskSuccessfullWidgetState extends State<TaskSuccessfullWidget> {
           borderRadius: BorderRadius.circular(10.0),
         ),
         child: Padding(
-          padding: EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Text(
                         'Task posted Successfully',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -85,7 +82,7 @@ class _TaskSuccessfullWidgetState extends State<TaskSuccessfullWidget> {
                       color: FlutterFlowTheme.of(context).success,
                       size: 19.0,
                     ),
-                  ].divide(SizedBox(width: 5.0)),
+                  ].divide(const SizedBox(width: 5.0)),
                 ),
               ),
               ClipRRect(
@@ -105,7 +102,7 @@ class _TaskSuccessfullWidgetState extends State<TaskSuccessfullWidget> {
                   milliSecond: false,
                 ),
                 controller: _model.timerController,
-                updateStateInterval: Duration(milliseconds: 1000),
+                updateStateInterval: const Duration(milliseconds: 1000),
                 onChanged: (value, displayTime, shouldUpdate) {
                   _model.timerMilliseconds = value;
                   _model.timerValue = displayTime;
@@ -130,7 +127,7 @@ class _TaskSuccessfullWidgetState extends State<TaskSuccessfullWidget> {
                       fontWeight: FontWeight.w100,
                     ),
               ),
-            ].divide(SizedBox(height: 20.0)),
+            ].divide(const SizedBox(height: 20.0)),
           ),
         ),
       ),

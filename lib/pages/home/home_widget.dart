@@ -14,12 +14,10 @@ import '/popup/successfull/successfull_widget.dart';
 import 'dart:async';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'home_model.dart';
 export 'home_model.dart';
@@ -90,24 +88,24 @@ class _HomeWidgetState extends State<HomeWidget> {
           body: SafeArea(
             top: true,
             child: Align(
-              alignment: AlignmentDirectional(0.0, -1.0),
+              alignment: const AlignmentDirectional(0.0, -1.0),
               child: Container(
                 width: MediaQuery.sizeOf(context).width * 1.0,
                 height: MediaQuery.sizeOf(context).height * 1.0,
-                constraints: BoxConstraints(
+                constraints: const BoxConstraints(
                   minWidth: 320.0,
                   maxWidth: 450.0,
                 ),
-                decoration: BoxDecoration(),
+                decoration: const BoxDecoration(),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Container(
                         width: MediaQuery.sizeOf(context).width * 1.0,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           gradient: LinearGradient(
                             colors: [Color(0xFF351C75), Color(0xFF8E7CC3)],
                             stops: [0.0, 1.0],
@@ -116,19 +114,19 @@ class _HomeWidgetState extends State<HomeWidget> {
                           ),
                         ),
                         child: Padding(
-                          padding: EdgeInsets.all(6.0),
+                          padding: const EdgeInsets.all(6.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 10.0, 0.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Padding(
+                                    const Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           15.0, 0.0, 0.0, 0.0),
                                       child: FaIcon(
@@ -147,7 +145,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 15.0, 0.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -169,7 +167,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   padding:
                                                       MediaQuery.viewInsetsOf(
                                                           context),
-                                                  child: MenuWidget(),
+                                                  child: const MenuWidget(),
                                                 ),
                                               );
                                             },
@@ -186,7 +184,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                           ),
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 2.6),
+                                                const AlignmentDirectional(0.0, 2.6),
                                             child: Icon(
                                               Icons.person_3,
                                               color:
@@ -198,7 +196,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         ),
                                       ),
                                     ),
-                                  ].divide(SizedBox(width: 6.0)),
+                                  ].divide(const SizedBox(width: 6.0)),
                                 ),
                               ),
                               FutureBuilder<ApiCallResponse>(
@@ -227,7 +225,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 25.0, 0.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -250,7 +248,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   ),
                                                   child: Align(
                                                     alignment:
-                                                        AlignmentDirectional(
+                                                        const AlignmentDirectional(
                                                             0.0, 0.0),
                                                     child: ClipRRect(
                                                       borderRadius:
@@ -315,15 +313,15 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                           ),
                                                     ),
                                                   ].divide(
-                                                      SizedBox(width: 5.0)),
+                                                      const SizedBox(width: 5.0)),
                                                 ),
-                                              ].divide(SizedBox(width: 5.0)),
+                                              ].divide(const SizedBox(width: 5.0)),
                                             ),
-                                          ].divide(SizedBox(width: 6.0)),
+                                          ].divide(const SizedBox(width: 6.0)),
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 15.0, 0.0, 5.0),
                                         child: Container(
                                           width:
@@ -336,7 +334,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 BorderRadius.circular(5.0),
                                           ),
                                           child: Padding(
-                                            padding: EdgeInsets.all(8.0),
+                                            padding: const EdgeInsets.all(8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -404,7 +402,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                       height: 25.0,
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            Color(0x1E397A12),
+                                                            const Color(0x1E397A12),
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(5.0),
@@ -417,7 +415,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                       ),
                                                       child: Align(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: Text(
                                                           valueOrDefault<
@@ -451,7 +449,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                       ),
                                                     ),
                                                   ].divide(
-                                                      SizedBox(height: 10.0)),
+                                                      const SizedBox(height: 10.0)),
                                                 ),
                                                 InkWell(
                                                   splashColor:
@@ -467,7 +465,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                       'robot_info',
                                                       extra: <String, dynamic>{
                                                         kTransitionInfoKey:
-                                                            TransitionInfo(
+                                                            const TransitionInfo(
                                                           hasTransition: true,
                                                           transitionType:
                                                               PageTransitionType
@@ -495,7 +493,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   5.0,
                                                                   0.0,
@@ -558,7 +556,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                         height: MediaQuery.sizeOf(context).height * 0.72,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).primaryBackground,
-                          borderRadius: BorderRadius.only(
+                          borderRadius: const BorderRadius.only(
                             bottomLeft: Radius.circular(0.0),
                             bottomRight: Radius.circular(0.0),
                             topLeft: Radius.circular(0.0),
@@ -566,7 +564,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                           ),
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               10.0, 10.0, 10.0, 15.0),
                           child: SingleChildScrollView(
                             primary: false,
@@ -605,7 +603,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         ),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsets.all(5.0),
+                                        padding: const EdgeInsets.all(5.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -626,7 +624,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   'slot_mappimg',
                                                   extra: <String, dynamic>{
                                                     kTransitionInfoKey:
-                                                        TransitionInfo(
+                                                        const TransitionInfo(
                                                       hasTransition: true,
                                                       transitionType:
                                                           PageTransitionType
@@ -640,7 +638,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               child: Container(
                                                 width: 100.0,
                                                 height: 85.0,
-                                                decoration: BoxDecoration(),
+                                                decoration: const BoxDecoration(),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -650,14 +648,14 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                       height: 50.0,
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            Color(0xFFF8F4FF),
+                                                            const Color(0xFFF8F4FF),
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(5.0),
                                                       ),
                                                       child: Align(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: ClipRRect(
                                                           borderRadius:
@@ -692,8 +690,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                     ),
                                                   ]
                                                       .divide(
-                                                          SizedBox(height: 5.0))
-                                                      .around(SizedBox(
+                                                          const SizedBox(height: 5.0))
+                                                      .around(const SizedBox(
                                                           height: 5.0)),
                                                 ),
                                               ),
@@ -723,7 +721,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   'tray_remove',
                                                   extra: <String, dynamic>{
                                                     kTransitionInfoKey:
-                                                        TransitionInfo(
+                                                        const TransitionInfo(
                                                       hasTransition: true,
                                                       transitionType:
                                                           PageTransitionType
@@ -737,7 +735,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               child: Container(
                                                 width: 100.0,
                                                 height: 85.0,
-                                                decoration: BoxDecoration(),
+                                                decoration: const BoxDecoration(),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -747,14 +745,14 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                       height: 50.0,
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            Color(0xFFF8F4FF),
+                                                            const Color(0xFFF8F4FF),
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(5.0),
                                                       ),
                                                       child: Align(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: ClipRRect(
                                                           borderRadius:
@@ -789,8 +787,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                     ),
                                                   ]
                                                       .divide(
-                                                          SizedBox(height: 5.0))
-                                                      .around(SizedBox(
+                                                          const SizedBox(height: 5.0))
+                                                      .around(const SizedBox(
                                                           height: 5.0)),
                                                 ),
                                               ),
@@ -812,7 +810,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         ),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsets.all(5.0),
+                                        padding: const EdgeInsets.all(5.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -833,7 +831,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   'tray_retrieve',
                                                   extra: <String, dynamic>{
                                                     kTransitionInfoKey:
-                                                        TransitionInfo(
+                                                        const TransitionInfo(
                                                       hasTransition: true,
                                                       transitionType:
                                                           PageTransitionType
@@ -847,7 +845,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               child: Container(
                                                 width: 100.0,
                                                 height: 85.0,
-                                                decoration: BoxDecoration(),
+                                                decoration: const BoxDecoration(),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -857,14 +855,14 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                       height: 50.0,
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            Color(0xFFF8F4FF),
+                                                            const Color(0xFFF8F4FF),
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(5.0),
                                                       ),
                                                       child: Align(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: ClipRRect(
                                                           borderRadius:
@@ -899,8 +897,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                     ),
                                                   ]
                                                       .divide(
-                                                          SizedBox(height: 5.0))
-                                                      .around(SizedBox(
+                                                          const SizedBox(height: 5.0))
+                                                      .around(const SizedBox(
                                                           height: 5.0)),
                                                 ),
                                               ),
@@ -930,7 +928,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   'tray_release',
                                                   extra: <String, dynamic>{
                                                     kTransitionInfoKey:
-                                                        TransitionInfo(
+                                                        const TransitionInfo(
                                                       hasTransition: true,
                                                       transitionType:
                                                           PageTransitionType
@@ -944,7 +942,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               child: Container(
                                                 width: 100.0,
                                                 height: 85.0,
-                                                decoration: BoxDecoration(),
+                                                decoration: const BoxDecoration(),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -954,14 +952,14 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                       height: 50.0,
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            Color(0xFFF8F4FF),
+                                                            const Color(0xFFF8F4FF),
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(5.0),
                                                       ),
                                                       child: Align(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: ClipRRect(
                                                           borderRadius:
@@ -996,8 +994,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                     ),
                                                   ]
                                                       .divide(
-                                                          SizedBox(height: 5.0))
-                                                      .around(SizedBox(
+                                                          const SizedBox(height: 5.0))
+                                                      .around(const SizedBox(
                                                           height: 5.0)),
                                                 ),
                                               ),
@@ -1019,7 +1017,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         ),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsets.all(5.0),
+                                        padding: const EdgeInsets.all(5.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -1040,7 +1038,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   'add_new_tray',
                                                   extra: <String, dynamic>{
                                                     kTransitionInfoKey:
-                                                        TransitionInfo(
+                                                        const TransitionInfo(
                                                       hasTransition: true,
                                                       transitionType:
                                                           PageTransitionType
@@ -1054,7 +1052,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               child: Container(
                                                 width: 100.0,
                                                 height: 85.0,
-                                                decoration: BoxDecoration(),
+                                                decoration: const BoxDecoration(),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -1064,14 +1062,14 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                       height: 50.0,
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            Color(0xFFF8F4FF),
+                                                            const Color(0xFFF8F4FF),
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(5.0),
                                                       ),
                                                       child: Align(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: ClipRRect(
                                                           borderRadius:
@@ -1106,8 +1104,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                     ),
                                                   ]
                                                       .divide(
-                                                          SizedBox(height: 5.0))
-                                                      .around(SizedBox(
+                                                          const SizedBox(height: 5.0))
+                                                      .around(const SizedBox(
                                                           height: 5.0)),
                                                 ),
                                               ),
@@ -1137,7 +1135,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   'delete_tray',
                                                   extra: <String, dynamic>{
                                                     kTransitionInfoKey:
-                                                        TransitionInfo(
+                                                        const TransitionInfo(
                                                       hasTransition: true,
                                                       transitionType:
                                                           PageTransitionType
@@ -1151,7 +1149,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               child: Container(
                                                 width: 100.0,
                                                 height: 85.0,
-                                                decoration: BoxDecoration(),
+                                                decoration: const BoxDecoration(),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -1161,14 +1159,14 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                       height: 50.0,
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            Color(0xFFF8F4FF),
+                                                            const Color(0xFFF8F4FF),
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(5.0),
                                                       ),
                                                       child: Align(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: ClipRRect(
                                                           borderRadius:
@@ -1203,8 +1201,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                     ),
                                                   ]
                                                       .divide(
-                                                          SizedBox(height: 5.0))
-                                                      .around(SizedBox(
+                                                          const SizedBox(height: 5.0))
+                                                      .around(const SizedBox(
                                                           height: 5.0)),
                                                 ),
                                               ),
@@ -1216,7 +1214,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   ],
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 10.0, 0.0, 0.0),
                                   child: Text(
                                     'Rack Actions',
@@ -1256,7 +1254,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 padding:
                                                     MediaQuery.viewInsetsOf(
                                                         context),
-                                                child: BlockRackWidget(),
+                                                child: const BlockRackWidget(),
                                               ),
                                             );
                                           },
@@ -1279,7 +1277,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                           ),
                                         ),
                                         child: Padding(
-                                          padding: EdgeInsets.all(5.0),
+                                          padding: const EdgeInsets.all(5.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -1287,14 +1285,14 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 width: 50.0,
                                                 height: 50.0,
                                                 decoration: BoxDecoration(
-                                                  color: Color(0xFFF8F4FF),
+                                                  color: const Color(0xFFF8F4FF),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           5.0),
                                                 ),
                                                 child: Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: ClipRRect(
                                                     borderRadius:
@@ -1327,8 +1325,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                         ),
                                               ),
                                             ]
-                                                .divide(SizedBox(height: 5.0))
-                                                .around(SizedBox(height: 5.0)),
+                                                .divide(const SizedBox(height: 5.0))
+                                                .around(const SizedBox(height: 5.0)),
                                           ),
                                         ),
                                       ),
@@ -1353,7 +1351,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 padding:
                                                     MediaQuery.viewInsetsOf(
                                                         context),
-                                                child: SelectTypeWidget(),
+                                                child: const SelectTypeWidget(),
                                               ),
                                             );
                                           },
@@ -1376,7 +1374,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                           ),
                                         ),
                                         child: Padding(
-                                          padding: EdgeInsets.all(5.0),
+                                          padding: const EdgeInsets.all(5.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -1384,14 +1382,14 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 width: 50.0,
                                                 height: 50.0,
                                                 decoration: BoxDecoration(
-                                                  color: Color(0xFFF8F4FF),
+                                                  color: const Color(0xFFF8F4FF),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           5.0),
                                                 ),
                                                 child: Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: ClipRRect(
                                                     borderRadius:
@@ -1424,8 +1422,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                         ),
                                               ),
                                             ]
-                                                .divide(SizedBox(height: 5.0))
-                                                .around(SizedBox(height: 5.0)),
+                                                .divide(const SizedBox(height: 5.0))
+                                                .around(const SizedBox(height: 5.0)),
                                           ),
                                         ),
                                       ),
@@ -1450,7 +1448,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 padding:
                                                     MediaQuery.viewInsetsOf(
                                                         context),
-                                                child: SlotheightassignWidget(),
+                                                child: const SlotheightassignWidget(),
                                               ),
                                             );
                                           },
@@ -1473,7 +1471,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                           ),
                                         ),
                                         child: Padding(
-                                          padding: EdgeInsets.all(5.0),
+                                          padding: const EdgeInsets.all(5.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
@@ -1481,14 +1479,14 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 width: 50.0,
                                                 height: 50.0,
                                                 decoration: BoxDecoration(
-                                                  color: Color(0xFFF8F4FF),
+                                                  color: const Color(0xFFF8F4FF),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           5.0),
                                                 ),
                                                 child: Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: ClipRRect(
                                                     borderRadius:
@@ -1521,8 +1519,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                         ),
                                               ),
                                             ]
-                                                .divide(SizedBox(height: 5.0))
-                                                .around(SizedBox(height: 5.0)),
+                                                .divide(const SizedBox(height: 5.0))
+                                                .around(const SizedBox(height: 5.0)),
                                           ),
                                         ),
                                       ),
@@ -1530,7 +1528,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   ],
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 10.0, 0.0, 0.0),
                                   child: Text(
                                     'Slot Actions',
@@ -1559,7 +1557,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         const Duration(milliseconds: 500));
                                     await _model.column12?.animateTo(
                                       _model.column12!.position.maxScrollExtent,
-                                      duration: Duration(milliseconds: 1000),
+                                      duration: const Duration(milliseconds: 1000),
                                       curve: Curves.ease,
                                     );
                                   },
@@ -1567,7 +1565,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     width:
                                         MediaQuery.sizeOf(context).width * 1.0,
                                     height: 60.0,
-                                    constraints: BoxConstraints(
+                                    constraints: const BoxConstraints(
                                       minWidth: 320.0,
                                       maxWidth: 450.0,
                                     ),
@@ -1582,7 +1580,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       ),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsets.all(5.0),
+                                      padding: const EdgeInsets.all(5.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -1590,12 +1588,12 @@ class _HomeWidgetState extends State<HomeWidget> {
                                             width: 50.0,
                                             height: 50.0,
                                             decoration: BoxDecoration(
-                                              color: Color(0xFFF8F4FF),
+                                              color: const Color(0xFFF8F4FF),
                                               borderRadius:
                                                   BorderRadius.circular(5.0),
                                             ),
                                             child: Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: ClipRRect(
                                                 borderRadius:
@@ -1623,7 +1621,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
-                                        ].divide(SizedBox(width: 15.0)),
+                                        ].divide(const SizedBox(width: 15.0)),
                                       ),
                                     ),
                                   ),
@@ -1632,11 +1630,11 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   Container(
                                     width:
                                         MediaQuery.sizeOf(context).width * 1.0,
-                                    constraints: BoxConstraints(
+                                    constraints: const BoxConstraints(
                                       minWidth: 310.0,
                                       maxWidth: 440.0,
                                     ),
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                     child: SingleChildScrollView(
                                       primary: false,
                                       controller: _model.columnController,
@@ -1645,7 +1643,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     5.0, 0.0, 5.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -1655,7 +1653,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               children: [
                                                 Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           1.0, -1.0),
                                                   child: Switch.adaptive(
                                                     value: _model.switchValue!,
@@ -1663,8 +1661,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                         (newValue) async {
                                                       setState(() =>
                                                           _model.switchValue =
-                                                              newValue!);
-                                                      if (newValue!) {
+                                                              newValue);
+                                                      if (newValue) {
                                                         _model.change = 0;
                                                         setState(() {});
                                                       } else {
@@ -1718,7 +1716,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                     ),
                                                     child: Align(
                                                       alignment:
-                                                          AlignmentDirectional(
+                                                          const AlignmentDirectional(
                                                               0.0, 0.0),
                                                       child: Icon(
                                                         Icons.close,
@@ -1742,7 +1740,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryBackground,
-                                                boxShadow: [
+                                                boxShadow: const [
                                                   BoxShadow(
                                                     blurRadius: 20.0,
                                                     color: Color(0x678E7CC3),
@@ -1755,9 +1753,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 borderRadius:
                                                     BorderRadius.circular(5.0),
                                               ),
-                                              child: Padding(
+                                              child: const Padding(
                                                 padding: EdgeInsets.all(9.0),
-                                                child: Container(
+                                                child: SizedBox(
                                                   width: 300.0,
                                                   height: 300.0,
                                                   child:
@@ -1770,7 +1768,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                             ),
                                           if (_model.change == 1)
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -1779,10 +1777,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(8.0, 0.0,
                                                                 8.0, 0.0),
-                                                    child: Container(
+                                                    child: SizedBox(
                                                       width: 280.0,
                                                       child: TextFormField(
                                                         controller: _model
@@ -1886,7 +1884,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 10.0,
                                                                 20.0,
@@ -1906,12 +1904,12 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                     context)
                                                                 .accent
                                                           ],
-                                                          stops: [0.0, 1.0],
+                                                          stops: const [0.0, 1.0],
                                                           begin:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   1.0, 0.0),
                                                           end:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   -1.0, 0),
                                                         ),
                                                         borderRadius:
@@ -1976,7 +1974,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                         .viewInsetsOf(
                                                                             context),
                                                                     child:
-                                                                        NoRecordWidget(),
+                                                                        const NoRecordWidget(),
                                                                   ),
                                                                 );
                                                               },
@@ -1993,21 +1991,21 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                           width: 150.0,
                                                           height: 40.0,
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       5.0,
                                                                       0.0,
                                                                       5.0,
                                                                       0.0),
                                                           iconPadding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
                                                                       0.0,
                                                                       0.0),
                                                           color:
-                                                              Color(0x0020124D),
+                                                              const Color(0x0020124D),
                                                           textStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -2036,12 +2034,12 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   ),
                                                 ]
                                                     .divide(
-                                                        SizedBox(height: 15.0))
+                                                        const SizedBox(height: 15.0))
                                                     .addToEnd(
-                                                        SizedBox(height: 5.0)),
+                                                        const SizedBox(height: 5.0)),
                                               ),
                                             ),
-                                        ].divide(SizedBox(height: 10.0)),
+                                        ].divide(const SizedBox(height: 10.0)),
                                       ),
                                     ),
                                   ),
@@ -2075,18 +2073,18 @@ class _HomeWidgetState extends State<HomeWidget> {
                                             MediaQuery.sizeOf(context).width *
                                                 1.0,
                                         height: 250.0,
-                                        constraints: BoxConstraints(
+                                        constraints: const BoxConstraints(
                                           minWidth: 310.0,
                                           maxWidth: 440.0,
                                         ),
-                                        decoration: BoxDecoration(),
+                                        decoration: const BoxDecoration(),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
                                           children: [
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 5.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -2096,7 +2094,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(5.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: RichText(
@@ -2195,7 +2193,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                               ),
                                                         ),
                                                       ].divide(
-                                                          SizedBox(width: 5.0)),
+                                                          const SizedBox(width: 5.0)),
                                                     ),
                                                   ),
                                                 ],
@@ -2269,7 +2267,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                     .viewInsetsOf(
                                                                         context),
                                                                 child:
-                                                                    FriendlyNameWidget(),
+                                                                    const FriendlyNameWidget(),
                                                               ),
                                                             );
                                                           },
@@ -2304,7 +2302,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                             height: 60.0,
                                                             decoration:
                                                                 BoxDecoration(
-                                                              color: Color(
+                                                              color: const Color(
                                                                   0xFFF8F4FF),
                                                               borderRadius:
                                                                   BorderRadius
@@ -2313,7 +2311,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                             ),
                                                             child: Align(
                                                               alignment:
-                                                                  AlignmentDirectional(
+                                                                  const AlignmentDirectional(
                                                                       0.0, 0.0),
                                                               child: ClipRRect(
                                                                 borderRadius:
@@ -2370,9 +2368,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                 ),
                                                           ),
                                                         ]
-                                                            .divide(SizedBox(
+                                                            .divide(const SizedBox(
                                                                 height: 8.0))
-                                                            .around(SizedBox(
+                                                            .around(const SizedBox(
                                                                 height: 8.0)),
                                                       ),
                                                     ),
@@ -2440,7 +2438,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                       .viewInsetsOf(
                                                                           context),
                                                                   child:
-                                                                      SuccessfullWidget(),
+                                                                      const SuccessfullWidget(),
                                                                 ),
                                                               );
                                                             },
@@ -2513,7 +2511,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                             height: 60.0,
                                                             decoration:
                                                                 BoxDecoration(
-                                                              color: Color(
+                                                              color: const Color(
                                                                   0xFFF8F4FF),
                                                               borderRadius:
                                                                   BorderRadius
@@ -2522,7 +2520,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                             ),
                                                             child: Align(
                                                               alignment:
-                                                                  AlignmentDirectional(
+                                                                  const AlignmentDirectional(
                                                                       0.0, 0.0),
                                                               child: ClipRRect(
                                                                 borderRadius:
@@ -2579,9 +2577,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                 ),
                                                           ),
                                                         ]
-                                                            .divide(SizedBox(
+                                                            .divide(const SizedBox(
                                                                 height: 8.0))
-                                                            .around(SizedBox(
+                                                            .around(const SizedBox(
                                                                 height: 8.0)),
                                                       ),
                                                     ),
@@ -2614,7 +2612,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                 .viewInsetsOf(
                                                                     context),
                                                             child:
-                                                                DirectPicableWidget(),
+                                                                const DirectPicableWidget(),
                                                           ),
                                                         );
                                                       },
@@ -2648,7 +2646,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                           height: 60.0,
                                                           decoration:
                                                               BoxDecoration(
-                                                            color: Color(
+                                                            color: const Color(
                                                                 0xFFF8F4FF),
                                                             borderRadius:
                                                                 BorderRadius
@@ -2657,7 +2655,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                           ),
                                                           child: Align(
                                                             alignment:
-                                                                AlignmentDirectional(
+                                                                const AlignmentDirectional(
                                                                     0.0, 0.0),
                                                             child: ClipRRect(
                                                               borderRadius:
@@ -2714,9 +2712,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                               ),
                                                         ),
                                                       ]
-                                                          .divide(SizedBox(
+                                                          .divide(const SizedBox(
                                                               height: 8.0))
-                                                          .around(SizedBox(
+                                                          .around(const SizedBox(
                                                               height: 8.0)),
                                                     ),
                                                   ),
@@ -2724,7 +2722,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               ],
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 5.0, 0.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -2747,7 +2745,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   3.0,
                                                                   0.0,
@@ -2803,7 +2801,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                           .viewInsetsOf(
                                                                               context),
                                                                       child:
-                                                                          SuccessfullWidget(),
+                                                                          const SuccessfullWidget(),
                                                                     ),
                                                                   );
                                                                 },
@@ -2858,14 +2856,14 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                           width: 140.0,
                                                           height: 40.0,
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       5.0,
                                                                       0.0,
                                                                       5.0,
                                                                       0.0),
                                                           iconPadding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -2890,7 +2888,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                   ),
                                                           elevation: 0.0,
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Colors
                                                                 .transparent,
                                                             width: 1.0,
@@ -2925,7 +2923,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -2988,7 +2986,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                           .viewInsetsOf(
                                                                               context),
                                                                       child:
-                                                                          SuccessfullWidget(),
+                                                                          const SuccessfullWidget(),
                                                                     ),
                                                                   );
                                                                 },
@@ -3043,14 +3041,14 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                           width: 140.0,
                                                           height: 40.0,
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       5.0,
                                                                       0.0,
                                                                       5.0,
                                                                       0.0),
                                                           iconPadding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -3075,7 +3073,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                   ),
                                                           elevation: 0.0,
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Colors
                                                                 .transparent,
                                                             width: 1.0,
@@ -3091,7 +3089,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 ],
                                               ),
                                             ),
-                                          ].divide(SizedBox(height: 15.0)),
+                                          ].divide(const SizedBox(height: 15.0)),
                                         ),
                                       );
                                     },
@@ -3109,7 +3107,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 25.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -3142,7 +3140,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 padding:
                                                     MediaQuery.viewInsetsOf(
                                                         context),
-                                                child: SuccessfullWidget(),
+                                                child: const SuccessfullWidget(),
                                               ),
                                             );
                                           },
@@ -3162,7 +3160,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 padding:
                                                     MediaQuery.viewInsetsOf(
                                                         context),
-                                                child: NoRecordWidget(),
+                                                child: const NoRecordWidget(),
                                               ),
                                             );
                                           },
@@ -3175,7 +3173,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       width: MediaQuery.sizeOf(context).width *
                                           1.0,
                                       height: 60.0,
-                                      constraints: BoxConstraints(
+                                      constraints: const BoxConstraints(
                                         minWidth: 320.0,
                                         maxWidth: 450.0,
                                       ),
@@ -3191,7 +3189,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         ),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsets.all(5.0),
+                                        padding: const EdgeInsets.all(5.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -3201,12 +3199,12 @@ class _HomeWidgetState extends State<HomeWidget> {
                                               width: 50.0,
                                               height: 50.0,
                                               decoration: BoxDecoration(
-                                                color: Color(0xFFF8F4FF),
+                                                color: const Color(0xFFF8F4FF),
                                                 borderRadius:
                                                     BorderRadius.circular(5.0),
                                               ),
                                               child: Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: ClipRRect(
                                                   borderRadius:
@@ -3268,13 +3266,13 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                         ),
                                               ),
                                             ),
-                                          ].divide(SizedBox(width: 15.0)),
+                                          ].divide(const SizedBox(width: 15.0)),
                                         ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ].divide(SizedBox(height: 15.0)),
+                              ].divide(const SizedBox(height: 15.0)),
                             ),
                           ),
                         ),

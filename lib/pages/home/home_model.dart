@@ -1,27 +1,7 @@
 import '/backend/api_requests/api_calls.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import '/popup/block_rack/block_rack_widget.dart';
-import '/popup/direct_picable/direct_picable_widget.dart';
-import '/popup/friendly_name/friendly_name_widget.dart';
-import '/popup/menu/menu_widget.dart';
-import '/popup/msg_mapping/msg_mapping_widget.dart';
-import '/popup/no_record/no_record_widget.dart';
-import '/popup/select_type/select_type_widget.dart';
-import '/popup/slotheightassign/slotheightassign_widget.dart';
-import '/popup/successfull/successfull_widget.dart';
-import 'dart:async';
-import '/custom_code/actions/index.dart' as actions;
-import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'home_widget.dart' show HomeWidget;
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class HomeModel extends FlutterFlowModel<HomeWidget> {
   ///  Local state fields for this page.

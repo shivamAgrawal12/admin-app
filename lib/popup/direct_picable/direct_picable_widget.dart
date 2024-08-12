@@ -8,7 +8,6 @@ import '/popup/msg_mapping/msg_mapping_widget.dart';
 import '/popup/successfull/successfull_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'direct_picable_model.dart';
 export 'direct_picable_model.dart';
@@ -49,7 +48,7 @@ class _DirectPicableWidgetState extends State<DirectPicableWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.0, -0.6),
+      alignment: const AlignmentDirectional(0.0, -0.6),
       child: FutureBuilder<ApiCallResponse>(
         future: AdminApiGroup.slotInfoCall.call(
           slotId: FFAppState().slotid,
@@ -85,7 +84,7 @@ class _DirectPicableWidgetState extends State<DirectPicableWidget> {
                   height: 55.0,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).primaryBackground,
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         blurRadius: 25.0,
                         color: Color(0x338E7CC3),
@@ -95,7 +94,7 @@ class _DirectPicableWidgetState extends State<DirectPicableWidget> {
                         ),
                       )
                     ],
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(20.0),
                       bottomRight: Radius.circular(20.0),
                       topLeft: Radius.circular(10.0),
@@ -103,10 +102,10 @@ class _DirectPicableWidgetState extends State<DirectPicableWidget> {
                     ),
                   ),
                   child: Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
                       child: Text(
                         'Make slot Direct Pickable',
                         textAlign: TextAlign.center,
@@ -123,7 +122,7 @@ class _DirectPicableWidgetState extends State<DirectPicableWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                   child: Text(
                     'Slot Id',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -136,7 +135,7 @@ class _DirectPicableWidgetState extends State<DirectPicableWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                   child: Text(
                     valueOrDefault<String>(
                       FFAppState().homeslotid,
@@ -151,7 +150,7 @@ class _DirectPicableWidgetState extends State<DirectPicableWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                   child: FlutterFlowDropDown<String>(
                     controller: _model.dropDownValueController ??=
                         FormFieldController<String>(
@@ -161,7 +160,7 @@ class _DirectPicableWidgetState extends State<DirectPicableWidget> {
                           )
                           ?.toString(),
                     ),
-                    options: ['true', 'false'],
+                    options: const ['true', 'false'],
                     onChanged: (val) =>
                         setState(() => _model.dropDownValue = val),
                     width: 230.0,
@@ -183,7 +182,7 @@ class _DirectPicableWidgetState extends State<DirectPicableWidget> {
                     borderWidth: 1.5,
                     borderRadius: 5.0,
                     margin:
-                        EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                     hidesUnderline: true,
                     isOverButton: true,
                     isSearchable: false,
@@ -192,7 +191,7 @@ class _DirectPicableWidgetState extends State<DirectPicableWidget> {
                 ),
                 Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 15.0, 15.0),
+                      const EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 15.0, 15.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -207,11 +206,11 @@ class _DirectPicableWidgetState extends State<DirectPicableWidget> {
                         options: FFButtonOptions(
                           width: 100.0,
                           height: 40.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          color: Color(0x00FFFFFF),
+                          color: const Color(0x00FFFFFF),
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Raleway',
@@ -237,9 +236,9 @@ class _DirectPicableWidgetState extends State<DirectPicableWidget> {
                               FlutterFlowTheme.of(context).heading,
                               FlutterFlowTheme.of(context).accent
                             ],
-                            stops: [0.0, 1.0],
-                            begin: AlignmentDirectional(1.0, 0.0),
-                            end: AlignmentDirectional(-1.0, 0),
+                            stops: const [0.0, 1.0],
+                            begin: const AlignmentDirectional(1.0, 0.0),
+                            end: const AlignmentDirectional(-1.0, 0),
                           ),
                           borderRadius: BorderRadius.circular(5.0),
                         ),
@@ -262,7 +261,7 @@ class _DirectPicableWidgetState extends State<DirectPicableWidget> {
                                 builder: (context) {
                                   return Padding(
                                     padding: MediaQuery.viewInsetsOf(context),
-                                    child: SuccessfullWidget(),
+                                    child: const SuccessfullWidget(),
                                   );
                                 },
                               ).then((value) => safeSetState(() {}));
@@ -293,11 +292,11 @@ class _DirectPicableWidgetState extends State<DirectPicableWidget> {
                           text: 'Change',
                           options: FFButtonOptions(
                             height: 40.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 5.0, 0.0, 5.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: Color(0x27351C75),
+                            color: const Color(0x27351C75),
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
@@ -308,7 +307,7 @@ class _DirectPicableWidgetState extends State<DirectPicableWidget> {
                                   fontWeight: FontWeight.w600,
                                 ),
                             elevation: 0.0,
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFF8E7CC3),
                             ),
                             borderRadius: BorderRadius.circular(5.0),

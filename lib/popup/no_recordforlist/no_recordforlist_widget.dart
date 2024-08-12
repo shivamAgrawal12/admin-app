@@ -1,9 +1,5 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'no_recordforlist_model.dart';
 export 'no_recordforlist_model.dart';
 
@@ -41,16 +37,16 @@ class _NoRecordforlistWidgetState extends State<NoRecordforlistWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: AlignmentDirectional(0.0, -0.6),
+      alignment: const AlignmentDirectional(0.0, -0.6),
       child: Container(
         width: 320.0,
         height: 350.0,
         decoration: BoxDecoration(
-          color: Color(0x00FFFFFF),
+          color: const Color(0x00FFFFFF),
           borderRadius: BorderRadius.circular(10.0),
         ),
         child: Padding(
-          padding: EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -64,7 +60,7 @@ class _NoRecordforlistWidgetState extends State<NoRecordforlistWidget> {
                   fit: BoxFit.cover,
                 ),
               ),
-            ].divide(SizedBox(height: 20.0)),
+            ].divide(const SizedBox(height: 20.0)),
           ),
         ),
       ),

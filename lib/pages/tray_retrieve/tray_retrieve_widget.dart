@@ -9,11 +9,9 @@ import '/popup/wrong/wrong_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
 import 'package:easy_debounce/easy_debounce.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'tray_retrieve_model.dart';
 export 'tray_retrieve_model.dart';
@@ -62,15 +60,15 @@ class _TrayRetrieveWidgetState extends State<TrayRetrieveWidget> {
           body: SafeArea(
             top: true,
             child: Align(
-              alignment: AlignmentDirectional(0.0, -1.0),
+              alignment: const AlignmentDirectional(0.0, -1.0),
               child: Container(
                 width: MediaQuery.sizeOf(context).width * 1.0,
                 height: MediaQuery.sizeOf(context).height * 1.0,
-                constraints: BoxConstraints(
+                constraints: const BoxConstraints(
                   minWidth: 320.0,
                   maxWidth: 450.0,
                 ),
-                decoration: BoxDecoration(),
+                decoration: const BoxDecoration(),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -81,12 +79,12 @@ class _TrayRetrieveWidgetState extends State<TrayRetrieveWidget> {
                       decoration: BoxDecoration(
                         color: Colors.white,
                         border: Border.all(
-                          color: Color(0xFFEEECF1),
+                          color: const Color(0xFFEEECF1),
                           width: 1.0,
                         ),
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             15.0, 0.0, 10.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -101,7 +99,7 @@ class _TrayRetrieveWidgetState extends State<TrayRetrieveWidget> {
                                 context.pushNamed(
                                   'home',
                                   extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
+                                    kTransitionInfoKey: const TransitionInfo(
                                       hasTransition: true,
                                       transitionType: PageTransitionType.fade,
                                       duration: Duration(milliseconds: 0),
@@ -142,7 +140,7 @@ class _TrayRetrieveWidgetState extends State<TrayRetrieveWidget> {
                                       child: Padding(
                                         padding:
                                             MediaQuery.viewInsetsOf(context),
-                                        child: MenuWidget(),
+                                        child: const MenuWidget(),
                                       ),
                                     );
                                   },
@@ -156,7 +154,7 @@ class _TrayRetrieveWidgetState extends State<TrayRetrieveWidget> {
                                   shape: BoxShape.circle,
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.0, 2.6),
+                                  alignment: const AlignmentDirectional(0.0, 2.6),
                                   child: Icon(
                                     Icons.person_3,
                                     color: FlutterFlowTheme.of(context).heading,
@@ -165,7 +163,7 @@ class _TrayRetrieveWidgetState extends State<TrayRetrieveWidget> {
                                 ),
                               ),
                             ),
-                          ].divide(SizedBox(width: 6.0)),
+                          ].divide(const SizedBox(width: 6.0)),
                         ),
                       ),
                     ),
@@ -175,12 +173,12 @@ class _TrayRetrieveWidgetState extends State<TrayRetrieveWidget> {
                       decoration: BoxDecoration(
                         color: Colors.white,
                         border: Border.all(
-                          color: Color(0xFFEEECF1),
+                          color: const Color(0xFFEEECF1),
                           width: 1.0,
                         ),
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             10.0, 0.0, 10.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -198,37 +196,37 @@ class _TrayRetrieveWidgetState extends State<TrayRetrieveWidget> {
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),
-                          ].divide(SizedBox(width: 6.0)),
+                          ].divide(const SizedBox(width: 6.0)),
                         ),
                       ),
                     ),
                     Container(
                       width: MediaQuery.sizeOf(context).width * 1.0,
                       height: MediaQuery.sizeOf(context).height * 0.75,
-                      constraints: BoxConstraints(
+                      constraints: const BoxConstraints(
                         minWidth: 320.0,
                         maxWidth: 450.0,
                       ),
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 8.0, 0.0),
-                                child: Container(
+                                child: SizedBox(
                                   width: 300.0,
                                   child: TextFormField(
                                     controller: _model.textController,
                                     focusNode: _model.textFieldFocusNode,
                                     onChanged: (_) => EasyDebounce.debounce(
                                       '_model.textController',
-                                      Duration(milliseconds: 50),
+                                      const Duration(milliseconds: 50),
                                       () => setState(() {}),
                                     ),
                                     autofocus: false,
@@ -339,7 +337,7 @@ class _TrayRetrieveWidgetState extends State<TrayRetrieveWidget> {
                                               ?.toList() ??
                                           [];
                                       if (trayRecords.isEmpty) {
-                                        return NoRecordWidget();
+                                        return const NoRecordWidget();
                                       }
 
                                       return RefreshIndicator(
@@ -362,16 +360,16 @@ class _TrayRetrieveWidgetState extends State<TrayRetrieveWidget> {
                                               final trayRecordsItem =
                                                   trayRecords[trayRecordsIndex];
                                               return Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, -1.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 15.0, 0.0, 0.0),
                                                   child: Container(
                                                     width: 350.0,
                                                     height: 100.0,
-                                                    constraints: BoxConstraints(
+                                                    constraints: const BoxConstraints(
                                                       minWidth: 290.0,
                                                       maxWidth: 350.0,
                                                     ),
@@ -379,7 +377,7 @@ class _TrayRetrieveWidgetState extends State<TrayRetrieveWidget> {
                                                       color: FlutterFlowTheme
                                                               .of(context)
                                                           .primaryBackground,
-                                                      boxShadow: [
+                                                      boxShadow: const [
                                                         BoxShadow(
                                                           blurRadius: 5.0,
                                                           color:
@@ -396,7 +394,7 @@ class _TrayRetrieveWidgetState extends State<TrayRetrieveWidget> {
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsets.all(7.0),
+                                                          const EdgeInsets.all(7.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -591,16 +589,16 @@ class _TrayRetrieveWidgetState extends State<TrayRetrieveWidget> {
                                                                           context)
                                                                       .accent
                                                                 ],
-                                                                stops: [
+                                                                stops: const [
                                                                   0.0,
                                                                   1.0
                                                                 ],
                                                                 begin:
-                                                                    AlignmentDirectional(
+                                                                    const AlignmentDirectional(
                                                                         1.0,
                                                                         0.0),
                                                                 end:
-                                                                    AlignmentDirectional(
+                                                                    const AlignmentDirectional(
                                                                         -1.0,
                                                                         0),
                                                               ),
@@ -653,7 +651,7 @@ class _TrayRetrieveWidgetState extends State<TrayRetrieveWidget> {
                                                                           padding:
                                                                               MediaQuery.viewInsetsOf(context),
                                                                           child:
-                                                                              TaskSuccessfullWidget(),
+                                                                              const TaskSuccessfullWidget(),
                                                                         ),
                                                                       );
                                                                     },
@@ -681,7 +679,7 @@ class _TrayRetrieveWidgetState extends State<TrayRetrieveWidget> {
                                                                           padding:
                                                                               MediaQuery.viewInsetsOf(context),
                                                                           child:
-                                                                              WrongWidget(),
+                                                                              const WrongWidget(),
                                                                         ),
                                                                       );
                                                                     },
@@ -697,20 +695,20 @@ class _TrayRetrieveWidgetState extends State<TrayRetrieveWidget> {
                                                                   FFButtonOptions(
                                                                 height: 40.0,
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             5.0,
                                                                             0.0,
                                                                             5.0,
                                                                             0.0),
                                                                 iconPadding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
                                                                             0.0),
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0x27351C75),
                                                                 textStyle: FlutterFlowTheme.of(
                                                                         context)
@@ -730,7 +728,7 @@ class _TrayRetrieveWidgetState extends State<TrayRetrieveWidget> {
                                                                     ),
                                                                 elevation: 0.0,
                                                                 borderSide:
-                                                                    BorderSide(
+                                                                    const BorderSide(
                                                                   color: Color(
                                                                       0xFF8E7CC3),
                                                                 ),
@@ -747,7 +745,7 @@ class _TrayRetrieveWidgetState extends State<TrayRetrieveWidget> {
                                                   ),
                                                 ),
                                               );
-                                            }).addToEnd(SizedBox(height: 50.0)),
+                                            }).addToEnd(const SizedBox(height: 50.0)),
                                           ),
                                         ),
                                       );

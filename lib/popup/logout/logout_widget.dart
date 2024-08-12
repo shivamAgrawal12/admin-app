@@ -3,9 +3,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'logout_model.dart';
 export 'logout_model.dart';
 
@@ -43,7 +40,7 @@ class _LogoutWidgetState extends State<LogoutWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: AlignmentDirectional(0.0, -0.6),
+      alignment: const AlignmentDirectional(0.0, -0.6),
       child: Container(
         width: 280.0,
         decoration: BoxDecoration(
@@ -51,7 +48,7 @@ class _LogoutWidgetState extends State<LogoutWidget> {
           borderRadius: BorderRadius.circular(10.0),
         ),
         child: Padding(
-          padding: EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -68,7 +65,7 @@ class _LogoutWidgetState extends State<LogoutWidget> {
                     ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(5.0, 30.0, 5.0, 15.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(5.0, 30.0, 5.0, 15.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -81,11 +78,11 @@ class _LogoutWidgetState extends State<LogoutWidget> {
                       options: FFButtonOptions(
                         width: 100.0,
                         height: 40.0,
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 0.0, 24.0, 0.0),
                         iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: Color(0x00FFFFFF),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: const Color(0x00FFFFFF),
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Raleway',
@@ -115,7 +112,7 @@ class _LogoutWidgetState extends State<LogoutWidget> {
                           'robot_scan',
                           context.mounted,
                           extra: <String, dynamic>{
-                            kTransitionInfoKey: TransitionInfo(
+                            kTransitionInfoKey: const TransitionInfo(
                               hasTransition: true,
                               transitionType: PageTransitionType.fade,
                               duration: Duration(milliseconds: 500),
@@ -132,9 +129,9 @@ class _LogoutWidgetState extends State<LogoutWidget> {
                               FlutterFlowTheme.of(context).heading,
                               FlutterFlowTheme.of(context).accent
                             ],
-                            stops: [0.0, 1.0],
-                            begin: AlignmentDirectional(1.0, 0.0),
-                            end: AlignmentDirectional(-1.0, 0),
+                            stops: const [0.0, 1.0],
+                            begin: const AlignmentDirectional(1.0, 0.0),
+                            end: const AlignmentDirectional(-1.0, 0),
                           ),
                           borderRadius: BorderRadius.circular(5.0),
                         ),
@@ -155,7 +152,7 @@ class _LogoutWidgetState extends State<LogoutWidget> {
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),
-                          ].divide(SizedBox(width: 10.0)),
+                          ].divide(const SizedBox(width: 10.0)),
                         ),
                       ),
                     ),

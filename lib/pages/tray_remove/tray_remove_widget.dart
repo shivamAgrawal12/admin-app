@@ -9,9 +9,7 @@ import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'tray_remove_model.dart';
 export 'tray_remove_model.dart';
@@ -72,15 +70,15 @@ class _TrayRemoveWidgetState extends State<TrayRemoveWidget> {
           body: SafeArea(
             top: true,
             child: Align(
-              alignment: AlignmentDirectional(0.0, -1.0),
+              alignment: const AlignmentDirectional(0.0, -1.0),
               child: Container(
                 width: MediaQuery.sizeOf(context).width * 1.0,
                 height: MediaQuery.sizeOf(context).height * 1.0,
-                constraints: BoxConstraints(
+                constraints: const BoxConstraints(
                   minWidth: 320.0,
                   maxWidth: 450.0,
                 ),
-                decoration: BoxDecoration(),
+                decoration: const BoxDecoration(),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -91,12 +89,12 @@ class _TrayRemoveWidgetState extends State<TrayRemoveWidget> {
                       decoration: BoxDecoration(
                         color: Colors.white,
                         border: Border.all(
-                          color: Color(0xFFEEECF1),
+                          color: const Color(0xFFEEECF1),
                           width: 1.0,
                         ),
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             15.0, 0.0, 10.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -114,7 +112,7 @@ class _TrayRemoveWidgetState extends State<TrayRemoveWidget> {
                                 context.pushNamed(
                                   'home',
                                   extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
+                                    kTransitionInfoKey: const TransitionInfo(
                                       hasTransition: true,
                                       transitionType: PageTransitionType.fade,
                                       duration: Duration(milliseconds: 0),
@@ -155,7 +153,7 @@ class _TrayRemoveWidgetState extends State<TrayRemoveWidget> {
                                       child: Padding(
                                         padding:
                                             MediaQuery.viewInsetsOf(context),
-                                        child: MenuWidget(),
+                                        child: const MenuWidget(),
                                       ),
                                     );
                                   },
@@ -169,7 +167,7 @@ class _TrayRemoveWidgetState extends State<TrayRemoveWidget> {
                                   shape: BoxShape.circle,
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.0, 2.6),
+                                  alignment: const AlignmentDirectional(0.0, 2.6),
                                   child: Icon(
                                     Icons.person_3,
                                     color: FlutterFlowTheme.of(context).heading,
@@ -178,7 +176,7 @@ class _TrayRemoveWidgetState extends State<TrayRemoveWidget> {
                                 ),
                               ),
                             ),
-                          ].divide(SizedBox(width: 6.0)),
+                          ].divide(const SizedBox(width: 6.0)),
                         ),
                       ),
                     ),
@@ -188,12 +186,12 @@ class _TrayRemoveWidgetState extends State<TrayRemoveWidget> {
                       decoration: BoxDecoration(
                         color: Colors.white,
                         border: Border.all(
-                          color: Color(0xFFEEECF1),
+                          color: const Color(0xFFEEECF1),
                           width: 1.0,
                         ),
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             10.0, 0.0, 10.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -211,37 +209,37 @@ class _TrayRemoveWidgetState extends State<TrayRemoveWidget> {
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),
-                          ].divide(SizedBox(width: 6.0)),
+                          ].divide(const SizedBox(width: 6.0)),
                         ),
                       ),
                     ),
                     Container(
                       width: MediaQuery.sizeOf(context).width * 1.0,
                       height: MediaQuery.sizeOf(context).height * 0.75,
-                      constraints: BoxConstraints(
+                      constraints: const BoxConstraints(
                         minWidth: 320.0,
                         maxWidth: 450.0,
                       ),
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                         child: SingleChildScrollView(
                           primary: false,
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Align(
-                                alignment: AlignmentDirectional(1.0, -1.0),
+                                alignment: const AlignmentDirectional(1.0, -1.0),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 40.0, 0.0),
                                   child: Switch.adaptive(
                                     value: _model.switchValue!,
                                     onChanged: (newValue) async {
                                       setState(
-                                          () => _model.switchValue = newValue!);
-                                      if (newValue!) {
+                                          () => _model.switchValue = newValue);
+                                      if (newValue) {
                                         _model.change = 0;
                                         setState(() {});
                                       } else {
@@ -272,7 +270,7 @@ class _TrayRemoveWidgetState extends State<TrayRemoveWidget> {
                                       height: 300.0,
                                       decoration: BoxDecoration(
                                         color: Colors.white,
-                                        boxShadow: [
+                                        boxShadow: const [
                                           BoxShadow(
                                             blurRadius: 20.0,
                                             color: Color(0x678E7CC3),
@@ -285,9 +283,9 @@ class _TrayRemoveWidgetState extends State<TrayRemoveWidget> {
                                         borderRadius:
                                             BorderRadius.circular(5.0),
                                       ),
-                                      child: Padding(
+                                      child: const Padding(
                                         padding: EdgeInsets.all(10.0),
-                                        child: Container(
+                                        child: SizedBox(
                                           width: 300.0,
                                           height: 300.0,
                                           child: custom_widgets.QRTrayRemove(
@@ -320,22 +318,22 @@ class _TrayRemoveWidgetState extends State<TrayRemoveWidget> {
                                               .secondaryText,
                                           size: 24.0,
                                         ),
-                                      ].divide(SizedBox(width: 5.0)),
+                                      ].divide(const SizedBox(width: 5.0)),
                                     ),
-                                  ].divide(SizedBox(height: 30.0)),
+                                  ].divide(const SizedBox(height: 30.0)),
                                 ),
                               if (_model.change == 1 ? true : false)
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       10.0, 0.0, 10.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             8.0, 0.0, 8.0, 0.0),
-                                        child: Container(
+                                        child: SizedBox(
                                           width: 300.0,
                                           child: TextFormField(
                                             controller: _model.textController,
@@ -410,7 +408,7 @@ class _TrayRemoveWidgetState extends State<TrayRemoveWidget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             10.0, 20.0, 10.0, 0.0),
                                         child: Container(
                                           width: 140.0,
@@ -423,11 +421,11 @@ class _TrayRemoveWidgetState extends State<TrayRemoveWidget> {
                                                 FlutterFlowTheme.of(context)
                                                     .accent
                                               ],
-                                              stops: [0.0, 1.0],
-                                              begin: AlignmentDirectional(
+                                              stops: const [0.0, 1.0],
+                                              begin: const AlignmentDirectional(
                                                   1.0, 0.0),
                                               end:
-                                                  AlignmentDirectional(-1.0, 0),
+                                                  const AlignmentDirectional(-1.0, 0),
                                             ),
                                             borderRadius:
                                                 BorderRadius.circular(5.0),
@@ -493,7 +491,7 @@ class _TrayRemoveWidgetState extends State<TrayRemoveWidget> {
                                                               .viewInsetsOf(
                                                                   context),
                                                           child:
-                                                              TrayRemovedWidget(),
+                                                              const TrayRemovedWidget(),
                                                         ),
                                                       );
                                                     },
@@ -517,7 +515,7 @@ class _TrayRemoveWidgetState extends State<TrayRemoveWidget> {
                                                               .viewInsetsOf(
                                                                   context),
                                                           child:
-                                                              NoRecordWidget(),
+                                                              const NoRecordWidget(),
                                                         ),
                                                       );
                                                     },
@@ -540,7 +538,7 @@ class _TrayRemoveWidgetState extends State<TrayRemoveWidget> {
                                                         padding: MediaQuery
                                                             .viewInsetsOf(
                                                                 context),
-                                                        child: NoRecordWidget(),
+                                                        child: const NoRecordWidget(),
                                                       ),
                                                     );
                                                   },
@@ -554,11 +552,11 @@ class _TrayRemoveWidgetState extends State<TrayRemoveWidget> {
                                             options: FFButtonOptions(
                                               width: 140.0,
                                               height: 40.0,
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(5.0, 0.0, 5.0, 0.0),
-                                              iconPadding: EdgeInsetsDirectional
+                                              iconPadding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              color: Color(0x0020124D),
+                                              color: const Color(0x0020124D),
                                               textStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .titleSmall
@@ -569,7 +567,7 @@ class _TrayRemoveWidgetState extends State<TrayRemoveWidget> {
                                                         letterSpacing: 0.0,
                                                       ),
                                               elevation: 0.0,
-                                              borderSide: BorderSide(
+                                              borderSide: const BorderSide(
                                                 color: Colors.transparent,
                                                 width: 1.0,
                                               ),
@@ -579,10 +577,10 @@ class _TrayRemoveWidgetState extends State<TrayRemoveWidget> {
                                           ),
                                         ),
                                       ),
-                                    ].divide(SizedBox(height: 45.0)),
+                                    ].divide(const SizedBox(height: 45.0)),
                                   ),
                                 ),
-                            ].divide(SizedBox(height: 20.0)),
+                            ].divide(const SizedBox(height: 20.0)),
                           ),
                         ),
                       ),

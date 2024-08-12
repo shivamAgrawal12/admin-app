@@ -8,8 +8,6 @@ import '/popup/msg_mapping/msg_mapping_widget.dart';
 import '/popup/successfull/successfull_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'tray_added_model.dart';
 export 'tray_added_model.dart';
@@ -50,7 +48,7 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.0, -0.6),
+      alignment: const AlignmentDirectional(0.0, -0.6),
       child: Container(
         width: 280.0,
         decoration: BoxDecoration(
@@ -66,7 +64,7 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
               height: 60.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).primaryBackground,
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                     blurRadius: 25.0,
                     color: Color(0x338E7CC3),
@@ -76,7 +74,7 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
                     ),
                   )
                 ],
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(20.0),
                   bottomRight: Radius.circular(20.0),
                   topLeft: Radius.circular(10.0),
@@ -84,7 +82,7 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
                 ),
               ),
               child: Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
+                alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Text(
                   'Confirm To Add New Tray',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -98,7 +96,7 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
               child: Text(
                 'Tray ID',
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -111,7 +109,7 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
               child: Text(
                 FFAppState().trayid,
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -124,7 +122,7 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 10.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 10.0),
               child: Text(
                 'Tray Height',
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -144,7 +142,7 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
                 children: [
                   Container(
                     width: 230.0,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(0.0),
                         bottomRight: Radius.circular(0.0),
@@ -155,13 +153,13 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(8.0, 15.0, 8.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(8.0, 15.0, 8.0, 0.0),
                     child: FlutterFlowDropDown<String>(
                       controller: _model.trayheightValueController ??=
                           FormFieldController<String>(
                         _model.trayheightValue ??= '100',
                       ),
-                      options: ['80', '100', '150', '180', '200'],
+                      options: const ['80', '100', '150', '180', '200'],
                       onChanged: (val) =>
                           setState(() => _model.trayheightValue = val),
                       width: 230.0,
@@ -184,7 +182,7 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
                       borderWidth: 1.0,
                       borderRadius: 5.0,
                       margin:
-                          EdgeInsetsDirectional.fromSTEB(10.0, 2.0, 10.0, 4.0),
+                          const EdgeInsetsDirectional.fromSTEB(10.0, 2.0, 10.0, 4.0),
                       hidesUnderline: true,
                       isOverButton: true,
                       isSearchable: false,
@@ -193,11 +191,11 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                     child: FlutterFlowDropDown<String>(
                       controller: _model.dropDownValueController ??=
                           FormFieldController<String>(null),
-                      options: ['plastic_tray', 'metal_tray'],
+                      options: const ['plastic_tray', 'metal_tray'],
                       onChanged: (val) =>
                           setState(() => _model.dropDownValue = val),
                       width: 230.0,
@@ -220,7 +218,7 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
                       borderWidth: 1.0,
                       borderRadius: 5.0,
                       margin:
-                          EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 4.0),
+                          const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 4.0),
                       hidesUnderline: true,
                       isOverButton: true,
                       isSearchable: false,
@@ -231,7 +229,7 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 15.0, 15.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 15.0, 15.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -247,10 +245,10 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
                       width: 100.0,
                       height: 40.0,
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
                       iconPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: Color(0x00351C75),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: const Color(0x00351C75),
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Raleway',
@@ -275,9 +273,9 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
                           FlutterFlowTheme.of(context).heading,
                           FlutterFlowTheme.of(context).accent
                         ],
-                        stops: [0.0, 1.0],
-                        begin: AlignmentDirectional(1.0, 0.0),
-                        end: AlignmentDirectional(-1.0, 0),
+                        stops: const [0.0, 1.0],
+                        begin: const AlignmentDirectional(1.0, 0.0),
+                        end: const AlignmentDirectional(-1.0, 0),
                       ),
                       borderRadius: BorderRadius.circular(5.0),
                     ),
@@ -308,7 +306,7 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
                             builder: (context) {
                               return Padding(
                                 padding: MediaQuery.viewInsetsOf(context),
-                                child: SuccessfullWidget(),
+                                child: const SuccessfullWidget(),
                               );
                             },
                           ).then((value) => safeSetState(() {}));
@@ -321,7 +319,7 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
                             builder: (context) {
                               return Padding(
                                 padding: MediaQuery.viewInsetsOf(context),
-                                child: MsgMappingWidget(
+                                child: const MsgMappingWidget(
                                   msg: '',
                                 ),
                               );
@@ -337,10 +335,10 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
                       options: FFButtonOptions(
                         height: 40.0,
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
                         iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: Color(0x27351C75),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: const Color(0x27351C75),
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Raleway',
@@ -350,7 +348,7 @@ class _TrayAddedWidgetState extends State<TrayAddedWidget> {
                                   fontWeight: FontWeight.w600,
                                 ),
                         elevation: 0.0,
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Color(0xFF8E7CC3),
                         ),
                         borderRadius: BorderRadius.circular(5.0),
