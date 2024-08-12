@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/popup/inproccess/inproccess_widget.dart';
 import '/popup/logout/logout_widget.dart';
 import '/popup/shuttleupdate/shuttleupdate_widget.dart';
@@ -64,7 +65,7 @@ class _MenuWidgetState extends State<MenuWidget> {
             child: Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 15.0, 0.0),
               child: Container(
-                width: 170.0,
+                width: 200.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).primaryBackground,
                   borderRadius: const BorderRadius.only(
@@ -75,7 +76,8 @@ class _MenuWidgetState extends State<MenuWidget> {
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(10.0),
+                  padding:
+                      const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 15.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -481,6 +483,78 @@ class _MenuWidgetState extends State<MenuWidget> {
                             ),
                           ],
                         ),
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          FFButtonWidget(
+                            onPressed: () {
+                              print('Button pressed ...');
+                            },
+                            text: 'Start',
+                            icon: Icon(
+                              Icons.play_arrow,
+                              color: FlutterFlowTheme.of(context).primary,
+                              size: 15.0,
+                            ),
+                            options: FFButtonOptions(
+                              width: 75.0,
+                              height: 30.0,
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).liteText,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Open Sans',
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    fontSize: 12.0,
+                                    letterSpacing: 0.0,
+                                  ),
+                              elevation: 2.0,
+                              borderSide: const BorderSide(
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                          ),
+                          FFButtonWidget(
+                            onPressed: () {
+                              print('Button pressed ...');
+                            },
+                            text: 'Stop',
+                            icon: const Icon(
+                              Icons.pause,
+                              size: 15.0,
+                            ),
+                            options: FFButtonOptions(
+                              width: 75.0,
+                              height: 30.0,
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).primary,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Open Sans',
+                                    color: FlutterFlowTheme.of(context).heading,
+                                    fontSize: 12.0,
+                                    letterSpacing: 0.0,
+                                  ),
+                              elevation: 2.0,
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).subHeader,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                          ),
+                        ].divide(const SizedBox(width: 6.0)),
                       ),
                     ].divide(const SizedBox(height: 25.0)),
                   ),

@@ -875,63 +875,88 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                     ),
                                     child: FFButtonWidget(
                                       onPressed: () async {
-                                        _model.validateOtp = await AdminApiGroup
-                                            .validateOtpCall
-                                            .call(
-                                          userPhone:
-                                              _model.textController1.text,
-                                          otpText: _model
-                                              .textFieldOtpTextController.text,
-                                        );
+                                        if (_model.textFieldOtpTextController
+                                                    .text !=
+                                                '') {
+                                          _model.validateOtp =
+                                              await AdminApiGroup
+                                                  .validateOtpCall
+                                                  .call(
+                                            userPhone:
+                                                _model.textController1.text,
+                                            otpText: _model
+                                                .textFieldOtpTextController
+                                                .text,
+                                          );
 
-                                        if ((_model.validateOtp?.succeeded ??
-                                            true)) {
-                                          GoRouter.of(context)
-                                              .prepareAuthEvent();
-                                          await authManager.signIn(
-                                            authenticationToken: AdminApiGroup
-                                                .validateOtpCall
-                                                .accesstoken(
-                                              (_model.validateOtp?.jsonBody ??
-                                                  ''),
-                                            ),
-                                            tokenExpiration:
-                                                functions.tokenexp(3600),
-                                            userData: UserStruct(
-                                              acccesstoken: AdminApiGroup
+                                          if ((_model.validateOtp?.succeeded ??
+                                              true)) {
+                                            GoRouter.of(context)
+                                                .prepareAuthEvent();
+                                            await authManager.signIn(
+                                              authenticationToken: AdminApiGroup
                                                   .validateOtpCall
                                                   .accesstoken(
                                                 (_model.validateOtp?.jsonBody ??
                                                     ''),
                                               ),
-                                              customerphonenumber: int.tryParse(
-                                                  _model.textController1.text),
-                                            ),
-                                          );
-                                          _model.robotDetailBtn =
-                                              await AdminApiGroup
-                                                  .verifyRobotIdCall
-                                                  .call(
-                                            robotId: FFAppState().robotid,
-                                          );
-
-                                          if ((_model
-                                                  .robotDetailBtn?.succeeded ??
-                                              true)) {
-                                            context.goNamedAuth(
-                                              'home',
-                                              context.mounted,
-                                              extra: <String, dynamic>{
-                                                kTransitionInfoKey:
-                                                    const TransitionInfo(
-                                                  hasTransition: true,
-                                                  transitionType:
-                                                      PageTransitionType.fade,
-                                                  duration:
-                                                      Duration(milliseconds: 0),
+                                              tokenExpiration:
+                                                  functions.tokenexp(3600),
+                                              userData: UserStruct(
+                                                acccesstoken: AdminApiGroup
+                                                    .validateOtpCall
+                                                    .accesstoken(
+                                                  (_model.validateOtp
+                                                          ?.jsonBody ??
+                                                      ''),
                                                 ),
-                                              },
+                                                customerphonenumber:
+                                                    int.tryParse(_model
+                                                        .textController1.text),
+                                              ),
                                             );
+                                            _model.robotDetailBtn =
+                                                await AdminApiGroup
+                                                    .verifyRobotIdCall
+                                                    .call(
+                                              robotId: FFAppState().robotid,
+                                            );
+
+                                            if ((_model.robotDetailBtn
+                                                    ?.succeeded ??
+                                                true)) {
+                                              context.goNamedAuth(
+                                                'home',
+                                                context.mounted,
+                                                extra: <String, dynamic>{
+                                                  kTransitionInfoKey:
+                                                      const TransitionInfo(
+                                                    hasTransition: true,
+                                                    transitionType:
+                                                        PageTransitionType.fade,
+                                                    duration: Duration(
+                                                        milliseconds: 0),
+                                                  ),
+                                                },
+                                              );
+                                            } else {
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return Padding(
+                                                    padding:
+                                                        MediaQuery.viewInsetsOf(
+                                                            context),
+                                                    child: const NewRobotWidget(),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            }
                                           } else {
                                             await showModalBottomSheet(
                                               isScrollControlled: true,
@@ -944,7 +969,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                   padding:
                                                       MediaQuery.viewInsetsOf(
                                                           context),
-                                                  child: const NewRobotWidget(),
+                                                  child: const InvalidOtpWidget(),
                                                 );
                                               },
                                             ).then(
