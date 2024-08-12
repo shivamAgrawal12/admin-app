@@ -32,6 +32,7 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().scannerpage = 'traymap';
+      FFAppState().trayqrscan = 0;
       setState(() {});
       _model.routh = await actions.routhpage(
         context,

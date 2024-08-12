@@ -661,7 +661,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                                             .taskrecid !=
                                                                         getJsonField(
                                                                           trayRecordsItem,
-                                                                          r'''$.id''',
+                                                                          r'''$.task_id''',
                                                                         ))
                                                                       Container(
                                                                         width:
@@ -753,7 +753,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget> {
                                                                             .taskrecid ==
                                                                         getJsonField(
                                                                           trayRecordsItem,
-                                                                          r'''$.id''',
+                                                                          r'''$.task_id''',
                                                                         ))
                                                                       Container(
                                                                         width:
