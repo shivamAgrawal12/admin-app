@@ -1,6 +1,7 @@
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/popup/menu/menu_widget.dart';
 import '/popup/no_recordforlist/no_recordforlist_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -8,6 +9,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'pending_task_model.dart';
 export 'pending_task_model.dart';
@@ -51,15 +53,15 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: const AlignmentDirectional(0.0, -1.0),
+            alignment: AlignmentDirectional(0.0, -1.0),
             child: Container(
               width: MediaQuery.sizeOf(context).width * 1.0,
               height: MediaQuery.sizeOf(context).height * 1.0,
-              constraints: const BoxConstraints(
+              constraints: BoxConstraints(
                 minWidth: 320.0,
                 maxWidth: 450.0,
               ),
-              decoration: const BoxDecoration(),
+              decoration: BoxDecoration(),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -70,13 +72,13 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
-                        color: const Color(0xFFEEECF1),
+                        color: Color(0xFFEEECF1),
                         width: 1.0,
                       ),
                     ),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 10.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 10.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -90,7 +92,7 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                               context.pushNamed(
                                 'robot_info',
                                 extra: <String, dynamic>{
-                                  kTransitionInfoKey: const TransitionInfo(
+                                  kTransitionInfoKey: TransitionInfo(
                                     hasTransition: true,
                                     transitionType: PageTransitionType.fade,
                                     duration: Duration(milliseconds: 0),
@@ -130,7 +132,7 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                                         FocusScope.of(context).unfocus(),
                                     child: Padding(
                                       padding: MediaQuery.viewInsetsOf(context),
-                                      child: const MenuWidget(),
+                                      child: MenuWidget(),
                                     ),
                                   );
                                 },
@@ -144,7 +146,7 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                                 shape: BoxShape.circle,
                               ),
                               child: Align(
-                                alignment: const AlignmentDirectional(0.0, 2.6),
+                                alignment: AlignmentDirectional(0.0, 2.6),
                                 child: Icon(
                                   Icons.person_3,
                                   color: FlutterFlowTheme.of(context).heading,
@@ -153,7 +155,7 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                               ),
                             ),
                           ),
-                        ].divide(const SizedBox(width: 6.0)),
+                        ].divide(SizedBox(width: 6.0)),
                       ),
                     ),
                   ),
@@ -163,13 +165,13 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
-                        color: const Color(0xFFEEECF1),
+                        color: Color(0xFFEEECF1),
                         width: 1.0,
                       ),
                     ),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -186,18 +188,18 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                                   fontWeight: FontWeight.w600,
                                 ),
                           ),
-                        ].divide(const SizedBox(width: 6.0)),
+                        ].divide(SizedBox(width: 6.0)),
                       ),
                     ),
                   ),
                   Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: MediaQuery.sizeOf(context).height * 0.75,
-                    constraints: const BoxConstraints(
+                    constraints: BoxConstraints(
                       minWidth: 320.0,
                       maxWidth: 450.0,
                     ),
-                    decoration: const BoxDecoration(),
+                    decoration: BoxDecoration(),
                     child: FutureBuilder<ApiCallResponse>(
                       future: (_model.apiRequestCompleter ??=
                               Completer<ApiCallResponse>()
@@ -232,7 +234,7 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                                     ?.toList() ??
                                 [];
                             if (taskpending.isEmpty) {
-                              return const NoRecordforlistWidget();
+                              return NoRecordforlistWidget();
                             }
 
                             return RefreshIndicator(
@@ -252,20 +254,20 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                                         taskpending[taskpendingIndex];
                                     return Align(
                                       alignment:
-                                          const AlignmentDirectional(0.0, -1.0),
+                                          AlignmentDirectional(0.0, -1.0),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 15.0, 0.0, 0.0),
                                         child: Container(
                                           width: 340.0,
-                                          constraints: const BoxConstraints(
+                                          constraints: BoxConstraints(
                                             minWidth: 270.0,
                                             maxWidth: 350.0,
                                           ),
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
-                                            boxShadow: const [
+                                            boxShadow: [
                                               BoxShadow(
                                                 blurRadius: 5.0,
                                                 color: Color(0x26000000),
@@ -279,7 +281,7 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                                                 BorderRadius.circular(5.0),
                                           ),
                                           child: Padding(
-                                            padding: const EdgeInsets.all(10.0),
+                                            padding: EdgeInsets.all(10.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -314,7 +316,7 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   5.0,
@@ -347,7 +349,7 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   10.0,
@@ -375,7 +377,7 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   5.0,
@@ -408,7 +410,7 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   10.0,
@@ -436,7 +438,7 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   5.0,
@@ -469,7 +471,7 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   10.0,
@@ -497,7 +499,7 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   5.0,
@@ -556,7 +558,7 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   5.0,
@@ -589,7 +591,7 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   10.0,
@@ -617,7 +619,7 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   5.0,
@@ -650,7 +652,7 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   10.0,
@@ -678,7 +680,7 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   5.0,
@@ -716,7 +718,7 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   10.0,
@@ -744,7 +746,7 @@ class _PendingTaskWidgetState extends State<PendingTaskWidget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   5.0,

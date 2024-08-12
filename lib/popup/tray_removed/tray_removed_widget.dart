@@ -4,8 +4,10 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/popup/msg_mapping/msg_mapping_widget.dart';
 import '/popup/successfull/successfull_widget.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'tray_removed_model.dart';
 export 'tray_removed_model.dart';
@@ -46,7 +48,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: const AlignmentDirectional(0.0, -0.6),
+      alignment: AlignmentDirectional(0.0, -0.6),
       child: FutureBuilder<ApiCallResponse>(
         future: AdminApiGroup.trayInfoCall.call(
           trayId: FFAppState().trayid,
@@ -82,7 +84,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                   height: 125.0,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).primaryBackground,
-                    boxShadow: const [
+                    boxShadow: [
                       BoxShadow(
                         blurRadius: 25.0,
                         color: Color(0x338E7CC3),
@@ -92,7 +94,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                         ),
                       )
                     ],
-                    borderRadius: const BorderRadius.only(
+                    borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(25.0),
                       bottomRight: Radius.circular(25.0),
                       topLeft: Radius.circular(10.0),
@@ -110,10 +112,10 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                           Container(
                             width: 45.0,
                             height: 10.0,
-                            decoration: const BoxDecoration(),
+                            decoration: BoxDecoration(),
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Text(
                               'Tray Info',
                               style: FlutterFlowTheme.of(context)
@@ -129,13 +131,13 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                           ),
                           Container(
                             decoration: BoxDecoration(
-                              color: const Color(0x254D8218),
+                              color: Color(0x254D8218),
                               borderRadius: BorderRadius.circular(5.0),
                             ),
                             child: Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     8.0, 4.0, 8.0, 4.0),
                                 child: Text(
                                   valueOrDefault<String>(
@@ -163,7 +165,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                         child: Container(
                           width: 290.0,
                           height: 1.0,
@@ -182,7 +184,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                             ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Text(
                           valueOrDefault<String>(
                             FFAppState().slotid,
@@ -198,11 +200,11 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                                   ),
                         ),
                       ),
-                    ].divide(const SizedBox(height: 8.0)),
+                    ].divide(SizedBox(height: 8.0)),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
                   child: RichText(
                     textScaler: MediaQuery.of(context).textScaler,
                     text: TextSpan(
@@ -237,7 +239,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -259,11 +261,11 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                               letterSpacing: 0.0,
                             ),
                       ),
-                    ].divide(const SizedBox(width: 8.0)),
+                    ].divide(SizedBox(width: 8.0)),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                   child: Text(
                     valueOrDefault<String>(
                       FFAppState().trayid,
@@ -279,7 +281,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                 ),
                 Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(15.0, 25.0, 15.0, 15.0),
+                      EdgeInsetsDirectional.fromSTEB(15.0, 25.0, 15.0, 15.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -294,11 +296,11 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                         options: FFButtonOptions(
                           width: 100.0,
                           height: 40.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               5.0, 0.0, 5.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          color: const Color(0x00FFFFFF),
+                          color: Color(0x00FFFFFF),
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Raleway',
@@ -324,9 +326,9 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                               FlutterFlowTheme.of(context).heading,
                               FlutterFlowTheme.of(context).accent
                             ],
-                            stops: const [0.0, 1.0],
-                            begin: const AlignmentDirectional(1.0, 0.0),
-                            end: const AlignmentDirectional(-1.0, 0),
+                            stops: [0.0, 1.0],
+                            begin: AlignmentDirectional(1.0, 0.0),
+                            end: AlignmentDirectional(-1.0, 0),
                           ),
                           borderRadius: BorderRadius.circular(5.0),
                         ),
@@ -346,7 +348,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                                 builder: (context) {
                                   return Padding(
                                     padding: MediaQuery.viewInsetsOf(context),
-                                    child: const SuccessfullWidget(),
+                                    child: SuccessfullWidget(),
                                   );
                                 },
                               ).then((value) => safeSetState(() {}));
@@ -377,11 +379,11 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                           text: 'Submit',
                           options: FFButtonOptions(
                             height: 40.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 5.0, 0.0, 5.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: const Color(0x27351C75),
+                            color: Color(0x27351C75),
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
@@ -392,7 +394,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                                   fontWeight: FontWeight.w600,
                                 ),
                             elevation: 0.0,
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Color(0xFF8E7CC3),
                             ),
                             borderRadius: BorderRadius.circular(5.0),

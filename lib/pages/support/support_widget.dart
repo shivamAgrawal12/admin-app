@@ -5,7 +5,9 @@ import '/popup/menu/menu_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'support_model.dart';
 export 'support_model.dart';
@@ -64,15 +66,15 @@ class _SupportWidgetState extends State<SupportWidget> {
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: const AlignmentDirectional(0.0, -1.0),
+            alignment: AlignmentDirectional(0.0, -1.0),
             child: Container(
               width: MediaQuery.sizeOf(context).width * 1.0,
               height: MediaQuery.sizeOf(context).height * 1.0,
-              constraints: const BoxConstraints(
+              constraints: BoxConstraints(
                 minWidth: 320.0,
                 maxWidth: 450.0,
               ),
-              decoration: const BoxDecoration(),
+              decoration: BoxDecoration(),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -83,13 +85,13 @@ class _SupportWidgetState extends State<SupportWidget> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
-                        color: const Color(0xFFEEECF1),
+                        color: Color(0xFFEEECF1),
                         width: 1.0,
                       ),
                     ),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 10.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 10.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -103,7 +105,7 @@ class _SupportWidgetState extends State<SupportWidget> {
                               context.pushNamed(
                                 'home',
                                 extra: <String, dynamic>{
-                                  kTransitionInfoKey: const TransitionInfo(
+                                  kTransitionInfoKey: TransitionInfo(
                                     hasTransition: true,
                                     transitionType: PageTransitionType.fade,
                                     duration: Duration(milliseconds: 0),
@@ -143,7 +145,7 @@ class _SupportWidgetState extends State<SupportWidget> {
                                         FocusScope.of(context).unfocus(),
                                     child: Padding(
                                       padding: MediaQuery.viewInsetsOf(context),
-                                      child: const MenuWidget(),
+                                      child: MenuWidget(),
                                     ),
                                   );
                                 },
@@ -157,7 +159,7 @@ class _SupportWidgetState extends State<SupportWidget> {
                                 shape: BoxShape.circle,
                               ),
                               child: Align(
-                                alignment: const AlignmentDirectional(0.0, 2.6),
+                                alignment: AlignmentDirectional(0.0, 2.6),
                                 child: Icon(
                                   Icons.person_3,
                                   color: FlutterFlowTheme.of(context).heading,
@@ -166,7 +168,7 @@ class _SupportWidgetState extends State<SupportWidget> {
                               ),
                             ),
                           ),
-                        ].divide(const SizedBox(width: 6.0)),
+                        ].divide(SizedBox(width: 6.0)),
                       ),
                     ),
                   ),
@@ -176,13 +178,13 @@ class _SupportWidgetState extends State<SupportWidget> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
-                        color: const Color(0xFFEEECF1),
+                        color: Color(0xFFEEECF1),
                         width: 1.0,
                       ),
                     ),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -199,31 +201,31 @@ class _SupportWidgetState extends State<SupportWidget> {
                                   fontWeight: FontWeight.w600,
                                 ),
                           ),
-                        ].divide(const SizedBox(width: 6.0)),
+                        ].divide(SizedBox(width: 6.0)),
                       ),
                     ),
                   ),
                   Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: MediaQuery.sizeOf(context).height * 0.75,
-                    constraints: const BoxConstraints(
+                    constraints: BoxConstraints(
                       minWidth: 320.0,
                       maxWidth: 450.0,
                     ),
-                    decoration: const BoxDecoration(),
+                    decoration: BoxDecoration(),
                     child: Form(
                       key: _model.formKey,
                       autovalidateMode: AutovalidateMode.disabled,
                       child: Padding(
-                        padding: const EdgeInsets.all(10.0),
+                        padding: EdgeInsets.all(10.0),
                         child: SingleChildScrollView(
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 8.0, 0.0),
-                                child: SizedBox(
+                                child: Container(
                                   width: 300.0,
                                   child: TextFormField(
                                     controller: _model.textController1,
@@ -291,9 +293,9 @@ class _SupportWidgetState extends State<SupportWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 8.0, 0.0),
-                                child: SizedBox(
+                                child: Container(
                                   width: 300.0,
                                   child: TextFormField(
                                     controller: _model.textController2,
@@ -371,9 +373,9 @@ class _SupportWidgetState extends State<SupportWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.0, 8.0, 0.0),
-                                child: SizedBox(
+                                child: Container(
                                   width: 300.0,
                                   child: TextFormField(
                                     controller: _model.textController3,
@@ -442,7 +444,7 @@ class _SupportWidgetState extends State<SupportWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 15.0, 0.0, 0.0),
                                 child: Container(
                                   width: 150.0,
@@ -453,9 +455,9 @@ class _SupportWidgetState extends State<SupportWidget> {
                                         FlutterFlowTheme.of(context).heading,
                                         FlutterFlowTheme.of(context).accent
                                       ],
-                                      stops: const [0.0, 1.0],
-                                      begin: const AlignmentDirectional(1.0, 0.0),
-                                      end: const AlignmentDirectional(-1.0, 0),
+                                      stops: [0.0, 1.0],
+                                      begin: AlignmentDirectional(1.0, 0.0),
+                                      end: AlignmentDirectional(-1.0, 0),
                                     ),
                                     borderRadius: BorderRadius.circular(5.0),
                                   ),
@@ -466,12 +468,12 @@ class _SupportWidgetState extends State<SupportWidget> {
                                     text: 'Send',
                                     options: FFButtonOptions(
                                       height: 45.0,
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 0.0, 5.0, 0.0),
                                       iconPadding:
-                                          const EdgeInsetsDirectional.fromSTEB(
+                                          EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
-                                      color: const Color(0xFFEAE2F0),
+                                      color: Color(0xFFEAE2F0),
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
@@ -482,7 +484,7 @@ class _SupportWidgetState extends State<SupportWidget> {
                                             fontWeight: FontWeight.w600,
                                           ),
                                       elevation: 0.0,
-                                      borderSide: const BorderSide(
+                                      borderSide: BorderSide(
                                         color: Color(0xFF8E7CC3),
                                       ),
                                       borderRadius: BorderRadius.circular(5.0),
@@ -491,8 +493,8 @@ class _SupportWidgetState extends State<SupportWidget> {
                                 ),
                               ),
                             ]
-                                .divide(const SizedBox(height: 20.0))
-                                .addToStart(const SizedBox(height: 20.0)),
+                                .divide(SizedBox(height: 20.0))
+                                .addToStart(SizedBox(height: 20.0)),
                           ),
                         ),
                       ),

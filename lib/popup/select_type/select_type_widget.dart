@@ -5,6 +5,8 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'select_type_model.dart';
 export 'select_type_model.dart';
@@ -61,7 +63,7 @@ class _SelectTypeWidgetState extends State<SelectTypeWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: const AlignmentDirectional(0.0, -0.6),
+      alignment: AlignmentDirectional(0.0, -0.6),
       child: SafeArea(
         child: Container(
           width: 270.0,
@@ -78,7 +80,7 @@ class _SelectTypeWidgetState extends State<SelectTypeWidget> {
                   height: 55.0,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).primaryBackground,
-                    boxShadow: const [
+                    boxShadow: [
                       BoxShadow(
                         blurRadius: 25.0,
                         color: Color(0x338E7CC3),
@@ -88,7 +90,7 @@ class _SelectTypeWidgetState extends State<SelectTypeWidget> {
                         ),
                       )
                     ],
-                    borderRadius: const BorderRadius.only(
+                    borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(20.0),
                       bottomRight: Radius.circular(20.0),
                       topLeft: Radius.circular(10.0),
@@ -96,10 +98,10 @@ class _SelectTypeWidgetState extends State<SelectTypeWidget> {
                     ),
                   ),
                   child: Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
                       child: Text(
                         'Assign The Type of Rack',
                         textAlign: TextAlign.center,
@@ -121,7 +123,7 @@ class _SelectTypeWidgetState extends State<SelectTypeWidget> {
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                       child: Text(
                         'Robot Id',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -135,8 +137,8 @@ class _SelectTypeWidgetState extends State<SelectTypeWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
-                      child: SizedBox(
+                          EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                      child: Container(
                         width: 240.0,
                         child: TextFormField(
                           controller: _model.textController1,
@@ -196,7 +198,7 @@ class _SelectTypeWidgetState extends State<SelectTypeWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                       child: Text(
                         'Type',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -210,11 +212,11 @@ class _SelectTypeWidgetState extends State<SelectTypeWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                       child: FlutterFlowDropDown<String>(
                         controller: _model.dropDownValueController ??=
                             FormFieldController<String>(null),
-                        options: const ['metal_tray', 'plastic_tray'],
+                        options: ['metal_tray', 'plastic_tray'],
                         onChanged: (val) =>
                             setState(() => _model.dropDownValue = val),
                         width: 240.0,
@@ -236,7 +238,7 @@ class _SelectTypeWidgetState extends State<SelectTypeWidget> {
                         borderColor: FlutterFlowTheme.of(context).subHeader,
                         borderWidth: 1.0,
                         borderRadius: 5.0,
-                        margin: const EdgeInsetsDirectional.fromSTEB(
+                        margin: EdgeInsetsDirectional.fromSTEB(
                             10.0, 0.0, 10.0, 4.0),
                         hidesUnderline: true,
                         isOverButton: true,
@@ -246,7 +248,7 @@ class _SelectTypeWidgetState extends State<SelectTypeWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                       child: Text(
                         'Rack',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -260,8 +262,8 @@ class _SelectTypeWidgetState extends State<SelectTypeWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
-                      child: SizedBox(
+                          EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                      child: Container(
                         width: 240.0,
                         child: TextFormField(
                           controller: _model.textController2,
@@ -322,7 +324,7 @@ class _SelectTypeWidgetState extends State<SelectTypeWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                       child: Text(
                         'row',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -336,8 +338,8 @@ class _SelectTypeWidgetState extends State<SelectTypeWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
-                      child: SizedBox(
+                          EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                      child: Container(
                         width: 240.0,
                         child: TextFormField(
                           controller: _model.textController3,
@@ -398,7 +400,7 @@ class _SelectTypeWidgetState extends State<SelectTypeWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                       child: Text(
                         'slot',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -412,8 +414,8 @@ class _SelectTypeWidgetState extends State<SelectTypeWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
-                      child: SizedBox(
+                          EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                      child: Container(
                         width: 240.0,
                         child: TextFormField(
                           controller: _model.textController4,
@@ -474,7 +476,7 @@ class _SelectTypeWidgetState extends State<SelectTypeWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                       child: Text(
                         'depth',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -488,8 +490,8 @@ class _SelectTypeWidgetState extends State<SelectTypeWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
-                      child: SizedBox(
+                          EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                      child: Container(
                         width: 240.0,
                         child: TextFormField(
                           controller: _model.textController5,
@@ -552,7 +554,7 @@ class _SelectTypeWidgetState extends State<SelectTypeWidget> {
                 ),
                 Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 15.0, 15.0),
+                      EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 15.0, 15.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -565,11 +567,11 @@ class _SelectTypeWidgetState extends State<SelectTypeWidget> {
                         options: FFButtonOptions(
                           width: 100.0,
                           height: 40.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          color: const Color(0x00FFFFFF),
+                          color: Color(0x00FFFFFF),
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Raleway',
@@ -595,9 +597,9 @@ class _SelectTypeWidgetState extends State<SelectTypeWidget> {
                               FlutterFlowTheme.of(context).heading,
                               FlutterFlowTheme.of(context).accent
                             ],
-                            stops: const [0.0, 1.0],
-                            begin: const AlignmentDirectional(1.0, 0.0),
-                            end: const AlignmentDirectional(-1.0, 0),
+                            stops: [0.0, 1.0],
+                            begin: AlignmentDirectional(1.0, 0.0),
+                            end: AlignmentDirectional(-1.0, 0),
                           ),
                           borderRadius: BorderRadius.circular(5.0),
                         ),
@@ -616,11 +618,11 @@ class _SelectTypeWidgetState extends State<SelectTypeWidget> {
                           text: 'Change',
                           options: FFButtonOptions(
                             height: 40.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 5.0, 0.0, 5.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: const Color(0x27351C75),
+                            color: Color(0x27351C75),
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
@@ -631,7 +633,7 @@ class _SelectTypeWidgetState extends State<SelectTypeWidget> {
                                   fontWeight: FontWeight.w600,
                                 ),
                             elevation: 0.0,
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Color(0xFF8E7CC3),
                             ),
                             borderRadius: BorderRadius.circular(5.0),

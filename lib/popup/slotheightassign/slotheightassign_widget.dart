@@ -6,6 +6,8 @@ import '/flutter_flow/form_field_controller.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'slotheightassign_model.dart';
 export 'slotheightassign_model.dart';
@@ -59,7 +61,7 @@ class _SlotheightassignWidgetState extends State<SlotheightassignWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: const AlignmentDirectional(0.0, -0.6),
+      alignment: AlignmentDirectional(0.0, -0.6),
       child: SafeArea(
         child: Container(
           width: 270.0,
@@ -76,7 +78,7 @@ class _SlotheightassignWidgetState extends State<SlotheightassignWidget> {
                   height: 55.0,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).primaryBackground,
-                    boxShadow: const [
+                    boxShadow: [
                       BoxShadow(
                         blurRadius: 25.0,
                         color: Color(0x338E7CC3),
@@ -86,7 +88,7 @@ class _SlotheightassignWidgetState extends State<SlotheightassignWidget> {
                         ),
                       )
                     ],
-                    borderRadius: const BorderRadius.only(
+                    borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(20.0),
                       bottomRight: Radius.circular(20.0),
                       topLeft: Radius.circular(10.0),
@@ -94,10 +96,10 @@ class _SlotheightassignWidgetState extends State<SlotheightassignWidget> {
                     ),
                   ),
                   child: Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
                       child: Text(
                         'Assign The Height',
                         textAlign: TextAlign.center,
@@ -114,14 +116,14 @@ class _SlotheightassignWidgetState extends State<SlotheightassignWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                         child: Text(
                           'Robot Id',
                           style:
@@ -136,8 +138,8 @@ class _SlotheightassignWidgetState extends State<SlotheightassignWidget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
-                        child: SizedBox(
+                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                        child: Container(
                           width: 240.0,
                           child: TextFormField(
                             controller: _model.textController1,
@@ -198,7 +200,7 @@ class _SlotheightassignWidgetState extends State<SlotheightassignWidget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                         child: Text(
                           'Rack',
                           style:
@@ -213,8 +215,8 @@ class _SlotheightassignWidgetState extends State<SlotheightassignWidget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
-                        child: SizedBox(
+                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                        child: Container(
                           width: 240.0,
                           child: TextFormField(
                             controller: _model.textController2,
@@ -276,7 +278,7 @@ class _SlotheightassignWidgetState extends State<SlotheightassignWidget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                         child: Text(
                           'Row',
                           style:
@@ -291,8 +293,8 @@ class _SlotheightassignWidgetState extends State<SlotheightassignWidget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
-                        child: SizedBox(
+                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                        child: Container(
                           width: 240.0,
                           child: TextFormField(
                             controller: _model.textController3,
@@ -354,7 +356,7 @@ class _SlotheightassignWidgetState extends State<SlotheightassignWidget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                         child: Text(
                           'Slot',
                           style:
@@ -369,8 +371,8 @@ class _SlotheightassignWidgetState extends State<SlotheightassignWidget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
-                        child: SizedBox(
+                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                        child: Container(
                           width: 240.0,
                           child: TextFormField(
                             controller: _model.textController4,
@@ -432,7 +434,7 @@ class _SlotheightassignWidgetState extends State<SlotheightassignWidget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                         child: Text(
                           'Height',
                           style:
@@ -447,13 +449,13 @@ class _SlotheightassignWidgetState extends State<SlotheightassignWidget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                         child: FlutterFlowDropDown<String>(
                           controller: _model.slotheightValueController ??=
                               FormFieldController<String>(
                             _model.slotheightValue ??= '100',
                           ),
-                          options: const ['80', '100', '150', '180', '200'],
+                          options: ['80', '100', '150', '180', '200'],
                           onChanged: (val) =>
                               setState(() => _model.slotheightValue = val),
                           width: 240.0,
@@ -475,7 +477,7 @@ class _SlotheightassignWidgetState extends State<SlotheightassignWidget> {
                           borderColor: FlutterFlowTheme.of(context).subHeader,
                           borderWidth: 1.0,
                           borderRadius: 5.0,
-                          margin: const EdgeInsetsDirectional.fromSTEB(
+                          margin: EdgeInsetsDirectional.fromSTEB(
                               10.0, 2.0, 10.0, 4.0),
                           hidesUnderline: true,
                           isOverButton: true,
@@ -488,7 +490,7 @@ class _SlotheightassignWidgetState extends State<SlotheightassignWidget> {
                 ),
                 Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 15.0, 15.0),
+                      EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 15.0, 15.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -501,11 +503,11 @@ class _SlotheightassignWidgetState extends State<SlotheightassignWidget> {
                         options: FFButtonOptions(
                           width: 100.0,
                           height: 40.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          color: const Color(0x00FFFFFF),
+                          color: Color(0x00FFFFFF),
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Raleway',
@@ -531,9 +533,9 @@ class _SlotheightassignWidgetState extends State<SlotheightassignWidget> {
                               FlutterFlowTheme.of(context).heading,
                               FlutterFlowTheme.of(context).accent
                             ],
-                            stops: const [0.0, 1.0],
-                            begin: const AlignmentDirectional(1.0, 0.0),
-                            end: const AlignmentDirectional(-1.0, 0),
+                            stops: [0.0, 1.0],
+                            begin: AlignmentDirectional(1.0, 0.0),
+                            end: AlignmentDirectional(-1.0, 0),
                           ),
                           borderRadius: BorderRadius.circular(5.0),
                         ),
@@ -551,11 +553,11 @@ class _SlotheightassignWidgetState extends State<SlotheightassignWidget> {
                           text: 'Change',
                           options: FFButtonOptions(
                             height: 40.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 5.0, 0.0, 5.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: const Color(0x27351C75),
+                            color: Color(0x27351C75),
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
@@ -566,7 +568,7 @@ class _SlotheightassignWidgetState extends State<SlotheightassignWidget> {
                                   fontWeight: FontWeight.w600,
                                 ),
                             elevation: 0.0,
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                               color: Color(0xFF8E7CC3),
                             ),
                             borderRadius: BorderRadius.circular(5.0),

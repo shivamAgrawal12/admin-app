@@ -5,6 +5,9 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'robot_register_model.dart';
 export 'robot_register_model.dart';
 
@@ -47,7 +50,7 @@ class _RobotRegisterWidgetState extends State<RobotRegisterWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0.0, -0.6),
+      alignment: AlignmentDirectional(0.0, -0.6),
       child: Container(
         width: 260.0,
         decoration: BoxDecoration(
@@ -55,7 +58,7 @@ class _RobotRegisterWidgetState extends State<RobotRegisterWidget> {
           borderRadius: BorderRadius.circular(10.0),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: EdgeInsets.all(10.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -94,7 +97,7 @@ class _RobotRegisterWidgetState extends State<RobotRegisterWidget> {
                   milliSecond: false,
                 ),
                 controller: _model.timerController,
-                updateStateInterval: const Duration(milliseconds: 1000),
+                updateStateInterval: Duration(milliseconds: 1000),
                 onChanged: (value, displayTime, shouldUpdate) {
                   _model.timerMilliseconds = value;
                   _model.timerValue = displayTime;
@@ -106,7 +109,7 @@ class _RobotRegisterWidgetState extends State<RobotRegisterWidget> {
                     context.goNamed(
                       'home',
                       extra: <String, dynamic>{
-                        kTransitionInfoKey: const TransitionInfo(
+                        kTransitionInfoKey: TransitionInfo(
                           hasTransition: true,
                           transitionType: PageTransitionType.fade,
                           duration: Duration(milliseconds: 500),
@@ -117,7 +120,7 @@ class _RobotRegisterWidgetState extends State<RobotRegisterWidget> {
                     context.goNamed(
                       'login_page',
                       extra: <String, dynamic>{
-                        kTransitionInfoKey: const TransitionInfo(
+                        kTransitionInfoKey: TransitionInfo(
                           hasTransition: true,
                           transitionType: PageTransitionType.fade,
                           duration: Duration(milliseconds: 500),
@@ -135,7 +138,7 @@ class _RobotRegisterWidgetState extends State<RobotRegisterWidget> {
                       fontWeight: FontWeight.w100,
                     ),
               ),
-            ].divide(const SizedBox(height: 20.0)),
+            ].divide(SizedBox(height: 20.0)),
           ),
         ),
       ),

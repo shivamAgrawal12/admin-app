@@ -9,7 +9,9 @@ import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'delete_tray_model.dart';
 export 'delete_tray_model.dart';
@@ -70,15 +72,15 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
           body: SafeArea(
             top: true,
             child: Align(
-              alignment: const AlignmentDirectional(0.0, -1.0),
+              alignment: AlignmentDirectional(0.0, -1.0),
               child: Container(
                 width: MediaQuery.sizeOf(context).width * 1.0,
                 height: MediaQuery.sizeOf(context).height * 1.0,
-                constraints: const BoxConstraints(
+                constraints: BoxConstraints(
                   minWidth: 320.0,
                   maxWidth: 450.0,
                 ),
-                decoration: const BoxDecoration(),
+                decoration: BoxDecoration(),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -89,12 +91,12 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
                       decoration: BoxDecoration(
                         color: Colors.white,
                         border: Border.all(
-                          color: const Color(0xFFEEECF1),
+                          color: Color(0xFFEEECF1),
                           width: 1.0,
                         ),
                       ),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             15.0, 0.0, 10.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -112,7 +114,7 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
                                 context.pushNamed(
                                   'home',
                                   extra: <String, dynamic>{
-                                    kTransitionInfoKey: const TransitionInfo(
+                                    kTransitionInfoKey: TransitionInfo(
                                       hasTransition: true,
                                       transitionType: PageTransitionType.fade,
                                       duration: Duration(milliseconds: 0),
@@ -153,7 +155,7 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
                                       child: Padding(
                                         padding:
                                             MediaQuery.viewInsetsOf(context),
-                                        child: const MenuWidget(),
+                                        child: MenuWidget(),
                                       ),
                                     );
                                   },
@@ -167,7 +169,7 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
                                   shape: BoxShape.circle,
                                 ),
                                 child: Align(
-                                  alignment: const AlignmentDirectional(0.0, 2.6),
+                                  alignment: AlignmentDirectional(0.0, 2.6),
                                   child: Icon(
                                     Icons.person_3,
                                     color: FlutterFlowTheme.of(context).heading,
@@ -176,7 +178,7 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
                                 ),
                               ),
                             ),
-                          ].divide(const SizedBox(width: 6.0)),
+                          ].divide(SizedBox(width: 6.0)),
                         ),
                       ),
                     ),
@@ -186,12 +188,12 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
                       decoration: BoxDecoration(
                         color: Colors.white,
                         border: Border.all(
-                          color: const Color(0xFFEEECF1),
+                          color: Color(0xFFEEECF1),
                           width: 1.0,
                         ),
                       ),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             10.0, 0.0, 10.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -209,35 +211,35 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),
-                          ].divide(const SizedBox(width: 6.0)),
+                          ].divide(SizedBox(width: 6.0)),
                         ),
                       ),
                     ),
                     Container(
                       width: MediaQuery.sizeOf(context).width * 1.0,
                       height: MediaQuery.sizeOf(context).height * 0.75,
-                      constraints: const BoxConstraints(
+                      constraints: BoxConstraints(
                         minWidth: 320.0,
                         maxWidth: 450.0,
                       ),
-                      decoration: const BoxDecoration(),
+                      decoration: BoxDecoration(),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(1.0, -1.0),
+                              alignment: AlignmentDirectional(1.0, -1.0),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 40.0, 0.0),
                                 child: Switch.adaptive(
                                   value: _model.switchValue!,
                                   onChanged: (newValue) async {
                                     setState(
-                                        () => _model.switchValue = newValue);
-                                    if (newValue) {
+                                        () => _model.switchValue = newValue!);
+                                    if (newValue!) {
                                       _model.change = 0;
                                       setState(() {});
                                     } else {
@@ -268,7 +270,7 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBackground,
-                                        boxShadow: const [
+                                        boxShadow: [
                                           BoxShadow(
                                             blurRadius: 20.0,
                                             color: Color(0x678E7CC3),
@@ -281,9 +283,9 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
                                         borderRadius:
                                             BorderRadius.circular(5.0),
                                       ),
-                                      child: const Padding(
+                                      child: Padding(
                                         padding: EdgeInsets.all(10.0),
-                                        child: SizedBox(
+                                        child: Container(
                                           width: 300.0,
                                           height: 300.0,
                                           child: custom_widgets.QRTrayDel(
@@ -316,9 +318,9 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
                                               .secondaryText,
                                           size: 24.0,
                                         ),
-                                      ].divide(const SizedBox(width: 5.0)),
+                                      ].divide(SizedBox(width: 5.0)),
                                     ),
-                                  ].divide(const SizedBox(height: 40.0)),
+                                  ].divide(SizedBox(height: 40.0)),
                                 ),
                               ),
                             if (_model.change == 1 ? true : false)
@@ -327,9 +329,9 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 8.0, 0.0),
-                                    child: SizedBox(
+                                    child: Container(
                                       width: 280.0,
                                       child: TextFormField(
                                         controller: _model.textController,
@@ -403,7 +405,7 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         10.0, 20.0, 10.0, 0.0),
                                     child: Container(
                                       width: 140.0,
@@ -415,9 +417,9 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
                                                 .heading,
                                             FlutterFlowTheme.of(context).accent
                                           ],
-                                          stops: const [0.0, 1.0],
-                                          begin: const AlignmentDirectional(1.0, 0.0),
-                                          end: const AlignmentDirectional(-1.0, 0),
+                                          stops: [0.0, 1.0],
+                                          begin: AlignmentDirectional(1.0, 0.0),
+                                          end: AlignmentDirectional(-1.0, 0),
                                         ),
                                         borderRadius:
                                             BorderRadius.circular(5.0),
@@ -461,7 +463,7 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
                                                     padding:
                                                         MediaQuery.viewInsetsOf(
                                                             context),
-                                                    child: const TrayDeleteWidget(),
+                                                    child: TrayDeleteWidget(),
                                                   ),
                                                 );
                                               },
@@ -506,12 +508,12 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
                                           width: 140.0,
                                           height: 40.0,
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   5.0, 0.0, 5.0, 0.0),
                                           iconPadding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
-                                          color: const Color(0x0020124D),
+                                          color: Color(0x0020124D),
                                           textStyle:
                                               FlutterFlowTheme.of(context)
                                                   .titleSmall
@@ -522,7 +524,7 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
                                                     letterSpacing: 0.0,
                                                   ),
                                           elevation: 0.0,
-                                          borderSide: const BorderSide(
+                                          borderSide: BorderSide(
                                             color: Colors.transparent,
                                             width: 1.0,
                                           ),
@@ -532,9 +534,9 @@ class _DeleteTrayWidgetState extends State<DeleteTrayWidget> {
                                       ),
                                     ),
                                   ),
-                                ].divide(const SizedBox(height: 45.0)),
+                                ].divide(SizedBox(height: 45.0)),
                               ),
-                          ].divide(const SizedBox(height: 15.0)),
+                          ].divide(SizedBox(height: 15.0)),
                         ),
                       ),
                     ),

@@ -5,7 +5,10 @@ import '/popup/inproccess/inproccess_widget.dart';
 import '/popup/logout/logout_widget.dart';
 import '/popup/shuttleupdate/shuttleupdate_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'menu_model.dart';
 export 'menu_model.dart';
 
@@ -43,7 +46,7 @@ class _MenuWidgetState extends State<MenuWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0.0, -0.6),
+      alignment: AlignmentDirectional(0.0, -0.6),
       child: InkWell(
         splashColor: Colors.transparent,
         focusColor: Colors.transparent,
@@ -55,20 +58,20 @@ class _MenuWidgetState extends State<MenuWidget> {
         child: Container(
           width: MediaQuery.sizeOf(context).width * 1.0,
           height: MediaQuery.sizeOf(context).height * 1.0,
-          constraints: const BoxConstraints(
+          constraints: BoxConstraints(
             minWidth: 320.0,
             maxWidth: 450.0,
           ),
-          decoration: const BoxDecoration(),
+          decoration: BoxDecoration(),
           child: Align(
-            alignment: const AlignmentDirectional(1.0, -1.0),
+            alignment: AlignmentDirectional(1.0, -1.0),
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 15.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 15.0, 0.0),
               child: Container(
                 width: 200.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).primaryBackground,
-                  borderRadius: const BorderRadius.only(
+                  borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(10.0),
                     bottomRight: Radius.circular(10.0),
                     topLeft: Radius.circular(10.0),
@@ -77,7 +80,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                 ),
                 child: Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 15.0),
+                      EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 15.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -96,7 +99,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                               context.pushNamed(
                                 'home',
                                 extra: <String, dynamic>{
-                                  kTransitionInfoKey: const TransitionInfo(
+                                  kTransitionInfoKey: TransitionInfo(
                                     hasTransition: true,
                                     transitionType: PageTransitionType.fade,
                                     duration: Duration(milliseconds: 0),
@@ -123,7 +126,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
-                              ].divide(const SizedBox(width: 6.0)),
+                              ].divide(SizedBox(width: 6.0)),
                             ),
                           ),
                           InkWell(
@@ -142,7 +145,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                 shape: BoxShape.circle,
                               ),
                               child: Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Icon(
                                   Icons.close_sharp,
                                   color: FlutterFlowTheme.of(context)
@@ -163,7 +166,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                           context.pushNamed(
                             'support',
                             extra: <String, dynamic>{
-                              kTransitionInfoKey: const TransitionInfo(
+                              kTransitionInfoKey: TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.fade,
                                 duration: Duration(milliseconds: 0),
@@ -195,7 +198,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
-                              ].divide(const SizedBox(width: 6.0)),
+                              ].divide(SizedBox(width: 6.0)),
                             ),
                           ],
                         ),
@@ -214,7 +217,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                             builder: (context) {
                               return Padding(
                                 padding: MediaQuery.viewInsetsOf(context),
-                                child: const ShuttleupdateWidget(),
+                                child: ShuttleupdateWidget(),
                               );
                             },
                           ).then((value) => safeSetState(() {}));
@@ -243,7 +246,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
-                              ].divide(const SizedBox(width: 6.0)),
+                              ].divide(SizedBox(width: 6.0)),
                             ),
                           ],
                         ),
@@ -257,7 +260,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                           context.pushNamed(
                             'matrix_csv',
                             extra: <String, dynamic>{
-                              kTransitionInfoKey: const TransitionInfo(
+                              kTransitionInfoKey: TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.fade,
                                 duration: Duration(milliseconds: 500),
@@ -289,7 +292,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
-                              ].divide(const SizedBox(width: 6.0)),
+                              ].divide(SizedBox(width: 6.0)),
                             ),
                           ],
                         ),
@@ -308,7 +311,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                             builder: (context) {
                               return Padding(
                                 padding: MediaQuery.viewInsetsOf(context),
-                                child: const InproccessWidget(),
+                                child: InproccessWidget(),
                               );
                             },
                           ).then((value) => safeSetState(() {}));
@@ -337,7 +340,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
-                              ].divide(const SizedBox(width: 6.0)),
+                              ].divide(SizedBox(width: 6.0)),
                             ),
                           ],
                         ),
@@ -356,7 +359,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                             builder: (context) {
                               return Padding(
                                 padding: MediaQuery.viewInsetsOf(context),
-                                child: const InproccessWidget(),
+                                child: InproccessWidget(),
                               );
                             },
                           ).then((value) => safeSetState(() {}));
@@ -385,7 +388,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
-                              ].divide(const SizedBox(width: 6.0)),
+                              ].divide(SizedBox(width: 6.0)),
                             ),
                           ],
                         ),
@@ -399,7 +402,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                           context.pushNamed(
                             'tray_csv',
                             extra: <String, dynamic>{
-                              kTransitionInfoKey: const TransitionInfo(
+                              kTransitionInfoKey: TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.fade,
                                 duration: Duration(milliseconds: 500),
@@ -431,7 +434,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
-                              ].divide(const SizedBox(width: 6.0)),
+                              ].divide(SizedBox(width: 6.0)),
                             ),
                           ],
                         ),
@@ -450,7 +453,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                             builder: (context) {
                               return Padding(
                                 padding: MediaQuery.viewInsetsOf(context),
-                                child: const LogoutWidget(),
+                                child: LogoutWidget(),
                               );
                             },
                           ).then((value) => safeSetState(() {}));
@@ -479,7 +482,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
-                              ].divide(const SizedBox(width: 6.0)),
+                              ].divide(SizedBox(width: 6.0)),
                             ),
                           ],
                         ),
@@ -501,9 +504,9 @@ class _MenuWidgetState extends State<MenuWidget> {
                             options: FFButtonOptions(
                               width: 75.0,
                               height: 30.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).liteText,
                               textStyle: FlutterFlowTheme.of(context)
@@ -515,7 +518,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                     letterSpacing: 0.0,
                                   ),
                               elevation: 2.0,
-                              borderSide: const BorderSide(
+                              borderSide: BorderSide(
                                 width: 1.0,
                               ),
                               borderRadius: BorderRadius.circular(8.0),
@@ -526,16 +529,16 @@ class _MenuWidgetState extends State<MenuWidget> {
                               print('Button pressed ...');
                             },
                             text: 'Stop',
-                            icon: const Icon(
+                            icon: Icon(
                               Icons.pause,
                               size: 15.0,
                             ),
                             options: FFButtonOptions(
                               width: 75.0,
                               height: 30.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
@@ -554,9 +557,9 @@ class _MenuWidgetState extends State<MenuWidget> {
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
-                        ].divide(const SizedBox(width: 6.0)),
+                        ].divide(SizedBox(width: 6.0)),
                       ),
-                    ].divide(const SizedBox(height: 25.0)),
+                    ].divide(SizedBox(height: 25.0)),
                   ),
                 ),
               ),

@@ -1,5 +1,6 @@
 import '/custom_code/actions/index.dart' as actions;
 import 'package:provider/provider.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -8,7 +9,11 @@ import 'package:flutter_web_plugins/url_strategy.dart';
 import 'auth/custom_auth/auth_util.dart';
 import 'auth/custom_auth/custom_auth_user_provider.dart';
 
+import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'flutter_flow/nav/nav.dart';
+import 'index.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,13 +31,11 @@ void main() async {
 
   runApp(ChangeNotifierProvider(
     create: (context) => appState,
-    child: const MyApp(),
+    child: MyApp(),
   ));
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key});
-
   // This widget is the root of your application.
   @override
   State<MyApp> createState() => _MyAppState();
@@ -61,7 +64,7 @@ class _MyAppState extends State<MyApp> {
       });
 
     Future.delayed(
-      const Duration(milliseconds: 1000),
+      Duration(milliseconds: 1000),
       () => _appStateNotifier.stopShowingSplashImage(),
     );
   }
@@ -74,7 +77,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'NanoHouseapk',
-      localizationsDelegates: const [
+      localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
@@ -83,17 +86,17 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         brightness: Brightness.light,
         scrollbarTheme: ScrollbarThemeData(
-          thumbVisibility: WidgetStateProperty.all(false),
-          trackVisibility: WidgetStateProperty.all(false),
+          thumbVisibility: MaterialStateProperty.all(false),
+          trackVisibility: MaterialStateProperty.all(false),
           interactive: true,
-          thumbColor: WidgetStateProperty.resolveWith((states) {
-            if (states.contains(WidgetState.dragged)) {
-              return const Color(0xff615959);
+          thumbColor: MaterialStateProperty.resolveWith((states) {
+            if (states.contains(MaterialState.dragged)) {
+              return Color(4284569945);
             }
-            if (states.contains(WidgetState.hovered)) {
-              return const Color(0xffbfbdbd);
+            if (states.contains(MaterialState.hovered)) {
+              return Color(4290756029);
             }
-            return const Color(0xffa5a3a3);
+            return Color(4289045411);
           }),
         ),
       ),

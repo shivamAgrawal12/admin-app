@@ -1,6 +1,7 @@
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/popup/menu/menu_widget.dart';
 import '/popup/no_recordforlist/no_recordforlist_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -8,6 +9,7 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'list_of_picking_model.dart';
 export 'list_of_picking_model.dart';
@@ -54,15 +56,15 @@ class _ListOfPickingWidgetState extends State<ListOfPickingWidget> {
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: const AlignmentDirectional(0.0, -1.0),
+            alignment: AlignmentDirectional(0.0, -1.0),
             child: Container(
               width: MediaQuery.sizeOf(context).width * 1.0,
               height: MediaQuery.sizeOf(context).height * 1.0,
-              constraints: const BoxConstraints(
+              constraints: BoxConstraints(
                 minWidth: 320.0,
                 maxWidth: 450.0,
               ),
-              decoration: const BoxDecoration(),
+              decoration: BoxDecoration(),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -73,13 +75,13 @@ class _ListOfPickingWidgetState extends State<ListOfPickingWidget> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
-                        color: const Color(0xFFEEECF1),
+                        color: Color(0xFFEEECF1),
                         width: 1.0,
                       ),
                     ),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 10.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 10.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -93,7 +95,7 @@ class _ListOfPickingWidgetState extends State<ListOfPickingWidget> {
                               context.pushNamed(
                                 'robot_info',
                                 extra: <String, dynamic>{
-                                  kTransitionInfoKey: const TransitionInfo(
+                                  kTransitionInfoKey: TransitionInfo(
                                     hasTransition: true,
                                     transitionType: PageTransitionType.fade,
                                     duration: Duration(milliseconds: 0),
@@ -133,7 +135,7 @@ class _ListOfPickingWidgetState extends State<ListOfPickingWidget> {
                                         FocusScope.of(context).unfocus(),
                                     child: Padding(
                                       padding: MediaQuery.viewInsetsOf(context),
-                                      child: const MenuWidget(),
+                                      child: MenuWidget(),
                                     ),
                                   );
                                 },
@@ -147,7 +149,7 @@ class _ListOfPickingWidgetState extends State<ListOfPickingWidget> {
                                 shape: BoxShape.circle,
                               ),
                               child: Align(
-                                alignment: const AlignmentDirectional(0.0, 2.6),
+                                alignment: AlignmentDirectional(0.0, 2.6),
                                 child: Icon(
                                   Icons.person_3,
                                   color: FlutterFlowTheme.of(context).heading,
@@ -156,7 +158,7 @@ class _ListOfPickingWidgetState extends State<ListOfPickingWidget> {
                               ),
                             ),
                           ),
-                        ].divide(const SizedBox(width: 6.0)),
+                        ].divide(SizedBox(width: 6.0)),
                       ),
                     ),
                   ),
@@ -166,13 +168,13 @@ class _ListOfPickingWidgetState extends State<ListOfPickingWidget> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
-                        color: const Color(0xFFEEECF1),
+                        color: Color(0xFFEEECF1),
                         width: 1.0,
                       ),
                     ),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -189,38 +191,38 @@ class _ListOfPickingWidgetState extends State<ListOfPickingWidget> {
                                   fontWeight: FontWeight.w600,
                                 ),
                           ),
-                        ].divide(const SizedBox(width: 6.0)),
+                        ].divide(SizedBox(width: 6.0)),
                       ),
                     ),
                   ),
                   Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: MediaQuery.sizeOf(context).height * 0.8,
-                    constraints: const BoxConstraints(
+                    constraints: BoxConstraints(
                       minWidth: 320.0,
                       maxWidth: 450.0,
                     ),
-                    decoration: const BoxDecoration(),
+                    decoration: BoxDecoration(),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   8.0, 0.0, 8.0, 0.0),
-                              child: SizedBox(
+                              child: Container(
                                 width: 300.0,
                                 child: TextFormField(
                                   controller: _model.textController,
                                   focusNode: _model.textFieldFocusNode,
                                   onChanged: (_) => EasyDebounce.debounce(
                                     '_model.textController',
-                                    const Duration(milliseconds: 50),
+                                    Duration(milliseconds: 50),
                                     () => setState(() {}),
                                   ),
                                   autofocus: false,
@@ -286,7 +288,7 @@ class _ListOfPickingWidgetState extends State<ListOfPickingWidget> {
                           ),
                           Flexible(
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 10.0, 0.0, 0.0),
                               child: FutureBuilder<ApiCallResponse>(
                                 future: AdminApiGroup.listOfSlotCall.call(
@@ -324,7 +326,7 @@ class _ListOfPickingWidgetState extends State<ListOfPickingWidget> {
                                               ?.toList() ??
                                           [];
                                       if (slotRecords.isEmpty) {
-                                        return const Center(
+                                        return Center(
                                           child: NoRecordforlistWidget(),
                                         );
                                       }
@@ -347,16 +349,16 @@ class _ListOfPickingWidgetState extends State<ListOfPickingWidget> {
                                                   ? true
                                                   : false,
                                               child: Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, -1.0),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 10.0, 0.0, 0.0),
                                                   child: Container(
                                                     width: 340.0,
                                                     height: 120.0,
-                                                    constraints: const BoxConstraints(
+                                                    constraints: BoxConstraints(
                                                       minWidth: 270.0,
                                                       maxWidth: 350.0,
                                                     ),
@@ -364,7 +366,7 @@ class _ListOfPickingWidgetState extends State<ListOfPickingWidget> {
                                                       color: FlutterFlowTheme
                                                               .of(context)
                                                           .primaryBackground,
-                                                      boxShadow: const [
+                                                      boxShadow: [
                                                         BoxShadow(
                                                           blurRadius: 5.0,
                                                           color:
@@ -381,7 +383,7 @@ class _ListOfPickingWidgetState extends State<ListOfPickingWidget> {
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsets.all(10.0),
+                                                          EdgeInsets.all(10.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -420,7 +422,7 @@ class _ListOfPickingWidgetState extends State<ListOfPickingWidget> {
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             5.0,
@@ -450,7 +452,7 @@ class _ListOfPickingWidgetState extends State<ListOfPickingWidget> {
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             10.0,
@@ -475,7 +477,7 @@ class _ListOfPickingWidgetState extends State<ListOfPickingWidget> {
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             5.0,
@@ -536,7 +538,7 @@ class _ListOfPickingWidgetState extends State<ListOfPickingWidget> {
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             5.0,
@@ -566,7 +568,7 @@ class _ListOfPickingWidgetState extends State<ListOfPickingWidget> {
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             10.0,
@@ -591,7 +593,7 @@ class _ListOfPickingWidgetState extends State<ListOfPickingWidget> {
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             5.0,
@@ -634,7 +636,7 @@ class _ListOfPickingWidgetState extends State<ListOfPickingWidget> {
                                                 ),
                                               ),
                                             );
-                                          }).addToEnd(const SizedBox(height: 50.0)),
+                                          }).addToEnd(SizedBox(height: 50.0)),
                                         ),
                                       );
                                     },

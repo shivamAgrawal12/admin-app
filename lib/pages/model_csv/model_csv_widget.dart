@@ -7,9 +7,12 @@ import '/flutter_flow/upload_data.dart';
 import '/popup/msg_mapping/msg_mapping_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'model_csv_model.dart';
 export 'model_csv_model.dart';
@@ -59,15 +62,15 @@ class _ModelCsvWidgetState extends State<ModelCsvWidget> {
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: const AlignmentDirectional(0.0, -1.0),
+            alignment: AlignmentDirectional(0.0, -1.0),
             child: Container(
               width: MediaQuery.sizeOf(context).width * 1.0,
               height: MediaQuery.sizeOf(context).height * 1.0,
-              constraints: const BoxConstraints(
+              constraints: BoxConstraints(
                 minWidth: 320.0,
                 maxWidth: 450.0,
               ),
-              decoration: const BoxDecoration(),
+              decoration: BoxDecoration(),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -78,13 +81,13 @@ class _ModelCsvWidgetState extends State<ModelCsvWidget> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
-                        color: const Color(0xFFEEECF1),
+                        color: Color(0xFFEEECF1),
                         width: 1.0,
                       ),
                     ),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 10.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 10.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -92,7 +95,7 @@ class _ModelCsvWidgetState extends State<ModelCsvWidget> {
                           Opacity(
                             opacity: loggedIn ? 1.0 : 0.0,
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 12.0, 0.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
@@ -104,7 +107,7 @@ class _ModelCsvWidgetState extends State<ModelCsvWidget> {
                                     context.pushNamed(
                                       'home',
                                       extra: <String, dynamic>{
-                                        kTransitionInfoKey: const TransitionInfo(
+                                        kTransitionInfoKey: TransitionInfo(
                                           hasTransition: true,
                                           transitionType:
                                               PageTransitionType.fade,
@@ -123,7 +126,7 @@ class _ModelCsvWidgetState extends State<ModelCsvWidget> {
                             ),
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(8.0),
                               child: Image.asset(
@@ -135,7 +138,7 @@ class _ModelCsvWidgetState extends State<ModelCsvWidget> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 0.0, 0.0),
                             child: FaIcon(
                               FontAwesomeIcons.arrowLeft,
@@ -144,7 +147,7 @@ class _ModelCsvWidgetState extends State<ModelCsvWidget> {
                               size: 26.0,
                             ),
                           ),
-                        ].divide(const SizedBox(width: 6.0)),
+                        ].divide(SizedBox(width: 6.0)),
                       ),
                     ),
                   ),
@@ -154,13 +157,13 @@ class _ModelCsvWidgetState extends State<ModelCsvWidget> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
-                        color: const Color(0xFFEEECF1),
+                        color: Color(0xFFEEECF1),
                         width: 1.0,
                       ),
                     ),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -177,27 +180,27 @@ class _ModelCsvWidgetState extends State<ModelCsvWidget> {
                                   fontWeight: FontWeight.w600,
                                 ),
                           ),
-                        ].divide(const SizedBox(width: 6.0)),
+                        ].divide(SizedBox(width: 6.0)),
                       ),
                     ),
                   ),
                   Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: MediaQuery.sizeOf(context).height * 0.75,
-                    constraints: const BoxConstraints(
+                    constraints: BoxConstraints(
                       minWidth: 320.0,
                       maxWidth: 450.0,
                     ),
-                    decoration: const BoxDecoration(),
+                    decoration: BoxDecoration(),
                     child: Padding(
-                      padding: const EdgeInsets.all(10.0),
+                      padding: EdgeInsets.all(10.0),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 20.0, 0.0, 0.0),
                               child: Text(
                                 'Note:  file should only in csv formate.',
@@ -252,7 +255,7 @@ class _ModelCsvWidgetState extends State<ModelCsvWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   6.0, 0.0, 6.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -334,7 +337,7 @@ class _ModelCsvWidgetState extends State<ModelCsvWidget> {
                                         children: [
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Icon(
                                               Icons.cloud_download_outlined,
                                               color:
@@ -366,9 +369,9 @@ class _ModelCsvWidgetState extends State<ModelCsvWidget> {
                                           FlutterFlowTheme.of(context).heading,
                                           FlutterFlowTheme.of(context).accent
                                         ],
-                                        stops: const [0.0, 1.0],
-                                        begin: const AlignmentDirectional(1.0, 0.0),
-                                        end: const AlignmentDirectional(-1.0, 0),
+                                        stops: [0.0, 1.0],
+                                        begin: AlignmentDirectional(1.0, 0.0),
+                                        end: AlignmentDirectional(-1.0, 0),
                                       ),
                                       borderRadius: BorderRadius.circular(5.0),
                                     ),
@@ -424,18 +427,18 @@ class _ModelCsvWidgetState extends State<ModelCsvWidget> {
                                         }
                                       },
                                       text: 'Uplode',
-                                      icon: const Icon(
+                                      icon: Icon(
                                         Icons.cloud_upload,
                                         size: 15.0,
                                       ),
                                       options: FFButtonOptions(
                                         height: 50.0,
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             5.0, 0.0, 5.0, 0.0),
                                         iconPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
+                                            EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
-                                        color: const Color(0x27351C75),
+                                        color: Color(0x27351C75),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
@@ -446,7 +449,7 @@ class _ModelCsvWidgetState extends State<ModelCsvWidget> {
                                               fontWeight: FontWeight.w600,
                                             ),
                                         elevation: 0.0,
-                                        borderSide: const BorderSide(
+                                        borderSide: BorderSide(
                                           color: Color(0xFF8E7CC3),
                                         ),
                                         borderRadius:
@@ -459,7 +462,7 @@ class _ModelCsvWidgetState extends State<ModelCsvWidget> {
                             ),
                             Container(
                               width: MediaQuery.sizeOf(context).width * 0.9,
-                              constraints: const BoxConstraints(
+                              constraints: BoxConstraints(
                                 maxWidth: 400.0,
                               ),
                               decoration: BoxDecoration(
@@ -470,12 +473,12 @@ class _ModelCsvWidgetState extends State<ModelCsvWidget> {
                                 ),
                               ),
                               child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 10.0, 0.0, 10.0),
                                       child: FFButtonWidget(
                                         onPressed: () async {
@@ -491,10 +494,10 @@ class _ModelCsvWidgetState extends State<ModelCsvWidget> {
                                         options: FFButtonOptions(
                                           height: 40.0,
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   24.0, 0.0, 24.0, 0.0),
                                           iconPadding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
@@ -511,7 +514,7 @@ class _ModelCsvWidgetState extends State<ModelCsvWidget> {
                                                 fontWeight: FontWeight.w500,
                                               ),
                                           elevation: 0.0,
-                                          borderSide: const BorderSide(
+                                          borderSide: BorderSide(
                                             color: Colors.transparent,
                                             width: 1.0,
                                           ),
@@ -522,14 +525,14 @@ class _ModelCsvWidgetState extends State<ModelCsvWidget> {
                                     ),
                                     if (_model.csvimg == 1 ? true : false)
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 10.0, 0.0, 0.0),
                                         child: SingleChildScrollView(
                                           scrollDirection: Axis.horizontal,
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
-                                              SizedBox(
+                                              Container(
                                                 width: 300.0,
                                                 height: 360.0,
                                                 child: custom_widgets.Csvviewer(
@@ -547,7 +550,7 @@ class _ModelCsvWidgetState extends State<ModelCsvWidget> {
                                 ),
                               ),
                             ),
-                          ].divide(const SizedBox(height: 40.0)),
+                          ].divide(SizedBox(height: 40.0)),
                         ),
                       ),
                     ),

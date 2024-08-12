@@ -4,6 +4,9 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'wrong_model.dart';
 export 'wrong_model.dart';
 
@@ -46,7 +49,7 @@ class _WrongWidgetState extends State<WrongWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0.0, -0.6),
+      alignment: AlignmentDirectional(0.0, -0.6),
       child: Container(
         width: 250.0,
         decoration: BoxDecoration(
@@ -54,12 +57,12 @@ class _WrongWidgetState extends State<WrongWidget> {
           borderRadius: BorderRadius.circular(10.0),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: EdgeInsets.all(10.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
                 child: Text(
                   'Something Went wrong.',
                   textAlign: TextAlign.center,
@@ -80,7 +83,7 @@ class _WrongWidgetState extends State<WrongWidget> {
                   milliSecond: false,
                 ),
                 controller: _model.timerController,
-                updateStateInterval: const Duration(milliseconds: 1000),
+                updateStateInterval: Duration(milliseconds: 1000),
                 onChanged: (value, displayTime, shouldUpdate) {
                   _model.timerMilliseconds = value;
                   _model.timerValue = displayTime;
@@ -92,9 +95,9 @@ class _WrongWidgetState extends State<WrongWidget> {
                   FFAppState().trayid = '';
                   FFAppState().slotrecid = 0;
                   FFAppState().trayrecid = 0;
-                  FFAppState().taskrecid = 0;
                   FFAppState().hideslot = 0;
                   FFAppState().homeslotid = '';
+                  FFAppState().taskrecid = '';
                   FFAppState().update(() {});
                   Navigator.pop(context);
                 },

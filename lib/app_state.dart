@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import '/backend/schema/structs/index.dart';
+import 'backend/api_requests/api_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -65,12 +68,6 @@ class FFAppState extends ChangeNotifier {
     _trayrecid = value;
   }
 
-  int _taskrecid = 0;
-  int get taskrecid => _taskrecid;
-  set taskrecid(int value) {
-    _taskrecid = value;
-  }
-
   int _hideslot = 0;
   int get hideslot => _hideslot;
   set hideslot(int value) {
@@ -125,6 +122,12 @@ class FFAppState extends ChangeNotifier {
   bool get connected => _connected;
   set connected(bool value) {
     _connected = value;
+  }
+
+  String _taskrecid = '';
+  String get taskrecid => _taskrecid;
+  set taskrecid(String value) {
+    _taskrecid = value;
   }
 }
 

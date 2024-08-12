@@ -1,8 +1,17 @@
 import '/backend/api_requests/api_calls.dart';
+import '/flutter_flow/flutter_flow_drop_down.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/popup/robot_register/robot_register_widget.dart';
+import '/popup/wrong/wrong_widget.dart';
 import 'add_shuttle_details_widget.dart' show AddShuttleDetailsWidget;
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class AddShuttleDetailsModel extends FlutterFlowModel<AddShuttleDetailsWidget> {
   ///  Local state fields for this page.

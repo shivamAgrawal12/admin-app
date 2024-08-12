@@ -1,6 +1,7 @@
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/popup/menu/menu_widget.dart';
 import '/popup/no_recordforlist/no_recordforlist_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -10,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'list_of_slot_model.dart';
 export 'list_of_slot_model.dart';
@@ -62,15 +64,15 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: const AlignmentDirectional(0.0, -1.0),
+            alignment: AlignmentDirectional(0.0, -1.0),
             child: Container(
               width: MediaQuery.sizeOf(context).width * 1.0,
               height: MediaQuery.sizeOf(context).height * 1.0,
-              constraints: const BoxConstraints(
+              constraints: BoxConstraints(
                 minWidth: 320.0,
                 maxWidth: 450.0,
               ),
-              decoration: const BoxDecoration(),
+              decoration: BoxDecoration(),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -81,13 +83,13 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
-                        color: const Color(0xFFEEECF1),
+                        color: Color(0xFFEEECF1),
                         width: 1.0,
                       ),
                     ),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 10.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 10.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -101,7 +103,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                               context.pushNamed(
                                 'robot_info',
                                 extra: <String, dynamic>{
-                                  kTransitionInfoKey: const TransitionInfo(
+                                  kTransitionInfoKey: TransitionInfo(
                                     hasTransition: true,
                                     transitionType: PageTransitionType.fade,
                                     duration: Duration(milliseconds: 0),
@@ -141,7 +143,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                         FocusScope.of(context).unfocus(),
                                     child: Padding(
                                       padding: MediaQuery.viewInsetsOf(context),
-                                      child: const MenuWidget(),
+                                      child: MenuWidget(),
                                     ),
                                   );
                                 },
@@ -155,7 +157,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                 shape: BoxShape.circle,
                               ),
                               child: Align(
-                                alignment: const AlignmentDirectional(0.0, 2.6),
+                                alignment: AlignmentDirectional(0.0, 2.6),
                                 child: Icon(
                                   Icons.person_3,
                                   color: FlutterFlowTheme.of(context).heading,
@@ -164,7 +166,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                               ),
                             ),
                           ),
-                        ].divide(const SizedBox(width: 6.0)),
+                        ].divide(SizedBox(width: 6.0)),
                       ),
                     ),
                   ),
@@ -174,13 +176,13 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
-                        color: const Color(0xFFEEECF1),
+                        color: Color(0xFFEEECF1),
                         width: 1.0,
                       ),
                     ),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -197,22 +199,22 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                   fontWeight: FontWeight.w600,
                                 ),
                           ),
-                        ].divide(const SizedBox(width: 6.0)),
+                        ].divide(SizedBox(width: 6.0)),
                       ),
                     ),
                   ),
                   Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: MediaQuery.sizeOf(context).height * 0.8,
-                    constraints: const BoxConstraints(
+                    constraints: BoxConstraints(
                       minWidth: 320.0,
                       maxWidth: 450.0,
                     ),
-                    decoration: const BoxDecoration(),
+                    decoration: BoxDecoration(),
                     child: Stack(
                       children: [
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 15.0, 0.0, 0.0),
                           child: FutureBuilder<ApiCallResponse>(
                             future: (_model.apiRequestCompleter ??= Completer<
@@ -248,12 +250,12 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                     children: [
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 0.0, 8.0, 0.0),
-                                          child: SizedBox(
+                                          child: Container(
                                             width: 250.0,
                                             child: TextFormField(
                                               controller: _model.textController,
@@ -262,7 +264,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
                                                 '_model.textController',
-                                                const Duration(milliseconds: 50),
+                                                Duration(milliseconds: 50),
                                                 () => setState(() {}),
                                               ),
                                               autofocus: false,
@@ -358,7 +360,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                         ),
                                         child: Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             valueOrDefault<String>(
                                               AdminApiGroup.listOfSlotCall
@@ -367,7 +369,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                                         .jsonBody,
                                                   )
                                                   ?.length
-                                                  .toString(),
+                                                  ?.toString(),
                                               '-',
                                             ),
                                             style: FlutterFlowTheme.of(context)
@@ -383,7 +385,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                       Container(
                                         width: 40.0,
                                         height: 40.0,
-                                        decoration: const BoxDecoration(
+                                        decoration: BoxDecoration(
                                           shape: BoxShape.circle,
                                         ),
                                         child: Visibility(
@@ -406,7 +408,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                   ),
                                   Flexible(
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 10.0, 0.0, 0.0),
                                       child: Builder(
                                         builder: (context) {
@@ -424,7 +426,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                                   ?.toList() ??
                                               [];
                                           if (slotRecords.isEmpty) {
-                                            return const Center(
+                                            return Center(
                                               child: NoRecordforlistWidget(),
                                             );
                                           }
@@ -458,11 +460,11 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                                         : true,
                                                     child: Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               0.0, -1.0),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     10.0,
@@ -472,7 +474,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                                           width: 340.0,
                                                           height: 235.0,
                                                           constraints:
-                                                              const BoxConstraints(
+                                                              BoxConstraints(
                                                             minWidth: 270.0,
                                                             maxWidth: 350.0,
                                                           ),
@@ -481,7 +483,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryBackground,
-                                                            boxShadow: const [
+                                                            boxShadow: [
                                                               BoxShadow(
                                                                 blurRadius: 5.0,
                                                                 color: Color(
@@ -499,7 +501,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsets.all(
+                                                                EdgeInsets.all(
                                                                     10.0),
                                                             child: Row(
                                                               mainAxisSize:
@@ -537,7 +539,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                                                           ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           5.0,
                                                                           0.0,
@@ -560,7 +562,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           10.0,
                                                                           0.0,
@@ -579,7 +581,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           5.0,
                                                                           0.0,
@@ -602,7 +604,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           10.0,
                                                                           0.0,
@@ -621,7 +623,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           5.0,
                                                                           0.0,
@@ -644,7 +646,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           10.0,
                                                                           0.0,
@@ -663,7 +665,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           5.0,
                                                                           0.0,
@@ -715,7 +717,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                                                           ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           5.0,
                                                                           0.0,
@@ -748,7 +750,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           10.0,
                                                                           0.0,
@@ -767,7 +769,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           5.0,
                                                                           0.0,
@@ -800,7 +802,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           10.0,
                                                                           0.0,
@@ -819,7 +821,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           5.0,
                                                                           0.0,
@@ -842,7 +844,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           10.0,
                                                                           0.0,
@@ -861,7 +863,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           5.0,
                                                                           0.0,
@@ -898,7 +900,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                                     ),
                                                   );
                                                 }).addToEnd(
-                                                    const SizedBox(height: 50.0)),
+                                                    SizedBox(height: 50.0)),
                                               ),
                                             ),
                                           );
@@ -919,11 +921,11 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                           desktop: false,
                         ))
                           Align(
-                            alignment: const AlignmentDirectional(1.0, -1.0),
+                            alignment: AlignmentDirectional(1.0, -1.0),
                             child: Material(
                               color: Colors.transparent,
                               elevation: 5.0,
-                              shape: const RoundedRectangleBorder(
+                              shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(10.0),
                                   bottomRight: Radius.circular(0.0),
@@ -936,7 +938,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                 height: 200.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context).primary,
-                                  borderRadius: const BorderRadius.only(
+                                  borderRadius: BorderRadius.only(
                                     bottomLeft: Radius.circular(10.0),
                                     bottomRight: Radius.circular(0.0),
                                     topLeft: Radius.circular(0.0),
@@ -944,7 +946,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                   ),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
+                                  padding: EdgeInsets.all(10.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -953,7 +955,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 10.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
