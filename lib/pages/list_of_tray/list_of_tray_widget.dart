@@ -992,7 +992,8 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                     ),
                                   ),
                                   Align(
-                                    alignment: const AlignmentDirectional(0.14, -0.9),
+                                    alignment:
+                                        const AlignmentDirectional(0.14, -0.91),
                                     child: Container(
                                       width: 35.0,
                                       height: 35.0,

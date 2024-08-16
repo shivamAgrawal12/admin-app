@@ -108,6 +108,11 @@ class _LogoutWidgetState extends State<LogoutWidget> {
                         await authManager.signOut();
                         GoRouter.of(context).clearRedirectLocation();
 
+                        FFAppState().scannerpage = '';
+                        FFAppState().hideslot = 0;
+                        FFAppState().trayqrscan = 0;
+                        FFAppState().update(() {});
+
                         context.goNamedAuth(
                           'robot_scan',
                           context.mounted,

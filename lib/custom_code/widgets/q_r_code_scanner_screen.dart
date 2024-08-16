@@ -10,6 +10,8 @@ import 'package:flutter/material.dart';
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 import 'index.dart'; // Imports other custom widgets
+
+import 'index.dart'; // Imports other custom widgets
 import '/backend/api_requests/api_calls.dart';
 import '/auth/custom_auth/auth_util.dart';
 import '/popup/new_robot/new_robot_widget.dart';
@@ -33,25 +35,18 @@ class QRCodeScannerScreen extends StatefulWidget {
   State<QRCodeScannerScreen> createState() => _QRCodeScannerScreenState();
 }
 
-class _QRCodeScannerScreenState extends State<QRCodeScannerScreen> {
+class _QRCodeScannerScreenState extends State<QRCodeScannerScreen>
+    with WidgetsBindingObserver {
   MobileScannerController controller = MobileScannerController();
   bool isProcessing = false;
-  double currentZoom = 0.7; // Initial zoom scale
+  double currentZoom = 0.8; // Initial zoom scale
+  bool isStarted = false; // Track if the scanner is started
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     initializeScanner();
-  }
-
-  void initializeScanner() async {
-    print("QR code scanner initialized");
-    await controller.start();
-    try {
-      await controller.setZoomScale(0.7);
-    } catch (e) {
-      print('Error setting initial zoom scale: $e');
-    }
   }
 
   @override
@@ -60,7 +55,73 @@ class _QRCodeScannerScreenState extends State<QRCodeScannerScreen> {
     if (Platform.isAndroid) {
       controller.stop();
     }
-    initializeScanner();
+    controller.start().then((_) {
+      controller.setZoomScale(0.8).catchError((error) {
+        print('Error setting zoom scale: $error');
+      });
+      setState(() {
+        isStarted = true;
+        print(
+            'Scanner started: $isStarted'); // Print the status of isStarted // Scanner has started
+      });
+    });
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+    print('AppLifecycleState: $state');
+    print(
+        'Scanner started: $isStarted'); // Print the status of isStarted // Scanner has started
+    switch (state) {
+      case AppLifecycleState.resumed:
+        print('Scanner and applifestate resumed');
+        initializeScanner();
+        break;
+      case AppLifecycleState.inactive:
+        print('Scanner and applifestate inactive');
+        controller.stop();
+        setState(() {
+          isStarted = false; // Scanner has stopped
+        });
+      case AppLifecycleState.paused:
+        print('Scanner and applifestate pushed');
+        controller.stop();
+        setState(() {
+          isStarted = false; // Scanner has stopped
+        });
+      case AppLifecycleState.detached:
+      case AppLifecycleState.hidden:
+        print('Scanner and applifestate hidden');
+        controller.stop();
+        setState(() {
+          isStarted = false; // Scanner has stopped
+        });
+        break;
+    }
+  }
+
+  Future<void> initializeScanner() async {
+    print("login qr started");
+    controller.start().then((_) {
+      print(
+          'Scanner started: $isStarted'); // Print the status of isStarted // Scanner has started
+      controller.setZoomScale(0.8).catchError((error) {
+        print('Error setting zoom scale: $error');
+      });
+      setState(() {
+        isStarted = true; // Scanner has started
+      });
+    }).catchError((error) {
+      print('Error starting scanner: $error');
+    });
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
   }
 
   @override
@@ -203,9 +264,9 @@ class _QRCodeScannerScreenState extends State<QRCodeScannerScreen> {
     );
   }
 
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   controller.dispose();
+  //   super.dispose();
+  // }
 }

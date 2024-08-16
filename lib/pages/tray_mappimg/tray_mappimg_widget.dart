@@ -107,6 +107,7 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget> {
                               onTap: () async {
                                 FFAppState().trayid = '';
                                 FFAppState().trayqrscan = 0;
+                                FFAppState().scannerpage = '';
                                 FFAppState().update(() {});
 
                                 context.goNamed(
@@ -267,33 +268,43 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget> {
                                     if (FFAppState().trayqrscan == 2
                                         ? true
                                         : false)
-                                      Container(
-                                        width: 300.0,
-                                        height: 300.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                          boxShadow: const [
-                                            BoxShadow(
-                                              blurRadius: 20.0,
-                                              color: Color(0x678E7CC3),
-                                              offset: Offset(
-                                                5.0,
-                                                8.0,
-                                              ),
-                                            )
-                                          ],
-                                          borderRadius:
-                                              BorderRadius.circular(5.0),
-                                        ),
-                                        child: const Padding(
-                                          padding: EdgeInsets.all(10.0),
-                                          child: SizedBox(
-                                            width: 300.0,
-                                            height: 300.0,
-                                            child: custom_widgets.QRTrayMap(
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          FFAppState().trayqrscan = 0;
+                                          setState(() {});
+                                        },
+                                        child: Container(
+                                          width: 300.0,
+                                          height: 300.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                            boxShadow: const [
+                                              BoxShadow(
+                                                blurRadius: 20.0,
+                                                color: Color(0x678E7CC3),
+                                                offset: Offset(
+                                                  5.0,
+                                                  8.0,
+                                                ),
+                                              )
+                                            ],
+                                            borderRadius:
+                                                BorderRadius.circular(5.0),
+                                          ),
+                                          child: const Padding(
+                                            padding: EdgeInsets.all(10.0),
+                                            child: SizedBox(
                                               width: 300.0,
                                               height: 300.0,
+                                              child: custom_widgets.QRTrayMap(
+                                                width: 300.0,
+                                                height: 300.0,
+                                              ),
                                             ),
                                           ),
                                         ),

@@ -182,7 +182,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'Task Status',
+                            'Previous Task Status',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(

@@ -52,9 +52,9 @@ class _HomeWidgetState extends State<HomeWidget> {
         robotId: FFAppState().robotid,
       );
 
-      FFAppState().scannerpage = 'home';
+      FFAppState().scannerpage = '';
       FFAppState().hideslot = 7;
-      setState(() {});
+      FFAppState().update(() {});
       _model.change = 4;
       setState(() {});
       _model.routh = await actions.routhpage(
@@ -436,7 +436,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                           PageTransitionType
                                                               .fade,
                                                       duration: Duration(
-                                                          milliseconds: 0),
+                                                          milliseconds: 500),
                                                     ),
                                                   },
                                                 );

@@ -1,4 +1,3 @@
-import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'robot_info_widget.dart' show RobotInfoWidget;
 import 'package:flutter/material.dart';
@@ -29,13 +28,6 @@ class RobotInfoModel extends FlutterFlowModel<RobotInfoWidget> {
       robotactivity.insert(index, item);
   void updateRobotactivityAtIndex(int index, Function(String) updateFn) =>
       robotactivity[index] = updateFn(robotactivity[index]);
-
-  ///  State fields for stateful widgets in this page.
-
-  // Stores action output result for [Custom Action - routhpage] action in robot_info widget.
-  String? routh;
-  // Stores action output result for [Backend Call - API (verify robot id)] action in robot_info widget.
-  ApiCallResponse? apiResultmzu;
 
   @override
   void initState(BuildContext context) {}

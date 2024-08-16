@@ -6,8 +6,7 @@ export '/pages/slot_info_scan/slot_info_scan_widget.dart'
     show SlotInfoScanWidget;
 export '/pages/tray_info_scan/tray_info_scan_widget.dart'
     show TrayInfoScanWidget;
-export '/pages/complete_request/complete_request_widget.dart'
-    show CompleteRequestWidget;
+export '/pages/current_task/current_task_widget.dart' show CurrentTaskWidget;
 export '/pages/slot_mappimg/slot_mappimg_widget.dart' show SlotMappimgWidget;
 export '/pages/tray_mappimg/tray_mappimg_widget.dart' show TrayMappimgWidget;
 export '/pages/tray_remove/tray_remove_widget.dart' show TrayRemoveWidget;

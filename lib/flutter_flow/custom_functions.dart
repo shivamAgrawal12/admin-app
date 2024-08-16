@@ -79,11 +79,12 @@ dynamic searchallpicking(
   List<dynamic>? records,
   String? searchdata,
 ) {
-  if (records == null ||
-      records.isEmpty ||
-      searchdata == null ||
-      searchdata.isEmpty) {
-    return records;
+  if (records == null || records.isEmpty) {
+    return [];
+  }
+
+  if (searchdata == null || searchdata.isEmpty) {
+    return records.where((item) => item['type'] == 'picking_station').toList();
   }
 
   String searchQuery = searchdata.toLowerCase();
@@ -92,18 +93,21 @@ dynamic searchallpicking(
   for (var item in records) {
     if (item is Map<String, dynamic>) {
       var nameField = item['friendly_name'];
+      var typeField = item['type'];
 
-      if (nameField != null && nameField is String) {
-        String itemName = nameField.toLowerCase();
+      if (typeField != null && typeField == 'picking_station') {
+        if (nameField != null && nameField is String) {
+          String itemName = nameField.toLowerCase();
 
-        if (itemName.contains(searchQuery)) {
-          result.add(item);
+          if (itemName.contains(searchQuery)) {
+            result.add(item);
+          }
         }
       }
     }
   }
 
-  return result.isNotEmpty ? result : records;
+  return result;
 }
 
 dynamic searchallslot(

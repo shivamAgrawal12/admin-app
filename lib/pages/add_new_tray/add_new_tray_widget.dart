@@ -263,37 +263,115 @@ class _AddNewTrayWidgetState extends State<AddNewTrayWidget> {
                                     mainAxisSize: MainAxisSize.min,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      Container(
-                                        width: 300.0,
-                                        height: 300.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                          boxShadow: const [
-                                            BoxShadow(
-                                              blurRadius: 20.0,
-                                              color: Color(0x678E7CC3),
-                                              offset: Offset(
-                                                5.0,
-                                                8.0,
-                                              ),
-                                            )
-                                          ],
-                                          borderRadius:
-                                              BorderRadius.circular(5.0),
-                                        ),
-                                        child: const Padding(
-                                          padding: EdgeInsets.all(13.0),
-                                          child: SizedBox(
+                                      if (FFAppState().scannerpage == 'trayadd')
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            FFAppState().scannerpage = '';
+                                            setState(() {});
+                                          },
+                                          child: Container(
                                             width: 300.0,
                                             height: 300.0,
-                                            child: custom_widgets.QRTrayAddNew(
-                                              width: 300.0,
-                                              height: 300.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                              boxShadow: const [
+                                                BoxShadow(
+                                                  blurRadius: 20.0,
+                                                  color: Color(0x678E7CC3),
+                                                  offset: Offset(
+                                                    5.0,
+                                                    8.0,
+                                                  ),
+                                                )
+                                              ],
+                                              borderRadius:
+                                                  BorderRadius.circular(5.0),
+                                            ),
+                                            child: const Padding(
+                                              padding: EdgeInsets.all(13.0),
+                                              child: SizedBox(
+                                                width: 300.0,
+                                                height: 300.0,
+                                                child:
+                                                    custom_widgets.QRTrayAddNew(
+                                                  width: 300.0,
+                                                  height: 300.0,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                         ),
-                                      ),
+                                      if (FFAppState().scannerpage == '')
+                                        Container(
+                                          width: 300.0,
+                                          height: 300.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                            boxShadow: const [
+                                              BoxShadow(
+                                                blurRadius: 20.0,
+                                                color: Color(0x678E7CC3),
+                                                offset: Offset(
+                                                  5.0,
+                                                  8.0,
+                                                ),
+                                              )
+                                            ],
+                                            borderRadius:
+                                                BorderRadius.circular(5.0),
+                                          ),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              FFButtonWidget(
+                                                onPressed: () async {
+                                                  FFAppState().scannerpage =
+                                                      'trayadd';
+                                                  setState(() {});
+                                                },
+                                                text: 'Scan',
+                                                options: FFButtonOptions(
+                                                  height: 40.0,
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          24.0, 0.0, 24.0, 0.0),
+                                                  iconPadding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(0.0, 0.0,
+                                                              0.0, 0.0),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .liteText,
+                                                  textStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily: 'Open Sans',
+                                                        color: Colors.white,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                  elevation: 3.0,
+                                                  borderSide: const BorderSide(
+                                                    color: Colors.transparent,
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
                                       Row(
                                         mainAxisSize: MainAxisSize.min,
                                         mainAxisAlignment:

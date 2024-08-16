@@ -110,9 +110,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const TrayInfoScanWidget(),
         ),
         FFRoute(
-          name: 'complete_request',
-          path: '/completeRequest',
-          builder: (context, params) => const CompleteRequestWidget(),
+          name: 'current_task',
+          path: '/currentTask',
+          builder: (context, params) => const CurrentTaskWidget(),
         ),
         FFRoute(
           name: 'slot_mappimg',

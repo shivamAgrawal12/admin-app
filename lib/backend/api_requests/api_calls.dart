@@ -1000,6 +1000,10 @@ class TaskByStatusCall {
         response,
         r'''$.statusbool''',
       ));
+  int? count(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.count''',
+      ));
 }
 
 class RegisterNewRobotCall {
