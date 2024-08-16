@@ -10,6 +10,8 @@ class HomeModel extends FlutterFlowModel<HomeWidget> {
 
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Backend Call - API (verify robot id)] action in home widget.
+  ApiCallResponse? robostatus;
   // Stores action output result for [Custom Action - routhpage] action in home widget.
   String? routh;
   // State field(s) for Column12 widget.

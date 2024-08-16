@@ -5,8 +5,24 @@ import 'list_of_slot_widget.dart' show ListOfSlotWidget;
 import 'package:flutter/material.dart';
 
 class ListOfSlotModel extends FlutterFlowModel<ListOfSlotWidget> {
+  ///  Local state fields for this page.
+
+  List<dynamic> listsearchvalue = [];
+  void addToListsearchvalue(dynamic item) => listsearchvalue.add(item);
+  void removeFromListsearchvalue(dynamic item) => listsearchvalue.remove(item);
+  void removeAtIndexFromListsearchvalue(int index) =>
+      listsearchvalue.removeAt(index);
+  void insertAtIndexInListsearchvalue(int index, dynamic item) =>
+      listsearchvalue.insert(index, item);
+  void updateListsearchvalueAtIndex(int index, Function(dynamic) updateFn) =>
+      listsearchvalue[index] = updateFn(listsearchvalue[index]);
+
+  bool sorthinghide = false;
+
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Backend Call - API (list of slot)] action in list_of_slot widget.
+  ApiCallResponse? listofslotresult;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;

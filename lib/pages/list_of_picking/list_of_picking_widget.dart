@@ -79,7 +79,7 @@ class _ListOfPickingWidgetState extends State<ListOfPickingWidget> {
                     ),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 10.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

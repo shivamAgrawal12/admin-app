@@ -110,10 +110,11 @@ dynamic searchallslot(
   List<dynamic>? records,
   String? searchdata,
 ) {
-  if (records == null ||
-      records.isEmpty ||
-      searchdata == null ||
-      searchdata.isEmpty) {
+  if (records == null || records.isEmpty) {
+    return [];
+  }
+
+  if (searchdata == null || searchdata.isEmpty) {
     return records;
   }
 
@@ -122,19 +123,41 @@ dynamic searchallslot(
 
   for (var item in records) {
     if (item is Map<String, dynamic>) {
-      var nameField = item['slot_id'];
+      var slotid = item['slot_id'];
+      var trayid = item['tray_id'];
+      var directpickable = item['direct_pickable'];
+      var type = item['type'];
+      var friendlyname = item['friendly_name'];
+      var support_type = item['support_type'];
+      var createdat = item['created_at'];
 
-      if (nameField != null && nameField is String) {
-        String itemName = nameField.toLowerCase();
-
-        if (itemName.contains(searchQuery)) {
-          result.add(item);
-        }
+      if ((slotid != null &&
+              slotid is String &&
+              slotid.toLowerCase().contains(searchQuery)) ||
+          (trayid != null &&
+              trayid is String &&
+              trayid.toLowerCase().contains(searchQuery)) ||
+          (directpickable != null &&
+              directpickable is String &&
+              directpickable.toLowerCase().contains(searchQuery)) ||
+          (type != null &&
+              type is String &&
+              type.toLowerCase().contains(searchQuery)) ||
+          (friendlyname != null &&
+              friendlyname is String &&
+              friendlyname.toLowerCase().contains(searchQuery)) ||
+          (support_type != null &&
+              support_type is String &&
+              support_type.toLowerCase().contains(searchQuery)) ||
+          (createdat != null &&
+              createdat is String &&
+              createdat.toLowerCase().contains(searchQuery))) {
+        result.add(item);
       }
     }
   }
 
-  return result.isNotEmpty ? result : records;
+  return result;
 }
 
 String? changeformateDT(String? datetime) {

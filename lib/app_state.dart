@@ -126,6 +126,12 @@ class FFAppState extends ChangeNotifier {
   set taskrecid(String value) {
     _taskrecid = value;
   }
+
+  String _slotcount = '';
+  String get slotcount => _slotcount;
+  set slotcount(String value) {
+    _slotcount = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

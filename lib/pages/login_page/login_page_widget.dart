@@ -109,7 +109,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                     ),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -223,6 +223,20 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                 FontAwesomeIcons.store,
                                 color: FlutterFlowTheme.of(context).accent,
                                 size: 18.0,
+                              ),
+                              Text(
+                                FFAppState().robotid,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Raleway',
+                                      color:
+                                          FlutterFlowTheme.of(context).heading,
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
+                                      lineHeight: 1.0,
+                                    ),
                               ),
                             ].divide(const SizedBox(width: 5.0)),
                           ),

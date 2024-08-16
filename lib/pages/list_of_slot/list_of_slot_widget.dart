@@ -35,6 +35,19 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().scannerpage = 'listofslots';
       FFAppState().update(() {});
+      _model.listofslotresult = await AdminApiGroup.listOfSlotCall.call(
+        robotId: FFAppState().robotid,
+      );
+
+      if ((_model.listofslotresult?.succeeded ?? true)) {
+        _model.listsearchvalue = AdminApiGroup.listOfSlotCall
+            .records(
+              (_model.listofslotresult?.jsonBody ?? ''),
+            )!
+            .toList()
+            .cast<dynamic>();
+        setState(() {});
+      }
     });
 
     _model.textController ??= TextEditingController();
@@ -87,7 +100,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                     ),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 10.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -209,36 +222,35 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                       maxWidth: 450.0,
                     ),
                     decoration: const BoxDecoration(),
-                    child: Stack(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 15.0, 0.0, 0.0),
-                          child: FutureBuilder<ApiCallResponse>(
-                            future: (_model.apiRequestCompleter ??= Completer<
-                                    ApiCallResponse>()
-                                  ..complete(AdminApiGroup.listOfSlotCall.call(
-                                    robotId: FFAppState().robotid,
-                                  )))
-                                .future,
-                            builder: (context, snapshot) {
-                              // Customize what your widget looks like when it's loading.
-                              if (!snapshot.hasData) {
-                                return Center(
-                                  child: SizedBox(
-                                    width: 40.0,
-                                    height: 40.0,
-                                    child: SpinKitThreeBounce(
-                                      color: FlutterFlowTheme.of(context)
-                                          .subHeader,
-                                      size: 40.0,
-                                    ),
-                                  ),
-                                );
-                              }
-                              final columnListOfSlotResponse = snapshot.data!;
+                    child: FutureBuilder<ApiCallResponse>(
+                      future: (_model.apiRequestCompleter ??=
+                              Completer<ApiCallResponse>()
+                                ..complete(AdminApiGroup.listOfSlotCall.call(
+                                  robotId: FFAppState().robotid,
+                                )))
+                          .future,
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 40.0,
+                              height: 40.0,
+                              child: SpinKitThreeBounce(
+                                color: FlutterFlowTheme.of(context).subHeader,
+                                size: 40.0,
+                              ),
+                            ),
+                          );
+                        }
+                        final stackListOfSlotResponse = snapshot.data!;
 
-                              return Column(
+                        return Stack(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 15.0, 0.0, 0.0),
+                              child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -263,12 +275,29 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                                   EasyDebounce.debounce(
                                                 '_model.textController',
                                                 const Duration(milliseconds: 50),
-                                                () => setState(() {}),
+                                                () async {
+                                                  _model.listsearchvalue =
+                                                      functions
+                                                          .searchallslot(
+                                                              AdminApiGroup
+                                                                  .listOfSlotCall
+                                                                  .records(
+                                                                    stackListOfSlotResponse
+                                                                        .jsonBody,
+                                                                  )
+                                                                  ?.toList(),
+                                                              _model
+                                                                  .textController
+                                                                  .text)!
+                                                          .toList()
+                                                          .cast<dynamic>();
+                                                  setState(() {});
+                                                },
                                               ),
                                               autofocus: false,
                                               obscureText: false,
                                               decoration: InputDecoration(
-                                                hintText: 'Search by slot id',
+                                                hintText: 'Search by value',
                                                 hintStyle: FlutterFlowTheme.of(
                                                         context)
                                                     .labelMedium
@@ -361,12 +390,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                               const AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             valueOrDefault<String>(
-                                              AdminApiGroup.listOfSlotCall
-                                                  .records(
-                                                    columnListOfSlotResponse
-                                                        .jsonBody,
-                                                  )
-                                                  ?.length
+                                              _model.listsearchvalue.length
                                                   .toString(),
                                               '-',
                                             ),
@@ -380,19 +404,20 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                           ),
                                         ),
                                       ),
-                                      Container(
-                                        width: 40.0,
-                                        height: 40.0,
-                                        decoration: const BoxDecoration(
-                                          shape: BoxShape.circle,
-                                        ),
-                                        child: Visibility(
-                                          visible: responsiveVisibility(
-                                            context: context,
-                                            phone: false,
-                                            tablet: false,
-                                            tabletLandscape: false,
-                                            desktop: false,
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          _model.sorthinghide = true;
+                                          setState(() {});
+                                        },
+                                        child: Container(
+                                          width: 40.0,
+                                          height: 40.0,
+                                          decoration: const BoxDecoration(
+                                            shape: BoxShape.circle,
                                           ),
                                           child: Icon(
                                             Icons.filter_list,
@@ -415,7 +440,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                                       AdminApiGroup
                                                           .listOfSlotCall
                                                           .records(
-                                                            columnListOfSlotResponse
+                                                            stackListOfSlotResponse
                                                                 .jsonBody,
                                                           )
                                                           ?.toList(),
@@ -907,63 +932,58 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                     ),
                                   ),
                                 ],
-                              );
-                            },
-                          ),
-                        ),
-                        if (responsiveVisibility(
-                          context: context,
-                          phone: false,
-                          tablet: false,
-                          tabletLandscape: false,
-                          desktop: false,
-                        ))
-                          Align(
-                            alignment: const AlignmentDirectional(1.0, -1.0),
-                            child: Material(
-                              color: Colors.transparent,
-                              elevation: 5.0,
-                              shape: const RoundedRectangleBorder(
-                                borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(10.0),
-                                  bottomRight: Radius.circular(0.0),
-                                  topLeft: Radius.circular(0.0),
-                                  topRight: Radius.circular(0.0),
-                                ),
                               ),
-                              child: Container(
-                                width: 200.0,
-                                height: 200.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context).primary,
-                                  borderRadius: const BorderRadius.only(
-                                    bottomLeft: Radius.circular(10.0),
-                                    bottomRight: Radius.circular(0.0),
-                                    topLeft: Radius.circular(0.0),
-                                    topRight: Radius.circular(0.0),
+                            ),
+                            if (_model.sorthinghide == true)
+                              Align(
+                                alignment: const AlignmentDirectional(1.0, -1.0),
+                                child: Material(
+                                  color: Colors.transparent,
+                                  elevation: 5.0,
+                                  shape: const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.only(
+                                      bottomLeft: Radius.circular(10.0),
+                                      bottomRight: Radius.circular(0.0),
+                                      topLeft: Radius.circular(0.0),
+                                      topRight: Radius.circular(0.0),
+                                    ),
                                   ),
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 10.0, 0.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(
-                                              'SORT BY',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
+                                  child: Container(
+                                    width: 200.0,
+                                    height: 280.0,
+                                    decoration: BoxDecoration(
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      borderRadius: const BorderRadius.only(
+                                        bottomLeft: Radius.circular(10.0),
+                                        bottomRight: Radius.circular(0.0),
+                                        topLeft: Radius.circular(0.0),
+                                        topRight: Radius.circular(0.0),
+                                      ),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 10.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Text(
+                                                  'Search Records',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Open Sans',
@@ -971,96 +991,417 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget> {
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
+                                                ),
+                                                InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    _model.sorthinghide = false;
+                                                    setState(() {});
+                                                  },
+                                                  child: Icon(
+                                                    Icons.close_rounded,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryText,
+                                                    size: 24.0,
+                                                  ),
+                                                ),
+                                              ],
                                             ),
-                                            Icon(
-                                              Icons.close_rounded,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryText,
-                                              size: 24.0,
+                                          ),
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              setState(() {
+                                                _model.textController?.text =
+                                                    'unused';
+                                                _model.textController
+                                                        ?.selection =
+                                                    TextSelection.collapsed(
+                                                        offset: _model
+                                                            .textController!
+                                                            .text
+                                                            .length);
+                                              });
+                                              _model.listsearchvalue = functions
+                                                  .searchallslot(
+                                                      AdminApiGroup
+                                                          .listOfSlotCall
+                                                          .records(
+                                                            stackListOfSlotResponse
+                                                                .jsonBody,
+                                                          )
+                                                          ?.toList(),
+                                                      _model
+                                                          .textController.text)!
+                                                  .toList()
+                                                  .cast<dynamic>();
+                                              _model.sorthinghide = false;
+                                              setState(() {});
+                                            },
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  'unused',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Open Sans',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .heading,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                              ],
                                             ),
-                                          ],
-                                        ),
-                                      ),
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Text(
-                                            'regular',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Open Sans',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .heading,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
                                           ),
-                                        ],
-                                      ),
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Text(
-                                            'regular',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Open Sans',
-                                                  color: FlutterFlowTheme.of(
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              setState(() {
+                                                _model.textController?.text =
+                                                    'regular';
+                                                _model.textController
+                                                        ?.selection =
+                                                    TextSelection.collapsed(
+                                                        offset: _model
+                                                            .textController!
+                                                            .text
+                                                            .length);
+                                              });
+                                              _model.listsearchvalue = functions
+                                                  .searchallslot(
+                                                      AdminApiGroup
+                                                          .listOfSlotCall
+                                                          .records(
+                                                            stackListOfSlotResponse
+                                                                .jsonBody,
+                                                          )
+                                                          ?.toList(),
+                                                      _model
+                                                          .textController.text)!
+                                                  .toList()
+                                                  .cast<dynamic>();
+                                              _model.sorthinghide = false;
+                                              setState(() {});
+                                            },
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  'regular',
+                                                  style: FlutterFlowTheme.of(
                                                           context)
-                                                      .heading,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Open Sans',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .heading,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
                                                 ),
+                                              ],
+                                            ),
                                           ),
-                                        ],
-                                      ),
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Text(
-                                            'regular',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Open Sans',
-                                                  color: FlutterFlowTheme.of(
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              setState(() {
+                                                _model.textController?.text =
+                                                    'occupied';
+                                                _model.textController
+                                                        ?.selection =
+                                                    TextSelection.collapsed(
+                                                        offset: _model
+                                                            .textController!
+                                                            .text
+                                                            .length);
+                                              });
+                                              _model.listsearchvalue = functions
+                                                  .searchallslot(
+                                                      AdminApiGroup
+                                                          .listOfSlotCall
+                                                          .records(
+                                                            stackListOfSlotResponse
+                                                                .jsonBody,
+                                                          )
+                                                          ?.toList(),
+                                                      _model
+                                                          .textController.text)!
+                                                  .toList()
+                                                  .cast<dynamic>();
+                                              _model.sorthinghide = false;
+                                              setState(() {});
+                                            },
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  'occupied',
+                                                  style: FlutterFlowTheme.of(
                                                           context)
-                                                      .heading,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Open Sans',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .heading,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
                                                 ),
+                                              ],
+                                            ),
                                           ),
-                                        ],
-                                      ),
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Text(
-                                            'regular',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Open Sans',
-                                                  color: FlutterFlowTheme.of(
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              setState(() {
+                                                _model.textController?.text =
+                                                    'blocked';
+                                                _model.textController
+                                                        ?.selection =
+                                                    TextSelection.collapsed(
+                                                        offset: _model
+                                                            .textController!
+                                                            .text
+                                                            .length);
+                                              });
+                                              _model.listsearchvalue = functions
+                                                  .searchallslot(
+                                                      AdminApiGroup
+                                                          .listOfSlotCall
+                                                          .records(
+                                                            stackListOfSlotResponse
+                                                                .jsonBody,
+                                                          )
+                                                          ?.toList(),
+                                                      _model
+                                                          .textController.text)!
+                                                  .toList()
+                                                  .cast<dynamic>();
+                                              _model.sorthinghide = false;
+                                              setState(() {});
+                                            },
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  'blocked',
+                                                  style: FlutterFlowTheme.of(
                                                           context)
-                                                      .heading,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Open Sans',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .heading,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
                                                 ),
+                                              ],
+                                            ),
                                           ),
-                                        ],
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              setState(() {
+                                                _model.textController?.text =
+                                                    'plastic_tray';
+                                                _model.textController
+                                                        ?.selection =
+                                                    TextSelection.collapsed(
+                                                        offset: _model
+                                                            .textController!
+                                                            .text
+                                                            .length);
+                                              });
+                                              _model.listsearchvalue = functions
+                                                  .searchallslot(
+                                                      AdminApiGroup
+                                                          .listOfSlotCall
+                                                          .records(
+                                                            stackListOfSlotResponse
+                                                                .jsonBody,
+                                                          )
+                                                          ?.toList(),
+                                                      _model
+                                                          .textController.text)!
+                                                  .toList()
+                                                  .cast<dynamic>();
+                                              _model.sorthinghide = false;
+                                              setState(() {});
+                                            },
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  'plastic_tray',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Open Sans',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .heading,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              setState(() {
+                                                _model.textController?.text =
+                                                    'metal_tray';
+                                                _model.textController
+                                                        ?.selection =
+                                                    TextSelection.collapsed(
+                                                        offset: _model
+                                                            .textController!
+                                                            .text
+                                                            .length);
+                                              });
+                                              _model.listsearchvalue = functions
+                                                  .searchallslot(
+                                                      AdminApiGroup
+                                                          .listOfSlotCall
+                                                          .records(
+                                                            stackListOfSlotResponse
+                                                                .jsonBody,
+                                                          )
+                                                          ?.toList(),
+                                                      _model
+                                                          .textController.text)!
+                                                  .toList()
+                                                  .cast<dynamic>();
+                                              _model.sorthinghide = false;
+                                              setState(() {});
+                                            },
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  'metal_tray',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Open Sans',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .heading,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              setState(() {
+                                                _model.textController?.clear();
+                                              });
+                                              _model.listsearchvalue = functions
+                                                  .searchallslot(
+                                                      AdminApiGroup
+                                                          .listOfSlotCall
+                                                          .records(
+                                                            stackListOfSlotResponse
+                                                                .jsonBody,
+                                                          )
+                                                          ?.toList(),
+                                                      _model
+                                                          .textController.text)!
+                                                  .toList()
+                                                  .cast<dynamic>();
+                                              _model.sorthinghide = false;
+                                              setState(() {});
+                                            },
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  'All records',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Open Sans',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .heading,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ].divide(const SizedBox(height: 8.0)),
                                       ),
-                                    ],
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ),
-                      ],
+                          ],
+                        );
+                      },
                     ),
                   ),
                 ],

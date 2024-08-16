@@ -176,9 +176,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const ListOfPickingWidget(),
         ),
         FFRoute(
-          name: 'pending_task',
-          path: '/pendingTask',
-          builder: (context, params) => const PendingTaskWidget(),
+          name: 'task_completed_failed',
+          path: '/taskCompletedFailed',
+          builder: (context, params) => const TaskCompletedFailedWidget(),
         ),
         FFRoute(
           name: 'register_robot',

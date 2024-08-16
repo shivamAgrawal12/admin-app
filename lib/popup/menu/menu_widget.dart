@@ -516,7 +516,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                   ),
                               elevation: 2.0,
                               borderSide: const BorderSide(
-                                width: 1.0,
+                                width: 0.0,
                               ),
                               borderRadius: BorderRadius.circular(8.0),
                             ),

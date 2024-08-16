@@ -96,7 +96,7 @@ class _SlotInfoScanWidgetState extends State<SlotInfoScanWidget> {
                       ),
                       child: Padding(
                         padding: const EdgeInsetsDirectional.fromSTEB(
-                            15.0, 0.0, 10.0, 0.0),
+                            25.0, 0.0, 25.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,

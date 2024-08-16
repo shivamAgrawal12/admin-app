@@ -21,7 +21,8 @@ export '/pages/tray_release/tray_release_widget.dart' show TrayReleaseWidget;
 export '/pages/home/home_widget.dart' show HomeWidget;
 export '/pages/list_of_picking/list_of_picking_widget.dart'
     show ListOfPickingWidget;
-export '/pages/pending_task/pending_task_widget.dart' show PendingTaskWidget;
+export '/pages/task_completed_failed/task_completed_failed_widget.dart'
+    show TaskCompletedFailedWidget;
 export '/pages/register_robot/register_robot_widget.dart'
     show RegisterRobotWidget;
 export '/pages/register_shuttles/register_shuttles_widget.dart'
