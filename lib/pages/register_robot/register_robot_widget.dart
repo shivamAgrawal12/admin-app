@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -7,6 +8,7 @@ import '/flutter_flow/form_field_controller.dart';
 import '/popup/wrong/wrong_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'register_robot_model.dart';
@@ -19,10 +21,13 @@ class RegisterRobotWidget extends StatefulWidget {
   State<RegisterRobotWidget> createState() => _RegisterRobotWidgetState();
 }
 
-class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
+class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
+    with TickerProviderStateMixin {
   late RegisterRobotModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -47,6 +52,213 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
 
     _model.depthTextController ??= TextEditingController(text: '2');
     _model.depthFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 500.0.ms,
+            begin: const Offset(-50.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 700.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 650.0.ms,
+            begin: const Offset(-50.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 900.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 800.0.ms,
+            begin: const Offset(-50.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1100.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 900.0.ms,
+            begin: const Offset(-50.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation5': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation5': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1100.0.ms,
+            begin: const Offset(-50.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation6': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1500.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation6': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1250.0.ms,
+            begin: const Offset(-50.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation7': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1700.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'dropDownOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1400.0.ms,
+            begin: const Offset(-50.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation8': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1900.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'dropDownOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1550.0.ms,
+            begin: const Offset(-50.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 2000.0.ms,
+            begin: const Offset(-1.0, -1.0),
+            end: const Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -210,7 +422,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
-                                  ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'textOnPageLoadAnimation1']!),
                                 ),
                               ),
                               Padding(
@@ -282,7 +495,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                         .nameTextControllerValidator
                                         .asValidator(context),
                                   ),
-                                ),
+                                ).animateOnPageLoad(animationsMap[
+                                    'textFieldOnPageLoadAnimation1']!),
                               ),
                               Align(
                                 alignment: const AlignmentDirectional(-1.0, -1.0),
@@ -300,7 +514,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
-                                  ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'textOnPageLoadAnimation2']!),
                                 ),
                               ),
                               Padding(
@@ -371,7 +586,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                     validator: _model.idTextControllerValidator
                                         .asValidator(context),
                                   ),
-                                ),
+                                ).animateOnPageLoad(animationsMap[
+                                    'textFieldOnPageLoadAnimation2']!),
                               ),
                               Align(
                                 alignment: const AlignmentDirectional(-1.0, -1.0),
@@ -389,7 +605,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
-                                  ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'textOnPageLoadAnimation3']!),
                                 ),
                               ),
                               Padding(
@@ -462,7 +679,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                     validator: _model.rowTextControllerValidator
                                         .asValidator(context),
                                   ),
-                                ),
+                                ).animateOnPageLoad(animationsMap[
+                                    'textFieldOnPageLoadAnimation3']!),
                               ),
                               Align(
                                 alignment: const AlignmentDirectional(-1.0, -1.0),
@@ -480,7 +698,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
-                                  ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'textOnPageLoadAnimation4']!),
                                 ),
                               ),
                               Padding(
@@ -554,7 +773,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                         .rackTextControllerValidator
                                         .asValidator(context),
                                   ),
-                                ),
+                                ).animateOnPageLoad(animationsMap[
+                                    'textFieldOnPageLoadAnimation4']!),
                               ),
                               Align(
                                 alignment: const AlignmentDirectional(-1.0, -1.0),
@@ -572,7 +792,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
-                                  ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'textOnPageLoadAnimation5']!),
                                 ),
                               ),
                               Padding(
@@ -646,7 +867,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                         .slotTextControllerValidator
                                         .asValidator(context),
                                   ),
-                                ),
+                                ).animateOnPageLoad(animationsMap[
+                                    'textFieldOnPageLoadAnimation5']!),
                               ),
                               Align(
                                 alignment: const AlignmentDirectional(-1.0, -1.0),
@@ -664,7 +886,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
-                                  ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'textOnPageLoadAnimation6']!),
                                 ),
                               ),
                               Padding(
@@ -738,7 +961,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                         .depthTextControllerValidator
                                         .asValidator(context),
                                   ),
-                                ),
+                                ).animateOnPageLoad(animationsMap[
+                                    'textFieldOnPageLoadAnimation6']!),
                               ),
                               Align(
                                 alignment: const AlignmentDirectional(-1.0, -1.0),
@@ -756,7 +980,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
-                                  ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'textOnPageLoadAnimation7']!),
                                 ),
                               ),
                               Padding(
@@ -798,7 +1023,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                   isOverButton: true,
                                   isSearchable: false,
                                   isMultiSelect: false,
-                                ),
+                                ).animateOnPageLoad(animationsMap[
+                                    'dropDownOnPageLoadAnimation1']!),
                               ),
                               Align(
                                 alignment: const AlignmentDirectional(-1.0, -1.0),
@@ -816,7 +1042,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
-                                  ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'textOnPageLoadAnimation8']!),
                                 ),
                               ),
                               Padding(
@@ -859,7 +1086,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                   isOverButton: true,
                                   isSearchable: false,
                                   isMultiSelect: false,
-                                ),
+                                ).animateOnPageLoad(animationsMap[
+                                    'dropDownOnPageLoadAnimation2']!),
                               ),
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
@@ -981,7 +1209,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget> {
                                       borderRadius: BorderRadius.circular(5.0),
                                     ),
                                   ),
-                                ),
+                                ).animateOnPageLoad(animationsMap[
+                                    'containerOnPageLoadAnimation']!),
                               ),
                             ],
                           ),

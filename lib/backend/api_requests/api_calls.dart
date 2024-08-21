@@ -1108,6 +1108,10 @@ class GetTaskCall {
         response,
         r'''$.records[:].id''',
       ));
+  int? count(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.count''',
+      ));
 }
 
 class TaskCompleteCall {

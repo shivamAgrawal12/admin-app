@@ -1,9 +1,11 @@
 import '/backend/api_requests/api_calls.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/popup/menu/menu_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
@@ -17,10 +19,13 @@ class RobotInfoWidget extends StatefulWidget {
   State<RobotInfoWidget> createState() => _RobotInfoWidgetState();
 }
 
-class _RobotInfoWidgetState extends State<RobotInfoWidget> {
+class _RobotInfoWidgetState extends State<RobotInfoWidget>
+    with TickerProviderStateMixin {
   late RobotInfoModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -31,6 +36,160 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().scannerpage = 'roboinfo';
       setState(() {});
+    });
+
+    animationsMap.addAll({
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1100.0.ms,
+            begin: const Offset(-1.0, -1.0),
+            end: const Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'rowOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1000.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(0.6, 0.6),
+            end: const Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(0.6, 0.6),
+            end: const Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(0.6, 0.6),
+            end: const Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(0.6, 0.6),
+            end: const Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 1020.0.ms,
+            begin: const Offset(0.0, -50.0),
+            end: const Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 350.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 1020.0.ms,
+            begin: const Offset(-50.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 1020.0.ms,
+            begin: const Offset(50.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'rowOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 1020.0.ms,
+            begin: const Offset(0.0, 50.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation5': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 1020.0.ms,
+            begin: const Offset(-50.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation6': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 1020.0.ms,
+            begin: const Offset(50.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -476,7 +635,8 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                             height: 10.0)),
                                                       ),
                                                     ],
-                                                  ),
+                                                  ).animateOnPageLoad(animationsMap[
+                                                      'rowOnPageLoadAnimation1']!),
                                                 ),
                                                 Padding(
                                                   padding: const EdgeInsets.all(8.0),
@@ -554,7 +714,9 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                                       lineHeight:
                                                                           1.0,
                                                                     ),
-                                                              ),
+                                                              ).animateOnPageLoad(
+                                                                  animationsMap[
+                                                                      'textOnPageLoadAnimation1']!),
                                                             ),
                                                           ),
                                                         ].divide(const SizedBox(
@@ -627,7 +789,9 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                                       lineHeight:
                                                                           1.0,
                                                                     ),
-                                                              ),
+                                                              ).animateOnPageLoad(
+                                                                  animationsMap[
+                                                                      'textOnPageLoadAnimation2']!),
                                                             ),
                                                           ),
                                                         ].divide(const SizedBox(
@@ -700,7 +864,9 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                                       lineHeight:
                                                                           1.0,
                                                                     ),
-                                                              ),
+                                                              ).animateOnPageLoad(
+                                                                  animationsMap[
+                                                                      'textOnPageLoadAnimation3']!),
                                                             ),
                                                           ),
                                                         ].divide(const SizedBox(
@@ -773,7 +939,9 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                                       lineHeight:
                                                                           1.0,
                                                                     ),
-                                                              ),
+                                                              ).animateOnPageLoad(
+                                                                  animationsMap[
+                                                                      'textOnPageLoadAnimation4']!),
                                                             ),
                                                           ),
                                                         ].divide(const SizedBox(
@@ -784,7 +952,8 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                 ),
                                               ],
                                             ),
-                                          ),
+                                          ).animateOnPageLoad(animationsMap[
+                                              'containerOnPageLoadAnimation1']!),
                                         ),
                                       ],
                                     );
@@ -1114,7 +1283,8 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                           ],
                                         ),
                                       ),
-                                    ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'containerOnPageLoadAnimation2']!),
                                   ),
                                 ),
                                 Align(
@@ -1299,7 +1469,8 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                       ),
                                                     ),
                                                   ),
-                                                ),
+                                                ).animateOnPageLoad(animationsMap[
+                                                    'containerOnPageLoadAnimation3']!),
                                                 InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -1428,7 +1599,8 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                       ),
                                                     ),
                                                   ),
-                                                ),
+                                                ).animateOnPageLoad(animationsMap[
+                                                    'containerOnPageLoadAnimation4']!),
                                               ].divide(const SizedBox(width: 10.0)),
                                             ),
                                             Padding(
@@ -1592,7 +1764,8 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                         ),
                                                       ),
                                                     ),
-                                                  ),
+                                                  ).animateOnPageLoad(animationsMap[
+                                                      'containerOnPageLoadAnimation5']!),
                                                   InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -1858,9 +2031,11 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget> {
                                                         ),
                                                       ),
                                                     ),
-                                                  ),
+                                                  ).animateOnPageLoad(animationsMap[
+                                                      'containerOnPageLoadAnimation6']!),
                                                 ],
-                                              ),
+                                              ).animateOnPageLoad(animationsMap[
+                                                  'rowOnPageLoadAnimation2']!),
                                             ),
                                           ].divide(const SizedBox(height: 10.0)),
                                         ),

@@ -1,3 +1,4 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -7,6 +8,7 @@ import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'tray_mappimg_model.dart';
@@ -19,10 +21,13 @@ class TrayMappimgWidget extends StatefulWidget {
   State<TrayMappimgWidget> createState() => _TrayMappimgWidgetState();
 }
 
-class _TrayMappimgWidgetState extends State<TrayMappimgWidget> {
+class _TrayMappimgWidgetState extends State<TrayMappimgWidget>
+    with TickerProviderStateMixin {
   late TrayMappimgModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -44,6 +49,52 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget> {
     _model.switchValue = true;
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'rowOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 800.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'switchOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1100.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1060.0.ms,
+            begin: const Offset(-1.0, -1.0),
+            end: const Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -211,7 +262,8 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget> {
                                   ),
                             ),
                           ].divide(const SizedBox(width: 6.0)),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['rowOnPageLoadAnimation']!),
                       ),
                     ),
                     Container(
@@ -257,7 +309,8 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget> {
                                     inactiveThumbColor:
                                         FlutterFlowTheme.of(context)
                                             .primaryText,
-                                  ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'switchOnPageLoadAnimation']!),
                                 ),
                               ),
                               if (FFAppState().trayqrscan == 2 ? true : false)
@@ -308,7 +361,8 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget> {
                                             ),
                                           ),
                                         ),
-                                      ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'containerOnPageLoadAnimation']!),
                                     Row(
                                       mainAxisSize: MainAxisSize.min,
                                       mainAxisAlignment:

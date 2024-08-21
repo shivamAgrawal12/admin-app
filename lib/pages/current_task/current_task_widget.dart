@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/popup/menu/menu_widget.dart';
@@ -6,6 +7,7 @@ import '/popup/no_recordforlist/no_recordforlist_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
@@ -25,6 +27,8 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  final animationsMap = <String, AnimationInfo>{};
+
   @override
   void initState() {
     super.initState();
@@ -35,6 +39,69 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
       length: 2,
       initialIndex: 0,
     )..addListener(() => setState(() {}));
+    animationsMap.addAll({
+      'rowOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 800.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'tabOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1000.0.ms,
+            begin: const Offset(-1.0, -1.0),
+            end: const Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1020.0.ms,
+            begin: const Offset(0.0, 50.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'tabOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1000.0.ms,
+            begin: const Offset(-1.0, -1.0),
+            end: const Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1020.0.ms,
+            begin: const Offset(0.0, 50.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -193,7 +260,8 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                 ),
                           ),
                         ].divide(const SizedBox(width: 6.0)),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['rowOnPageLoadAnimation']!),
                     ),
                   ),
                   FutureBuilder<ApiCallResponse>(
@@ -279,13 +347,15 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                             FlutterFlowTheme.of(context)
                                                 .heading,
                                         padding: const EdgeInsets.all(4.0),
-                                        tabs: const [
-                                          Tab(
+                                        tabs: [
+                                          const Tab(
                                             text: '  Inprocess  ',
-                                          ),
-                                          Tab(
+                                          ).animateOnPageLoad(animationsMap[
+                                              'tabOnPageLoadAnimation1']!),
+                                          const Tab(
                                             text: 'Pending',
-                                          ),
+                                          ).animateOnPageLoad(animationsMap[
+                                              'tabOnPageLoadAnimation2']!),
                                         ],
                                         controller: _model.tabBarController,
                                         onTap: (i) async {
@@ -742,7 +812,9 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                 ],
                                                               ),
                                                             ),
-                                                          ),
+                                                          ).animateOnPageLoad(
+                                                              animationsMap[
+                                                                  'containerOnPageLoadAnimation1']!),
                                                         ),
                                                       );
                                                     }).addToEnd(
@@ -1195,7 +1267,9 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                 ],
                                                               ),
                                                             ),
-                                                          ),
+                                                          ).animateOnPageLoad(
+                                                              animationsMap[
+                                                                  'containerOnPageLoadAnimation2']!),
                                                         ),
                                                       );
                                                     }).addToEnd(

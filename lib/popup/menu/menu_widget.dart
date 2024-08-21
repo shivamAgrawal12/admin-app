@@ -514,8 +514,9 @@ class _MenuWidgetState extends State<MenuWidget> {
                                     fontSize: 12.0,
                                     letterSpacing: 0.0,
                                   ),
-                              elevation: 2.0,
-                              borderSide: const BorderSide(
+                              elevation: 0.0,
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).liteText,
                                 width: 0.0,
                               ),
                               borderRadius: BorderRadius.circular(8.0),
@@ -546,7 +547,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                     fontSize: 12.0,
                                     letterSpacing: 0.0,
                                   ),
-                              elevation: 2.0,
+                              elevation: 0.0,
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).subHeader,
                                 width: 1.0,
