@@ -73,30 +73,6 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
     _model.textFieldFocusNode ??= FocusNode();
 
     animationsMap.addAll({
-      'rowOnPageLoadAnimation1': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-      'rowOnPageLoadAnimation2': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          ScaleEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 1100.0.ms,
-            begin: const Offset(-1.0, -1.0),
-            end: const Offset(1.0, 1.0),
-          ),
-        ],
-      ),
       'containerOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -112,42 +88,18 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
       'containerOnPageLoadAnimation2': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
-          MoveEffect(
+          ScaleEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 1020.0.ms,
-            begin: const Offset(-50.0, 0.0),
-            end: const Offset(0.0, 0.0),
+            duration: 800.0.ms,
+            begin: const Offset(-1.0, -1.0),
+            end: const Offset(1.0, 1.0),
           ),
         ],
       ),
       'containerOnPageLoadAnimation3': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
-          ScaleEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 800.0.ms,
-            begin: const Offset(-1.0, -1.0),
-            end: const Offset(1.0, 1.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation4': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          ScaleEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 800.0.ms,
-            begin: const Offset(-1.0, -1.0),
-            end: const Offset(1.0, 1.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation5': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
@@ -157,19 +109,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
           ),
         ],
       ),
-      'containerOnPageLoadAnimation6': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 1020.0.ms,
-            begin: const Offset(50.0, 0.0),
-            end: const Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'rowOnPageLoadAnimation3': AnimationInfo(
+      'rowOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           MoveEffect(
@@ -181,19 +121,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
           ),
         ],
       ),
-      'containerOnPageLoadAnimation7': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          ScaleEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 800.0.ms,
-            begin: const Offset(-1.0, -1.0),
-            end: const Offset(1.0, 1.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation8': AnimationInfo(
+      'containerOnPageLoadAnimation4': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           FadeEffect(
@@ -442,8 +370,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                           ].divide(const SizedBox(width: 5.0)),
                                         ),
                                       ].divide(const SizedBox(width: 6.0)),
-                                    ).animateOnPageLoad(animationsMap[
-                                        'rowOnPageLoadAnimation1']!),
+                                    ),
                                   ),
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
@@ -647,8 +574,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                               ),
                                             ),
                                           ],
-                                        ).animateOnPageLoad(animationsMap[
-                                            'rowOnPageLoadAnimation2']!),
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -802,8 +728,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                           height: 5.0)),
                                                 ),
                                               ),
-                                            ).animateOnPageLoad(animationsMap[
-                                                'containerOnPageLoadAnimation1']!),
+                                            ),
                                             SizedBox(
                                               width: 85.0,
                                               child: Divider(
@@ -900,12 +825,12 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                           height: 5.0)),
                                                 ),
                                               ),
-                                            ).animateOnPageLoad(animationsMap[
-                                                'containerOnPageLoadAnimation2']!),
+                                            ),
                                           ],
                                         ),
                                       ),
-                                    ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'containerOnPageLoadAnimation1']!),
                                     Container(
                                       width: 100.0,
                                       height: 195.0,
@@ -934,6 +859,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                               onTap: () async {
                                                 FFAppState().homeslotid = '';
                                                 FFAppState().hideslot = 5;
+                                                FFAppState().scannerpage = '';
                                                 setState(() {});
 
                                                 context.pushNamed(
@@ -1011,8 +937,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                           height: 5.0)),
                                                 ),
                                               ),
-                                            ).animateOnPageLoad(animationsMap[
-                                                'containerOnPageLoadAnimation3']!),
+                                            ),
                                             SizedBox(
                                               width: 85.0,
                                               child: Divider(
@@ -1031,7 +956,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                   Colors.transparent,
                                               onTap: () async {
                                                 FFAppState().homeslotid = '';
-                                                FFAppState().hideslot = 0;
+                                                FFAppState().hideslot = 5;
+                                                FFAppState().scannerpage = '';
                                                 setState(() {});
 
                                                 context.pushNamed(
@@ -1109,12 +1035,12 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                           height: 5.0)),
                                                 ),
                                               ),
-                                            ).animateOnPageLoad(animationsMap[
-                                                'containerOnPageLoadAnimation4']!),
+                                            ),
                                           ],
                                         ),
                                       ),
-                                    ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'containerOnPageLoadAnimation2']!),
                                     Container(
                                       width: 100.0,
                                       height: 195.0,
@@ -1220,8 +1146,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                           height: 5.0)),
                                                 ),
                                               ),
-                                            ).animateOnPageLoad(animationsMap[
-                                                'containerOnPageLoadAnimation5']!),
+                                            ),
                                             SizedBox(
                                               width: 85.0,
                                               child: Divider(
@@ -1318,12 +1243,12 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                           height: 5.0)),
                                                 ),
                                               ),
-                                            ).animateOnPageLoad(animationsMap[
-                                                'containerOnPageLoadAnimation6']!),
+                                            ),
                                           ],
                                         ),
                                       ),
-                                    ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'containerOnPageLoadAnimation3']!),
                                   ],
                                 ),
                                 Padding(
@@ -1640,7 +1565,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                     ),
                                   ],
                                 ).animateOnPageLoad(
-                                    animationsMap['rowOnPageLoadAnimation3']!),
+                                    animationsMap['rowOnPageLoadAnimation']!),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 10.0, 0.0, 0.0),
@@ -1739,8 +1664,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                       ),
                                     ),
                                   ),
-                                ).animateOnPageLoad(animationsMap[
-                                    'containerOnPageLoadAnimation7']!),
+                                ),
                                 if (FFAppState().hideslot == 1)
                                   Container(
                                     width:
@@ -1881,7 +1805,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                 ),
                                               ),
                                             ).animateOnPageLoad(animationsMap[
-                                                'containerOnPageLoadAnimation8']!),
+                                                'containerOnPageLoadAnimation4']!),
                                           if (_model.change == 1)
                                             Padding(
                                               padding: const EdgeInsetsDirectional

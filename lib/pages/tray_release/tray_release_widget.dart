@@ -194,16 +194,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget>
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pushNamed(
-                                  'home',
-                                  extra: <String, dynamic>{
-                                    kTransitionInfoKey: const TransitionInfo(
-                                      hasTransition: true,
-                                      transitionType: PageTransitionType.fade,
-                                      duration: Duration(milliseconds: 0),
-                                    ),
-                                  },
-                                );
+                                context.safePop();
                               },
                               child: FaIcon(
                                 FontAwesomeIcons.arrowLeft,
