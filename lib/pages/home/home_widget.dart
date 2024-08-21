@@ -515,7 +515,9 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                   },
                                                 );
 
+                                                FFAppState().homeslotid = '';
                                                 FFAppState().hideslot = 0;
+                                                FFAppState().scannerpage = '';
                                                 setState(() {});
                                               },
                                               child: Container(
