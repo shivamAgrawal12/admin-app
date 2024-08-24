@@ -187,10 +187,13 @@ dynamic searchalltray(
   List<dynamic>? records,
   String? searchdata,
 ) {
-  if (records == null ||
-      records.isEmpty ||
-      searchdata == null ||
-      searchdata.isEmpty) {
+  // If records is null or empty, return an empty list
+  if (records == null || records.isEmpty) {
+    return [];
+  }
+
+  // If searchdata is null or empty, return all records
+  if (searchdata == null || searchdata.isEmpty) {
     return records;
   }
 
@@ -204,14 +207,16 @@ dynamic searchalltray(
       if (nameField != null && nameField is String) {
         String itemName = nameField.toLowerCase();
 
-        if (itemName.contains(searchQuery)) {
+        // Check if the itemName starts with the searchQuery
+        if (itemName.startsWith(searchQuery)) {
           result.add(item);
         }
       }
     }
   }
 
-  return result.isNotEmpty ? result : records;
+  return result;
+  return result;
 }
 
 dynamic booltruecondition() {

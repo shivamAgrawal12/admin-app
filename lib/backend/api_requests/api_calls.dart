@@ -12,7 +12,7 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 /// Start admin api Group Code
 
 class AdminApiGroup {
-  static String getBaseUrl() => 'https://test.qikpod.com:8981';
+  static String getBaseUrl() => 'https://robotmanagerv1.qikpod.com:8981';
   static Map<String, String> headers = {
     'Authorization':
         'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',

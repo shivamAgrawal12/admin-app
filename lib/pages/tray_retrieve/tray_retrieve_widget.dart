@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/popup/menu/menu_widget.dart';
-import '/popup/no_record/no_record_widget.dart';
 import '/popup/task_successfull/task_successfull_widget.dart';
 import '/popup/wrong/wrong_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -432,7 +431,10 @@ class _TrayRetrieveWidgetState extends State<TrayRetrieveWidget>
                                             ?.toList() ??
                                         [];
                                     if (trayRecords.isEmpty) {
-                                      return const NoRecordWidget();
+                                      return Image.asset(
+                                        'assets/images/NORECORDS.png',
+                                        fit: BoxFit.contain,
+                                      );
                                     }
 
                                     return RefreshIndicator(

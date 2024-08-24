@@ -998,6 +998,9 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                             hoverColor: Colors.transparent,
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
+                                              FFAppState().scannerpage = '';
+                                              FFAppState().update(() {});
+
                                               context.pushNamed(
                                                 'slot_info_scan',
                                                 extra: <String, dynamic>{
