@@ -45,7 +45,7 @@ Future<void> slotheight(
         .replaceAll('https://', '')
         .replaceAll(':8981', ''), // Remove scheme and port if present
     port: 8981,
-    path: '/robotmanager/slots/height/',
+    path: '/test/slots/height/',
     queryParameters: queryParams.isNotEmpty ? queryParams : null,
   ).toString();
 
