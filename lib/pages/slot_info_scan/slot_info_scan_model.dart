@@ -10,6 +10,7 @@ class SlotInfoScanModel extends FlutterFlowModel<SlotInfoScanWidget> {
 
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - routhpage] action in slot_info_scan widget.
   String? routh;
   // State field(s) for Switch widget.

@@ -248,6 +248,7 @@ class _TrayRetrieveWidgetState extends State<TrayRetrieveWidget>
                                   ..complete(
                                       AdminApiGroup.listOfTrayRetrieveCall.call(
                                     robotId: FFAppState().robotid,
+                                    status: 'active',
                                   )))
                             .future,
                         builder: (context, snapshot) {

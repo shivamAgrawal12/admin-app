@@ -12,6 +12,7 @@ class TrayReleaseModel extends FlutterFlowModel<TrayReleaseWidget> {
 
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   InstantTimer? instantTimer;
   Completer<ApiCallResponse>? apiRequestCompleter;
   // State field(s) for Column3 widget.

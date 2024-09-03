@@ -10,6 +10,7 @@ class DeleteTrayModel extends FlutterFlowModel<DeleteTrayWidget> {
 
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - routhpage] action in delete_tray widget.
   String? routh;
   // State field(s) for Switch widget.

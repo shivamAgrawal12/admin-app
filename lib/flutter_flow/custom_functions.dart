@@ -216,7 +216,6 @@ dynamic searchalltray(
   }
 
   return result;
-  return result;
 }
 
 dynamic booltruecondition() {

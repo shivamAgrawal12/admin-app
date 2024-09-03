@@ -1,9 +1,11 @@
 import '/backend/api_requests/api_calls.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/popup/wrong/wrong_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 import 'register_shuttles_model.dart';
 export 'register_shuttles_model.dart';
@@ -15,10 +17,13 @@ class RegisterShuttlesWidget extends StatefulWidget {
   State<RegisterShuttlesWidget> createState() => _RegisterShuttlesWidgetState();
 }
 
-class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget> {
+class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
+    with TickerProviderStateMixin {
   late RegisterShuttlesModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -39,6 +44,129 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget> {
 
     _model.slotTextController ??= TextEditingController(text: '0');
     _model.slotFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 900.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 700.0.ms,
+            begin: const Offset(-50.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 900.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 900.0.ms,
+            begin: const Offset(-50.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 900.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1100.0.ms,
+            begin: const Offset(-50.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 900.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1300.0.ms,
+            begin: const Offset(-50.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation5': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 900.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation5': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1500.0.ms,
+            begin: const Offset(-50.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -172,7 +300,8 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget> {
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
-                                    ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'textOnPageLoadAnimation1']!),
                                   ),
                                 ),
                                 Padding(
@@ -244,7 +373,8 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget> {
                                           .idTextControllerValidator
                                           .asValidator(context),
                                     ),
-                                  ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'textFieldOnPageLoadAnimation1']!),
                                 ),
                                 Align(
                                   alignment: const AlignmentDirectional(-1.0, -1.0),
@@ -262,7 +392,8 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget> {
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
-                                    ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'textOnPageLoadAnimation2']!),
                                   ),
                                 ),
                                 Padding(
@@ -334,7 +465,8 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget> {
                                           .ipTextControllerValidator
                                           .asValidator(context),
                                     ),
-                                  ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'textFieldOnPageLoadAnimation2']!),
                                 ),
                                 Align(
                                   alignment: const AlignmentDirectional(-1.0, -1.0),
@@ -352,7 +484,8 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget> {
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
-                                    ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'textOnPageLoadAnimation3']!),
                                   ),
                                 ),
                                 Padding(
@@ -427,7 +560,8 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget> {
                                           .rowTextControllerValidator
                                           .asValidator(context),
                                     ),
-                                  ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'textFieldOnPageLoadAnimation3']!),
                                 ),
                                 Align(
                                   alignment: const AlignmentDirectional(-1.0, -1.0),
@@ -445,7 +579,8 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget> {
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
-                                    ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'textOnPageLoadAnimation4']!),
                                   ),
                                 ),
                                 Padding(
@@ -520,7 +655,8 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget> {
                                           .rackTextControllerValidator
                                           .asValidator(context),
                                     ),
-                                  ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'textFieldOnPageLoadAnimation4']!),
                                 ),
                                 Align(
                                   alignment: const AlignmentDirectional(-1.0, -1.0),
@@ -538,7 +674,8 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget> {
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
-                                    ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'textOnPageLoadAnimation5']!),
                                   ),
                                 ),
                                 Padding(
@@ -613,7 +750,8 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget> {
                                           .slotTextControllerValidator
                                           .asValidator(context),
                                     ),
-                                  ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'textFieldOnPageLoadAnimation5']!),
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(

@@ -30,6 +30,7 @@ class ModelCsvModel extends FlutterFlowModel<ModelCsvWidget> {
 
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (list of slot)] action in Container widget.
   ApiCallResponse? apiResult9bv;
   bool isDataUploading = false;

@@ -72,7 +72,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 500.0.ms,
+            duration: 750.0.ms,
             begin: const Offset(-50.0, 0.0),
             end: const Offset(0.0, 0.0),
           ),
@@ -96,7 +96,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 650.0.ms,
+            duration: 950.0.ms,
             begin: const Offset(-50.0, 0.0),
             end: const Offset(0.0, 0.0),
           ),
@@ -120,7 +120,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 800.0.ms,
+            duration: 1150.0.ms,
             begin: const Offset(-50.0, 0.0),
             end: const Offset(0.0, 0.0),
           ),
@@ -144,7 +144,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 900.0.ms,
+            duration: 1350.0.ms,
             begin: const Offset(-50.0, 0.0),
             end: const Offset(0.0, 0.0),
           ),
@@ -168,7 +168,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 1100.0.ms,
+            duration: 1550.0.ms,
             begin: const Offset(-50.0, 0.0),
             end: const Offset(0.0, 0.0),
           ),
@@ -192,7 +192,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 1250.0.ms,
+            duration: 1750.0.ms,
             begin: const Offset(-50.0, 0.0),
             end: const Offset(0.0, 0.0),
           ),
@@ -216,7 +216,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 1400.0.ms,
+            duration: 1950.0.ms,
             begin: const Offset(-50.0, 0.0),
             end: const Offset(0.0, 0.0),
           ),
@@ -240,7 +240,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 1550.0.ms,
+            duration: 2150.0.ms,
             begin: const Offset(-50.0, 0.0),
             end: const Offset(0.0, 0.0),
           ),

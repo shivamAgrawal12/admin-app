@@ -2763,373 +2763,399 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                 ),
                                               ],
                                             ),
-                                            Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 5.0, 0.0, 0.0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Opacity(
-                                                    opacity:
-                                                        valueOrDefault<double>(
-                                                      AdminApiGroup.slotInfoCall
-                                                                  .type(
-                                                                containerSlotInfoResponse
-                                                                    .jsonBody,
-                                                              ) ==
-                                                              'blocked'
-                                                          ? 1.0
-                                                          : 0.3,
-                                                      1.0,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  3.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: FFButtonWidget(
-                                                        onPressed: () async {
-                                                          if (AdminApiGroup
-                                                                  .slotInfoCall
-                                                                  .type(
-                                                                containerSlotInfoResponse
-                                                                    .jsonBody,
-                                                              ) ==
-                                                              'blocked') {
-                                                            _model.unblockSlot =
-                                                                await AdminApiGroup
-                                                                    .changeSlotTypeCall
-                                                                    .call(
-                                                              id: FFAppState()
-                                                                  .slotrecid,
-                                                              type: 'regular',
-                                                              friendlyName:
-                                                                  getJsonField(
-                                                                containerSlotInfoResponse
-                                                                    .jsonBody,
-                                                                r'''$.friendly_name''',
-                                                              ).toString(),
-                                                            );
-
-                                                            if ((_model
-                                                                    .unblockSlot
-                                                                    ?.succeeded ??
-                                                                true)) {
-                                                              await showModalBottomSheet(
-                                                                isScrollControlled:
-                                                                    true,
-                                                                backgroundColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                enableDrag:
-                                                                    false,
-                                                                context:
-                                                                    context,
-                                                                builder:
-                                                                    (context) {
-                                                                  return GestureDetector(
-                                                                    onTap: () =>
-                                                                        FocusScope.of(context)
-                                                                            .unfocus(),
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: MediaQuery
-                                                                          .viewInsetsOf(
-                                                                              context),
-                                                                      child:
-                                                                          const SuccessfullWidget(),
-                                                                    ),
-                                                                  );
-                                                                },
-                                                              ).then((value) =>
-                                                                  safeSetState(
-                                                                      () {}));
-                                                            } else {
-                                                              await showModalBottomSheet(
-                                                                isScrollControlled:
-                                                                    true,
-                                                                backgroundColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                enableDrag:
-                                                                    false,
-                                                                context:
-                                                                    context,
-                                                                builder:
-                                                                    (context) {
-                                                                  return GestureDetector(
-                                                                    onTap: () =>
-                                                                        FocusScope.of(context)
-                                                                            .unfocus(),
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: MediaQuery
-                                                                          .viewInsetsOf(
-                                                                              context),
-                                                                      child:
-                                                                          MsgMappingWidget(
-                                                                        msg: AdminApiGroup
-                                                                            .changeSlotTypeCall
-                                                                            .msg(
-                                                                          (_model.unblockSlot?.jsonBody ??
-                                                                              ''),
-                                                                        )!,
-                                                                      ),
-                                                                    ),
-                                                                  );
-                                                                },
-                                                              ).then((value) =>
-                                                                  safeSetState(
-                                                                      () {}));
-                                                            }
-                                                          }
-
-                                                          setState(() {});
-                                                        },
-                                                        text: 'Unblock Slot',
-                                                        options:
-                                                            FFButtonOptions(
-                                                          width: 140.0,
-                                                          height: 40.0,
-                                                          padding:
-                                                              const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      5.0,
-                                                                      0.0,
-                                                                      5.0,
-                                                                      0.0),
-                                                          iconPadding:
-                                                              const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .heading,
-                                                          textStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmall
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Raleway',
-                                                                    color: Colors
-                                                                        .white,
-                                                                    fontSize:
-                                                                        15.0,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                  ),
-                                                          elevation: 0.0,
-                                                          borderSide:
-                                                              const BorderSide(
-                                                            color: Colors
-                                                                .transparent,
-                                                            width: 1.0,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      5.0),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Opacity(
-                                                    opacity:
-                                                        valueOrDefault<double>(
-                                                      (AdminApiGroup.slotInfoCall
-                                                                      .type(
-                                                                    containerSlotInfoResponse
-                                                                        .jsonBody,
-                                                                  ) ==
-                                                                  'blocked') ||
-                                                              (AdminApiGroup
+                                            Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 5.0, 0.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Opacity(
+                                                        opacity: valueOrDefault<
+                                                            double>(
+                                                          AdminApiGroup
                                                                       .slotInfoCall
                                                                       .type(
                                                                     containerSlotInfoResponse
                                                                         .jsonBody,
                                                                   ) ==
-                                                                  'picking_station')
-                                                          ? 0.3
-                                                          : 1.0,
-                                                      1.0,
-                                                    ),
-                                                    child: Padding(
-                                                      padding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  3.0,
-                                                                  0.0),
-                                                      child: FFButtonWidget(
-                                                        onPressed: () async {
-                                                          if ((AdminApiGroup
-                                                                      .slotInfoCall
-                                                                      .type(
-                                                                    containerSlotInfoResponse
-                                                                        .jsonBody,
-                                                                  ) !=
-                                                                  'blocked') &&
-                                                              (AdminApiGroup
-                                                                      .slotInfoCall
-                                                                      .type(
-                                                                    containerSlotInfoResponse
-                                                                        .jsonBody,
-                                                                  ) !=
-                                                                  'picking_station')) {
-                                                            _model.blockSlot =
-                                                                await AdminApiGroup
-                                                                    .changeSlotTypeCall
-                                                                    .call(
-                                                              id: FFAppState()
-                                                                  .slotrecid,
-                                                              type: 'blocked',
-                                                              friendlyName:
-                                                                  getJsonField(
-                                                                containerSlotInfoResponse
-                                                                    .jsonBody,
-                                                                r'''$.friendly_name''',
-                                                              ).toString(),
-                                                            );
-
-                                                            if ((_model
-                                                                    .blockSlot
-                                                                    ?.succeeded ??
-                                                                true)) {
-                                                              await showModalBottomSheet(
-                                                                isScrollControlled:
-                                                                    true,
-                                                                backgroundColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                enableDrag:
-                                                                    false,
-                                                                context:
-                                                                    context,
-                                                                builder:
-                                                                    (context) {
-                                                                  return GestureDetector(
-                                                                    onTap: () =>
-                                                                        FocusScope.of(context)
-                                                                            .unfocus(),
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: MediaQuery
-                                                                          .viewInsetsOf(
-                                                                              context),
-                                                                      child:
-                                                                          const SuccessfullWidget(),
-                                                                    ),
-                                                                  );
-                                                                },
-                                                              ).then((value) =>
-                                                                  safeSetState(
-                                                                      () {}));
-                                                            } else {
-                                                              await showModalBottomSheet(
-                                                                isScrollControlled:
-                                                                    true,
-                                                                backgroundColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                enableDrag:
-                                                                    false,
-                                                                context:
-                                                                    context,
-                                                                builder:
-                                                                    (context) {
-                                                                  return GestureDetector(
-                                                                    onTap: () =>
-                                                                        FocusScope.of(context)
-                                                                            .unfocus(),
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: MediaQuery
-                                                                          .viewInsetsOf(
-                                                                              context),
-                                                                      child:
-                                                                          MsgMappingWidget(
-                                                                        msg: AdminApiGroup
-                                                                            .changeSlotTypeCall
-                                                                            .msg(
-                                                                          (_model.blockSlot?.jsonBody ??
-                                                                              ''),
-                                                                        )!,
-                                                                      ),
-                                                                    ),
-                                                                  );
-                                                                },
-                                                              ).then((value) =>
-                                                                  safeSetState(
-                                                                      () {}));
-                                                            }
-                                                          }
-
-                                                          setState(() {});
-                                                        },
-                                                        text: 'Block Slot',
-                                                        options:
-                                                            FFButtonOptions(
-                                                          width: 140.0,
-                                                          height: 40.0,
+                                                                  'blocked'
+                                                              ? 1.0
+                                                              : 0.3,
+                                                          1.0,
+                                                        ),
+                                                        child: Padding(
                                                           padding:
                                                               const EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      5.0,
+                                                                      3.0,
                                                                       0.0,
-                                                                      5.0,
+                                                                      0.0,
                                                                       0.0),
-                                                          iconPadding:
+                                                          child: FFButtonWidget(
+                                                            onPressed:
+                                                                () async {
+                                                              if (AdminApiGroup
+                                                                      .slotInfoCall
+                                                                      .type(
+                                                                    containerSlotInfoResponse
+                                                                        .jsonBody,
+                                                                  ) ==
+                                                                  'blocked') {
+                                                                _model.unblockSlot =
+                                                                    await AdminApiGroup
+                                                                        .changeSlotTypeCall
+                                                                        .call(
+                                                                  id: FFAppState()
+                                                                      .slotrecid,
+                                                                  type:
+                                                                      'regular',
+                                                                  friendlyName:
+                                                                      AdminApiGroup
+                                                                          .slotInfoCall
+                                                                          .friendlyname(
+                                                                    containerSlotInfoResponse
+                                                                        .jsonBody,
+                                                                  ),
+                                                                );
+
+                                                                if ((_model
+                                                                        .unblockSlot
+                                                                        ?.succeeded ??
+                                                                    true)) {
+                                                                  await showModalBottomSheet(
+                                                                    isScrollControlled:
+                                                                        true,
+                                                                    backgroundColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    enableDrag:
+                                                                        false,
+                                                                    context:
+                                                                        context,
+                                                                    builder:
+                                                                        (context) {
+                                                                      return GestureDetector(
+                                                                        onTap: () =>
+                                                                            FocusScope.of(context).unfocus(),
+                                                                        child:
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.viewInsetsOf(context),
+                                                                          child:
+                                                                              const SuccessfullWidget(),
+                                                                        ),
+                                                                      );
+                                                                    },
+                                                                  ).then((value) =>
+                                                                      safeSetState(
+                                                                          () {}));
+                                                                } else {
+                                                                  await showModalBottomSheet(
+                                                                    isScrollControlled:
+                                                                        true,
+                                                                    backgroundColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    enableDrag:
+                                                                        false,
+                                                                    context:
+                                                                        context,
+                                                                    builder:
+                                                                        (context) {
+                                                                      return GestureDetector(
+                                                                        onTap: () =>
+                                                                            FocusScope.of(context).unfocus(),
+                                                                        child:
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.viewInsetsOf(context),
+                                                                          child:
+                                                                              MsgMappingWidget(
+                                                                            msg:
+                                                                                AdminApiGroup.changeSlotTypeCall.msg(
+                                                                              (_model.unblockSlot?.jsonBody ?? ''),
+                                                                            )!,
+                                                                          ),
+                                                                        ),
+                                                                      );
+                                                                    },
+                                                                  ).then((value) =>
+                                                                      safeSetState(
+                                                                          () {}));
+                                                                }
+                                                              }
+
+                                                              setState(() {});
+                                                            },
+                                                            text:
+                                                                'Unblock Slot',
+                                                            options:
+                                                                FFButtonOptions(
+                                                              width: 140.0,
+                                                              height: 40.0,
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          5.0,
+                                                                          0.0),
+                                                              iconPadding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .heading,
+                                                              textStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Raleway',
+                                                                        color: Colors
+                                                                            .white,
+                                                                        fontSize:
+                                                                            15.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
+                                                              elevation: 0.0,
+                                                              borderSide:
+                                                                  const BorderSide(
+                                                                color: Colors
+                                                                    .transparent,
+                                                                width: 1.0,
+                                                              ),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          5.0),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Opacity(
+                                                        opacity: valueOrDefault<
+                                                            double>(
+                                                          (AdminApiGroup.slotInfoCall
+                                                                          .type(
+                                                                        containerSlotInfoResponse
+                                                                            .jsonBody,
+                                                                      ) ==
+                                                                      'blocked') ||
+                                                                  (AdminApiGroup
+                                                                          .slotInfoCall
+                                                                          .type(
+                                                                        containerSlotInfoResponse
+                                                                            .jsonBody,
+                                                                      ) ==
+                                                                      'picking_station')
+                                                              ? 0.3
+                                                              : 1.0,
+                                                          1.0,
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
                                                               const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
-                                                                      0.0,
+                                                                      3.0,
                                                                       0.0),
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                          textStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmall
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Raleway',
-                                                                    color: Colors
-                                                                        .white,
-                                                                    fontSize:
-                                                                        15.0,
-                                                                    letterSpacing:
-                                                                        0.0,
+                                                          child: FFButtonWidget(
+                                                            onPressed:
+                                                                () async {
+                                                              if ((AdminApiGroup
+                                                                          .slotInfoCall
+                                                                          .type(
+                                                                        containerSlotInfoResponse
+                                                                            .jsonBody,
+                                                                      ) !=
+                                                                      'blocked') &&
+                                                                  (AdminApiGroup
+                                                                          .slotInfoCall
+                                                                          .type(
+                                                                        containerSlotInfoResponse
+                                                                            .jsonBody,
+                                                                      ) !=
+                                                                      'picking_station')) {
+                                                                _model.blockSlot =
+                                                                    await AdminApiGroup
+                                                                        .changeSlotTypeCall
+                                                                        .call(
+                                                                  id: FFAppState()
+                                                                      .slotrecid,
+                                                                  type:
+                                                                      'blocked',
+                                                                  friendlyName:
+                                                                      AdminApiGroup
+                                                                          .slotInfoCall
+                                                                          .friendlyname(
+                                                                    containerSlotInfoResponse
+                                                                        .jsonBody,
                                                                   ),
-                                                          elevation: 0.0,
-                                                          borderSide:
-                                                              const BorderSide(
-                                                            color: Colors
-                                                                .transparent,
-                                                            width: 1.0,
+                                                                );
+
+                                                                if ((_model
+                                                                        .blockSlot
+                                                                        ?.succeeded ??
+                                                                    true)) {
+                                                                  await showModalBottomSheet(
+                                                                    isScrollControlled:
+                                                                        true,
+                                                                    backgroundColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    enableDrag:
+                                                                        false,
+                                                                    context:
+                                                                        context,
+                                                                    builder:
+                                                                        (context) {
+                                                                      return GestureDetector(
+                                                                        onTap: () =>
+                                                                            FocusScope.of(context).unfocus(),
+                                                                        child:
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.viewInsetsOf(context),
+                                                                          child:
+                                                                              const SuccessfullWidget(),
+                                                                        ),
+                                                                      );
+                                                                    },
+                                                                  ).then((value) =>
+                                                                      safeSetState(
+                                                                          () {}));
+                                                                } else {
+                                                                  await showModalBottomSheet(
+                                                                    isScrollControlled:
+                                                                        true,
+                                                                    backgroundColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    enableDrag:
+                                                                        false,
+                                                                    context:
+                                                                        context,
+                                                                    builder:
+                                                                        (context) {
+                                                                      return GestureDetector(
+                                                                        onTap: () =>
+                                                                            FocusScope.of(context).unfocus(),
+                                                                        child:
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.viewInsetsOf(context),
+                                                                          child:
+                                                                              MsgMappingWidget(
+                                                                            msg:
+                                                                                AdminApiGroup.changeSlotTypeCall.msg(
+                                                                              (_model.blockSlot?.jsonBody ?? ''),
+                                                                            )!,
+                                                                          ),
+                                                                        ),
+                                                                      );
+                                                                    },
+                                                                  ).then((value) =>
+                                                                      safeSetState(
+                                                                          () {}));
+                                                                }
+                                                              }
+
+                                                              setState(() {});
+                                                            },
+                                                            text: 'Block Slot',
+                                                            options:
+                                                                FFButtonOptions(
+                                                              width: 140.0,
+                                                              height: 40.0,
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          5.0,
+                                                                          0.0),
+                                                              iconPadding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primaryText,
+                                                              textStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Raleway',
+                                                                        color: Colors
+                                                                            .white,
+                                                                        fontSize:
+                                                                            15.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
+                                                              elevation: 0.0,
+                                                              borderSide:
+                                                                  const BorderSide(
+                                                                color: Colors
+                                                                    .transparent,
+                                                                width: 1.0,
+                                                              ),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          5.0),
+                                                            ),
                                                           ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      5.0),
                                                         ),
                                                       ),
-                                                    ),
+                                                    ],
                                                   ),
-                                                ],
-                                              ),
+                                                ),
+                                                Text(
+                                                  valueOrDefault<String>(
+                                                    AdminApiGroup.slotInfoCall
+                                                        .friendlyname(
+                                                      containerSlotInfoResponse
+                                                          .jsonBody,
+                                                    ),
+                                                    '-',
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Raleway',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .liteText,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                      ),
+                                                ),
+                                              ],
                                             ),
                                           ].divide(const SizedBox(height: 15.0)),
                                         ),

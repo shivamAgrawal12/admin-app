@@ -46,7 +46,7 @@ Future<void> selectslot(
         .replaceAll('https://', '')
         .replaceAll(':8981', ''), // Remove scheme and port if present
     port: 8981,
-    path: '/test/slots/support_type/',
+    path: '/robotmanager/slots/support_type/',
     queryParameters: queryParams.isNotEmpty ? queryParams : null,
   ).toString();
 

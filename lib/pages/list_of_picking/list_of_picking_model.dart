@@ -18,6 +18,7 @@ class ListOfPickingModel extends FlutterFlowModel<ListOfPickingWidget> {
 
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (list of slot)] action in list_of_picking widget.
   ApiCallResponse? apiResult3tj;
   // State field(s) for TextField widget.

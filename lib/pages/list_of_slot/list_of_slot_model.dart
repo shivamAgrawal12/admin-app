@@ -21,6 +21,7 @@ class ListOfSlotModel extends FlutterFlowModel<ListOfSlotWidget> {
 
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (list of slot)] action in list_of_slot widget.
   ApiCallResponse? listofslotresult;
   // State field(s) for TextField widget.

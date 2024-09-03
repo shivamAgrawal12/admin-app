@@ -343,6 +343,10 @@ class SlotInfoCall {
         response,
         r'''$.records[:].id''',
       ));
+  String? friendlyname(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.records[:].friendly_name''',
+      ));
 }
 
 class TrayInfoCall {
@@ -876,6 +880,7 @@ class ListOfTrayWithoutTypeCall {
 class ListOfTrayRetrieveCall {
   Future<ApiCallResponse> call({
     String? robotId = '',
+    String? status = '',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl();
 
@@ -891,6 +896,7 @@ class ListOfTrayRetrieveCall {
       },
       params: {
         'robot_id': robotId,
+        'status': status,
       },
       returnBody: true,
       encodeBodyUtf8: false,
