@@ -37,10 +37,10 @@ class _TrayCsvWidgetState extends State<TrayCsvWidget> {
       FFAppState().scannerpage = 'uploadcsv';
       FFAppState().update(() {});
       _model.csvimg = 0;
-      setState(() {});
+      safeSetState(() {});
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -62,13 +62,13 @@ class _TrayCsvWidgetState extends State<TrayCsvWidget> {
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: const AlignmentDirectional(0.0, -1.0),
+            alignment: const AlignmentDirectional(0, -1),
             child: Container(
-              width: MediaQuery.sizeOf(context).width * 1.0,
-              height: MediaQuery.sizeOf(context).height * 1.0,
+              width: MediaQuery.sizeOf(context).width,
+              height: MediaQuery.sizeOf(context).height * 1,
               constraints: const BoxConstraints(
-                minWidth: 320.0,
-                maxWidth: 450.0,
+                minWidth: 320,
+                maxWidth: 450,
               ),
               decoration: const BoxDecoration(),
               child: Column(
@@ -76,18 +76,17 @@ class _TrayCsvWidgetState extends State<TrayCsvWidget> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: 70.0,
+                    width: MediaQuery.sizeOf(context).width,
+                    height: 70,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
                         color: const Color(0xFFEEECF1),
-                        width: 1.0,
+                        width: 1,
                       ),
                     ),
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(25, 0, 25, 0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -95,8 +94,8 @@ class _TrayCsvWidgetState extends State<TrayCsvWidget> {
                           Opacity(
                             opacity: loggedIn ? 1.0 : 0.0,
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 12.0, 0.0),
+                              padding:
+                                  const EdgeInsetsDirectional.fromSTEB(0, 0, 12, 0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -120,50 +119,49 @@ class _TrayCsvWidgetState extends State<TrayCsvWidget> {
                                 child: FaIcon(
                                   FontAwesomeIcons.arrowLeft,
                                   color: FlutterFlowTheme.of(context).bodyText,
-                                  size: 26.0,
+                                  size: 26,
                                 ),
                               ),
                             ),
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0, 0),
                             child: ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                               child: Image.asset(
                                 'assets/images/Group_42_(2).png',
-                                width: 130.0,
-                                height: 40.0,
+                                width: 130,
+                                height: 40,
                                 fit: BoxFit.contain,
                               ),
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 0.0, 0.0),
+                            padding:
+                                const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                             child: FaIcon(
                               FontAwesomeIcons.arrowLeft,
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
-                              size: 26.0,
+                              size: 26,
                             ),
                           ),
-                        ].divide(const SizedBox(width: 6.0)),
+                        ].divide(const SizedBox(width: 6)),
                       ),
                     ),
                   ),
                   Container(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: 50.0,
+                    width: MediaQuery.sizeOf(context).width,
+                    height: 50,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
                         color: const Color(0xFFEEECF1),
-                        width: 1.0,
+                        width: 1,
                       ),
                     ),
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -175,27 +173,27 @@ class _TrayCsvWidgetState extends State<TrayCsvWidget> {
                                 .override(
                                   fontFamily: 'Raleway',
                                   color: FlutterFlowTheme.of(context).accent,
-                                  fontSize: 16.0,
+                                  fontSize: 16,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
                                 ),
                           ),
-                        ].divide(const SizedBox(width: 6.0)),
+                        ].divide(const SizedBox(width: 6)),
                       ),
                     ),
                   ),
                   Container(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    width: MediaQuery.sizeOf(context).width,
                     height: MediaQuery.sizeOf(context).height * 0.8,
                     constraints: const BoxConstraints(
-                      minWidth: 320.0,
-                      maxWidth: 450.0,
+                      minWidth: 320,
+                      maxWidth: 450,
                     ),
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).csvbgclr,
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.all(10),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -205,7 +203,7 @@ class _TrayCsvWidgetState extends State<TrayCsvWidget> {
                               width: MediaQuery.sizeOf(context).width * 0.9,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context).primary,
-                                borderRadius: BorderRadius.circular(8.0),
+                                borderRadius: BorderRadius.circular(8),
                               ),
                               child: InkWell(
                                 splashColor: Colors.transparent,
@@ -217,7 +215,7 @@ class _TrayCsvWidgetState extends State<TrayCsvWidget> {
                                     multiFile: false,
                                   );
                                   if (selectedFiles != null) {
-                                    setState(
+                                    safeSetState(
                                         () => _model.isDataUploading = true);
                                     var selectedUploadedFiles =
                                         <FFUploadedFile>[];
@@ -243,7 +241,7 @@ class _TrayCsvWidgetState extends State<TrayCsvWidget> {
                                     }
                                     if (selectedUploadedFiles.length ==
                                         selectedFiles.length) {
-                                      setState(() {
+                                      safeSetState(() {
                                         _model.uploadedLocalFile =
                                             selectedUploadedFiles.first;
                                       });
@@ -252,7 +250,7 @@ class _TrayCsvWidgetState extends State<TrayCsvWidget> {
                                         'Success!',
                                       );
                                     } else {
-                                      setState(() {});
+                                      safeSetState(() {});
                                       showUploadMessage(
                                         context,
                                         'Failed to upload file',
@@ -262,7 +260,7 @@ class _TrayCsvWidgetState extends State<TrayCsvWidget> {
                                   }
 
                                   _model.csvimg = 1;
-                                  setState(() {});
+                                  safeSetState(() {});
                                 },
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -270,15 +268,15 @@ class _TrayCsvWidgetState extends State<TrayCsvWidget> {
                                   children: [
                                     Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          6.0, 0.0, 6.0, 0.0),
+                                          6, 0, 6, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
                                           Container(
-                                            width: 42.0,
-                                            height: 42.0,
+                                            width: 42,
+                                            height: 42,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -293,13 +291,13 @@ class _TrayCsvWidgetState extends State<TrayCsvWidget> {
                                                 Align(
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          0.0, 0.0),
+                                                          0, 0),
                                                   child: Icon(
                                                     Icons.cloud_upload_rounded,
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .subHeader,
-                                                    size: 24.0,
+                                                    size: 24,
                                                   ),
                                                 ),
                                               ],
@@ -316,15 +314,15 @@ class _TrayCsvWidgetState extends State<TrayCsvWidget> {
                                             fontFamily: 'Raleway',
                                             color: FlutterFlowTheme.of(context)
                                                 .accent,
-                                            fontSize: 16.0,
+                                            fontSize: 16,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
                                   ]
-                                      .divide(const SizedBox(height: 8.0))
-                                      .addToStart(const SizedBox(height: 8.0))
-                                      .addToEnd(const SizedBox(height: 8.0)),
+                                      .divide(const SizedBox(height: 8))
+                                      .addToStart(const SizedBox(height: 8))
+                                      .addToEnd(const SizedBox(height: 8)),
                                 ),
                               ),
                             ),
@@ -336,7 +334,7 @@ class _TrayCsvWidgetState extends State<TrayCsvWidget> {
                                   .override(
                                     fontFamily: 'Raleway',
                                     color: FlutterFlowTheme.of(context).error,
-                                    fontSize: 16.0,
+                                    fontSize: 16,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                     lineHeight: 1.5,
@@ -344,13 +342,13 @@ class _TrayCsvWidgetState extends State<TrayCsvWidget> {
                             ),
                             Container(
                               width: MediaQuery.sizeOf(context).width * 0.9,
-                              height: 40.0,
+                              height: 40,
                               constraints: const BoxConstraints(
-                                maxWidth: 400.0,
+                                maxWidth: 400,
                               ),
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context).liteText,
-                                borderRadius: BorderRadius.circular(5.0),
+                                borderRadius: BorderRadius.circular(5),
                               ),
                               child: FFButtonWidget(
                                 onPressed: () async {
@@ -399,34 +397,34 @@ class _TrayCsvWidgetState extends State<TrayCsvWidget> {
                                     ).then((value) => safeSetState(() {}));
                                   }
 
-                                  setState(() {});
+                                  safeSetState(() {});
                                 },
                                 text: 'Download',
                                 icon: const Icon(
                                   Icons.cloud_download_sharp,
-                                  size: 24.0,
+                                  size: 24,
                                 ),
                                 options: FFButtonOptions(
-                                  height: 40.0,
+                                  height: 40,
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      5.0, 0.0, 5.0, 0.0),
+                                      5, 0, 5, 0),
                                   iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
+                                      0, 0, 0, 0),
                                   color: const Color(0x27351C75),
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
                                         fontFamily: 'Raleway',
                                         color: Colors.white,
-                                        fontSize: 16.0,
+                                        fontSize: 16,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
-                                  elevation: 0.0,
+                                  elevation: 0,
                                   borderSide: const BorderSide(
                                     color: Color(0xFF8E7CC3),
                                   ),
-                                  borderRadius: BorderRadius.circular(5.0),
+                                  borderRadius: BorderRadius.circular(5),
                                 ),
                               ),
                             ),
@@ -436,18 +434,18 @@ class _TrayCsvWidgetState extends State<TrayCsvWidget> {
                                 Container(
                                   width: MediaQuery.sizeOf(context).width * 0.9,
                                   constraints: const BoxConstraints(
-                                    maxWidth: 400.0,
+                                    maxWidth: 400,
                                   ),
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context).primary,
-                                    borderRadius: BorderRadius.circular(5.0),
+                                    borderRadius: BorderRadius.circular(5),
                                     border: Border.all(
                                       color: FlutterFlowTheme.of(context)
                                           .subHeader,
                                     ),
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                    padding: const EdgeInsets.all(8),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -529,7 +527,7 @@ class _TrayCsvWidgetState extends State<TrayCsvWidget> {
                                                         safeSetState(() {}));
                                                   }
 
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 },
                                                 text:
                                                     'Submit Uploaded CSV file',
@@ -538,21 +536,19 @@ class _TrayCsvWidgetState extends State<TrayCsvWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .liteText,
-                                                  size: 24.0,
+                                                  size: 24,
                                                 ),
                                                 options: FFButtonOptions(
                                                   width:
                                                       MediaQuery.sizeOf(context)
                                                               .width *
                                                           0.8,
-                                                  height: 40.0,
+                                                  height: 40,
                                                   padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          5.0, 0.0, 5.0, 0.0),
+                                                      .fromSTEB(5, 0, 5, 0),
                                                   iconPadding:
                                                       const EdgeInsetsDirectional
-                                                          .fromSTEB(0.0, 0.0,
-                                                              0.0, 0.0),
+                                                          .fromSTEB(0, 0, 0, 0),
                                                   color: const Color(0x00351C75),
                                                   textStyle: FlutterFlowTheme
                                                           .of(context)
@@ -563,21 +559,20 @@ class _TrayCsvWidgetState extends State<TrayCsvWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .accent,
-                                                        fontSize: 16.0,
+                                                        fontSize: 16,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
-                                                  elevation: 0.0,
+                                                  elevation: 0,
                                                   borderSide: BorderSide(
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyText,
-                                                    width: 1.0,
+                                                    width: 1,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          5.0),
+                                                      BorderRadius.circular(5),
                                                 ),
                                               ),
                                               SingleChildScrollView(
@@ -589,12 +584,12 @@ class _TrayCsvWidgetState extends State<TrayCsvWidget> {
                                                   children: [
                                                     Flexible(
                                                       child: SizedBox(
-                                                        width: 300.0,
-                                                        height: 370.0,
+                                                        width: 300,
+                                                        height: 370,
                                                         child: custom_widgets
                                                             .Csvviewer(
-                                                          width: 300.0,
-                                                          height: 370.0,
+                                                          width: 300,
+                                                          height: 370,
                                                           csvfile: _model
                                                               .uploadedLocalFile,
                                                         ),
@@ -603,20 +598,20 @@ class _TrayCsvWidgetState extends State<TrayCsvWidget> {
                                                   ],
                                                 ),
                                               ),
-                                            ].divide(const SizedBox(height: 8.0)),
+                                            ].divide(const SizedBox(height: 8)),
                                           ),
                                         if (_model.csvimg == 0)
                                           Container(
-                                            width: 350.0,
-                                            height: 350.0,
+                                            width: 350,
+                                            height: 350,
                                             decoration: const BoxDecoration(),
                                             child: ClipRRect(
                                               borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                                  BorderRadius.circular(8),
                                               child: Image.asset(
                                                 'assets/images/Frame_1000003774.png',
-                                                width: 300.0,
-                                                height: 200.0,
+                                                width: 300,
+                                                height: 200,
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -628,8 +623,8 @@ class _TrayCsvWidgetState extends State<TrayCsvWidget> {
                               ],
                             ),
                           ]
-                              .divide(const SizedBox(height: 18.0))
-                              .addToEnd(const SizedBox(height: 50.0)),
+                              .divide(const SizedBox(height: 18))
+                              .addToEnd(const SizedBox(height: 50)),
                         ),
                       ),
                     ),

@@ -217,7 +217,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
       ),
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -239,13 +239,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: const AlignmentDirectional(0.0, -1.0),
+            alignment: const AlignmentDirectional(0, -1),
             child: Container(
-              width: MediaQuery.sizeOf(context).width * 1.0,
-              height: MediaQuery.sizeOf(context).height * 1.0,
+              width: MediaQuery.sizeOf(context).width,
+              height: MediaQuery.sizeOf(context).height * 1,
               constraints: const BoxConstraints(
-                minWidth: 310.0,
-                maxWidth: 450.0,
+                minWidth: 310,
+                maxWidth: 450,
               ),
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).primaryBackground,
@@ -256,18 +256,17 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
-                      height: 70.0,
+                      width: MediaQuery.sizeOf(context).width,
+                      height: 70,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         border: Border.all(
                           color: const Color(0xFFEEECF1),
-                          width: 1.0,
+                          width: 1,
                         ),
                       ),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            25.0, 0.0, 25.0, 0.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(25, 0, 25, 0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -300,7 +299,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                       FontAwesomeIcons.arrowLeft,
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,
-                                      size: 24.0,
+                                      size: 24,
                                     ),
                                   ),
                                 if (_model.logincondition == 1)
@@ -311,8 +310,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
                                       _model.logincondition = 0;
-                                      setState(() {});
-                                      setState(() {
+                                      safeSetState(() {});
+                                      safeSetState(() {
                                         _model.textFieldOtpTextController
                                             ?.clear();
                                       });
@@ -321,41 +320,40 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                       FontAwesomeIcons.arrowLeft,
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,
-                                      size: 24.0,
+                                      size: 24,
                                     ),
                                   ),
                               ],
                             ),
                             ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                               child: Image.asset(
                                 'assets/images/Group_42_(2).png',
-                                width: 140.0,
-                                height: 40.0,
+                                width: 140,
+                                height: 40,
                                 fit: BoxFit.contain,
                               ),
                             ),
                             Opacity(
-                              opacity: 0.0,
+                              opacity: 0,
                               child: FaIcon(
                                 FontAwesomeIcons.arrowLeft,
                                 color: FlutterFlowTheme.of(context).primaryText,
-                                size: 24.0,
+                                size: 24,
                               ),
                             ),
-                          ].divide(const SizedBox(width: 6.0)),
+                          ].divide(const SizedBox(width: 6)),
                         ),
                       ),
                     ),
                     Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
-                      height: 60.0,
+                      width: MediaQuery.sizeOf(context).width,
+                      height: 60,
                       decoration: const BoxDecoration(
                         color: Colors.white,
                       ),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            10.0, 0.0, 10.0, 0.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -372,16 +370,16 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                         fontFamily: 'Raleway',
                                         color: FlutterFlowTheme.of(context)
                                             .heading,
-                                        fontSize: 16.0,
+                                        fontSize: 16,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
-                                        lineHeight: 1.0,
+                                        lineHeight: 1,
                                       ),
                                 ),
                                 FaIcon(
                                   FontAwesomeIcons.store,
                                   color: FlutterFlowTheme.of(context).accent,
-                                  size: 18.0,
+                                  size: 18,
                                 ),
                                 Text(
                                   FFAppState().robotid,
@@ -391,29 +389,28 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                         fontFamily: 'Raleway',
                                         color: FlutterFlowTheme.of(context)
                                             .heading,
-                                        fontSize: 16.0,
+                                        fontSize: 16,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
-                                        lineHeight: 1.0,
+                                        lineHeight: 1,
                                       ),
                                 ),
-                              ].divide(const SizedBox(width: 5.0)),
+                              ].divide(const SizedBox(width: 5)),
                             ),
-                          ].divide(const SizedBox(height: 10.0)),
+                          ].divide(const SizedBox(height: 10)),
                         ).animateOnPageLoad(
                             animationsMap['columnOnPageLoadAnimation']!),
                       ),
                     ),
                     if (_model.logincondition == 0)
                       Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        width: MediaQuery.sizeOf(context).width,
                         height: MediaQuery.sizeOf(context).height * 0.67,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).primaryBackground,
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 10.0, 0.0, 15.0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 15),
                           child: SingleChildScrollView(
                             primary: false,
                             child: Column(
@@ -422,18 +419,18 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Container(
-                                  width: 170.0,
-                                  height: 170.0,
+                                  width: 170,
+                                  height: 170,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                   ),
                                   child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(8.0),
+                                    borderRadius: BorderRadius.circular(8),
                                     child: Image.asset(
                                       'assets/images/amico.png',
-                                      width: 300.0,
-                                      height: 200.0,
+                                      width: 300,
+                                      height: 200,
                                       fit: BoxFit.cover,
                                     ),
                                   ).animateOnPageLoad(animationsMap[
@@ -441,7 +438,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 10.0, 0.0, 0.0),
+                                      0, 10, 0, 0),
                                   child: Text(
                                     'Login ',
                                     textAlign: TextAlign.center,
@@ -451,50 +448,50 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                           fontFamily: 'Open Sans',
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
-                                          fontSize: 22.0,
+                                          fontSize: 22,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
-                                          lineHeight: 1.0,
+                                          lineHeight: 1,
                                         ),
                                   ).animateOnPageLoad(animationsMap[
                                       'textOnPageLoadAnimation1']!),
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 30.0, 0.0, 0.0),
+                                      0, 30, 0, 0),
                                   child: Text(
                                     'Enter Mobile Number',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Open Sans',
-                                          fontSize: 16.0,
+                                          fontSize: 16,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
-                                          lineHeight: 1.0,
+                                          lineHeight: 1,
                                         ),
                                   ).animateOnPageLoad(animationsMap[
                                       'textOnPageLoadAnimation2']!),
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 20.0, 0.0, 10.0),
+                                      0, 20, 0, 10),
                                   child: Container(
-                                    width: 300.0,
-                                    height: 45.0,
+                                    width: 300,
+                                    height: 45,
                                     decoration: BoxDecoration(
                                       color:
                                           FlutterFlowTheme.of(context).tertiary,
-                                      borderRadius: BorderRadius.circular(5.0),
+                                      borderRadius: BorderRadius.circular(5),
                                       border: Border.all(
                                         color: FlutterFlowTheme.of(context)
                                             .liteText,
-                                        width: 1.0,
+                                        width: 1,
                                       ),
                                     ),
                                     child: Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 10.0, 0.0),
+                                          10, 0, 10, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -502,19 +499,19 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                         children: [
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(-1.0, 0.0),
+                                                const AlignmentDirectional(-1, 0),
                                             child: Icon(
                                               Icons.dialpad_rounded,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .heading,
-                                              size: 24.0,
+                                              size: 24,
                                             ),
                                           ),
                                           Expanded(
                                             child: Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(5.0, 0.0, 5.0, 0.0),
+                                                  .fromSTEB(5, 0, 5, 0),
                                               child: TextFormField(
                                                 controller:
                                                     _model.textController1,
@@ -533,7 +530,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                     );
 
                                                     _model.logincondition = 1;
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   } else {
                                                     await showModalBottomSheet(
                                                       isScrollControlled: true,
@@ -554,7 +551,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                         safeSetState(() {}));
                                                   }
 
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 },
                                                 autofocus: true,
                                                 textCapitalization:
@@ -580,15 +577,15 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                       InputBorder.none,
                                                   contentPadding:
                                                       const EdgeInsetsDirectional
-                                                          .fromSTEB(10.0, 0.0,
-                                                              0.0, 5.0),
+                                                          .fromSTEB(
+                                                              10, 0, 0, 5),
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Raleway',
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 1.5,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -625,21 +622,21 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 20.0, 10.0, 0.0),
+                                      10, 20, 10, 0),
                                   child: Container(
-                                    width: 300.0,
-                                    height: 45.0,
+                                    width: 300,
+                                    height: 45,
                                     decoration: BoxDecoration(
                                       gradient: LinearGradient(
                                         colors: [
                                           FlutterFlowTheme.of(context).heading,
                                           FlutterFlowTheme.of(context).accent
                                         ],
-                                        stops: const [0.0, 1.0],
-                                        begin: const AlignmentDirectional(1.0, 0.0),
-                                        end: const AlignmentDirectional(-1.0, 0),
+                                        stops: const [0, 1],
+                                        begin: const AlignmentDirectional(1, 0),
+                                        end: const AlignmentDirectional(-1, 0),
                                       ),
-                                      borderRadius: BorderRadius.circular(5.0),
+                                      borderRadius: BorderRadius.circular(5),
                                     ),
                                     child: FFButtonWidget(
                                       onPressed: () async {
@@ -653,7 +650,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                           );
 
                                           _model.logincondition = 1;
-                                          setState(() {});
+                                          safeSetState(() {});
                                         } else {
                                           await showModalBottomSheet(
                                             isScrollControlled: true,
@@ -672,33 +669,32 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                               (value) => safeSetState(() {}));
                                         }
 
-                                        setState(() {});
+                                        safeSetState(() {});
                                       },
                                       text: 'Send OTP',
                                       options: FFButtonOptions(
-                                        width: 300.0,
-                                        height: 45.0,
+                                        width: 300,
+                                        height: 45,
                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 0.0, 24.0, 0.0),
+                                            24, 0, 24, 0),
                                         iconPadding:
                                             const EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
+                                                0, 0, 0, 0),
                                         color: const Color(0x27351C75),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
                                               fontFamily: 'Raleway',
                                               color: Colors.white,
-                                              fontSize: 16.0,
+                                              fontSize: 16,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
-                                        elevation: 0.0,
+                                        elevation: 0,
                                         borderSide: const BorderSide(
                                           color: Color(0xFF8E7CC3),
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
+                                        borderRadius: BorderRadius.circular(5),
                                       ),
                                     ),
                                   ).animateOnPageLoad(animationsMap[
@@ -711,16 +707,16 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                       ),
                     if (_model.logincondition == 1)
                       Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        width: MediaQuery.sizeOf(context).width,
                         height: MediaQuery.sizeOf(context).height * 0.67,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).primaryBackground,
                         ),
                         child: Align(
-                          alignment: const AlignmentDirectional(0.0, -1.0),
+                          alignment: const AlignmentDirectional(0, -1),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 10.0, 0.0, 15.0),
+                            padding:
+                                const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 15),
                             child: SingleChildScrollView(
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
@@ -728,11 +724,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Container(
-                                    width: 170.0,
-                                    height: 170.0,
+                                    width: 170,
+                                    height: 170,
                                     decoration: const BoxDecoration(),
                                     child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
+                                      borderRadius: BorderRadius.circular(8),
                                       child: Image.asset(
                                         'assets/images/amico.png',
                                         fit: BoxFit.cover,
@@ -742,30 +738,30 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                   ),
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 10.0, 0.0, 0.0),
+                                        0, 10, 0, 0),
                                     child: Text(
                                       'Verify OTP',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Open Sans',
-                                            fontSize: 22.0,
+                                            fontSize: 22,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
-                                            lineHeight: 1.0,
+                                            lineHeight: 1,
                                           ),
                                     ),
                                   ),
                                   Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: const AlignmentDirectional(0, 0),
                                     child: Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 10.0, 0.0, 0.0),
+                                          0, 10, 0, 0),
                                       child: Container(
-                                        width: 300.0,
-                                        height: 30.0,
+                                        width: 300,
+                                        height: 30,
                                         constraints: const BoxConstraints(
-                                          maxWidth: 330.0,
+                                          maxWidth: 330,
                                         ),
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
@@ -785,7 +781,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Open Sans',
-                                                        fontSize: 15.0,
+                                                        fontSize: 15,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
@@ -803,45 +799,44 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyText,
-                                                    fontSize: 15.0,
-                                                    letterSpacing: 1.0,
+                                                    fontSize: 15,
+                                                    letterSpacing: 1,
                                                     fontWeight: FontWeight.w600,
                                                   ),
                                             ).animateOnPageLoad(animationsMap[
                                                 'textOnPageLoadAnimation4']!),
-                                          ].divide(const SizedBox(width: 5.0)),
+                                          ].divide(const SizedBox(width: 5)),
                                         ),
                                       ),
                                     ),
                                   ),
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 15.0, 0.0, 0.0),
+                                        0, 15, 0, 0),
                                     child: Text(
                                       'Enter the OTP, Sent to Mobile Number',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Open Sans',
-                                            fontSize: 16.0,
+                                            fontSize: 16,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
-                                            lineHeight: 1.0,
+                                            lineHeight: 1,
                                           ),
                                     ).animateOnPageLoad(animationsMap[
                                         'textOnPageLoadAnimation5']!),
                                   ),
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 20.0, 0.0, 10.0),
+                                        0, 20, 0, 10),
                                     child: Container(
-                                      width: 300.0,
-                                      height: 45.0,
+                                      width: 300,
+                                      height: 45,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .tertiary,
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
+                                        borderRadius: BorderRadius.circular(5),
                                         border: Border.all(
                                           color: FlutterFlowTheme.of(context)
                                               .liteText,
@@ -850,7 +845,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                       ),
                                       child: Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 0.0, 5.0, 0.0),
+                                            8, 0, 5, 0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -859,13 +854,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .heading,
-                                              size: 24.0,
+                                              size: 24,
                                             ),
                                             Expanded(
                                               child: Padding(
                                                 padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        5.0, 1.0, 5.0, 1.0),
+                                                    .fromSTEB(5, 1, 5, 1),
                                                 child: TextFormField(
                                                   controller: _model
                                                       .textFieldOtpTextController,
@@ -1020,7 +1014,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                           safeSetState(() {}));
                                                     }
 
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   },
                                                   autofocus: true,
                                                   textCapitalization:
@@ -1036,7 +1030,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                         .override(
                                                           fontFamily:
                                                               'Open Sans',
-                                                          fontSize: 15.0,
+                                                          fontSize: 15,
                                                           letterSpacing: 0.0,
                                                         ),
                                                     enabledBorder:
@@ -1049,15 +1043,15 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                         InputBorder.none,
                                                     contentPadding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 5.0),
+                                                            .fromSTEB(
+                                                                10, 0, 0, 5),
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Raleway',
-                                                        fontSize: 15.0,
+                                                        fontSize: 15,
                                                         letterSpacing: 1.5,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -1095,10 +1089,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                   ),
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 15.0, 10.0, 0.0),
+                                        10, 15, 10, 0),
                                     child: Container(
-                                      width: 300.0,
-                                      height: 45.0,
+                                      width: 300,
+                                      height: 45,
                                       decoration: BoxDecoration(
                                         gradient: LinearGradient(
                                           colors: [
@@ -1106,12 +1100,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                 .heading,
                                             FlutterFlowTheme.of(context).accent
                                           ],
-                                          stops: const [0.0, 1.0],
-                                          begin: const AlignmentDirectional(1.0, 0.0),
-                                          end: const AlignmentDirectional(-1.0, 0),
+                                          stops: const [0, 1],
+                                          begin: const AlignmentDirectional(1, 0),
+                                          end: const AlignmentDirectional(-1, 0),
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
+                                        borderRadius: BorderRadius.circular(5),
                                       ),
                                       child: FFButtonWidget(
                                         onPressed: () async {
@@ -1241,18 +1234,18 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                 (value) => safeSetState(() {}));
                                           }
 
-                                          setState(() {});
+                                          safeSetState(() {});
                                         },
                                         text: 'Verify OTP',
                                         options: FFButtonOptions(
-                                          width: 300.0,
-                                          height: 45.0,
+                                          width: 300,
+                                          height: 45,
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
-                                                  5.0, 0.0, 5.0, 0.0),
+                                                  5, 0, 5, 0),
                                           iconPadding:
                                               const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 0.0),
+                                                  0, 0, 0, 0),
                                           color: const Color(0x008E7CC3),
                                           textStyle:
                                               FlutterFlowTheme.of(context)
@@ -1260,13 +1253,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                   .override(
                                                     fontFamily: 'Raleway',
                                                     color: Colors.white,
-                                                    fontSize: 16.0,
+                                                    fontSize: 16,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
-                                          elevation: 0.0,
+                                          elevation: 0,
                                           borderRadius:
-                                              BorderRadius.circular(5.0),
+                                              BorderRadius.circular(5),
                                         ),
                                       ),
                                     ).animateOnPageLoad(animationsMap[
@@ -1274,7 +1267,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                   ),
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 15.0, 0.0, 10.0),
+                                        0, 15, 0, 10),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -1282,7 +1275,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                       children: [
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.0, 0.0),
+                                              const AlignmentDirectional(-1, 0),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
                                             focusColor: Colors.transparent,
@@ -1335,7 +1328,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                     safeSetState(() {}));
                                               }
 
-                                              setState(() {});
+                                              safeSetState(() {});
                                             },
                                             child: Text(
                                               'Resend OTP',
@@ -1347,7 +1340,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .subHeader,
-                                                    fontSize: 14.0,
+                                                    fontSize: 14,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                     decoration: TextDecoration
@@ -1380,18 +1373,20 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                 shouldUpdate) {
                                               _model.timerMilliseconds = value;
                                               _model.timerValue = displayTime;
-                                              if (shouldUpdate) setState(() {});
+                                              if (shouldUpdate) {
+                                                safeSetState(() {});
+                                              }
                                             },
                                             textAlign: TextAlign.start,
                                             style: FlutterFlowTheme.of(context)
                                                 .headlineSmall
                                                 .override(
                                                   fontFamily: 'Open Sans',
-                                                  fontSize: 14.0,
+                                                  fontSize: 14,
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
-                                      ].divide(const SizedBox(width: 10.0)),
+                                      ].divide(const SizedBox(width: 10)),
                                     ),
                                   ),
                                 ],
@@ -1401,10 +1396,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                         ),
                       ),
                     Align(
-                      alignment: const AlignmentDirectional(0.0, 1.0),
+                      alignment: const AlignmentDirectional(0, 1),
                       child: Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
-                        height: 60.0,
+                        width: MediaQuery.sizeOf(context).width,
+                        height: 60,
                         decoration: const BoxDecoration(
                           color: Colors.white,
                         ),
@@ -1418,13 +1413,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Open Sans',
-                                    fontSize: 15.0,
+                                    fontSize: 15,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(-1.0, 0.0),
+                              alignment: const AlignmentDirectional(-1, 0),
                               child: Text(
                                 'Support',
                                 style: FlutterFlowTheme.of(context)
@@ -1433,14 +1428,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                       fontFamily: 'Open Sans',
                                       color:
                                           FlutterFlowTheme.of(context).bodyText,
-                                      fontSize: 15.0,
+                                      fontSize: 15,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
                                       decoration: TextDecoration.underline,
                                     ),
                               ),
                             ),
-                          ].divide(const SizedBox(width: 5.0)),
+                          ].divide(const SizedBox(width: 5)),
                         ).animateOnPageLoad(
                             animationsMap['rowOnPageLoadAnimation']!),
                       ),

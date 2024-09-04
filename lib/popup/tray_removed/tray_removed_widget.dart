@@ -31,7 +31,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
     super.initState();
     _model = createModel(context, () => TrayRemovedModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -46,7 +46,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: const AlignmentDirectional(0.0, -0.6),
+      alignment: const AlignmentDirectional(0, -0.6),
       child: FutureBuilder<ApiCallResponse>(
         future: AdminApiGroup.trayInfoCall.call(
           trayId: FFAppState().trayid,
@@ -57,11 +57,11 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
           if (!snapshot.hasData) {
             return Center(
               child: SizedBox(
-                width: 40.0,
-                height: 40.0,
+                width: 40,
+                height: 40,
                 child: SpinKitThreeBounce(
                   color: FlutterFlowTheme.of(context).subHeader,
-                  size: 40.0,
+                  size: 40,
                 ),
               ),
             );
@@ -69,34 +69,34 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
           final containerTrayInfoResponse = snapshot.data!;
 
           return Container(
-            width: 280.0,
+            width: 280,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).liteBg,
-              borderRadius: BorderRadius.circular(10.0),
+              borderRadius: BorderRadius.circular(10),
             ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
-                  width: 290.0,
-                  height: 125.0,
+                  width: 290,
+                  height: 125,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).primaryBackground,
                     boxShadow: const [
                       BoxShadow(
-                        blurRadius: 25.0,
+                        blurRadius: 25,
                         color: Color(0x338E7CC3),
                         offset: Offset(
-                          0.0,
-                          5.0,
+                          0,
+                          5,
                         ),
                       )
                     ],
                     borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(25.0),
-                      bottomRight: Radius.circular(25.0),
-                      topLeft: Radius.circular(10.0),
-                      topRight: Radius.circular(10.0),
+                      bottomLeft: Radius.circular(25),
+                      bottomRight: Radius.circular(25),
+                      topLeft: Radius.circular(10),
+                      topRight: Radius.circular(10),
                     ),
                   ),
                   child: Column(
@@ -108,12 +108,12 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Container(
-                            width: 45.0,
-                            height: 10.0,
+                            width: 45,
+                            height: 10,
                             decoration: const BoxDecoration(),
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0, 0),
                             child: Text(
                               'Tray Info',
                               style: FlutterFlowTheme.of(context)
@@ -121,7 +121,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                                   .override(
                                     fontFamily: 'Raleway',
                                     color: FlutterFlowTheme.of(context).heading,
-                                    fontSize: 16.0,
+                                    fontSize: 16,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
@@ -130,13 +130,13 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                           Container(
                             decoration: BoxDecoration(
                               color: const Color(0x254D8218),
-                              borderRadius: BorderRadius.circular(5.0),
+                              borderRadius: BorderRadius.circular(5),
                             ),
                             child: Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0, 0),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 4.0, 8.0, 4.0),
+                                padding:
+                                    const EdgeInsetsDirectional.fromSTEB(8, 4, 8, 4),
                                 child: Text(
                                   valueOrDefault<String>(
                                     getJsonField(
@@ -151,7 +151,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                                         fontFamily: 'Raleway',
                                         color: FlutterFlowTheme.of(context)
                                             .success,
-                                        fontSize: 15.0,
+                                        fontSize: 15,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -162,11 +162,10 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                         ],
                       ),
                       Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                         child: Container(
-                          width: 290.0,
-                          height: 1.0,
+                          width: 290,
+                          height: 1,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
@@ -182,7 +181,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                             ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: const AlignmentDirectional(0, 0),
                         child: Text(
                           valueOrDefault<String>(
                             FFAppState().slotid,
@@ -191,18 +190,18 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Raleway',
-                                    fontSize: 30.0,
+                                    fontSize: 30,
                                     letterSpacing: 0.5,
                                     fontWeight: FontWeight.bold,
-                                    lineHeight: 1.0,
+                                    lineHeight: 1,
                                   ),
                         ),
                       ),
-                    ].divide(const SizedBox(height: 8.0)),
+                    ].divide(const SizedBox(height: 8)),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 25.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0, 25, 0, 0),
                   child: RichText(
                     textScaler: MediaQuery.of(context).textScaler,
                     text: TextSpan(
@@ -214,7 +213,7 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                               .override(
                                 fontFamily: 'Open Sans',
                                 color: FlutterFlowTheme.of(context).primaryText,
-                                fontSize: 16.0,
+                                fontSize: 16,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -224,30 +223,30 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                           style: TextStyle(
                             color: FlutterFlowTheme.of(context).heading,
                             fontWeight: FontWeight.w600,
-                            fontSize: 16.0,
+                            fontSize: 16,
                           ),
                         )
                       ],
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Raleway',
-                            fontSize: 16.0,
+                            fontSize: 16,
                             letterSpacing: 0.0,
                           ),
                     ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
+                        borderRadius: BorderRadius.circular(8),
                         child: Image.asset(
                           'assets/images/Vector.png',
-                          width: 18.0,
-                          height: 18.0,
+                          width: 18,
+                          height: 18,
                           fit: BoxFit.contain,
                         ),
                       ),
@@ -255,15 +254,15 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                         'Tray ID',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Raleway',
-                              fontSize: 13.0,
+                              fontSize: 13,
                               letterSpacing: 0.0,
                             ),
                       ),
-                    ].divide(const SizedBox(width: 8.0)),
+                    ].divide(const SizedBox(width: 8)),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
                   child: Text(
                     valueOrDefault<String>(
                       FFAppState().trayid,
@@ -271,15 +270,14 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Raleway',
-                          fontSize: 18.0,
+                          fontSize: 18,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.bold,
                         ),
                   ),
                 ),
                 Padding(
-                  padding:
-                      const EdgeInsetsDirectional.fromSTEB(15.0, 25.0, 15.0, 15.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(15, 25, 15, 15),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -292,43 +290,42 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
                         },
                         text: 'Cancel',
                         options: FFButtonOptions(
-                          width: 100.0,
-                          height: 40.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              5.0, 0.0, 5.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
+                          width: 100,
+                          height: 40,
+                          padding: const EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
+                          iconPadding:
+                              const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                           color: const Color(0x00FFFFFF),
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Raleway',
                                     color: FlutterFlowTheme.of(context).heading,
-                                    fontSize: 16.0,
+                                    fontSize: 16,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
-                          elevation: 0.0,
+                          elevation: 0,
                           borderSide: BorderSide(
                             color: FlutterFlowTheme.of(context).heading,
-                            width: 1.0,
+                            width: 1,
                           ),
-                          borderRadius: BorderRadius.circular(5.0),
+                          borderRadius: BorderRadius.circular(5),
                         ),
                       ),
                       Container(
-                        width: 100.0,
-                        height: 40.0,
+                        width: 100,
+                        height: 40,
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [
                               FlutterFlowTheme.of(context).heading,
                               FlutterFlowTheme.of(context).accent
                             ],
-                            stops: const [0.0, 1.0],
-                            begin: const AlignmentDirectional(1.0, 0.0),
-                            end: const AlignmentDirectional(-1.0, 0),
+                            stops: const [0, 1],
+                            begin: const AlignmentDirectional(1, 0),
+                            end: const AlignmentDirectional(-1, 0),
                           ),
-                          borderRadius: BorderRadius.circular(5.0),
+                          borderRadius: BorderRadius.circular(5),
                         ),
                         child: FFButtonWidget(
                           onPressed: () async {
@@ -372,30 +369,29 @@ class _TrayRemovedWidgetState extends State<TrayRemovedWidget> {
 
                             Navigator.pop(context);
 
-                            setState(() {});
+                            safeSetState(() {});
                           },
                           text: 'Submit',
                           options: FFButtonOptions(
-                            height: 40.0,
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                5.0, 0.0, 5.0, 0.0),
-                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
+                            height: 40,
+                            padding: const EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
+                            iconPadding:
+                                const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                             color: const Color(0x27351C75),
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
                                   fontFamily: 'Raleway',
                                   color: Colors.white,
-                                  fontSize: 16.0,
+                                  fontSize: 16,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
                                 ),
-                            elevation: 0.0,
+                            elevation: 0,
                             borderSide: const BorderSide(
                               color: Color(0xFF8E7CC3),
                             ),
-                            borderRadius: BorderRadius.circular(5.0),
+                            borderRadius: BorderRadius.circular(5),
                           ),
                         ),
                       ),

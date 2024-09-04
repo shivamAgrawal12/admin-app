@@ -10,7 +10,6 @@ class TrayRemoveModel extends FlutterFlowModel<TrayRemoveWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - routhpage] action in tray_remove widget.
   String? routh;
   // State field(s) for Switch widget.

@@ -30,7 +30,7 @@ class _MenuWidgetState extends State<MenuWidget> {
     super.initState();
     _model = createModel(context, () => MenuModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -43,7 +43,7 @@ class _MenuWidgetState extends State<MenuWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0.0, -0.6),
+      alignment: const AlignmentDirectional(0, -0.6),
       child: InkWell(
         splashColor: Colors.transparent,
         focusColor: Colors.transparent,
@@ -53,31 +53,30 @@ class _MenuWidgetState extends State<MenuWidget> {
           Navigator.pop(context);
         },
         child: Container(
-          width: MediaQuery.sizeOf(context).width * 1.0,
-          height: MediaQuery.sizeOf(context).height * 1.0,
+          width: MediaQuery.sizeOf(context).width,
+          height: MediaQuery.sizeOf(context).height * 1,
           constraints: const BoxConstraints(
-            minWidth: 320.0,
-            maxWidth: 450.0,
+            minWidth: 320,
+            maxWidth: 450,
           ),
           decoration: const BoxDecoration(),
           child: Align(
-            alignment: const AlignmentDirectional(1.0, -1.0),
+            alignment: const AlignmentDirectional(1, -1),
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 15.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0, 40, 15, 0),
               child: Container(
-                width: 200.0,
+                width: 200,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).primaryBackground,
                   borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(10.0),
-                    bottomRight: Radius.circular(10.0),
-                    topLeft: Radius.circular(10.0),
-                    topRight: Radius.circular(0.0),
+                    bottomLeft: Radius.circular(10),
+                    bottomRight: Radius.circular(10),
+                    topLeft: Radius.circular(10),
+                    topRight: Radius.circular(0),
                   ),
                 ),
                 child: Padding(
-                  padding:
-                      const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 15.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(10, 10, 10, 15),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -110,7 +109,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                 Icon(
                                   Icons.home_outlined,
                                   color: FlutterFlowTheme.of(context).heading,
-                                  size: 22.0,
+                                  size: 22,
                                 ),
                                 Text(
                                   'Home',
@@ -118,12 +117,12 @@ class _MenuWidgetState extends State<MenuWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Raleway',
-                                        fontSize: 14.0,
+                                        fontSize: 14,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
-                              ].divide(const SizedBox(width: 6.0)),
+                              ].divide(const SizedBox(width: 6)),
                             ),
                           ),
                           InkWell(
@@ -135,19 +134,19 @@ class _MenuWidgetState extends State<MenuWidget> {
                               Navigator.pop(context);
                             },
                             child: Container(
-                              width: 25.0,
-                              height: 25.0,
+                              width: 25,
+                              height: 25,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context).heading,
                                 shape: BoxShape.circle,
                               ),
                               child: Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0, 0),
                                 child: Icon(
                                   Icons.close_sharp,
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
-                                  size: 20.0,
+                                  size: 20,
                                 ),
                               ),
                             ),
@@ -182,7 +181,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                 Icon(
                                   Icons.contact_support_outlined,
                                   color: FlutterFlowTheme.of(context).heading,
-                                  size: 22.0,
+                                  size: 22,
                                 ),
                                 Text(
                                   'Support',
@@ -190,12 +189,12 @@ class _MenuWidgetState extends State<MenuWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Raleway',
-                                        fontSize: 14.0,
+                                        fontSize: 14,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
-                              ].divide(const SizedBox(width: 6.0)),
+                              ].divide(const SizedBox(width: 6)),
                             ),
                           ],
                         ),
@@ -230,7 +229,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                 FaIcon(
                                   FontAwesomeIcons.robot,
                                   color: FlutterFlowTheme.of(context).heading,
-                                  size: 22.0,
+                                  size: 22,
                                 ),
                                 Text(
                                   'Shuttle Update',
@@ -238,12 +237,12 @@ class _MenuWidgetState extends State<MenuWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Raleway',
-                                        fontSize: 14.0,
+                                        fontSize: 14,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
-                              ].divide(const SizedBox(width: 6.0)),
+                              ].divide(const SizedBox(width: 6)),
                             ),
                           ],
                         ),
@@ -276,7 +275,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                 Icon(
                                   Icons.margin,
                                   color: FlutterFlowTheme.of(context).heading,
-                                  size: 22.0,
+                                  size: 22,
                                 ),
                                 Text(
                                   'Matrix CSV',
@@ -284,12 +283,12 @@ class _MenuWidgetState extends State<MenuWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Raleway',
-                                        fontSize: 14.0,
+                                        fontSize: 14,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
-                              ].divide(const SizedBox(width: 6.0)),
+                              ].divide(const SizedBox(width: 6)),
                             ),
                           ],
                         ),
@@ -324,7 +323,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                 Icon(
                                   Icons.file_open_rounded,
                                   color: FlutterFlowTheme.of(context).heading,
-                                  size: 22.0,
+                                  size: 22,
                                 ),
                                 Text(
                                   'Model CSV',
@@ -332,12 +331,12 @@ class _MenuWidgetState extends State<MenuWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Raleway',
-                                        fontSize: 14.0,
+                                        fontSize: 14,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
-                              ].divide(const SizedBox(width: 6.0)),
+                              ].divide(const SizedBox(width: 6)),
                             ),
                           ],
                         ),
@@ -372,7 +371,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                 Icon(
                                   Icons.file_present,
                                   color: FlutterFlowTheme.of(context).heading,
-                                  size: 22.0,
+                                  size: 22,
                                 ),
                                 Text(
                                   'Location CSV',
@@ -380,12 +379,12 @@ class _MenuWidgetState extends State<MenuWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Raleway',
-                                        fontSize: 14.0,
+                                        fontSize: 14,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
-                              ].divide(const SizedBox(width: 6.0)),
+                              ].divide(const SizedBox(width: 6)),
                             ),
                           ],
                         ),
@@ -418,7 +417,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                 Icon(
                                   Icons.save_as_outlined,
                                   color: FlutterFlowTheme.of(context).heading,
-                                  size: 22.0,
+                                  size: 22,
                                 ),
                                 Text(
                                   'Tray CSV',
@@ -426,12 +425,12 @@ class _MenuWidgetState extends State<MenuWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Raleway',
-                                        fontSize: 14.0,
+                                        fontSize: 14,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
-                              ].divide(const SizedBox(width: 6.0)),
+                              ].divide(const SizedBox(width: 6)),
                             ),
                           ],
                         ),
@@ -466,7 +465,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                                 Icon(
                                   Icons.login_outlined,
                                   color: FlutterFlowTheme.of(context).heading,
-                                  size: 22.0,
+                                  size: 22,
                                 ),
                                 Text(
                                   'Logout',
@@ -474,12 +473,12 @@ class _MenuWidgetState extends State<MenuWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Raleway',
-                                        fontSize: 14.0,
+                                        fontSize: 14,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
-                              ].divide(const SizedBox(width: 6.0)),
+                              ].divide(const SizedBox(width: 6)),
                             ),
                           ],
                         ),
@@ -496,30 +495,30 @@ class _MenuWidgetState extends State<MenuWidget> {
                             icon: Icon(
                               Icons.play_arrow,
                               color: FlutterFlowTheme.of(context).primary,
-                              size: 15.0,
+                              size: 15,
                             ),
                             options: FFButtonOptions(
-                              width: 75.0,
-                              height: 30.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
+                              width: 75,
+                              height: 30,
+                              padding:
+                                  const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              iconPadding:
+                                  const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                               color: FlutterFlowTheme.of(context).liteText,
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
                                     fontFamily: 'Open Sans',
                                     color: FlutterFlowTheme.of(context).primary,
-                                    fontSize: 12.0,
+                                    fontSize: 12,
                                     letterSpacing: 0.0,
                                   ),
-                              elevation: 0.0,
+                              elevation: 0,
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).liteText,
-                                width: 0.0,
+                                width: 0,
                               ),
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                           ),
                           FFButtonWidget(
@@ -529,35 +528,35 @@ class _MenuWidgetState extends State<MenuWidget> {
                             text: 'Stop',
                             icon: const Icon(
                               Icons.pause,
-                              size: 15.0,
+                              size: 15,
                             ),
                             options: FFButtonOptions(
-                              width: 75.0,
-                              height: 30.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
+                              width: 75,
+                              height: 30,
+                              padding:
+                                  const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              iconPadding:
+                                  const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
                                     fontFamily: 'Open Sans',
                                     color: FlutterFlowTheme.of(context).heading,
-                                    fontSize: 12.0,
+                                    fontSize: 12,
                                     letterSpacing: 0.0,
                                   ),
-                              elevation: 0.0,
+                              elevation: 0,
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).subHeader,
-                                width: 1.0,
+                                width: 1,
                               ),
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                           ),
-                        ].divide(const SizedBox(width: 6.0)),
+                        ].divide(const SizedBox(width: 6)),
                       ),
-                    ].divide(const SizedBox(height: 25.0)),
+                    ].divide(const SizedBox(height: 25)),
                   ),
                 ),
               ),

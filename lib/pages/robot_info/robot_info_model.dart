@@ -29,10 +29,6 @@ class RobotInfoModel extends FlutterFlowModel<RobotInfoWidget> {
   void updateRobotactivityAtIndex(int index, Function(String) updateFn) =>
       robotactivity[index] = updateFn(robotactivity[index]);
 
-  ///  State fields for stateful widgets in this page.
-
-  final unfocusNode = FocusNode();
-
   @override
   void initState(BuildContext context) {}
 

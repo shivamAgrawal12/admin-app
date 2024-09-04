@@ -66,7 +66,7 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
-  void setThemeMode(ThemeMode mode) => setState(() {
+  void setThemeMode(ThemeMode mode) => safeSetState(() {
         _themeMode = mode;
       });
 

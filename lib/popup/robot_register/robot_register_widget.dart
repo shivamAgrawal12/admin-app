@@ -34,7 +34,7 @@ class _RobotRegisterWidgetState extends State<RobotRegisterWidget> {
       _model.timerController.onStartTimer();
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -47,15 +47,15 @@ class _RobotRegisterWidgetState extends State<RobotRegisterWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0.0, -0.6),
+      alignment: const AlignmentDirectional(0, -0.6),
       child: Container(
-        width: 260.0,
+        width: 260,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).liteBg,
-          borderRadius: BorderRadius.circular(10.0),
+          borderRadius: BorderRadius.circular(10),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -69,7 +69,7 @@ class _RobotRegisterWidgetState extends State<RobotRegisterWidget> {
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Raleway',
                           color: FlutterFlowTheme.of(context).success,
-                          fontSize: 16.0,
+                          fontSize: 16,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.bold,
                           lineHeight: 1.5,
@@ -78,11 +78,11 @@ class _RobotRegisterWidgetState extends State<RobotRegisterWidget> {
                 ],
               ),
               ClipRRect(
-                borderRadius: BorderRadius.circular(0.0),
+                borderRadius: BorderRadius.circular(0),
                 child: Image.asset(
                   'assets/images/dbdca15d8fb3e9d11a8f3e7ccc92acc6.gif',
-                  width: 160.0,
-                  height: 150.0,
+                  width: 160,
+                  height: 150,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -98,7 +98,7 @@ class _RobotRegisterWidgetState extends State<RobotRegisterWidget> {
                 onChanged: (value, displayTime, shouldUpdate) {
                   _model.timerMilliseconds = value;
                   _model.timerValue = displayTime;
-                  if (shouldUpdate) setState(() {});
+                  if (shouldUpdate) safeSetState(() {});
                 },
                 onEnded: () async {
                   _model.timerController.onStopTimer();
@@ -135,7 +135,7 @@ class _RobotRegisterWidgetState extends State<RobotRegisterWidget> {
                       fontWeight: FontWeight.w100,
                     ),
               ),
-            ].divide(const SizedBox(height: 20.0)),
+            ].divide(const SizedBox(height: 20)),
           ),
         ),
       ),

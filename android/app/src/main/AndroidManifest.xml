@@ -4,8 +4,6 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <uses-permission android:name="usespermissionandroidnameandroid.permission.VIBRATE"/>
-    <uses-permission android:name="usespermissionandroidnameandroid.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="usespermissionandroidnameandroid.permission.READ_EXTERNAL_STORAGE"/>
     <application
         android:label="admin-app-v1"
         tools:replace="android:label"

@@ -12,7 +12,6 @@ class ListOfTrayModel extends FlutterFlowModel<ListOfTrayWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (list of tray)] action in list_of_tray widget.
   ApiCallResponse? apiResultvaq;
   // Stores action output result for [Backend Call - API (list of tray)] action in list_of_tray widget.

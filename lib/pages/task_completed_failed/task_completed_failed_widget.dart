@@ -39,7 +39,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
       vsync: this,
       length: 3,
       initialIndex: 0,
-    )..addListener(() => setState(() {}));
+    )..addListener(() => safeSetState(() {}));
     animationsMap.addAll({
       'rowOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -127,7 +127,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
       ),
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -149,13 +149,13 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: const AlignmentDirectional(0.0, -1.0),
+            alignment: const AlignmentDirectional(0, -1),
             child: Container(
-              width: MediaQuery.sizeOf(context).width * 1.0,
-              height: MediaQuery.sizeOf(context).height * 1.0,
+              width: MediaQuery.sizeOf(context).width,
+              height: MediaQuery.sizeOf(context).height * 1,
               constraints: const BoxConstraints(
-                minWidth: 320.0,
-                maxWidth: 450.0,
+                minWidth: 320,
+                maxWidth: 450,
               ),
               decoration: const BoxDecoration(),
               child: Column(
@@ -163,18 +163,17 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: 70.0,
+                    width: MediaQuery.sizeOf(context).width,
+                    height: 70,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
                         color: const Color(0xFFEEECF1),
-                        width: 1.0,
+                        width: 1,
                       ),
                     ),
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(25, 0, 25, 0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -199,15 +198,15 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                             child: FaIcon(
                               FontAwesomeIcons.arrowLeft,
                               color: FlutterFlowTheme.of(context).primaryText,
-                              size: 24.0,
+                              size: 24,
                             ),
                           ),
                           ClipRRect(
-                            borderRadius: BorderRadius.circular(8.0),
+                            borderRadius: BorderRadius.circular(8),
                             child: Image.asset(
                               'assets/images/Group_42_(2).png',
-                              width: 130.0,
-                              height: 40.0,
+                              width: 130,
+                              height: 40,
                               fit: BoxFit.contain,
                             ),
                           ),
@@ -235,39 +234,38 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                               ).then((value) => safeSetState(() {}));
                             },
                             child: Container(
-                              width: 31.0,
-                              height: 31.0,
+                              width: 31,
+                              height: 31,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context).accent4,
                                 shape: BoxShape.circle,
                               ),
                               child: Align(
-                                alignment: const AlignmentDirectional(0.0, 2.6),
+                                alignment: const AlignmentDirectional(0, 2.6),
                                 child: Icon(
                                   Icons.person_3,
                                   color: FlutterFlowTheme.of(context).heading,
-                                  size: 28.0,
+                                  size: 28,
                                 ),
                               ),
                             ),
                           ),
-                        ].divide(const SizedBox(width: 6.0)),
+                        ].divide(const SizedBox(width: 6)),
                       ),
                     ),
                   ),
                   Container(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: 60.0,
+                    width: MediaQuery.sizeOf(context).width,
+                    height: 60,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
                         color: const Color(0xFFEEECF1),
-                        width: 1.0,
+                        width: 1,
                       ),
                     ),
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -279,28 +277,28 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                 .override(
                                   fontFamily: 'Raleway',
                                   color: FlutterFlowTheme.of(context).heading,
-                                  fontSize: 16.0,
+                                  fontSize: 16,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
                                 ),
                           ),
-                        ].divide(const SizedBox(width: 6.0)),
+                        ].divide(const SizedBox(width: 6)),
                       ).animateOnPageLoad(
                           animationsMap['rowOnPageLoadAnimation']!),
                     ),
                   ),
                   Container(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    width: MediaQuery.sizeOf(context).width,
                     height: MediaQuery.sizeOf(context).height * 0.75,
                     constraints: const BoxConstraints(
-                      minWidth: 320.0,
-                      maxWidth: 450.0,
+                      minWidth: 320,
+                      maxWidth: 450,
                     ),
                     decoration: const BoxDecoration(),
                     child: Column(
                       children: [
                         Align(
-                          alignment: const Alignment(0.0, 0),
+                          alignment: const Alignment(0, 0),
                           child: TabBar(
                             labelColor:
                                 FlutterFlowTheme.of(context).primaryText,
@@ -310,14 +308,14 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                 .titleMedium
                                 .override(
                                   fontFamily: 'Raleway',
-                                  fontSize: 15.0,
+                                  fontSize: 15,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
                                 ),
                             unselectedLabelStyle: const TextStyle(),
                             indicatorColor:
                                 FlutterFlowTheme.of(context).heading,
-                            padding: const EdgeInsets.all(4.0),
+                            padding: const EdgeInsets.all(4),
                             tabs: [
                               const Tab(
                                 text: 'Completed',
@@ -358,12 +356,12 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                   if (!snapshot.hasData) {
                                     return Center(
                                       child: SizedBox(
-                                        width: 40.0,
-                                        height: 40.0,
+                                        width: 40,
+                                        height: 40,
                                         child: SpinKitThreeBounce(
                                           color: FlutterFlowTheme.of(context)
                                               .subHeader,
-                                          size: 40.0,
+                                          size: 40,
                                         ),
                                       ),
                                     );
@@ -389,7 +387,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                         color: FlutterFlowTheme.of(context)
                                             .subHeader,
                                         onRefresh: () async {
-                                          setState(() => _model
+                                          safeSetState(() => _model
                                               .apiRequestCompleter1 = null);
                                           await _model
                                               .waitForApiRequestCompleted1();
@@ -405,17 +403,16 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                               final inprocessItem =
                                                   inprocess[inprocessIndex];
                                               return Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, -1.0),
+                                                alignment:
+                                                    const AlignmentDirectional(0, -1),
                                                 child: Padding(
                                                   padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 10.0, 0.0, 0.0),
+                                                      .fromSTEB(0, 10, 0, 0),
                                                   child: Container(
-                                                    width: 340.0,
+                                                    width: 340,
                                                     constraints: const BoxConstraints(
-                                                      minWidth: 270.0,
-                                                      maxWidth: 360.0,
+                                                      minWidth: 270,
+                                                      maxWidth: 360,
                                                     ),
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
@@ -423,22 +420,22 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                           .primaryBackground,
                                                       boxShadow: const [
                                                         BoxShadow(
-                                                          blurRadius: 5.0,
+                                                          blurRadius: 5,
                                                           color:
                                                               Color(0x26000000),
                                                           offset: Offset(
-                                                            1.0,
-                                                            3.0,
+                                                            1,
+                                                            3,
                                                           ),
                                                         )
                                                       ],
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              5.0),
+                                                              5),
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsets.all(10.0),
+                                                          const EdgeInsets.all(10),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -479,10 +476,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            5,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   getJsonField(
                                                                     inprocessItem,
@@ -497,7 +494,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         fontSize:
-                                                                            14.0,
+                                                                            14,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -509,10 +506,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            10,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   'Direct Pickable',
                                                                   style: FlutterFlowTheme.of(
@@ -534,10 +531,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            5,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   getJsonField(
                                                                     inprocessItem,
@@ -552,7 +549,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         fontSize:
-                                                                            14.0,
+                                                                            14,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -564,10 +561,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            10,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   'Status',
                                                                   style: FlutterFlowTheme.of(
@@ -589,10 +586,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            5,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   getJsonField(
                                                                     inprocessItem,
@@ -607,7 +604,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         fontSize:
-                                                                            14.0,
+                                                                            14,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -619,10 +616,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            10,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   'Task Id',
                                                                   style: FlutterFlowTheme.of(
@@ -644,10 +641,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            5,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   getJsonField(
                                                                     inprocessItem,
@@ -662,7 +659,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         fontSize:
-                                                                            14.0,
+                                                                            14,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -705,10 +702,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            5,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   getJsonField(
                                                                     inprocessItem,
@@ -723,7 +720,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         fontSize:
-                                                                            14.0,
+                                                                            14,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -735,10 +732,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            10,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   'Slot Friendly Name',
                                                                   style: FlutterFlowTheme.of(
@@ -760,10 +757,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            5,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   getJsonField(
                                                                     inprocessItem,
@@ -778,7 +775,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         fontSize:
-                                                                            14.0,
+                                                                            14,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -790,10 +787,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            10,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   'Created At',
                                                                   style: FlutterFlowTheme.of(
@@ -815,10 +812,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            5,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   valueOrDefault<
                                                                       String>(
@@ -839,7 +836,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         fontSize:
-                                                                            14.0,
+                                                                            14,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -851,10 +848,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            10,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   'Tray Type',
                                                                   style: FlutterFlowTheme.of(
@@ -876,10 +873,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            5,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   getJsonField(
                                                                     inprocessItem,
@@ -894,7 +891,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         fontSize:
-                                                                            14.0,
+                                                                            14,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -911,7 +908,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                       'containerOnPageLoadAnimation1']!),
                                                 ),
                                               );
-                                            }).addToEnd(const SizedBox(height: 60.0)),
+                                            }).addToEnd(const SizedBox(height: 60)),
                                           ),
                                         ),
                                       );
@@ -935,12 +932,12 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                   if (!snapshot.hasData) {
                                     return Center(
                                       child: SizedBox(
-                                        width: 40.0,
-                                        height: 40.0,
+                                        width: 40,
+                                        height: 40,
                                         child: SpinKitThreeBounce(
                                           color: FlutterFlowTheme.of(context)
                                               .subHeader,
-                                          size: 40.0,
+                                          size: 40,
                                         ),
                                       ),
                                     );
@@ -966,7 +963,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                         color: FlutterFlowTheme.of(context)
                                             .subHeader,
                                         onRefresh: () async {
-                                          setState(() => _model
+                                          safeSetState(() => _model
                                               .apiRequestCompleter2 = null);
                                           await _model
                                               .waitForApiRequestCompleted2();
@@ -982,17 +979,16 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                               final inprocessItem =
                                                   inprocess[inprocessIndex];
                                               return Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, -1.0),
+                                                alignment:
+                                                    const AlignmentDirectional(0, -1),
                                                 child: Padding(
                                                   padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 10.0, 0.0, 0.0),
+                                                      .fromSTEB(0, 10, 0, 0),
                                                   child: Container(
-                                                    width: 340.0,
+                                                    width: 340,
                                                     constraints: const BoxConstraints(
-                                                      minWidth: 270.0,
-                                                      maxWidth: 350.0,
+                                                      minWidth: 270,
+                                                      maxWidth: 350,
                                                     ),
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
@@ -1000,22 +996,22 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                           .primaryBackground,
                                                       boxShadow: const [
                                                         BoxShadow(
-                                                          blurRadius: 5.0,
+                                                          blurRadius: 5,
                                                           color:
                                                               Color(0x26000000),
                                                           offset: Offset(
-                                                            1.0,
-                                                            3.0,
+                                                            1,
+                                                            3,
                                                           ),
                                                         )
                                                       ],
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              5.0),
+                                                              5),
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsets.all(10.0),
+                                                          const EdgeInsets.all(10),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -1056,10 +1052,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            5,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   getJsonField(
                                                                     inprocessItem,
@@ -1074,7 +1070,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         fontSize:
-                                                                            14.0,
+                                                                            14,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -1086,10 +1082,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            10,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   'Direct Pickable',
                                                                   style: FlutterFlowTheme.of(
@@ -1111,10 +1107,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            5,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   getJsonField(
                                                                     inprocessItem,
@@ -1129,7 +1125,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         fontSize:
-                                                                            14.0,
+                                                                            14,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -1141,10 +1137,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            10,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   'Status',
                                                                   style: FlutterFlowTheme.of(
@@ -1166,10 +1162,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            5,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   getJsonField(
                                                                     inprocessItem,
@@ -1184,7 +1180,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         fontSize:
-                                                                            14.0,
+                                                                            14,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -1196,10 +1192,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            10,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   'Task Id',
                                                                   style: FlutterFlowTheme.of(
@@ -1221,10 +1217,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            5,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   getJsonField(
                                                                     inprocessItem,
@@ -1239,7 +1235,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         fontSize:
-                                                                            14.0,
+                                                                            14,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -1282,10 +1278,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            5,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   getJsonField(
                                                                     inprocessItem,
@@ -1300,7 +1296,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         fontSize:
-                                                                            14.0,
+                                                                            14,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -1312,10 +1308,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            10,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   'Slot Friendly Name',
                                                                   style: FlutterFlowTheme.of(
@@ -1337,10 +1333,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            5,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   getJsonField(
                                                                     inprocessItem,
@@ -1355,7 +1351,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         fontSize:
-                                                                            14.0,
+                                                                            14,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -1367,10 +1363,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            10,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   'Created At',
                                                                   style: FlutterFlowTheme.of(
@@ -1392,10 +1388,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            5,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   valueOrDefault<
                                                                       String>(
@@ -1416,7 +1412,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         fontSize:
-                                                                            14.0,
+                                                                            14,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -1428,10 +1424,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            10,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   'Tray Type',
                                                                   style: FlutterFlowTheme.of(
@@ -1453,10 +1449,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            5,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   getJsonField(
                                                                     inprocessItem,
@@ -1471,7 +1467,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         fontSize:
-                                                                            14.0,
+                                                                            14,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -1488,7 +1484,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                       'containerOnPageLoadAnimation2']!),
                                                 ),
                                               );
-                                            }).addToEnd(const SizedBox(height: 60.0)),
+                                            }).addToEnd(const SizedBox(height: 60)),
                                           ),
                                         ),
                                       );
@@ -1512,12 +1508,12 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                   if (!snapshot.hasData) {
                                     return Center(
                                       child: SizedBox(
-                                        width: 40.0,
-                                        height: 40.0,
+                                        width: 40,
+                                        height: 40,
                                         child: SpinKitThreeBounce(
                                           color: FlutterFlowTheme.of(context)
                                               .subHeader,
-                                          size: 40.0,
+                                          size: 40,
                                         ),
                                       ),
                                     );
@@ -1543,7 +1539,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                         color: FlutterFlowTheme.of(context)
                                             .subHeader,
                                         onRefresh: () async {
-                                          setState(() => _model
+                                          safeSetState(() => _model
                                               .apiRequestCompleter3 = null);
                                           await _model
                                               .waitForApiRequestCompleted3();
@@ -1559,17 +1555,16 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                               final inprocessItem =
                                                   inprocess[inprocessIndex];
                                               return Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, -1.0),
+                                                alignment:
+                                                    const AlignmentDirectional(0, -1),
                                                 child: Padding(
                                                   padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 10.0, 0.0, 0.0),
+                                                      .fromSTEB(0, 10, 0, 0),
                                                   child: Container(
-                                                    width: 340.0,
+                                                    width: 340,
                                                     constraints: const BoxConstraints(
-                                                      minWidth: 270.0,
-                                                      maxWidth: 350.0,
+                                                      minWidth: 270,
+                                                      maxWidth: 350,
                                                     ),
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
@@ -1577,22 +1572,22 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                           .primaryBackground,
                                                       boxShadow: const [
                                                         BoxShadow(
-                                                          blurRadius: 5.0,
+                                                          blurRadius: 5,
                                                           color:
                                                               Color(0x26000000),
                                                           offset: Offset(
-                                                            1.0,
-                                                            3.0,
+                                                            1,
+                                                            3,
                                                           ),
                                                         )
                                                       ],
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              5.0),
+                                                              5),
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsets.all(10.0),
+                                                          const EdgeInsets.all(10),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -1633,10 +1628,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            5,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   getJsonField(
                                                                     inprocessItem,
@@ -1651,7 +1646,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         fontSize:
-                                                                            14.0,
+                                                                            14,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -1663,10 +1658,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            10,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   'Direct Pickable',
                                                                   style: FlutterFlowTheme.of(
@@ -1688,10 +1683,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            5,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   getJsonField(
                                                                     inprocessItem,
@@ -1706,7 +1701,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         fontSize:
-                                                                            14.0,
+                                                                            14,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -1718,10 +1713,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            10,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   'Status',
                                                                   style: FlutterFlowTheme.of(
@@ -1743,10 +1738,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            5,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   getJsonField(
                                                                     inprocessItem,
@@ -1761,7 +1756,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         fontSize:
-                                                                            14.0,
+                                                                            14,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -1773,10 +1768,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            10,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   'Task Id',
                                                                   style: FlutterFlowTheme.of(
@@ -1798,10 +1793,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            5,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   getJsonField(
                                                                     inprocessItem,
@@ -1816,7 +1811,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         fontSize:
-                                                                            14.0,
+                                                                            14,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -1859,10 +1854,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            5,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   getJsonField(
                                                                     inprocessItem,
@@ -1877,7 +1872,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         fontSize:
-                                                                            14.0,
+                                                                            14,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -1889,10 +1884,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            10,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   'Slot Friendly Name',
                                                                   style: FlutterFlowTheme.of(
@@ -1914,10 +1909,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            5,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   getJsonField(
                                                                     inprocessItem,
@@ -1932,7 +1927,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         fontSize:
-                                                                            14.0,
+                                                                            14,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -1944,10 +1939,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            10,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   'Created At',
                                                                   style: FlutterFlowTheme.of(
@@ -1969,10 +1964,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            5,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   valueOrDefault<
                                                                       String>(
@@ -1993,7 +1988,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         fontSize:
-                                                                            14.0,
+                                                                            14,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -2005,10 +2000,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            10,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   'Tray Type',
                                                                   style: FlutterFlowTheme.of(
@@ -2030,10 +2025,10 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            0,
+                                                                            5,
+                                                                            0,
+                                                                            0),
                                                                 child: Text(
                                                                   getJsonField(
                                                                     inprocessItem,
@@ -2048,7 +2043,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .primaryText,
                                                                         fontSize:
-                                                                            14.0,
+                                                                            14,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
@@ -2065,7 +2060,7 @@ class _TaskCompletedFailedWidgetState extends State<TaskCompletedFailedWidget>
                                                       'containerOnPageLoadAnimation3']!),
                                                 ),
                                               );
-                                            }).addToEnd(const SizedBox(height: 60.0)),
+                                            }).addToEnd(const SizedBox(height: 60)),
                                           ),
                                         ),
                                       );

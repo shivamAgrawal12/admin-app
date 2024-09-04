@@ -51,7 +51,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
             )!
             .toList()
             .cast<dynamic>();
-        setState(() {});
+        safeSetState(() {});
       }
     });
 
@@ -121,7 +121,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
       ),
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -143,13 +143,13 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: const AlignmentDirectional(0.0, -1.0),
+            alignment: const AlignmentDirectional(0, -1),
             child: Container(
-              width: MediaQuery.sizeOf(context).width * 1.0,
-              height: MediaQuery.sizeOf(context).height * 1.0,
+              width: MediaQuery.sizeOf(context).width,
+              height: MediaQuery.sizeOf(context).height * 1,
               constraints: const BoxConstraints(
-                minWidth: 320.0,
-                maxWidth: 450.0,
+                minWidth: 320,
+                maxWidth: 450,
               ),
               decoration: const BoxDecoration(),
               child: Column(
@@ -157,18 +157,17 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: 70.0,
+                    width: MediaQuery.sizeOf(context).width,
+                    height: 70,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
                         color: const Color(0xFFEEECF1),
-                        width: 1.0,
+                        width: 1,
                       ),
                     ),
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(25, 0, 25, 0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -193,15 +192,15 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                             child: FaIcon(
                               FontAwesomeIcons.arrowLeft,
                               color: FlutterFlowTheme.of(context).primaryText,
-                              size: 24.0,
+                              size: 24,
                             ),
                           ),
                           ClipRRect(
-                            borderRadius: BorderRadius.circular(8.0),
+                            borderRadius: BorderRadius.circular(8),
                             child: Image.asset(
                               'assets/images/Group_42_(2).png',
-                              width: 130.0,
-                              height: 40.0,
+                              width: 130,
+                              height: 40,
                               fit: BoxFit.contain,
                             ),
                           ),
@@ -229,39 +228,38 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                               ).then((value) => safeSetState(() {}));
                             },
                             child: Container(
-                              width: 31.0,
-                              height: 31.0,
+                              width: 31,
+                              height: 31,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context).accent4,
                                 shape: BoxShape.circle,
                               ),
                               child: Align(
-                                alignment: const AlignmentDirectional(0.0, 2.6),
+                                alignment: const AlignmentDirectional(0, 2.6),
                                 child: Icon(
                                   Icons.person_3,
                                   color: FlutterFlowTheme.of(context).heading,
-                                  size: 28.0,
+                                  size: 28,
                                 ),
                               ),
                             ),
                           ),
-                        ].divide(const SizedBox(width: 6.0)),
+                        ].divide(const SizedBox(width: 6)),
                       ),
                     ),
                   ),
                   Container(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: 50.0,
+                    width: MediaQuery.sizeOf(context).width,
+                    height: 50,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
                         color: const Color(0xFFEEECF1),
-                        width: 1.0,
+                        width: 1,
                       ),
                     ),
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -273,22 +271,22 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                 .override(
                                   fontFamily: 'Raleway',
                                   color: FlutterFlowTheme.of(context).heading,
-                                  fontSize: 16.0,
+                                  fontSize: 16,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
                                 ),
                           ).animateOnPageLoad(
                               animationsMap['textOnPageLoadAnimation']!),
-                        ].divide(const SizedBox(width: 6.0)),
+                        ].divide(const SizedBox(width: 6)),
                       ),
                     ),
                   ),
                   Container(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    width: MediaQuery.sizeOf(context).width,
                     height: MediaQuery.sizeOf(context).height * 0.8,
                     constraints: const BoxConstraints(
-                      minWidth: 320.0,
-                      maxWidth: 450.0,
+                      minWidth: 320,
+                      maxWidth: 450,
                     ),
                     decoration: const BoxDecoration(),
                     child: FutureBuilder<ApiCallResponse>(
@@ -303,11 +301,11 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                         if (!snapshot.hasData) {
                           return Center(
                             child: SizedBox(
-                              width: 40.0,
-                              height: 40.0,
+                              width: 40,
+                              height: 40,
                               child: SpinKitThreeBounce(
                                 color: FlutterFlowTheme.of(context).subHeader,
-                                size: 40.0,
+                                size: 40,
                               ),
                             ),
                           );
@@ -317,8 +315,8 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                         return Stack(
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 15.0, 0.0, 0.0),
+                              padding:
+                                  const EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -328,14 +326,13 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Align(
-                                        alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
+                                        alignment: const AlignmentDirectional(0, 0),
                                         child: Padding(
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
-                                                  8.0, 0.0, 8.0, 0.0),
+                                                  8, 0, 8, 0),
                                           child: SizedBox(
-                                            width: 250.0,
+                                            width: 250,
                                             child: TextFormField(
                                               controller: _model.textController,
                                               focusNode:
@@ -360,7 +357,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                                   .text)!
                                                           .toList()
                                                           .cast<dynamic>();
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 },
                                               ),
                                               autofocus: false,
@@ -376,7 +373,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .liteText,
-                                                      fontSize: 15.0,
+                                                      fontSize: 15,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.w500,
@@ -390,8 +387,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                     width: 1.5,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          5.0),
+                                                      BorderRadius.circular(5),
                                                 ),
                                                 focusedBorder:
                                                     OutlineInputBorder(
@@ -402,8 +398,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                     width: 1.5,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          5.0),
+                                                      BorderRadius.circular(5),
                                                 ),
                                                 errorBorder: OutlineInputBorder(
                                                   borderSide: BorderSide(
@@ -413,8 +408,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                     width: 1.5,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          5.0),
+                                                      BorderRadius.circular(5),
                                                 ),
                                                 focusedErrorBorder:
                                                     OutlineInputBorder(
@@ -425,8 +419,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                     width: 1.5,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          5.0),
+                                                      BorderRadius.circular(5),
                                                 ),
                                               ),
                                               style:
@@ -434,7 +427,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Open Sans',
-                                                        fontSize: 15.0,
+                                                        fontSize: 15,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -448,16 +441,15 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                         ),
                                       ),
                                       Container(
-                                        width: 40.0,
-                                        height: 40.0,
+                                        width: 40,
+                                        height: 40,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .accent4,
                                           shape: BoxShape.circle,
                                         ),
                                         child: Align(
-                                          alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                          alignment: const AlignmentDirectional(0, 0),
                                           child: Text(
                                             valueOrDefault<String>(
                                               _model.listsearchvalue.length
@@ -482,11 +474,11 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
                                           _model.sorthinghide = true;
-                                          setState(() {});
+                                          safeSetState(() {});
                                         },
                                         child: Container(
-                                          width: 40.0,
-                                          height: 40.0,
+                                          width: 40,
+                                          height: 40,
                                           decoration: const BoxDecoration(
                                             shape: BoxShape.circle,
                                           ),
@@ -494,7 +486,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                             Icons.filter_list,
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryText,
-                                            size: 24.0,
+                                            size: 24,
                                           ),
                                         ),
                                       ).animateOnPageLoad(animationsMap[
@@ -504,7 +496,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                   Flexible(
                                     child: Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 10.0, 0.0, 0.0),
+                                          0, 10, 0, 0),
                                       child: Builder(
                                         builder: (context) {
                                           final slotRecords = functions
@@ -530,7 +522,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                             color: FlutterFlowTheme.of(context)
                                                 .subHeader,
                                             onRefresh: () async {
-                                              setState(() => _model
+                                              safeSetState(() => _model
                                                   .apiRequestCompleter = null);
                                             },
                                             child: SingleChildScrollView(
@@ -556,22 +548,19 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                     child: Align(
                                                       alignment:
                                                           const AlignmentDirectional(
-                                                              0.0, -1.0),
+                                                              0, -1),
                                                       child: Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    10.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(0, 10,
+                                                                    0, 0),
                                                         child: Container(
-                                                          width: 340.0,
-                                                          height: 235.0,
+                                                          width: 340,
+                                                          height: 235,
                                                           constraints:
                                                               const BoxConstraints(
-                                                            minWidth: 270.0,
-                                                            maxWidth: 350.0,
+                                                            minWidth: 270,
+                                                            maxWidth: 350,
                                                           ),
                                                           decoration:
                                                               BoxDecoration(
@@ -580,24 +569,24 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                                 .primaryBackground,
                                                             boxShadow: const [
                                                               BoxShadow(
-                                                                blurRadius: 5.0,
+                                                                blurRadius: 5,
                                                                 color: Color(
                                                                     0x26000000),
                                                                 offset: Offset(
-                                                                  1.0,
-                                                                  3.0,
+                                                                  1,
+                                                                  3,
                                                                 ),
                                                               )
                                                             ],
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        5.0),
+                                                                        5),
                                                           ),
                                                           child: Padding(
                                                             padding:
                                                                 const EdgeInsets.all(
-                                                                    10.0),
+                                                                    10),
                                                             child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -634,11 +623,12 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                                           ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          5.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      padding: const EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              5,
+                                                                              0,
+                                                                              0),
                                                                       child:
                                                                           Text(
                                                                         getJsonField(
@@ -650,18 +640,19 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                                             .override(
                                                                               fontFamily: 'Open Sans',
                                                                               color: FlutterFlowTheme.of(context).primaryText,
-                                                                              fontSize: 14.0,
+                                                                              fontSize: 14,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.w600,
                                                                             ),
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          10.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      padding: const EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              10,
+                                                                              0,
+                                                                              0),
                                                                       child:
                                                                           Text(
                                                                         'Slot Status',
@@ -676,11 +667,12 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          5.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      padding: const EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              5,
+                                                                              0,
+                                                                              0),
                                                                       child:
                                                                           Text(
                                                                         getJsonField(
@@ -692,18 +684,19 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                                             .override(
                                                                               fontFamily: 'Open Sans',
                                                                               color: FlutterFlowTheme.of(context).primaryText,
-                                                                              fontSize: 14.0,
+                                                                              fontSize: 14,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.w600,
                                                                             ),
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          10.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      padding: const EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              10,
+                                                                              0,
+                                                                              0),
                                                                       child:
                                                                           Text(
                                                                         'Slot Type',
@@ -718,11 +711,12 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          5.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      padding: const EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              5,
+                                                                              0,
+                                                                              0),
                                                                       child:
                                                                           Text(
                                                                         getJsonField(
@@ -734,18 +728,19 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                                             .override(
                                                                               fontFamily: 'Open Sans',
                                                                               color: FlutterFlowTheme.of(context).primaryText,
-                                                                              fontSize: 14.0,
+                                                                              fontSize: 14,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.w600,
                                                                             ),
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          10.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      padding: const EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              10,
+                                                                              0,
+                                                                              0),
                                                                       child:
                                                                           Text(
                                                                         'Support Type',
@@ -760,11 +755,12 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          5.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      padding: const EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              5,
+                                                                              0,
+                                                                              0),
                                                                       child:
                                                                           Text(
                                                                         getJsonField(
@@ -776,7 +772,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                                             .override(
                                                                               fontFamily: 'Open Sans',
                                                                               color: FlutterFlowTheme.of(context).primaryText,
-                                                                              fontSize: 14.0,
+                                                                              fontSize: 14,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.w600,
                                                                             ),
@@ -812,11 +808,12 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                                           ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          5.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      padding: const EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              5,
+                                                                              0,
+                                                                              0),
                                                                       child:
                                                                           Text(
                                                                         valueOrDefault<
@@ -838,18 +835,19 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                                             .override(
                                                                               fontFamily: 'Open Sans',
                                                                               color: FlutterFlowTheme.of(context).primaryText,
-                                                                              fontSize: 14.0,
+                                                                              fontSize: 14,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.w600,
                                                                             ),
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          10.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      padding: const EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              10,
+                                                                              0,
+                                                                              0),
                                                                       child:
                                                                           Text(
                                                                         'Direct Pickable',
@@ -864,11 +862,12 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          5.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      padding: const EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              5,
+                                                                              0,
+                                                                              0),
                                                                       child:
                                                                           Text(
                                                                         valueOrDefault<
@@ -890,18 +889,19 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                                             .override(
                                                                               fontFamily: 'Open Sans',
                                                                               color: FlutterFlowTheme.of(context).primaryText,
-                                                                              fontSize: 14.0,
+                                                                              fontSize: 14,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.w600,
                                                                             ),
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          10.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      padding: const EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              10,
+                                                                              0,
+                                                                              0),
                                                                       child:
                                                                           Text(
                                                                         'Friendly Name',
@@ -916,11 +916,12 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          5.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      padding: const EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              5,
+                                                                              0,
+                                                                              0),
                                                                       child:
                                                                           Text(
                                                                         getJsonField(
@@ -932,18 +933,19 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                                             .override(
                                                                               fontFamily: 'Open Sans',
                                                                               color: FlutterFlowTheme.of(context).primaryText,
-                                                                              fontSize: 14.0,
+                                                                              fontSize: 14,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.w600,
                                                                             ),
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          10.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      padding: const EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              10,
+                                                                              0,
+                                                                              0),
                                                                       child:
                                                                           Text(
                                                                         'Created At',
@@ -958,11 +960,12 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          5.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      padding: const EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              5,
+                                                                              0,
+                                                                              0),
                                                                       child:
                                                                           Text(
                                                                         valueOrDefault<
@@ -979,7 +982,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                                             .override(
                                                                               fontFamily: 'Open Sans',
                                                                               color: FlutterFlowTheme.of(context).primaryText,
-                                                                              fontSize: 14.0,
+                                                                              fontSize: 14,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.w600,
                                                                             ),
@@ -997,7 +1000,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                     ),
                                                   );
                                                 }).addToEnd(
-                                                    const SizedBox(height: 50.0)),
+                                                    const SizedBox(height: 50)),
                                               ),
                                             ),
                                           );
@@ -1010,33 +1013,33 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                             ),
                             if (_model.sorthinghide == true)
                               Align(
-                                alignment: const AlignmentDirectional(1.0, -1.0),
+                                alignment: const AlignmentDirectional(1, -1),
                                 child: Material(
                                   color: Colors.transparent,
-                                  elevation: 5.0,
+                                  elevation: 5,
                                   shape: const RoundedRectangleBorder(
                                     borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(10.0),
-                                      bottomRight: Radius.circular(0.0),
-                                      topLeft: Radius.circular(0.0),
-                                      topRight: Radius.circular(0.0),
+                                      bottomLeft: Radius.circular(10),
+                                      bottomRight: Radius.circular(0),
+                                      topLeft: Radius.circular(0),
+                                      topRight: Radius.circular(0),
                                     ),
                                   ),
                                   child: Container(
-                                    width: 200.0,
-                                    height: 280.0,
+                                    width: 200,
+                                    height: 280,
                                     decoration: BoxDecoration(
                                       color:
                                           FlutterFlowTheme.of(context).primary,
                                       borderRadius: const BorderRadius.only(
-                                        bottomLeft: Radius.circular(10.0),
-                                        bottomRight: Radius.circular(0.0),
-                                        topLeft: Radius.circular(0.0),
-                                        topRight: Radius.circular(0.0),
+                                        bottomLeft: Radius.circular(10),
+                                        bottomRight: Radius.circular(0),
+                                        topLeft: Radius.circular(0),
+                                        topRight: Radius.circular(0),
                                       ),
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsets.all(10.0),
+                                      padding: const EdgeInsets.all(10),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -1047,7 +1050,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 10.0, 0.0),
+                                                    0, 0, 10, 0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -1077,14 +1080,14 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                       Colors.transparent,
                                                   onTap: () async {
                                                     _model.sorthinghide = false;
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   },
                                                   child: Icon(
                                                     Icons.close_rounded,
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .secondaryText,
-                                                    size: 24.0,
+                                                    size: 24,
                                                   ),
                                                 ),
                                               ],
@@ -1096,7 +1099,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                             hoverColor: Colors.transparent,
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
-                                              setState(() {
+                                              safeSetState(() {
                                                 _model.textController?.text =
                                                     'unused';
                                                 _model.textController
@@ -1121,7 +1124,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                   .toList()
                                                   .cast<dynamic>();
                                               _model.sorthinghide = false;
-                                              setState(() {});
+                                              safeSetState(() {});
                                             },
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -1151,7 +1154,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                             hoverColor: Colors.transparent,
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
-                                              setState(() {
+                                              safeSetState(() {
                                                 _model.textController?.text =
                                                     'regular';
                                                 _model.textController
@@ -1176,7 +1179,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                   .toList()
                                                   .cast<dynamic>();
                                               _model.sorthinghide = false;
-                                              setState(() {});
+                                              safeSetState(() {});
                                             },
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -1206,7 +1209,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                             hoverColor: Colors.transparent,
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
-                                              setState(() {
+                                              safeSetState(() {
                                                 _model.textController?.text =
                                                     'occupied';
                                                 _model.textController
@@ -1231,7 +1234,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                   .toList()
                                                   .cast<dynamic>();
                                               _model.sorthinghide = false;
-                                              setState(() {});
+                                              safeSetState(() {});
                                             },
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -1261,7 +1264,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                             hoverColor: Colors.transparent,
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
-                                              setState(() {
+                                              safeSetState(() {
                                                 _model.textController?.text =
                                                     'blocked';
                                                 _model.textController
@@ -1286,7 +1289,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                   .toList()
                                                   .cast<dynamic>();
                                               _model.sorthinghide = false;
-                                              setState(() {});
+                                              safeSetState(() {});
                                             },
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -1316,7 +1319,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                             hoverColor: Colors.transparent,
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
-                                              setState(() {
+                                              safeSetState(() {
                                                 _model.textController?.text =
                                                     'plastic_tray';
                                                 _model.textController
@@ -1341,7 +1344,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                   .toList()
                                                   .cast<dynamic>();
                                               _model.sorthinghide = false;
-                                              setState(() {});
+                                              safeSetState(() {});
                                             },
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -1371,7 +1374,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                             hoverColor: Colors.transparent,
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
-                                              setState(() {
+                                              safeSetState(() {
                                                 _model.textController?.text =
                                                     'metal_tray';
                                                 _model.textController
@@ -1396,7 +1399,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                   .toList()
                                                   .cast<dynamic>();
                                               _model.sorthinghide = false;
-                                              setState(() {});
+                                              safeSetState(() {});
                                             },
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -1426,7 +1429,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                             hoverColor: Colors.transparent,
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
-                                              setState(() {
+                                              safeSetState(() {
                                                 _model.textController?.clear();
                                               });
                                               _model.listsearchvalue = functions
@@ -1443,7 +1446,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                                   .toList()
                                                   .cast<dynamic>();
                                               _model.sorthinghide = false;
-                                              setState(() {});
+                                              safeSetState(() {});
                                             },
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -1467,7 +1470,7 @@ class _ListOfSlotWidgetState extends State<ListOfSlotWidget>
                                               ],
                                             ),
                                           ),
-                                        ].divide(const SizedBox(height: 8.0)),
+                                        ].divide(const SizedBox(height: 8)),
                                       ),
                                     ),
                                   ),

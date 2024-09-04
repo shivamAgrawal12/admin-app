@@ -168,7 +168,7 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
       ),
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -192,13 +192,13 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
           body: SafeArea(
             top: true,
             child: Align(
-              alignment: const AlignmentDirectional(0.0, -1.0),
+              alignment: const AlignmentDirectional(0, -1),
               child: Container(
-                width: MediaQuery.sizeOf(context).width * 1.0,
-                height: MediaQuery.sizeOf(context).height * 1.0,
+                width: MediaQuery.sizeOf(context).width,
+                height: MediaQuery.sizeOf(context).height * 1,
                 constraints: const BoxConstraints(
-                  minWidth: 320.0,
-                  maxWidth: 450.0,
+                  minWidth: 320,
+                  maxWidth: 450,
                 ),
                 decoration: const BoxDecoration(),
                 child: SingleChildScrollView(
@@ -208,48 +208,46 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
-                        height: 70.0,
+                        width: MediaQuery.sizeOf(context).width,
+                        height: 70,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           border: Border.all(
                             color: const Color(0xFFEEECF1),
-                            width: 1.0,
+                            width: 1,
                           ),
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              15.0, 0.0, 10.0, 0.0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(15, 0, 10, 0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
+                                borderRadius: BorderRadius.circular(8),
                                 child: Image.asset(
                                   'assets/images/Group_42_(2).png',
-                                  width: 130.0,
-                                  height: 40.0,
+                                  width: 130,
+                                  height: 40,
                                   fit: BoxFit.contain,
                                 ),
                               ),
-                            ].divide(const SizedBox(width: 6.0)),
+                            ].divide(const SizedBox(width: 6)),
                           ),
                         ),
                       ),
                       Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
-                        height: 60.0,
+                        width: MediaQuery.sizeOf(context).width,
+                        height: 60,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           border: Border.all(
                             color: const Color(0xFFEEECF1),
-                            width: 1.0,
+                            width: 1,
                           ),
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              10.0, 0.0, 10.0, 0.0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -262,33 +260,33 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                       fontFamily: 'Raleway',
                                       color:
                                           FlutterFlowTheme.of(context).heading,
-                                      fontSize: 16.0,
+                                      fontSize: 16,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
                               ),
-                            ].divide(const SizedBox(width: 6.0)),
+                            ].divide(const SizedBox(width: 6)),
                           ),
                         ),
                       ),
                       Container(
-                        width: 300.0,
+                        width: 300,
                         height: MediaQuery.sizeOf(context).height * 0.78,
                         decoration: const BoxDecoration(),
                         child: Form(
                           key: _model.formKey,
                           autovalidateMode: AutovalidateMode.disabled,
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 15.0, 0.0, 10.0),
+                            padding:
+                                const EdgeInsetsDirectional.fromSTEB(0, 15, 0, 10),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 Align(
-                                  alignment: const AlignmentDirectional(-1.0, -1.0),
+                                  alignment: const AlignmentDirectional(-1, -1),
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        5.0, 5.0, 0.0, 0.0),
+                                        5, 5, 0, 0),
                                     child: Text(
                                       'Shuttle Id',
                                       style: FlutterFlowTheme.of(context)
@@ -306,9 +304,9 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 5.0, 8.0, 0.0),
+                                      8, 5, 8, 0),
                                   child: SizedBox(
-                                    width: 310.0,
+                                    width: 310,
                                     child: TextFormField(
                                       controller: _model.idTextController,
                                       focusNode: _model.idFocusNode,
@@ -320,7 +318,7 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                             .labelMedium
                                             .override(
                                               fontFamily: 'Open Sans',
-                                              fontSize: 16.0,
+                                              fontSize: 16,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
@@ -331,7 +329,7 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                             width: 1.5,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(5.0),
+                                              BorderRadius.circular(5),
                                         ),
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
@@ -340,7 +338,7 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                             width: 1.5,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(5.0),
+                                              BorderRadius.circular(5),
                                         ),
                                         errorBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
@@ -349,7 +347,7 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                             width: 1.5,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(5.0),
+                                              BorderRadius.circular(5),
                                         ),
                                         focusedErrorBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
@@ -358,14 +356,14 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                             width: 1.5,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(5.0),
+                                              BorderRadius.circular(5),
                                         ),
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Open Sans',
-                                            fontSize: 16.0,
+                                            fontSize: 16,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -377,10 +375,10 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                       'textFieldOnPageLoadAnimation1']!),
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(-1.0, -1.0),
+                                  alignment: const AlignmentDirectional(-1, -1),
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        5.0, 10.0, 0.0, 0.0),
+                                        5, 10, 0, 0),
                                     child: Text(
                                       'Shuttle Ip Address',
                                       style: FlutterFlowTheme.of(context)
@@ -398,9 +396,9 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 5.0, 8.0, 0.0),
+                                      8, 5, 8, 0),
                                   child: SizedBox(
-                                    width: 310.0,
+                                    width: 310,
                                     child: TextFormField(
                                       controller: _model.ipTextController,
                                       focusNode: _model.ipFocusNode,
@@ -412,7 +410,7 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                             .labelMedium
                                             .override(
                                               fontFamily: 'Open Sans',
-                                              fontSize: 16.0,
+                                              fontSize: 16,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
@@ -423,7 +421,7 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                             width: 1.5,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(5.0),
+                                              BorderRadius.circular(5),
                                         ),
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
@@ -432,7 +430,7 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                             width: 1.5,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(5.0),
+                                              BorderRadius.circular(5),
                                         ),
                                         errorBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
@@ -441,7 +439,7 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                             width: 1.5,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(5.0),
+                                              BorderRadius.circular(5),
                                         ),
                                         focusedErrorBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
@@ -450,14 +448,14 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                             width: 1.5,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(5.0),
+                                              BorderRadius.circular(5),
                                         ),
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Open Sans',
-                                            fontSize: 16.0,
+                                            fontSize: 16,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -469,10 +467,10 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                       'textFieldOnPageLoadAnimation2']!),
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(-1.0, -1.0),
+                                  alignment: const AlignmentDirectional(-1, -1),
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        5.0, 10.0, 0.0, 0.0),
+                                        5, 10, 0, 0),
                                     child: Text(
                                       'Current Row',
                                       style: FlutterFlowTheme.of(context)
@@ -490,9 +488,9 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 5.0, 8.0, 0.0),
+                                      8, 5, 8, 0),
                                   child: SizedBox(
-                                    width: 310.0,
+                                    width: 310,
                                     child: TextFormField(
                                       controller: _model.rowTextController,
                                       focusNode: _model.rowFocusNode,
@@ -506,7 +504,7 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                             .labelMedium
                                             .override(
                                               fontFamily: 'Open Sans',
-                                              fontSize: 16.0,
+                                              fontSize: 16,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
@@ -517,7 +515,7 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                             width: 1.5,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(5.0),
+                                              BorderRadius.circular(5),
                                         ),
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
@@ -526,7 +524,7 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                             width: 1.5,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(5.0),
+                                              BorderRadius.circular(5),
                                         ),
                                         errorBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
@@ -535,7 +533,7 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                             width: 1.5,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(5.0),
+                                              BorderRadius.circular(5),
                                         ),
                                         focusedErrorBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
@@ -544,14 +542,14 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                             width: 1.5,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(5.0),
+                                              BorderRadius.circular(5),
                                         ),
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Open Sans',
-                                            fontSize: 16.0,
+                                            fontSize: 16,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -564,10 +562,10 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                       'textFieldOnPageLoadAnimation3']!),
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(-1.0, -1.0),
+                                  alignment: const AlignmentDirectional(-1, -1),
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        5.0, 10.0, 0.0, 0.0),
+                                        5, 10, 0, 0),
                                     child: Text(
                                       'Current Rack',
                                       style: FlutterFlowTheme.of(context)
@@ -585,9 +583,9 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 5.0, 8.0, 0.0),
+                                      8, 5, 8, 0),
                                   child: SizedBox(
-                                    width: 310.0,
+                                    width: 310,
                                     child: TextFormField(
                                       controller: _model.rackTextController,
                                       focusNode: _model.rackFocusNode,
@@ -601,7 +599,7 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                             .labelMedium
                                             .override(
                                               fontFamily: 'Open Sans',
-                                              fontSize: 16.0,
+                                              fontSize: 16,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
@@ -612,7 +610,7 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                             width: 1.5,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(5.0),
+                                              BorderRadius.circular(5),
                                         ),
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
@@ -621,7 +619,7 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                             width: 1.5,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(5.0),
+                                              BorderRadius.circular(5),
                                         ),
                                         errorBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
@@ -630,7 +628,7 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                             width: 1.5,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(5.0),
+                                              BorderRadius.circular(5),
                                         ),
                                         focusedErrorBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
@@ -639,14 +637,14 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                             width: 1.5,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(5.0),
+                                              BorderRadius.circular(5),
                                         ),
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Open Sans',
-                                            fontSize: 16.0,
+                                            fontSize: 16,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -659,10 +657,10 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                       'textFieldOnPageLoadAnimation4']!),
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(-1.0, -1.0),
+                                  alignment: const AlignmentDirectional(-1, -1),
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        5.0, 10.0, 0.0, 0.0),
+                                        5, 10, 0, 0),
                                     child: Text(
                                       'Current Slot',
                                       style: FlutterFlowTheme.of(context)
@@ -680,9 +678,9 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 5.0, 8.0, 0.0),
+                                      8, 5, 8, 0),
                                   child: SizedBox(
-                                    width: 310.0,
+                                    width: 310,
                                     child: TextFormField(
                                       controller: _model.slotTextController,
                                       focusNode: _model.slotFocusNode,
@@ -696,7 +694,7 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                             .labelMedium
                                             .override(
                                               fontFamily: 'Open Sans',
-                                              fontSize: 16.0,
+                                              fontSize: 16,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
@@ -707,7 +705,7 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                             width: 1.5,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(5.0),
+                                              BorderRadius.circular(5),
                                         ),
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
@@ -716,7 +714,7 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                             width: 1.5,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(5.0),
+                                              BorderRadius.circular(5),
                                         ),
                                         errorBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
@@ -725,7 +723,7 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                             width: 1.5,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(5.0),
+                                              BorderRadius.circular(5),
                                         ),
                                         focusedErrorBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
@@ -734,14 +732,14 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                             width: 1.5,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(5.0),
+                                              BorderRadius.circular(5),
                                         ),
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Open Sans',
-                                            fontSize: 16.0,
+                                            fontSize: 16,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -755,21 +753,21 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 40.0, 0.0, 15.0),
+                                      0, 40, 0, 15),
                                   child: Container(
-                                    width: 140.0,
-                                    height: 40.0,
+                                    width: 140,
+                                    height: 40,
                                     decoration: BoxDecoration(
                                       gradient: LinearGradient(
                                         colors: [
                                           FlutterFlowTheme.of(context).heading,
                                           FlutterFlowTheme.of(context).accent
                                         ],
-                                        stops: const [0.0, 1.0],
-                                        begin: const AlignmentDirectional(1.0, 0.0),
-                                        end: const AlignmentDirectional(-1.0, 0),
+                                        stops: const [0, 1],
+                                        begin: const AlignmentDirectional(1, 0),
+                                        end: const AlignmentDirectional(-1, 0),
                                       ),
-                                      borderRadius: BorderRadius.circular(5.0),
+                                      borderRadius: BorderRadius.circular(5),
                                     ),
                                     child: FFButtonWidget(
                                       onPressed: () async {
@@ -839,32 +837,31 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                                               (value) => safeSetState(() {}));
                                         }
 
-                                        setState(() {});
+                                        safeSetState(() {});
                                       },
                                       text: 'Register',
                                       options: FFButtonOptions(
-                                        height: 40.0,
+                                        height: 40,
                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                            5.0, 0.0, 5.0, 0.0),
+                                            5, 0, 5, 0),
                                         iconPadding:
                                             const EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
+                                                0, 0, 0, 0),
                                         color: const Color(0x27351C75),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
                                               fontFamily: 'Raleway',
                                               color: Colors.white,
-                                              fontSize: 16.0,
+                                              fontSize: 16,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
-                                        elevation: 0.0,
+                                        elevation: 0,
                                         borderSide: const BorderSide(
                                           color: Color(0xFF8E7CC3),
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
+                                        borderRadius: BorderRadius.circular(5),
                                       ),
                                     ),
                                   ),
@@ -874,7 +871,7 @@ class _RegisterShuttlesWidgetState extends State<RegisterShuttlesWidget>
                           ),
                         ),
                       ),
-                    ].addToEnd(const SizedBox(height: 50.0)),
+                    ].addToEnd(const SizedBox(height: 50)),
                   ),
                 ),
               ),

@@ -42,7 +42,7 @@ class _SupportWidgetState extends State<SupportWidget> {
     _model.textController3 ??= TextEditingController();
     _model.textFieldFocusNode3 ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -64,13 +64,13 @@ class _SupportWidgetState extends State<SupportWidget> {
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: const AlignmentDirectional(0.0, -1.0),
+            alignment: const AlignmentDirectional(0, -1),
             child: Container(
-              width: MediaQuery.sizeOf(context).width * 1.0,
-              height: MediaQuery.sizeOf(context).height * 1.0,
+              width: MediaQuery.sizeOf(context).width,
+              height: MediaQuery.sizeOf(context).height * 1,
               constraints: const BoxConstraints(
-                minWidth: 320.0,
-                maxWidth: 450.0,
+                minWidth: 320,
+                maxWidth: 450,
               ),
               decoration: const BoxDecoration(),
               child: Column(
@@ -78,18 +78,17 @@ class _SupportWidgetState extends State<SupportWidget> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: 70.0,
+                    width: MediaQuery.sizeOf(context).width,
+                    height: 70,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
                         color: const Color(0xFFEEECF1),
-                        width: 1.0,
+                        width: 1,
                       ),
                     ),
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(25, 0, 25, 0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -114,15 +113,15 @@ class _SupportWidgetState extends State<SupportWidget> {
                             child: FaIcon(
                               FontAwesomeIcons.arrowLeft,
                               color: FlutterFlowTheme.of(context).primaryText,
-                              size: 24.0,
+                              size: 24,
                             ),
                           ),
                           ClipRRect(
-                            borderRadius: BorderRadius.circular(8.0),
+                            borderRadius: BorderRadius.circular(8),
                             child: Image.asset(
                               'assets/images/Group_42_(2).png',
-                              width: 130.0,
-                              height: 40.0,
+                              width: 130,
+                              height: 40,
                               fit: BoxFit.contain,
                             ),
                           ),
@@ -150,39 +149,38 @@ class _SupportWidgetState extends State<SupportWidget> {
                               ).then((value) => safeSetState(() {}));
                             },
                             child: Container(
-                              width: 31.0,
-                              height: 31.0,
+                              width: 31,
+                              height: 31,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context).accent4,
                                 shape: BoxShape.circle,
                               ),
                               child: Align(
-                                alignment: const AlignmentDirectional(0.0, 2.6),
+                                alignment: const AlignmentDirectional(0, 2.6),
                                 child: Icon(
                                   Icons.person_3,
                                   color: FlutterFlowTheme.of(context).heading,
-                                  size: 28.0,
+                                  size: 28,
                                 ),
                               ),
                             ),
                           ),
-                        ].divide(const SizedBox(width: 6.0)),
+                        ].divide(const SizedBox(width: 6)),
                       ),
                     ),
                   ),
                   Container(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: 60.0,
+                    width: MediaQuery.sizeOf(context).width,
+                    height: 60,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
                         color: const Color(0xFFEEECF1),
-                        width: 1.0,
+                        width: 1,
                       ),
                     ),
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -194,37 +192,37 @@ class _SupportWidgetState extends State<SupportWidget> {
                                 .override(
                                   fontFamily: 'Raleway',
                                   color: FlutterFlowTheme.of(context).heading,
-                                  fontSize: 16.0,
+                                  fontSize: 16,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
                                 ),
                           ),
-                        ].divide(const SizedBox(width: 6.0)),
+                        ].divide(const SizedBox(width: 6)),
                       ),
                     ),
                   ),
                   Container(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    width: MediaQuery.sizeOf(context).width,
                     height: MediaQuery.sizeOf(context).height * 0.75,
                     constraints: const BoxConstraints(
-                      minWidth: 320.0,
-                      maxWidth: 450.0,
+                      minWidth: 320,
+                      maxWidth: 450,
                     ),
                     decoration: const BoxDecoration(),
                     child: Form(
                       key: _model.formKey,
                       autovalidateMode: AutovalidateMode.disabled,
                       child: Padding(
-                        padding: const EdgeInsets.all(10.0),
+                        padding: const EdgeInsets.all(10),
                         child: SingleChildScrollView(
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 0.0, 8.0, 0.0),
+                                padding:
+                                    const EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                                 child: SizedBox(
-                                  width: 300.0,
+                                  width: 300,
                                   child: TextFormField(
                                     controller: _model.textController1,
                                     focusNode: _model.textFieldFocusNode1,
@@ -236,7 +234,7 @@ class _SupportWidgetState extends State<SupportWidget> {
                                           .labelMedium
                                           .override(
                                             fontFamily: 'Open Sans',
-                                            fontSize: 16.0,
+                                            fontSize: 16,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                           ),
@@ -246,8 +244,7 @@ class _SupportWidgetState extends State<SupportWidget> {
                                               .liteText,
                                           width: 1.5,
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
+                                        borderRadius: BorderRadius.circular(5),
                                       ),
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -255,8 +252,7 @@ class _SupportWidgetState extends State<SupportWidget> {
                                               .subHeader,
                                           width: 1.5,
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
+                                        borderRadius: BorderRadius.circular(5),
                                       ),
                                       errorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -264,8 +260,7 @@ class _SupportWidgetState extends State<SupportWidget> {
                                               .error,
                                           width: 1.5,
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
+                                        borderRadius: BorderRadius.circular(5),
                                       ),
                                       focusedErrorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -273,15 +268,14 @@ class _SupportWidgetState extends State<SupportWidget> {
                                               .error,
                                           width: 1.5,
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
+                                        borderRadius: BorderRadius.circular(5),
                                       ),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Open Sans',
-                                          fontSize: 16.0,
+                                          fontSize: 16,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -291,10 +285,10 @@ class _SupportWidgetState extends State<SupportWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 0.0, 8.0, 0.0),
+                                padding:
+                                    const EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                                 child: SizedBox(
-                                  width: 300.0,
+                                  width: 300,
                                   child: TextFormField(
                                     controller: _model.textController2,
                                     focusNode: _model.textFieldFocusNode2,
@@ -307,7 +301,7 @@ class _SupportWidgetState extends State<SupportWidget> {
                                           .labelMedium
                                           .override(
                                             fontFamily: 'Open Sans',
-                                            fontSize: 16.0,
+                                            fontSize: 16,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                           ),
@@ -317,8 +311,7 @@ class _SupportWidgetState extends State<SupportWidget> {
                                               .liteText,
                                           width: 1.5,
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
+                                        borderRadius: BorderRadius.circular(5),
                                       ),
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -326,8 +319,7 @@ class _SupportWidgetState extends State<SupportWidget> {
                                               .subHeader,
                                           width: 1.5,
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
+                                        borderRadius: BorderRadius.circular(5),
                                       ),
                                       errorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -335,8 +327,7 @@ class _SupportWidgetState extends State<SupportWidget> {
                                               .error,
                                           width: 1.5,
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
+                                        borderRadius: BorderRadius.circular(5),
                                       ),
                                       focusedErrorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -344,15 +335,14 @@ class _SupportWidgetState extends State<SupportWidget> {
                                               .error,
                                           width: 1.5,
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
+                                        borderRadius: BorderRadius.circular(5),
                                       ),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Open Sans',
-                                          fontSize: 16.0,
+                                          fontSize: 16,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -371,10 +361,10 @@ class _SupportWidgetState extends State<SupportWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 0.0, 8.0, 0.0),
+                                padding:
+                                    const EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                                 child: SizedBox(
-                                  width: 300.0,
+                                  width: 300,
                                   child: TextFormField(
                                     controller: _model.textController3,
                                     focusNode: _model.textFieldFocusNode3,
@@ -386,7 +376,7 @@ class _SupportWidgetState extends State<SupportWidget> {
                                           .labelMedium
                                           .override(
                                             fontFamily: 'Open Sans',
-                                            fontSize: 16.0,
+                                            fontSize: 16,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                           ),
@@ -396,8 +386,7 @@ class _SupportWidgetState extends State<SupportWidget> {
                                               .liteText,
                                           width: 1.5,
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
+                                        borderRadius: BorderRadius.circular(5),
                                       ),
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -405,8 +394,7 @@ class _SupportWidgetState extends State<SupportWidget> {
                                               .subHeader,
                                           width: 1.5,
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
+                                        borderRadius: BorderRadius.circular(5),
                                       ),
                                       errorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -414,8 +402,7 @@ class _SupportWidgetState extends State<SupportWidget> {
                                               .error,
                                           width: 1.5,
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
+                                        borderRadius: BorderRadius.circular(5),
                                       ),
                                       focusedErrorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -423,15 +410,14 @@ class _SupportWidgetState extends State<SupportWidget> {
                                               .error,
                                           width: 1.5,
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
+                                        borderRadius: BorderRadius.circular(5),
                                       ),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Open Sans',
-                                          fontSize: 16.0,
+                                          fontSize: 16,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -442,22 +428,22 @@ class _SupportWidgetState extends State<SupportWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 15.0, 0.0, 0.0),
+                                padding:
+                                    const EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
                                 child: Container(
-                                  width: 150.0,
-                                  height: 45.0,
+                                  width: 150,
+                                  height: 45,
                                   decoration: BoxDecoration(
                                     gradient: LinearGradient(
                                       colors: [
                                         FlutterFlowTheme.of(context).heading,
                                         FlutterFlowTheme.of(context).accent
                                       ],
-                                      stops: const [0.0, 1.0],
-                                      begin: const AlignmentDirectional(1.0, 0.0),
-                                      end: const AlignmentDirectional(-1.0, 0),
+                                      stops: const [0, 1],
+                                      begin: const AlignmentDirectional(1, 0),
+                                      end: const AlignmentDirectional(-1, 0),
                                     ),
-                                    borderRadius: BorderRadius.circular(5.0),
+                                    borderRadius: BorderRadius.circular(5),
                                   ),
                                   child: FFButtonWidget(
                                     onPressed: () {
@@ -465,34 +451,34 @@ class _SupportWidgetState extends State<SupportWidget> {
                                     },
                                     text: 'Send',
                                     options: FFButtonOptions(
-                                      height: 45.0,
+                                      height: 45,
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          5.0, 0.0, 5.0, 0.0),
+                                          5, 0, 5, 0),
                                       iconPadding:
                                           const EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
+                                              0, 0, 0, 0),
                                       color: const Color(0xFFEAE2F0),
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
                                             fontFamily: 'Raleway',
                                             color: Colors.white,
-                                            fontSize: 17.0,
-                                            letterSpacing: 1.0,
+                                            fontSize: 17,
+                                            letterSpacing: 1,
                                             fontWeight: FontWeight.w600,
                                           ),
-                                      elevation: 0.0,
+                                      elevation: 0,
                                       borderSide: const BorderSide(
                                         color: Color(0xFF8E7CC3),
                                       ),
-                                      borderRadius: BorderRadius.circular(5.0),
+                                      borderRadius: BorderRadius.circular(5),
                                     ),
                                   ),
                                 ),
                               ),
                             ]
-                                .divide(const SizedBox(height: 20.0))
-                                .addToStart(const SizedBox(height: 20.0)),
+                                .divide(const SizedBox(height: 20))
+                                .addToStart(const SizedBox(height: 20)),
                           ),
                         ),
                       ),

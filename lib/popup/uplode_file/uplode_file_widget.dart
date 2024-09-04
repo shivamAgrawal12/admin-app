@@ -33,7 +33,7 @@ class _UplodeFileWidgetState extends State<UplodeFileWidget> {
       _model.timerController.onStartTimer();
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -46,27 +46,27 @@ class _UplodeFileWidgetState extends State<UplodeFileWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0.0, -0.6),
+      alignment: const AlignmentDirectional(0, -0.6),
       child: Container(
-        width: 250.0,
+        width: 250,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
-          borderRadius: BorderRadius.circular(10.0),
+          borderRadius: BorderRadius.circular(10),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                 child: Text(
                   'Please upload the CSV file to proceed further.',
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Raleway',
                         color: FlutterFlowTheme.of(context).primaryText,
-                        fontSize: 16.0,
+                        fontSize: 16,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
                         lineHeight: 1.5,
@@ -85,7 +85,7 @@ class _UplodeFileWidgetState extends State<UplodeFileWidget> {
                 onChanged: (value, displayTime, shouldUpdate) {
                   _model.timerMilliseconds = value;
                   _model.timerValue = displayTime;
-                  if (shouldUpdate) setState(() {});
+                  if (shouldUpdate) safeSetState(() {});
                 },
                 onEnded: () async {
                   _model.timerController.onStopTimer();
@@ -95,7 +95,7 @@ class _UplodeFileWidgetState extends State<UplodeFileWidget> {
                 style: FlutterFlowTheme.of(context).headlineSmall.override(
                       fontFamily: 'Open Sans',
                       color: FlutterFlowTheme.of(context).primaryBackground,
-                      fontSize: 2.0,
+                      fontSize: 2,
                       letterSpacing: 0.0,
                     ),
               ),

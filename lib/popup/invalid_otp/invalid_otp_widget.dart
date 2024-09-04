@@ -25,7 +25,7 @@ class _InvalidOtpWidgetState extends State<InvalidOtpWidget> {
     super.initState();
     _model = createModel(context, () => InvalidOtpModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -38,34 +38,34 @@ class _InvalidOtpWidgetState extends State<InvalidOtpWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0.0, -0.6),
+      alignment: const AlignmentDirectional(0, -0.6),
       child: Container(
-        width: 300.0,
+        width: 300,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
-          borderRadius: BorderRadius.circular(10.0),
+          borderRadius: BorderRadius.circular(10),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                 child: Text(
                   'Invalid OTP, Please Try Again',
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Raleway',
                         color: FlutterFlowTheme.of(context).accent,
-                        fontSize: 16.0,
+                        fontSize: 16,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
                       ),
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 15.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0, 30, 0, 15),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -79,19 +79,19 @@ class _InvalidOtpWidgetState extends State<InvalidOtpWidget> {
                         Navigator.pop(context);
                       },
                       child: Container(
-                        width: 100.0,
-                        height: 40.0,
+                        width: 100,
+                        height: 40,
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [
                               FlutterFlowTheme.of(context).heading,
                               FlutterFlowTheme.of(context).accent
                             ],
-                            stops: const [0.0, 1.0],
-                            begin: const AlignmentDirectional(1.0, 0.0),
-                            end: const AlignmentDirectional(-1.0, 0),
+                            stops: const [0, 1],
+                            begin: const AlignmentDirectional(1, 0),
+                            end: const AlignmentDirectional(-1, 0),
                           ),
-                          borderRadius: BorderRadius.circular(5.0),
+                          borderRadius: BorderRadius.circular(5),
                         ),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -105,12 +105,12 @@ class _InvalidOtpWidgetState extends State<InvalidOtpWidget> {
                                     fontFamily: 'Raleway',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
-                                    fontSize: 16.0,
+                                    fontSize: 16,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),
-                          ].divide(const SizedBox(width: 10.0)),
+                          ].divide(const SizedBox(width: 10)),
                         ),
                       ),
                     ),

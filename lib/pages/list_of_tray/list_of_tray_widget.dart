@@ -53,7 +53,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
       _model.stealcount = AdminApiGroup.listOfTrayCall.count(
         (_model.apiResultv22?.jsonBody ?? ''),
       );
-      setState(() {});
+      safeSetState(() {});
     });
 
     _model.textController ??= TextEditingController();
@@ -63,7 +63,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
       vsync: this,
       length: 2,
       initialIndex: 0,
-    )..addListener(() => setState(() {}));
+    )..addListener(() => safeSetState(() {}));
     animationsMap.addAll({
       'rowOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -139,7 +139,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
       ),
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -161,13 +161,13 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: const AlignmentDirectional(0.0, -1.0),
+            alignment: const AlignmentDirectional(0, -1),
             child: Container(
-              width: MediaQuery.sizeOf(context).width * 1.0,
-              height: MediaQuery.sizeOf(context).height * 1.0,
+              width: MediaQuery.sizeOf(context).width,
+              height: MediaQuery.sizeOf(context).height * 1,
               constraints: const BoxConstraints(
-                minWidth: 320.0,
-                maxWidth: 450.0,
+                minWidth: 320,
+                maxWidth: 450,
               ),
               decoration: const BoxDecoration(),
               child: Column(
@@ -175,18 +175,17 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: 70.0,
+                    width: MediaQuery.sizeOf(context).width,
+                    height: 70,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
                         color: const Color(0xFFEEECF1),
-                        width: 1.0,
+                        width: 1,
                       ),
                     ),
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(25, 0, 25, 0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -211,15 +210,15 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                             child: FaIcon(
                               FontAwesomeIcons.arrowLeft,
                               color: FlutterFlowTheme.of(context).primaryText,
-                              size: 24.0,
+                              size: 24,
                             ),
                           ),
                           ClipRRect(
-                            borderRadius: BorderRadius.circular(8.0),
+                            borderRadius: BorderRadius.circular(8),
                             child: Image.asset(
                               'assets/images/Group_42_(2).png',
-                              width: 130.0,
-                              height: 40.0,
+                              width: 130,
+                              height: 40,
                               fit: BoxFit.contain,
                             ),
                           ),
@@ -247,39 +246,38 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                               ).then((value) => safeSetState(() {}));
                             },
                             child: Container(
-                              width: 31.0,
-                              height: 31.0,
+                              width: 31,
+                              height: 31,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context).accent4,
                                 shape: BoxShape.circle,
                               ),
                               child: Align(
-                                alignment: const AlignmentDirectional(0.0, 2.6),
+                                alignment: const AlignmentDirectional(0, 2.6),
                                 child: Icon(
                                   Icons.person_3,
                                   color: FlutterFlowTheme.of(context).heading,
-                                  size: 28.0,
+                                  size: 28,
                                 ),
                               ),
                             ),
                           ),
-                        ].divide(const SizedBox(width: 6.0)),
+                        ].divide(const SizedBox(width: 6)),
                       ),
                     ),
                   ),
                   Container(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: 60.0,
+                    width: MediaQuery.sizeOf(context).width,
+                    height: 60,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
                         color: const Color(0xFFEEECF1),
-                        width: 1.0,
+                        width: 1,
                       ),
                     ),
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -291,27 +289,26 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                 .override(
                                   fontFamily: 'Raleway',
                                   color: FlutterFlowTheme.of(context).heading,
-                                  fontSize: 16.0,
+                                  fontSize: 16,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
                                 ),
                           ),
-                        ].divide(const SizedBox(width: 6.0)),
+                        ].divide(const SizedBox(width: 6)),
                       ).animateOnPageLoad(
                           animationsMap['rowOnPageLoadAnimation']!),
                     ),
                   ),
                   Container(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    width: MediaQuery.sizeOf(context).width,
                     height: MediaQuery.sizeOf(context).height * 0.8,
                     constraints: const BoxConstraints(
-                      minWidth: 320.0,
-                      maxWidth: 450.0,
+                      minWidth: 320,
+                      maxWidth: 450,
                     ),
                     decoration: const BoxDecoration(),
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                       child: SingleChildScrollView(
                         primary: false,
                         child: Column(
@@ -323,19 +320,19 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Align(
-                                  alignment: const AlignmentDirectional(-1.0, -1.0),
+                                  alignment: const AlignmentDirectional(-1, -1),
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        15.0, 0.0, 8.0, 0.0),
+                                        15, 0, 8, 0),
                                     child: SizedBox(
-                                      width: 320.0,
+                                      width: 320,
                                       child: TextFormField(
                                         controller: _model.textController,
                                         focusNode: _model.textFieldFocusNode,
                                         onChanged: (_) => EasyDebounce.debounce(
                                           '_model.textController',
                                           const Duration(milliseconds: 50),
-                                          () => setState(() {}),
+                                          () => safeSetState(() {}),
                                         ),
                                         autofocus: false,
                                         obscureText: false,
@@ -349,7 +346,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .liteText,
-                                                fontSize: 15.0,
+                                                fontSize: 15,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
@@ -361,7 +358,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                               width: 1.5,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(5.0),
+                                                BorderRadius.circular(5),
                                           ),
                                           focusedBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
@@ -371,7 +368,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                               width: 1.5,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(5.0),
+                                                BorderRadius.circular(5),
                                           ),
                                           errorBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
@@ -381,7 +378,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                               width: 1.5,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(5.0),
+                                                BorderRadius.circular(5),
                                           ),
                                           focusedErrorBorder:
                                               OutlineInputBorder(
@@ -392,14 +389,14 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                               width: 1.5,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(5.0),
+                                                BorderRadius.circular(5),
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Open Sans',
-                                              fontSize: 15.0,
+                                              fontSize: 15,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
@@ -414,18 +411,18 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                               ],
                             ),
                             Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              width: MediaQuery.sizeOf(context).width,
                               height: MediaQuery.sizeOf(context).height * 0.7,
                               decoration: const BoxDecoration(),
                               child: Stack(
                                 children: [
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 15.0, 0.0, 0.0),
+                                        0, 15, 0, 0),
                                     child: Column(
                                       children: [
                                         Align(
-                                          alignment: const Alignment(0.0, 0),
+                                          alignment: const Alignment(0, 0),
                                           child: TabBar(
                                             labelColor:
                                                 FlutterFlowTheme.of(context)
@@ -446,7 +443,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                             indicatorColor:
                                                 FlutterFlowTheme.of(context)
                                                     .liteText,
-                                            padding: const EdgeInsets.all(4.0),
+                                            padding: const EdgeInsets.all(4),
                                             tabs: [
                                               const Tab(
                                                 text: '  Metal  ',
@@ -486,14 +483,14 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                         if (!snapshot.hasData) {
                                                           return Center(
                                                             child: SizedBox(
-                                                              width: 40.0,
-                                                              height: 40.0,
+                                                              width: 40,
+                                                              height: 40,
                                                               child:
                                                                   SpinKitThreeBounce(
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .subHeader,
-                                                                size: 40.0,
+                                                                size: 40,
                                                               ),
                                                             ),
                                                           );
@@ -526,7 +523,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                                 0,
                                                                 0,
                                                                 0,
-                                                                30.0,
+                                                                30,
                                                               ),
                                                               shrinkWrap: true,
                                                               scrollDirection:
@@ -550,25 +547,26 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                                   child: Align(
                                                                     alignment:
                                                                         const AlignmentDirectional(
-                                                                            0.0,
-                                                                            -1.0),
+                                                                            0,
+                                                                            -1),
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          15.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      padding: const EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              15,
+                                                                              0,
+                                                                              0),
                                                                       child:
                                                                           Container(
                                                                         width:
-                                                                            340.0,
+                                                                            340,
                                                                         constraints:
                                                                             const BoxConstraints(
                                                                           minWidth:
-                                                                              270.0,
+                                                                              270,
                                                                           maxWidth:
-                                                                              350.0,
+                                                                              350,
                                                                         ),
                                                                         decoration:
                                                                             BoxDecoration(
@@ -576,21 +574,21 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                                               FlutterFlowTheme.of(context).primaryBackground,
                                                                           boxShadow: const [
                                                                             BoxShadow(
-                                                                              blurRadius: 5.0,
+                                                                              blurRadius: 5,
                                                                               color: Color(0x26000000),
                                                                               offset: Offset(
-                                                                                1.0,
-                                                                                3.0,
+                                                                                1,
+                                                                                3,
                                                                               ),
                                                                             )
                                                                           ],
                                                                           borderRadius:
-                                                                              BorderRadius.circular(5.0),
+                                                                              BorderRadius.circular(5),
                                                                         ),
                                                                         child:
                                                                             Padding(
                                                                           padding:
-                                                                              const EdgeInsets.all(10.0),
+                                                                              const EdgeInsets.all(10),
                                                                           child:
                                                                               Row(
                                                                             mainAxisSize:
@@ -615,7 +613,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                                                         ),
                                                                                   ),
                                                                                   Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                                                                                     child: Text(
                                                                                       getJsonField(
                                                                                         metalTrayRecordsItem,
@@ -624,14 +622,14 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Open Sans',
                                                                                             color: FlutterFlowTheme.of(context).primaryText,
-                                                                                            fontSize: 14.0,
+                                                                                            fontSize: 14,
                                                                                             letterSpacing: 0.0,
                                                                                             fontWeight: FontWeight.w600,
                                                                                           ),
                                                                                     ),
                                                                                   ),
                                                                                   Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                                                                                     child: Text(
                                                                                       'Status',
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -643,7 +641,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                                                     ),
                                                                                   ),
                                                                                   Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                                                                                     child: Text(
                                                                                       getJsonField(
                                                                                         metalTrayRecordsItem,
@@ -652,14 +650,14 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Open Sans',
                                                                                             color: FlutterFlowTheme.of(context).primaryText,
-                                                                                            fontSize: 14.0,
+                                                                                            fontSize: 14,
                                                                                             letterSpacing: 0.0,
                                                                                             fontWeight: FontWeight.w600,
                                                                                           ),
                                                                                     ),
                                                                                   ),
                                                                                   Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                                                                                     child: Text(
                                                                                       'Tray Height',
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -671,7 +669,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                                                     ),
                                                                                   ),
                                                                                   Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                                                                                     child: Text(
                                                                                       getJsonField(
                                                                                         metalTrayRecordsItem,
@@ -680,7 +678,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Open Sans',
                                                                                             color: FlutterFlowTheme.of(context).primaryText,
-                                                                                            fontSize: 14.0,
+                                                                                            fontSize: 14,
                                                                                             letterSpacing: 0.0,
                                                                                             fontWeight: FontWeight.w600,
                                                                                           ),
@@ -703,7 +701,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                                                         ),
                                                                                   ),
                                                                                   Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                                                                                     child: Text(
                                                                                       getJsonField(
                                                                                         metalTrayRecordsItem,
@@ -712,14 +710,14 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Open Sans',
                                                                                             color: FlutterFlowTheme.of(context).primaryText,
-                                                                                            fontSize: 14.0,
+                                                                                            fontSize: 14,
                                                                                             letterSpacing: 0.0,
                                                                                             fontWeight: FontWeight.w600,
                                                                                           ),
                                                                                     ),
                                                                                   ),
                                                                                   Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                                                                                     child: Text(
                                                                                       'Created At',
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -731,7 +729,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                                                     ),
                                                                                   ),
                                                                                   Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                                                                                     child: Text(
                                                                                       valueOrDefault<String>(
                                                                                         functions.changeformateDT(getJsonField(
@@ -743,7 +741,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Open Sans',
                                                                                             color: FlutterFlowTheme.of(context).primaryText,
-                                                                                            fontSize: 14.0,
+                                                                                            fontSize: 14,
                                                                                             letterSpacing: 0.0,
                                                                                             fontWeight: FontWeight.w600,
                                                                                           ),
@@ -788,14 +786,14 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                         if (!snapshot.hasData) {
                                                           return Center(
                                                             child: SizedBox(
-                                                              width: 40.0,
-                                                              height: 40.0,
+                                                              width: 40,
+                                                              height: 40,
                                                               child:
                                                                   SpinKitThreeBounce(
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .subHeader,
-                                                                size: 40.0,
+                                                                size: 40,
                                                               ),
                                                             ),
                                                           );
@@ -828,7 +826,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                                 0,
                                                                 0,
                                                                 0,
-                                                                30.0,
+                                                                30,
                                                               ),
                                                               shrinkWrap: true,
                                                               scrollDirection:
@@ -852,25 +850,26 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                                   child: Align(
                                                                     alignment:
                                                                         const AlignmentDirectional(
-                                                                            0.0,
-                                                                            -1.0),
+                                                                            0,
+                                                                            -1),
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          15.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      padding: const EdgeInsetsDirectional
+                                                                          .fromSTEB(
+                                                                              0,
+                                                                              15,
+                                                                              0,
+                                                                              0),
                                                                       child:
                                                                           Container(
                                                                         width:
-                                                                            340.0,
+                                                                            340,
                                                                         constraints:
                                                                             const BoxConstraints(
                                                                           minWidth:
-                                                                              270.0,
+                                                                              270,
                                                                           maxWidth:
-                                                                              350.0,
+                                                                              350,
                                                                         ),
                                                                         decoration:
                                                                             BoxDecoration(
@@ -878,21 +877,21 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                                               FlutterFlowTheme.of(context).primaryBackground,
                                                                           boxShadow: const [
                                                                             BoxShadow(
-                                                                              blurRadius: 5.0,
+                                                                              blurRadius: 5,
                                                                               color: Color(0x26000000),
                                                                               offset: Offset(
-                                                                                1.0,
-                                                                                3.0,
+                                                                                1,
+                                                                                3,
                                                                               ),
                                                                             )
                                                                           ],
                                                                           borderRadius:
-                                                                              BorderRadius.circular(5.0),
+                                                                              BorderRadius.circular(5),
                                                                         ),
                                                                         child:
                                                                             Padding(
                                                                           padding:
-                                                                              const EdgeInsets.all(10.0),
+                                                                              const EdgeInsets.all(10),
                                                                           child:
                                                                               Row(
                                                                             mainAxisSize:
@@ -917,7 +916,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                                                         ),
                                                                                   ),
                                                                                   Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                                                                                     child: Text(
                                                                                       getJsonField(
                                                                                         plasticTrayRecordsItem,
@@ -926,14 +925,14 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Open Sans',
                                                                                             color: FlutterFlowTheme.of(context).primaryText,
-                                                                                            fontSize: 14.0,
+                                                                                            fontSize: 14,
                                                                                             letterSpacing: 0.0,
                                                                                             fontWeight: FontWeight.w600,
                                                                                           ),
                                                                                     ),
                                                                                   ),
                                                                                   Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                                                                                     child: Text(
                                                                                       'Status',
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -945,7 +944,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                                                     ),
                                                                                   ),
                                                                                   Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                                                                                     child: Text(
                                                                                       getJsonField(
                                                                                         plasticTrayRecordsItem,
@@ -954,14 +953,14 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Open Sans',
                                                                                             color: FlutterFlowTheme.of(context).primaryText,
-                                                                                            fontSize: 14.0,
+                                                                                            fontSize: 14,
                                                                                             letterSpacing: 0.0,
                                                                                             fontWeight: FontWeight.w600,
                                                                                           ),
                                                                                     ),
                                                                                   ),
                                                                                   Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                                                                                     child: Text(
                                                                                       'Tray Height',
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -973,7 +972,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                                                     ),
                                                                                   ),
                                                                                   Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                                                                                     child: Text(
                                                                                       getJsonField(
                                                                                         plasticTrayRecordsItem,
@@ -982,7 +981,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Open Sans',
                                                                                             color: FlutterFlowTheme.of(context).primaryText,
-                                                                                            fontSize: 14.0,
+                                                                                            fontSize: 14,
                                                                                             letterSpacing: 0.0,
                                                                                             fontWeight: FontWeight.w600,
                                                                                           ),
@@ -1005,7 +1004,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                                                         ),
                                                                                   ),
                                                                                   Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                                                                                     child: Text(
                                                                                       getJsonField(
                                                                                         plasticTrayRecordsItem,
@@ -1014,14 +1013,14 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Open Sans',
                                                                                             color: FlutterFlowTheme.of(context).primaryText,
-                                                                                            fontSize: 14.0,
+                                                                                            fontSize: 14,
                                                                                             letterSpacing: 0.0,
                                                                                             fontWeight: FontWeight.w600,
                                                                                           ),
                                                                                     ),
                                                                                   ),
                                                                                   Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                                                                                     child: Text(
                                                                                       'Created At',
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1033,7 +1032,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                                                     ),
                                                                                   ),
                                                                                   Padding(
-                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                                                                                     child: Text(
                                                                                       valueOrDefault<String>(
                                                                                         functions.changeformateDT(getJsonField(
@@ -1045,7 +1044,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Open Sans',
                                                                                             color: FlutterFlowTheme.of(context).primaryText,
-                                                                                            fontSize: 14.0,
+                                                                                            fontSize: 14,
                                                                                             letterSpacing: 0.0,
                                                                                             fontWeight: FontWeight.w600,
                                                                                           ),
@@ -1080,18 +1079,16 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                     alignment:
                                         const AlignmentDirectional(0.14, -0.91),
                                     child: Container(
-                                      width: 35.0,
-                                      height: 35.0,
+                                      width: 35,
+                                      height: 35,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .liteText,
                                         shape: BoxShape.circle,
                                       ),
-                                      alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                      alignment: const AlignmentDirectional(-1, 0),
                                       child: Align(
-                                        alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
+                                        alignment: const AlignmentDirectional(0, 0),
                                         child: Text(
                                           valueOrDefault<String>(
                                             _model.stealcount == null
@@ -1106,7 +1103,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primary,
-                                                fontSize: 14.0,
+                                                fontSize: 14,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -1118,18 +1115,16 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                     alignment:
                                         const AlignmentDirectional(-0.96, -0.91),
                                     child: Container(
-                                      width: 35.0,
-                                      height: 35.0,
+                                      width: 35,
+                                      height: 35,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .liteText,
                                         shape: BoxShape.circle,
                                       ),
-                                      alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                      alignment: const AlignmentDirectional(-1, 0),
                                       child: Align(
-                                        alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
+                                        alignment: const AlignmentDirectional(0, 0),
                                         child: Text(
                                           valueOrDefault<String>(
                                             _model.metalcount == null
@@ -1144,7 +1139,7 @@ class _ListOfTrayWidgetState extends State<ListOfTrayWidget>
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primary,
-                                                fontSize: 14.0,
+                                                fontSize: 14,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),

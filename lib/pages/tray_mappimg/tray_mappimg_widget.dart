@@ -38,12 +38,12 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget>
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().scannerpage = 'traymap';
       FFAppState().trayqrscan = 0;
-      setState(() {});
+      safeSetState(() {});
       _model.routh = await actions.routhpage(
         context,
       );
       FFAppState().rothpage = _model.routh!;
-      setState(() {});
+      safeSetState(() {});
     });
 
     _model.switchValue = true;
@@ -89,7 +89,7 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget>
       ),
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -113,13 +113,13 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget>
           body: SafeArea(
             top: true,
             child: Align(
-              alignment: const AlignmentDirectional(0.0, -1.0),
+              alignment: const AlignmentDirectional(0, -1),
               child: Container(
-                width: MediaQuery.sizeOf(context).width * 1.0,
-                height: MediaQuery.sizeOf(context).height * 1.0,
+                width: MediaQuery.sizeOf(context).width,
+                height: MediaQuery.sizeOf(context).height * 1,
                 constraints: const BoxConstraints(
-                  minWidth: 320.0,
-                  maxWidth: 450.0,
+                  minWidth: 320,
+                  maxWidth: 450,
                 ),
                 decoration: const BoxDecoration(),
                 child: Column(
@@ -127,18 +127,17 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget>
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
-                      height: 70.0,
+                      width: MediaQuery.sizeOf(context).width,
+                      height: 70,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         border: Border.all(
                           color: const Color(0xFFEEECF1),
-                          width: 1.0,
+                          width: 1,
                         ),
                       ),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            25.0, 0.0, 25.0, 0.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(25, 0, 25, 0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -168,15 +167,15 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget>
                               child: FaIcon(
                                 FontAwesomeIcons.arrowLeft,
                                 color: FlutterFlowTheme.of(context).primaryText,
-                                size: 24.0,
+                                size: 24,
                               ),
                             ),
                             ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(8),
                               child: Image.asset(
                                 'assets/images/Group_42_(2).png',
-                                width: 130.0,
-                                height: 40.0,
+                                width: 130,
+                                height: 40,
                                 fit: BoxFit.contain,
                               ),
                             ),
@@ -205,39 +204,38 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget>
                                 ).then((value) => safeSetState(() {}));
                               },
                               child: Container(
-                                width: 31.0,
-                                height: 31.0,
+                                width: 31,
+                                height: 31,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context).accent4,
                                   shape: BoxShape.circle,
                                 ),
                                 child: Align(
-                                  alignment: const AlignmentDirectional(0.0, 2.6),
+                                  alignment: const AlignmentDirectional(0, 2.6),
                                   child: Icon(
                                     Icons.person_3,
                                     color: FlutterFlowTheme.of(context).heading,
-                                    size: 28.0,
+                                    size: 28,
                                   ),
                                 ),
                               ),
                             ),
-                          ].divide(const SizedBox(width: 6.0)),
+                          ].divide(const SizedBox(width: 6)),
                         ),
                       ),
                     ),
                     Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
-                      height: 70.0,
+                      width: MediaQuery.sizeOf(context).width,
+                      height: 70,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         border: Border.all(
                           color: const Color(0xFFEEECF1),
-                          width: 1.0,
+                          width: 1,
                         ),
                       ),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            10.0, 0.0, 10.0, 0.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -249,47 +247,46 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget>
                                   .override(
                                     fontFamily: 'Raleway',
                                     color: FlutterFlowTheme.of(context).heading,
-                                    fontSize: 16.0,
+                                    fontSize: 16,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),
-                          ].divide(const SizedBox(width: 6.0)),
+                          ].divide(const SizedBox(width: 6)),
                         ).animateOnPageLoad(
                             animationsMap['rowOnPageLoadAnimation']!),
                       ),
                     ),
                     Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      width: MediaQuery.sizeOf(context).width,
                       height: MediaQuery.sizeOf(context).height * 0.75,
                       constraints: const BoxConstraints(
-                        minWidth: 320.0,
-                        maxWidth: 450.0,
+                        minWidth: 320,
+                        maxWidth: 450,
                       ),
                       decoration: const BoxDecoration(),
                       child: Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                         child: SingleChildScrollView(
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(1.0, -1.0),
+                                alignment: const AlignmentDirectional(1, -1),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 40.0, 0.0),
+                                      0, 0, 40, 0),
                                   child: Switch.adaptive(
                                     value: _model.switchValue!,
                                     onChanged: (newValue) async {
-                                      setState(
+                                      safeSetState(
                                           () => _model.switchValue = newValue);
                                       if (newValue) {
                                         FFAppState().trayqrscan = 0;
-                                        setState(() {});
+                                        safeSetState(() {});
                                       } else {
                                         FFAppState().trayqrscan = 1;
-                                        setState(() {});
+                                        safeSetState(() {});
                                       }
                                     },
                                     activeColor:
@@ -321,35 +318,35 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget>
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
                                           FFAppState().trayqrscan = 0;
-                                          setState(() {});
+                                          safeSetState(() {});
                                         },
                                         child: Container(
-                                          width: 300.0,
-                                          height: 300.0,
+                                          width: 300,
+                                          height: 300,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
                                             boxShadow: const [
                                               BoxShadow(
-                                                blurRadius: 20.0,
+                                                blurRadius: 20,
                                                 color: Color(0x678E7CC3),
                                                 offset: Offset(
-                                                  5.0,
-                                                  8.0,
+                                                  5,
+                                                  8,
                                                 ),
                                               )
                                             ],
                                             borderRadius:
-                                                BorderRadius.circular(5.0),
+                                                BorderRadius.circular(5),
                                           ),
                                           child: const Padding(
-                                            padding: EdgeInsets.all(10.0),
+                                            padding: EdgeInsets.all(10),
                                             child: SizedBox(
-                                              width: 300.0,
-                                              height: 300.0,
+                                              width: 300,
+                                              height: 300,
                                               child: custom_widgets.QRTrayMap(
-                                                width: 300.0,
-                                                height: 300.0,
+                                                width: 300,
+                                                height: 300,
                                               ),
                                             ),
                                           ),
@@ -367,40 +364,40 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget>
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Raleway',
-                                                fontSize: 18.0,
+                                                fontSize: 18,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
-                                                lineHeight: 1.0,
+                                                lineHeight: 1,
                                               ),
                                         ),
                                         Icon(
                                           Icons.qr_code_scanner_outlined,
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryText,
-                                          size: 24.0,
+                                          size: 24,
                                         ),
-                                      ].divide(const SizedBox(width: 5.0)),
+                                      ].divide(const SizedBox(width: 5)),
                                     ),
-                                  ].divide(const SizedBox(height: 30.0)),
+                                  ].divide(const SizedBox(height: 30)),
                                 ),
                               if (FFAppState().trayqrscan == 0 ? true : false)
                                 Container(
-                                  width: 300.0,
-                                  height: 300.0,
+                                  width: 300,
+                                  height: 300,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     boxShadow: const [
                                       BoxShadow(
-                                        blurRadius: 20.0,
+                                        blurRadius: 20,
                                         color: Color(0x678E7CC3),
                                         offset: Offset(
-                                          5.0,
-                                          8.0,
+                                          5,
+                                          8,
                                         ),
                                       )
                                     ],
-                                    borderRadius: BorderRadius.circular(5.0),
+                                    borderRadius: BorderRadius.circular(5),
                                   ),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -409,10 +406,10 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget>
                                     children: [
                                       Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 20.0, 10.0, 0.0),
+                                            10, 20, 10, 0),
                                         child: Container(
-                                          width: 140.0,
-                                          height: 40.0,
+                                          width: 140,
+                                          height: 40,
                                           decoration: BoxDecoration(
                                             gradient: LinearGradient(
                                               colors: [
@@ -421,28 +418,26 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget>
                                                 FlutterFlowTheme.of(context)
                                                     .accent
                                               ],
-                                              stops: const [0.0, 1.0],
-                                              begin: const AlignmentDirectional(
-                                                  1.0, 0.0),
-                                              end:
-                                                  const AlignmentDirectional(-1.0, 0),
+                                              stops: const [0, 1],
+                                              begin: const AlignmentDirectional(1, 0),
+                                              end: const AlignmentDirectional(-1, 0),
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(5.0),
+                                                BorderRadius.circular(5),
                                           ),
                                           child: FFButtonWidget(
                                             onPressed: () async {
                                               FFAppState().trayqrscan = 2;
-                                              setState(() {});
+                                              safeSetState(() {});
                                             },
                                             text: 'Scan',
                                             options: FFButtonOptions(
-                                              width: 150.0,
-                                              height: 40.0,
+                                              width: 150,
+                                              height: 40,
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(5.0, 0.0, 5.0, 0.0),
+                                                  .fromSTEB(5, 0, 5, 0),
                                               iconPadding: const EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                  .fromSTEB(0, 0, 0, 0),
                                               color: const Color(0x00EEECF1),
                                               textStyle:
                                                   FlutterFlowTheme.of(context)
@@ -450,16 +445,16 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget>
                                                       .override(
                                                         fontFamily: 'Raleway',
                                                         color: Colors.white,
-                                                        fontSize: 16.0,
+                                                        fontSize: 16,
                                                         letterSpacing: 0.0,
                                                       ),
-                                              elevation: 0.0,
+                                              elevation: 0,
                                               borderSide: const BorderSide(
                                                 color: Colors.transparent,
-                                                width: 1.0,
+                                                width: 1,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(5.0),
+                                                  BorderRadius.circular(5),
                                             ),
                                           ),
                                         ),
@@ -475,19 +470,19 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget>
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Raleway',
-                                                  fontSize: 18.0,
+                                                  fontSize: 18,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
-                                                  lineHeight: 1.0,
+                                                  lineHeight: 1,
                                                 ),
                                           ),
                                           Icon(
                                             Icons.qr_code_scanner_outlined,
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryText,
-                                            size: 24.0,
+                                            size: 24,
                                           ),
-                                        ].divide(const SizedBox(width: 5.0)),
+                                        ].divide(const SizedBox(width: 5)),
                                       ),
                                     ],
                                   ),
@@ -495,16 +490,16 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget>
                               if (FFAppState().trayqrscan == 1 ? true : false)
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 10.0, 0.0),
+                                      10, 0, 10, 0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 0.0, 8.0, 0.0),
+                                            8, 0, 8, 0),
                                         child: SizedBox(
-                                          width: 300.0,
+                                          width: 300,
                                           child: TextFormField(
                                             controller: _model.textController,
                                             focusNode:
@@ -518,7 +513,7 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget>
                                                       .labelMedium
                                                       .override(
                                                         fontFamily: 'Open Sans',
-                                                        fontSize: 16.0,
+                                                        fontSize: 16,
                                                         letterSpacing: 0.0,
                                                       ),
                                               enabledBorder: OutlineInputBorder(
@@ -526,30 +521,30 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget>
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .subHeader,
-                                                  width: 1.0,
+                                                  width: 1,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(5.0),
+                                                    BorderRadius.circular(5),
                                               ),
                                               focusedBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .heading,
-                                                  width: 1.0,
+                                                  width: 1,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(5.0),
+                                                    BorderRadius.circular(5),
                                               ),
                                               errorBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .error,
-                                                  width: 1.0,
+                                                  width: 1,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(5.0),
+                                                    BorderRadius.circular(5),
                                               ),
                                               focusedErrorBorder:
                                                   OutlineInputBorder(
@@ -557,17 +552,17 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget>
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .error,
-                                                  width: 1.0,
+                                                  width: 1,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(5.0),
+                                                    BorderRadius.circular(5),
                                               ),
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Open Sans',
-                                                  fontSize: 16.0,
+                                                  fontSize: 16,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -579,10 +574,10 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget>
                                       ),
                                       Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 20.0, 10.0, 0.0),
+                                            10, 20, 10, 0),
                                         child: Container(
-                                          width: 140.0,
-                                          height: 40.0,
+                                          width: 140,
+                                          height: 40,
                                           decoration: BoxDecoration(
                                             gradient: LinearGradient(
                                               colors: [
@@ -591,14 +586,12 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget>
                                                 FlutterFlowTheme.of(context)
                                                     .accent
                                               ],
-                                              stops: const [0.0, 1.0],
-                                              begin: const AlignmentDirectional(
-                                                  1.0, 0.0),
-                                              end:
-                                                  const AlignmentDirectional(-1.0, 0),
+                                              stops: const [0, 1],
+                                              begin: const AlignmentDirectional(1, 0),
+                                              end: const AlignmentDirectional(-1, 0),
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(5.0),
+                                                BorderRadius.circular(5),
                                           ),
                                           child: FFButtonWidget(
                                             onPressed: () async {
@@ -630,12 +623,12 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget>
                                             },
                                             text: 'Mapping',
                                             options: FFButtonOptions(
-                                              width: 150.0,
-                                              height: 40.0,
+                                              width: 150,
+                                              height: 40,
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(5.0, 0.0, 5.0, 0.0),
+                                                  .fromSTEB(5, 0, 5, 0),
                                               iconPadding: const EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                  .fromSTEB(0, 0, 0, 0),
                                               color: const Color(0x00EEECF1),
                                               textStyle:
                                                   FlutterFlowTheme.of(context)
@@ -643,24 +636,24 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget>
                                                       .override(
                                                         fontFamily: 'Raleway',
                                                         color: Colors.white,
-                                                        fontSize: 16.0,
+                                                        fontSize: 16,
                                                         letterSpacing: 0.0,
                                                       ),
-                                              elevation: 0.0,
+                                              elevation: 0,
                                               borderSide: const BorderSide(
                                                 color: Colors.transparent,
-                                                width: 1.0,
+                                                width: 1,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(5.0),
+                                                  BorderRadius.circular(5),
                                             ),
                                           ),
                                         ),
                                       ),
-                                    ].divide(const SizedBox(height: 45.0)),
+                                    ].divide(const SizedBox(height: 45)),
                                   ),
                                 ),
-                            ].divide(const SizedBox(height: 20.0)),
+                            ].divide(const SizedBox(height: 20)),
                           ),
                         ),
                       ),

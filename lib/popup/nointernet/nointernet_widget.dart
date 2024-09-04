@@ -34,7 +34,7 @@ class _NointernetWidgetState extends State<NointernetWidget> {
       _model.timerController.onStartTimer();
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -47,26 +47,26 @@ class _NointernetWidgetState extends State<NointernetWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0.0, 0.0),
+      alignment: const AlignmentDirectional(0, 0),
       child: Container(
-        width: 320.0,
-        height: 420.0,
+        width: 320,
+        height: 420,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
-          borderRadius: BorderRadius.circular(10.0),
+          borderRadius: BorderRadius.circular(10),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
+                borderRadius: BorderRadius.circular(8),
                 child: Image.asset(
                   'assets/images/NOINTERNET_(1).gif',
-                  width: 300.0,
-                  height: 300.0,
+                  width: 300,
+                  height: 300,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -82,7 +82,7 @@ class _NointernetWidgetState extends State<NointernetWidget> {
                 onChanged: (value, displayTime, shouldUpdate) {
                   _model.timerMilliseconds = value;
                   _model.timerValue = displayTime;
-                  if (shouldUpdate) setState(() {});
+                  if (shouldUpdate) safeSetState(() {});
                 },
                 onEnded: () async {
                   _model.timerController.onStopTimer();
@@ -91,7 +91,7 @@ class _NointernetWidgetState extends State<NointernetWidget> {
                 textAlign: TextAlign.start,
                 style: FlutterFlowTheme.of(context).headlineSmall.override(
                       fontFamily: 'Open Sans',
-                      fontSize: 1.0,
+                      fontSize: 1,
                       letterSpacing: 0.0,
                     ),
               ),
@@ -101,25 +101,24 @@ class _NointernetWidgetState extends State<NointernetWidget> {
                 },
                 text: 'Close',
                 options: FFButtonOptions(
-                  height: 40.0,
-                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                  iconPadding:
-                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                  height: 40,
+                  padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                  iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                   color: FlutterFlowTheme.of(context).liteText,
                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily: 'Open Sans',
                         color: Colors.white,
                         letterSpacing: 0.0,
                       ),
-                  elevation: 3.0,
+                  elevation: 3,
                   borderSide: const BorderSide(
                     color: Colors.transparent,
-                    width: 1.0,
+                    width: 1,
                   ),
-                  borderRadius: BorderRadius.circular(8.0),
+                  borderRadius: BorderRadius.circular(8),
                 ),
               ),
-            ].divide(const SizedBox(height: 20.0)),
+            ].divide(const SizedBox(height: 20)),
           ),
         ),
       ),

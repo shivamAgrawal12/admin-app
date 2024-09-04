@@ -37,7 +37,7 @@ class _ShuttleupdateWidgetState extends State<ShuttleupdateWidget> {
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {});
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -52,47 +52,47 @@ class _ShuttleupdateWidgetState extends State<ShuttleupdateWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: const AlignmentDirectional(0.0, -0.6),
+      alignment: const AlignmentDirectional(0, -0.6),
       child: Container(
-        width: 280.0,
+        width: 280,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).liteBg,
-          borderRadius: BorderRadius.circular(10.0),
+          borderRadius: BorderRadius.circular(10),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Container(
-              width: 290.0,
-              height: 60.0,
+              width: 290,
+              height: 60,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).primaryBackground,
                 boxShadow: const [
                   BoxShadow(
-                    blurRadius: 25.0,
+                    blurRadius: 25,
                     color: Color(0x338E7CC3),
                     offset: Offset(
-                      0.0,
-                      5.0,
+                      0,
+                      5,
                     ),
                   )
                 ],
                 borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(20.0),
-                  bottomRight: Radius.circular(20.0),
-                  topLeft: Radius.circular(10.0),
-                  topRight: Radius.circular(10.0),
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20),
+                  topLeft: Radius.circular(10),
+                  topRight: Radius.circular(10),
                 ),
               ),
               child: Align(
-                alignment: const AlignmentDirectional(0.0, 0.0),
+                alignment: const AlignmentDirectional(0, 0),
                 child: Text(
                   'Update Shuttles Details',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Raleway',
                         color: FlutterFlowTheme.of(context).heading,
-                        fontSize: 16.0,
+                        fontSize: 16,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
                       ),
@@ -108,11 +108,11 @@ class _ShuttleupdateWidgetState extends State<ShuttleupdateWidget> {
                 if (!snapshot.hasData) {
                   return Center(
                     child: SizedBox(
-                      width: 40.0,
-                      height: 40.0,
+                      width: 40,
+                      height: 40,
                       child: SpinKitThreeBounce(
                         color: FlutterFlowTheme.of(context).subHeader,
-                        size: 40.0,
+                        size: 40,
                       ),
                     ),
                   );
@@ -123,8 +123,7 @@ class _ShuttleupdateWidgetState extends State<ShuttleupdateWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                       child: RichText(
                         textScaler: MediaQuery.of(context).textScaler,
                         text: TextSpan(
@@ -137,7 +136,7 @@ class _ShuttleupdateWidgetState extends State<ShuttleupdateWidget> {
                                     fontFamily: 'Open Sans',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
-                                    fontSize: 16.0,
+                                    fontSize: 16,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
@@ -147,14 +146,14 @@ class _ShuttleupdateWidgetState extends State<ShuttleupdateWidget> {
                               style: TextStyle(
                                 color: FlutterFlowTheme.of(context).heading,
                                 fontWeight: FontWeight.w600,
-                                fontSize: 16.0,
+                                fontSize: 16,
                               ),
                             )
                           ],
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Raleway',
-                                    fontSize: 16.0,
+                                    fontSize: 16,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
@@ -162,8 +161,7 @@ class _ShuttleupdateWidgetState extends State<ShuttleupdateWidget> {
                       ),
                     ),
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
                       child: Text(
                         valueOrDefault<String>(
                           AdminApiGroup.shuttleDetailsCall.shuttlename(
@@ -173,16 +171,15 @@ class _ShuttleupdateWidgetState extends State<ShuttleupdateWidget> {
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Raleway',
-                              fontSize: 18.0,
+                              fontSize: 18,
                               letterSpacing: 0.5,
                               fontWeight: FontWeight.w600,
-                              lineHeight: 1.0,
+                              lineHeight: 1,
                             ),
                       ),
                     ),
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -192,7 +189,7 @@ class _ShuttleupdateWidgetState extends State<ShuttleupdateWidget> {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Raleway',
-                                  fontSize: 18.0,
+                                  fontSize: 18,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
                                 ),
@@ -214,9 +211,9 @@ class _ShuttleupdateWidgetState extends State<ShuttleupdateWidget> {
                                 ),
                                 options: const ['high', 'medium', 'low'],
                                 onChanged: (val) =>
-                                    setState(() => _model.speedValue = val),
-                                width: 200.0,
-                                height: 45.0,
+                                    safeSetState(() => _model.speedValue = val),
+                                width: 200,
+                                height: 45,
                                 textStyle: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -228,15 +225,15 @@ class _ShuttleupdateWidgetState extends State<ShuttleupdateWidget> {
                                   Icons.keyboard_arrow_down_rounded,
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryText,
-                                  size: 24.0,
+                                  size: 24,
                                 ),
-                                elevation: 0.0,
+                                elevation: 0,
                                 borderColor:
                                     FlutterFlowTheme.of(context).subHeader,
-                                borderWidth: 1.0,
-                                borderRadius: 5.0,
+                                borderWidth: 1,
+                                borderRadius: 5,
                                 margin: const EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 10.0, 4.0),
+                                    10, 0, 10, 4),
                                 hidesUnderline: true,
                                 isOverButton: true,
                                 isSearchable: false,
@@ -244,7 +241,7 @@ class _ShuttleupdateWidgetState extends State<ShuttleupdateWidget> {
                               ),
                             ],
                           ),
-                        ].divide(const SizedBox(height: 20.0)),
+                        ].divide(const SizedBox(height: 20)),
                       ),
                     ),
                   ],
@@ -252,7 +249,7 @@ class _ShuttleupdateWidgetState extends State<ShuttleupdateWidget> {
               },
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 15.0, 15.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(15, 30, 15, 15),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -263,42 +260,40 @@ class _ShuttleupdateWidgetState extends State<ShuttleupdateWidget> {
                     },
                     text: 'Cancel',
                     options: FFButtonOptions(
-                      width: 100.0,
-                      height: 40.0,
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
-                      iconPadding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      width: 100,
+                      height: 40,
+                      padding: const EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
+                      iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                       color: const Color(0x00351C75),
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Raleway',
                                 color: FlutterFlowTheme.of(context).accent,
-                                fontSize: 16.0,
+                                fontSize: 16,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.w600,
                               ),
-                      elevation: 0.0,
+                      elevation: 0,
                       borderSide: BorderSide(
                         color: FlutterFlowTheme.of(context).heading,
                       ),
-                      borderRadius: BorderRadius.circular(5.0),
+                      borderRadius: BorderRadius.circular(5),
                     ),
                   ),
                   Container(
-                    width: 100.0,
-                    height: 40.0,
+                    width: 100,
+                    height: 40,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
                           FlutterFlowTheme.of(context).heading,
                           FlutterFlowTheme.of(context).accent
                         ],
-                        stops: const [0.0, 1.0],
-                        begin: const AlignmentDirectional(1.0, 0.0),
-                        end: const AlignmentDirectional(-1.0, 0),
+                        stops: const [0, 1],
+                        begin: const AlignmentDirectional(1, 0),
+                        end: const AlignmentDirectional(-1, 0),
                       ),
-                      borderRadius: BorderRadius.circular(5.0),
+                      borderRadius: BorderRadius.circular(5),
                     ),
                     child: FFButtonWidget(
                       onPressed: () async {
@@ -340,29 +335,27 @@ class _ShuttleupdateWidgetState extends State<ShuttleupdateWidget> {
                           ).then((value) => safeSetState(() {}));
                         }
 
-                        setState(() {});
+                        safeSetState(() {});
                       },
                       text: 'Change',
                       options: FFButtonOptions(
-                        height: 40.0,
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
-                        iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        height: 40,
+                        padding: const EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
+                        iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                         color: const Color(0x27351C75),
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Raleway',
                                   color: Colors.white,
-                                  fontSize: 16.0,
+                                  fontSize: 16,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
                                 ),
-                        elevation: 0.0,
+                        elevation: 0,
                         borderSide: const BorderSide(
                           color: Color(0xFF8E7CC3),
                         ),
-                        borderRadius: BorderRadius.circular(5.0),
+                        borderRadius: BorderRadius.circular(5),
                       ),
                     ),
                   ),
