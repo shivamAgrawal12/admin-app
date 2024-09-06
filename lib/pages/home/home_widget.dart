@@ -166,39 +166,39 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
           body: SafeArea(
             top: true,
             child: Align(
-              alignment: const AlignmentDirectional(0, -1),
+              alignment: const AlignmentDirectional(0.0, -1.0),
               child: Container(
-                width: MediaQuery.sizeOf(context).width,
-                height: MediaQuery.sizeOf(context).height * 1,
+                width: MediaQuery.sizeOf(context).width * 1.0,
+                height: MediaQuery.sizeOf(context).height * 1.0,
                 constraints: const BoxConstraints(
-                  minWidth: 320,
-                  maxWidth: 450,
+                  minWidth: 320.0,
+                  maxWidth: 450.0,
                 ),
                 decoration: const BoxDecoration(),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Container(
-                        width: MediaQuery.sizeOf(context).width,
+                        width: MediaQuery.sizeOf(context).width * 1.0,
                         decoration: const BoxDecoration(
                           gradient: LinearGradient(
                             colors: [Color(0xFF351C75), Color(0xFF8E7CC3)],
-                            stops: [0, 1],
-                            begin: AlignmentDirectional(0, -1),
-                            end: AlignmentDirectional(0, 1),
+                            stops: [0.0, 1.0],
+                            begin: AlignmentDirectional(0.0, -1.0),
+                            end: AlignmentDirectional(0, 1.0),
                           ),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.all(6),
+                          padding: const EdgeInsets.all(6.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    15, 10, 5, 0),
+                                    15.0, 10.0, 5.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
@@ -206,25 +206,25 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                   children: [
                                     const Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          15, 0, 0, 0),
+                                          15.0, 0.0, 0.0, 0.0),
                                       child: FaIcon(
                                         FontAwesomeIcons.arrowLeft,
                                         color: Color(0x00351C75),
-                                        size: 24,
+                                        size: 24.0,
                                       ),
                                     ),
                                     ClipRRect(
-                                      borderRadius: BorderRadius.circular(8),
+                                      borderRadius: BorderRadius.circular(8.0),
                                       child: Image.asset(
                                         'assets/images/leapmile_2_(1).png',
-                                        width: 130,
-                                        height: 35,
+                                        width: 130.0,
+                                        height: 35.0,
                                         fit: BoxFit.contain,
                                       ),
                                     ),
                                     Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 15, 0),
+                                          0.0, 0.0, 15.0, 0.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
@@ -253,8 +253,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                               (value) => safeSetState(() {}));
                                         },
                                         child: Container(
-                                          width: 31,
-                                          height: 31,
+                                          width: 31.0,
+                                          height: 31.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
@@ -262,19 +262,19 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                           ),
                                           child: Align(
                                             alignment:
-                                                const AlignmentDirectional(0, 2.6),
+                                                const AlignmentDirectional(0.0, 2.6),
                                             child: Icon(
                                               Icons.person_3,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .heading,
-                                              size: 28,
+                                              size: 28.0,
                                             ),
                                           ),
                                         ),
                                       ),
                                     ),
-                                  ].divide(const SizedBox(width: 6)),
+                                  ].divide(const SizedBox(width: 6.0)),
                                 ),
                               ),
                               Column(
@@ -282,7 +282,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                 children: [
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0, 25, 0, 0),
+                                        0.0, 25.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -294,8 +294,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Container(
-                                              width: 25,
-                                              height: 25,
+                                              width: 25.0,
+                                              height: 25.0,
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
@@ -303,15 +303,16 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                 shape: BoxShape.circle,
                                               ),
                                               child: Align(
-                                                alignment:
-                                                    const AlignmentDirectional(0, 0),
+                                                alignment: const AlignmentDirectional(
+                                                    0.0, 0.0),
                                                 child: ClipRRect(
                                                   borderRadius:
-                                                      BorderRadius.circular(8),
+                                                      BorderRadius.circular(
+                                                          8.0),
                                                   child: Image.asset(
                                                     'assets/images/Robot_Arm.png',
-                                                    width: 17,
-                                                    height: 17,
+                                                    width: 17.0,
+                                                    height: 17.0,
                                                     fit: BoxFit.cover,
                                                   ),
                                                 ),
@@ -330,7 +331,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .primaryBackground,
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -358,31 +359,33 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .primaryBackground,
-                                                        fontSize: 15,
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
                                                 ),
-                                              ].divide(const SizedBox(width: 5)),
+                                              ].divide(const SizedBox(width: 5.0)),
                                             ),
-                                          ].divide(const SizedBox(width: 5)),
+                                          ].divide(const SizedBox(width: 5.0)),
                                         ),
-                                      ].divide(const SizedBox(width: 6)),
+                                      ].divide(const SizedBox(width: 6.0)),
                                     ),
                                   ),
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0, 15, 0, 5),
+                                        0.0, 15.0, 0.0, 5.0),
                                     child: Container(
-                                      width: MediaQuery.sizeOf(context).width,
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
                                       decoration: BoxDecoration(
                                         color:
                                             FlutterFlowTheme.of(context).liteBg,
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
                                       ),
                                       child: Padding(
-                                        padding: const EdgeInsets.all(8),
+                                        padding: const EdgeInsets.all(8.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -418,7 +421,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                               .primaryText,
                                                       fontWeight:
                                                           FontWeight.w500,
-                                                      fontSize: 14,
+                                                      fontSize: 14.0,
                                                     ),
                                                   )
                                                 ],
@@ -440,25 +443,25 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                   MainAxisAlignment.center,
                                               children: [
                                                 Container(
-                                                  width: 55,
-                                                  height: 25,
+                                                  width: 55.0,
+                                                  height: 25.0,
                                                   decoration: BoxDecoration(
                                                     color: const Color(0x1E397A12),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            5),
+                                                            5.0),
                                                     border: Border.all(
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .accent4,
-                                                      width: 1,
+                                                      width: 1.0,
                                                     ),
                                                   ),
                                                   child: Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            0, 0),
+                                                            0.0, 0.0),
                                                     child: Text(
                                                       valueOrDefault<String>(
                                                         AdminApiGroup
@@ -479,16 +482,16 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .success,
-                                                            fontSize: 13,
+                                                            fontSize: 13.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w600,
-                                                            lineHeight: 1,
+                                                            lineHeight: 1.0,
                                                           ),
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(const SizedBox(height: 10)),
+                                              ].divide(const SizedBox(height: 10.0)),
                                             ),
                                             InkWell(
                                               splashColor: Colors.transparent,
@@ -518,18 +521,20 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                 safeSetState(() {});
                                               },
                                               child: Container(
-                                                width: 100,
-                                                height: 30,
+                                                width: 100.0,
+                                                height: 30.0,
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .subHeader,
                                                   borderRadius:
-                                                      BorderRadius.circular(5),
+                                                      BorderRadius.circular(
+                                                          5.0),
                                                 ),
                                                 child: Padding(
                                                   padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(5, 0, 5, 0),
+                                                      .fromSTEB(
+                                                          5.0, 0.0, 5.0, 0.0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -542,7 +547,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .primaryBackground,
-                                                        size: 21,
+                                                        size: 21.0,
                                                       ),
                                                       Text(
                                                         'More Info',
@@ -556,7 +561,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .primaryBackground,
-                                                                  fontSize: 13,
+                                                                  fontSize:
+                                                                      13.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -581,20 +587,20 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                         ),
                       ),
                       Container(
-                        width: MediaQuery.sizeOf(context).width,
+                        width: MediaQuery.sizeOf(context).width * 1.0,
                         height: MediaQuery.sizeOf(context).height * 0.72,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).primaryBackground,
                           borderRadius: const BorderRadius.only(
-                            bottomLeft: Radius.circular(0),
-                            bottomRight: Radius.circular(0),
-                            topLeft: Radius.circular(0),
-                            topRight: Radius.circular(0),
+                            bottomLeft: Radius.circular(0.0),
+                            bottomRight: Radius.circular(0.0),
+                            topLeft: Radius.circular(0.0),
+                            topRight: Radius.circular(0.0),
                           ),
                         ),
                         child: Padding(
-                          padding:
-                              const EdgeInsetsDirectional.fromSTEB(10, 10, 10, 15),
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              10.0, 10.0, 10.0, 15.0),
                           child: SingleChildScrollView(
                             primary: false,
                             controller: _model.column12,
@@ -608,10 +614,10 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Raleway',
-                                        fontSize: 16,
+                                        fontSize: 16.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
-                                        lineHeight: 1,
+                                        lineHeight: 1.0,
                                       ),
                                 ),
                                 Row(
@@ -620,18 +626,19 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                       MainAxisAlignment.spaceAround,
                                   children: [
                                     Container(
-                                      width: 100,
-                                      height: 195,
+                                      width: 100.0,
+                                      height: 195.0,
                                       decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
                                         border: Border.all(
                                           color: FlutterFlowTheme.of(context)
                                               .liteText,
-                                          width: 1,
+                                          width: 1.0,
                                         ),
                                       ),
                                       child: Padding(
-                                        padding: const EdgeInsets.all(5),
+                                        padding: const EdgeInsets.all(5.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -664,35 +671,36 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                 );
                                               },
                                               child: Container(
-                                                width: 100,
-                                                height: 85,
+                                                width: 100.0,
+                                                height: 85.0,
                                                 decoration: const BoxDecoration(),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
                                                     Container(
-                                                      width: 50,
-                                                      height: 50,
+                                                      width: 50.0,
+                                                      height: 50.0,
                                                       decoration: BoxDecoration(
                                                         color:
                                                             const Color(0xFFF8F4FF),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(5),
+                                                                .circular(5.0),
                                                       ),
                                                       child: Align(
                                                         alignment:
                                                             const AlignmentDirectional(
-                                                                0, 0),
+                                                                0.0, 0.0),
                                                         child: ClipRRect(
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(0),
+                                                                  .circular(
+                                                                      0.0),
                                                           child: Image.asset(
                                                             'assets/images/Group_5887.png',
-                                                            width: 45,
-                                                            height: 40,
+                                                            width: 45.0,
+                                                            height: 40.0,
                                                             fit: BoxFit.cover,
                                                           ),
                                                         ),
@@ -709,7 +717,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .subHeader,
-                                                            fontSize: 15,
+                                                            fontSize: 15.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w600,
@@ -717,17 +725,17 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                     ),
                                                   ]
                                                       .divide(
-                                                          const SizedBox(height: 5))
-                                                      .around(
-                                                          const SizedBox(height: 5)),
+                                                          const SizedBox(height: 5.0))
+                                                      .around(const SizedBox(
+                                                          height: 5.0)),
                                                 ),
                                               ),
                                             ),
                                             SizedBox(
-                                              width: 85,
+                                              width: 85.0,
                                               child: Divider(
-                                                height: 1,
-                                                thickness: 1,
+                                                height: 1.0,
+                                                thickness: 1.0,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .liteText,
@@ -760,35 +768,36 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                 );
                                               },
                                               child: Container(
-                                                width: 100,
-                                                height: 85,
+                                                width: 100.0,
+                                                height: 85.0,
                                                 decoration: const BoxDecoration(),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
                                                     Container(
-                                                      width: 50,
-                                                      height: 50,
+                                                      width: 50.0,
+                                                      height: 50.0,
                                                       decoration: BoxDecoration(
                                                         color:
                                                             const Color(0xFFF8F4FF),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(5),
+                                                                .circular(5.0),
                                                       ),
                                                       child: Align(
                                                         alignment:
                                                             const AlignmentDirectional(
-                                                                0, 0),
+                                                                0.0, 0.0),
                                                         child: ClipRRect(
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(0),
+                                                                  .circular(
+                                                                      0.0),
                                                           child: Image.asset(
                                                             'assets/images/Inbox_(3).png',
-                                                            width: 45,
-                                                            height: 40,
+                                                            width: 45.0,
+                                                            height: 40.0,
                                                             fit: BoxFit.cover,
                                                           ),
                                                         ),
@@ -805,7 +814,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .subHeader,
-                                                            fontSize: 15,
+                                                            fontSize: 15.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w600,
@@ -813,9 +822,9 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                     ),
                                                   ]
                                                       .divide(
-                                                          const SizedBox(height: 5))
-                                                      .around(
-                                                          const SizedBox(height: 5)),
+                                                          const SizedBox(height: 5.0))
+                                                      .around(const SizedBox(
+                                                          height: 5.0)),
                                                 ),
                                               ),
                                             ),
@@ -825,18 +834,19 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                     ).animateOnPageLoad(animationsMap[
                                         'containerOnPageLoadAnimation1']!),
                                     Container(
-                                      width: 100,
-                                      height: 195,
+                                      width: 100.0,
+                                      height: 195.0,
                                       decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
                                         border: Border.all(
                                           color: FlutterFlowTheme.of(context)
                                               .liteText,
-                                          width: 1,
+                                          width: 1.0,
                                         ),
                                       ),
                                       child: Padding(
-                                        padding: const EdgeInsets.all(5),
+                                        padding: const EdgeInsets.all(5.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -870,35 +880,36 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                 );
                                               },
                                               child: Container(
-                                                width: 100,
-                                                height: 85,
+                                                width: 100.0,
+                                                height: 85.0,
                                                 decoration: const BoxDecoration(),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
                                                     Container(
-                                                      width: 50,
-                                                      height: 50,
+                                                      width: 50.0,
+                                                      height: 50.0,
                                                       decoration: BoxDecoration(
                                                         color:
                                                             const Color(0xFFF8F4FF),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(5),
+                                                                .circular(5.0),
                                                       ),
                                                       child: Align(
                                                         alignment:
                                                             const AlignmentDirectional(
-                                                                0, 0),
+                                                                0.0, 0.0),
                                                         child: ClipRRect(
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(0),
+                                                                  .circular(
+                                                                      0.0),
                                                           child: Image.asset(
                                                             'assets/images/Inbox_(2).png',
-                                                            width: 45,
-                                                            height: 40,
+                                                            width: 45.0,
+                                                            height: 40.0,
                                                             fit: BoxFit.cover,
                                                           ),
                                                         ),
@@ -915,7 +926,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .subHeader,
-                                                            fontSize: 15,
+                                                            fontSize: 15.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w600,
@@ -923,17 +934,17 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                     ),
                                                   ]
                                                       .divide(
-                                                          const SizedBox(height: 5))
-                                                      .around(
-                                                          const SizedBox(height: 5)),
+                                                          const SizedBox(height: 5.0))
+                                                      .around(const SizedBox(
+                                                          height: 5.0)),
                                                 ),
                                               ),
                                             ),
                                             SizedBox(
-                                              width: 85,
+                                              width: 85.0,
                                               child: Divider(
-                                                height: 1,
-                                                thickness: 1,
+                                                height: 1.0,
+                                                thickness: 1.0,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .liteText,
@@ -967,35 +978,36 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                 );
                                               },
                                               child: Container(
-                                                width: 100,
-                                                height: 85,
+                                                width: 100.0,
+                                                height: 85.0,
                                                 decoration: const BoxDecoration(),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
                                                     Container(
-                                                      width: 50,
-                                                      height: 50,
+                                                      width: 50.0,
+                                                      height: 50.0,
                                                       decoration: BoxDecoration(
                                                         color:
                                                             const Color(0xFFF8F4FF),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(5),
+                                                                .circular(5.0),
                                                       ),
                                                       child: Align(
                                                         alignment:
                                                             const AlignmentDirectional(
-                                                                0, 0),
+                                                                0.0, 0.0),
                                                         child: ClipRRect(
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(0),
+                                                                  .circular(
+                                                                      0.0),
                                                           child: Image.asset(
                                                             'assets/images/Inbox_(4).png',
-                                                            width: 45,
-                                                            height: 40,
+                                                            width: 45.0,
+                                                            height: 40.0,
                                                             fit: BoxFit.cover,
                                                           ),
                                                         ),
@@ -1012,7 +1024,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .subHeader,
-                                                            fontSize: 15,
+                                                            fontSize: 15.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w600,
@@ -1020,9 +1032,9 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                     ),
                                                   ]
                                                       .divide(
-                                                          const SizedBox(height: 5))
-                                                      .around(
-                                                          const SizedBox(height: 5)),
+                                                          const SizedBox(height: 5.0))
+                                                      .around(const SizedBox(
+                                                          height: 5.0)),
                                                 ),
                                               ),
                                             ),
@@ -1032,18 +1044,19 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                     ).animateOnPageLoad(animationsMap[
                                         'containerOnPageLoadAnimation2']!),
                                     Container(
-                                      width: 100,
-                                      height: 195,
+                                      width: 100.0,
+                                      height: 195.0,
                                       decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
                                         border: Border.all(
                                           color: FlutterFlowTheme.of(context)
                                               .liteText,
-                                          width: 1,
+                                          width: 1.0,
                                         ),
                                       ),
                                       child: Padding(
-                                        padding: const EdgeInsets.all(5),
+                                        padding: const EdgeInsets.all(5.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -1076,35 +1089,36 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                 );
                                               },
                                               child: Container(
-                                                width: 100,
-                                                height: 85,
+                                                width: 100.0,
+                                                height: 85.0,
                                                 decoration: const BoxDecoration(),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
                                                     Container(
-                                                      width: 50,
-                                                      height: 50,
+                                                      width: 50.0,
+                                                      height: 50.0,
                                                       decoration: BoxDecoration(
                                                         color:
                                                             const Color(0xFFF8F4FF),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(5),
+                                                                .circular(5.0),
                                                       ),
                                                       child: Align(
                                                         alignment:
                                                             const AlignmentDirectional(
-                                                                0, 0),
+                                                                0.0, 0.0),
                                                         child: ClipRRect(
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(0),
+                                                                  .circular(
+                                                                      0.0),
                                                           child: Image.asset(
                                                             'assets/images/Inbox_(14).png',
-                                                            width: 45,
-                                                            height: 40,
+                                                            width: 45.0,
+                                                            height: 40.0,
                                                             fit: BoxFit.cover,
                                                           ),
                                                         ),
@@ -1121,7 +1135,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .subHeader,
-                                                            fontSize: 15,
+                                                            fontSize: 15.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w600,
@@ -1129,17 +1143,17 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                     ),
                                                   ]
                                                       .divide(
-                                                          const SizedBox(height: 5))
-                                                      .around(
-                                                          const SizedBox(height: 5)),
+                                                          const SizedBox(height: 5.0))
+                                                      .around(const SizedBox(
+                                                          height: 5.0)),
                                                 ),
                                               ),
                                             ),
                                             SizedBox(
-                                              width: 85,
+                                              width: 85.0,
                                               child: Divider(
-                                                height: 1,
-                                                thickness: 1,
+                                                height: 1.0,
+                                                thickness: 1.0,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .liteText,
@@ -1172,35 +1186,36 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                 );
                                               },
                                               child: Container(
-                                                width: 100,
-                                                height: 85,
+                                                width: 100.0,
+                                                height: 85.0,
                                                 decoration: const BoxDecoration(),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
                                                     Container(
-                                                      width: 50,
-                                                      height: 50,
+                                                      width: 50.0,
+                                                      height: 50.0,
                                                       decoration: BoxDecoration(
                                                         color:
                                                             const Color(0xFFF8F4FF),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(5),
+                                                                .circular(5.0),
                                                       ),
                                                       child: Align(
                                                         alignment:
                                                             const AlignmentDirectional(
-                                                                0, 0),
+                                                                0.0, 0.0),
                                                         child: ClipRRect(
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(0),
+                                                                  .circular(
+                                                                      0.0),
                                                           child: Image.asset(
                                                             'assets/images/Inbox_(15).png',
-                                                            width: 45,
-                                                            height: 40,
+                                                            width: 45.0,
+                                                            height: 40.0,
                                                             fit: BoxFit.cover,
                                                           ),
                                                         ),
@@ -1217,7 +1232,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .subHeader,
-                                                            fontSize: 15,
+                                                            fontSize: 15.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w600,
@@ -1225,9 +1240,9 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                     ),
                                                   ]
                                                       .divide(
-                                                          const SizedBox(height: 5))
-                                                      .around(
-                                                          const SizedBox(height: 5)),
+                                                          const SizedBox(height: 5.0))
+                                                      .around(const SizedBox(
+                                                          height: 5.0)),
                                                 ),
                                               ),
                                             ),
@@ -1240,17 +1255,17 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0, 10, 0, 0),
+                                      0.0, 10.0, 0.0, 0.0),
                                   child: Text(
                                     'Rack Actions',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Raleway',
-                                          fontSize: 16,
+                                          fontSize: 16.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
-                                          lineHeight: 1,
+                                          lineHeight: 1.0,
                                         ),
                                   ),
                                 ),
@@ -1290,42 +1305,43 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                         safeSetState(() {});
                                       },
                                       child: Container(
-                                        width: 100,
-                                        height: 120,
+                                        width: 100.0,
+                                        height: 120.0,
                                         decoration: BoxDecoration(
                                           borderRadius:
-                                              BorderRadius.circular(5),
+                                              BorderRadius.circular(5.0),
                                           border: Border.all(
                                             color: FlutterFlowTheme.of(context)
                                                 .liteText,
-                                            width: 1,
+                                            width: 1.0,
                                           ),
                                         ),
                                         child: Padding(
-                                          padding: const EdgeInsets.all(5),
+                                          padding: const EdgeInsets.all(5.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Container(
-                                                width: 50,
-                                                height: 50,
+                                                width: 50.0,
+                                                height: 50.0,
                                                 decoration: BoxDecoration(
                                                   color: const Color(0xFFF8F4FF),
                                                   borderRadius:
-                                                      BorderRadius.circular(5),
+                                                      BorderRadius.circular(
+                                                          5.0),
                                                 ),
                                                 child: Align(
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          0, 0),
+                                                          0.0, 0.0),
                                                   child: ClipRRect(
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            0),
+                                                            0.0),
                                                     child: Image.asset(
                                                       'assets/images/Group_5796.png',
-                                                      width: 45,
-                                                      height: 40,
+                                                      width: 45.0,
+                                                      height: 40.0,
                                                       fit: BoxFit.contain,
                                                     ),
                                                   ),
@@ -1342,15 +1358,15 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .subHeader,
-                                                          fontSize: 15,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
                                               ),
                                             ]
-                                                .divide(const SizedBox(height: 5))
-                                                .around(const SizedBox(height: 5)),
+                                                .divide(const SizedBox(height: 5.0))
+                                                .around(const SizedBox(height: 5.0)),
                                           ),
                                         ),
                                       ),
@@ -1386,42 +1402,43 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                         safeSetState(() {});
                                       },
                                       child: Container(
-                                        width: 100,
-                                        height: 120,
+                                        width: 100.0,
+                                        height: 120.0,
                                         decoration: BoxDecoration(
                                           borderRadius:
-                                              BorderRadius.circular(5),
+                                              BorderRadius.circular(5.0),
                                           border: Border.all(
                                             color: FlutterFlowTheme.of(context)
                                                 .liteText,
-                                            width: 1,
+                                            width: 1.0,
                                           ),
                                         ),
                                         child: Padding(
-                                          padding: const EdgeInsets.all(5),
+                                          padding: const EdgeInsets.all(5.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Container(
-                                                width: 50,
-                                                height: 50,
+                                                width: 50.0,
+                                                height: 50.0,
                                                 decoration: BoxDecoration(
                                                   color: const Color(0xFFF8F4FF),
                                                   borderRadius:
-                                                      BorderRadius.circular(5),
+                                                      BorderRadius.circular(
+                                                          5.0),
                                                 ),
                                                 child: Align(
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          0, 0),
+                                                          0.0, 0.0),
                                                   child: ClipRRect(
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            0),
+                                                            0.0),
                                                     child: Image.asset(
                                                       'assets/images/Group_5796.png',
-                                                      width: 45,
-                                                      height: 40,
+                                                      width: 45.0,
+                                                      height: 40.0,
                                                       fit: BoxFit.contain,
                                                     ),
                                                   ),
@@ -1438,15 +1455,15 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .subHeader,
-                                                          fontSize: 15,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
                                               ),
                                             ]
-                                                .divide(const SizedBox(height: 5))
-                                                .around(const SizedBox(height: 5)),
+                                                .divide(const SizedBox(height: 5.0))
+                                                .around(const SizedBox(height: 5.0)),
                                           ),
                                         ),
                                       ),
@@ -1482,42 +1499,43 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                         safeSetState(() {});
                                       },
                                       child: Container(
-                                        width: 100,
-                                        height: 120,
+                                        width: 100.0,
+                                        height: 120.0,
                                         decoration: BoxDecoration(
                                           borderRadius:
-                                              BorderRadius.circular(5),
+                                              BorderRadius.circular(5.0),
                                           border: Border.all(
                                             color: FlutterFlowTheme.of(context)
                                                 .liteText,
-                                            width: 1,
+                                            width: 1.0,
                                           ),
                                         ),
                                         child: Padding(
-                                          padding: const EdgeInsets.all(5),
+                                          padding: const EdgeInsets.all(5.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Container(
-                                                width: 50,
-                                                height: 50,
+                                                width: 50.0,
+                                                height: 50.0,
                                                 decoration: BoxDecoration(
                                                   color: const Color(0xFFF8F4FF),
                                                   borderRadius:
-                                                      BorderRadius.circular(5),
+                                                      BorderRadius.circular(
+                                                          5.0),
                                                 ),
                                                 child: Align(
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          0, 0),
+                                                          0.0, 0.0),
                                                   child: ClipRRect(
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            0),
+                                                            0.0),
                                                     child: Image.asset(
                                                       'assets/images/Group_5796.png',
-                                                      width: 45,
-                                                      height: 40,
+                                                      width: 45.0,
+                                                      height: 40.0,
                                                       fit: BoxFit.contain,
                                                     ),
                                                   ),
@@ -1534,15 +1552,15 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .subHeader,
-                                                          fontSize: 15,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
                                               ),
                                             ]
-                                                .divide(const SizedBox(height: 5))
-                                                .around(const SizedBox(height: 5)),
+                                                .divide(const SizedBox(height: 5.0))
+                                                .around(const SizedBox(height: 5.0)),
                                           ),
                                         ),
                                       ),
@@ -1552,17 +1570,17 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                     animationsMap['rowOnPageLoadAnimation']!),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0, 10, 0, 0),
+                                      0.0, 10.0, 0.0, 0.0),
                                   child: Text(
                                     'Slot Actions',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Raleway',
-                                          fontSize: 16,
+                                          fontSize: 16.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
-                                          lineHeight: 1,
+                                          lineHeight: 1.0,
                                         ),
                                   ),
                                 ),
@@ -1585,45 +1603,46 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                     );
                                   },
                                   child: Container(
-                                    width: MediaQuery.sizeOf(context).width,
-                                    height: 60,
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    height: 60.0,
                                     constraints: const BoxConstraints(
-                                      minWidth: 320,
-                                      maxWidth: 450,
+                                      minWidth: 320.0,
+                                      maxWidth: 450.0,
                                     ),
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
-                                      borderRadius: BorderRadius.circular(5),
+                                      borderRadius: BorderRadius.circular(5.0),
                                       border: Border.all(
                                         color:
                                             FlutterFlowTheme.of(context).liteBg,
-                                        width: 2,
+                                        width: 2.0,
                                       ),
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsets.all(5),
+                                      padding: const EdgeInsets.all(5.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Container(
-                                            width: 50,
-                                            height: 50,
+                                            width: 50.0,
+                                            height: 50.0,
                                             decoration: BoxDecoration(
                                               color: const Color(0xFFF8F4FF),
                                               borderRadius:
-                                                  BorderRadius.circular(5),
+                                                  BorderRadius.circular(5.0),
                                             ),
                                             child: Align(
-                                              alignment:
-                                                  const AlignmentDirectional(0, 0),
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, 0.0),
                                               child: ClipRRect(
                                                 borderRadius:
-                                                    BorderRadius.circular(0),
+                                                    BorderRadius.circular(0.0),
                                                 child: Image.asset(
                                                   'assets/images/Inbox_(13).png',
-                                                  width: 40,
-                                                  height: 35,
+                                                  width: 40.0,
+                                                  height: 35.0,
                                                   fit: BoxFit.cover,
                                                 ),
                                               ),
@@ -1638,22 +1657,23 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .subHeader,
-                                                  fontSize: 15,
+                                                  fontSize: 15.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
-                                        ].divide(const SizedBox(width: 15)),
+                                        ].divide(const SizedBox(width: 15.0)),
                                       ),
                                     ),
                                   ),
                                 ),
                                 if (FFAppState().hideslot == 1)
                                   Container(
-                                    width: MediaQuery.sizeOf(context).width,
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 1.0,
                                     constraints: const BoxConstraints(
-                                      minWidth: 310,
-                                      maxWidth: 440,
+                                      minWidth: 310.0,
+                                      maxWidth: 440.0,
                                     ),
                                     decoration: const BoxDecoration(),
                                     child: SingleChildScrollView(
@@ -1665,7 +1685,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    5, 0, 5, 0),
+                                                    5.0, 0.0, 5.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -1675,7 +1695,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                 Align(
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          1, -1),
+                                                          1.0, -1.0),
                                                   child: Switch.adaptive(
                                                     value: _model.switchValue!,
                                                     onChanged:
@@ -1723,8 +1743,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                     safeSetState(() {});
                                                   },
                                                   child: Container(
-                                                    width: 25,
-                                                    height: 25,
+                                                    width: 25.0,
+                                                    height: 25.0,
                                                     decoration: BoxDecoration(
                                                       shape: BoxShape.circle,
                                                       border: Border.all(
@@ -1732,20 +1752,20 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .heading,
-                                                        width: 1,
+                                                        width: 1.0,
                                                       ),
                                                     ),
                                                     child: Align(
                                                       alignment:
                                                           const AlignmentDirectional(
-                                                              0, 0),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .heading,
-                                                        size: 20,
+                                                        size: 20.0,
                                                       ),
                                                     ),
                                                   ),
@@ -1755,34 +1775,34 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                           ),
                                           if (_model.change == 0)
                                             Container(
-                                              width: 250,
-                                              height: 250,
+                                              width: 250.0,
+                                              height: 250.0,
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryBackground,
                                                 boxShadow: const [
                                                   BoxShadow(
-                                                    blurRadius: 20,
+                                                    blurRadius: 20.0,
                                                     color: Color(0x678E7CC3),
                                                     offset: Offset(
-                                                      5,
-                                                      8,
+                                                      5.0,
+                                                      8.0,
                                                     ),
                                                   )
                                                 ],
                                                 borderRadius:
-                                                    BorderRadius.circular(5),
+                                                    BorderRadius.circular(5.0),
                                               ),
                                               child: const Padding(
-                                                padding: EdgeInsets.all(9),
+                                                padding: EdgeInsets.all(9.0),
                                                 child: SizedBox(
-                                                  width: 300,
-                                                  height: 300,
+                                                  width: 300.0,
+                                                  height: 300.0,
                                                   child:
                                                       custom_widgets.HomeQrScan(
-                                                    width: 300,
-                                                    height: 300,
+                                                    width: 300.0,
+                                                    height: 300.0,
                                                   ),
                                                 ),
                                               ),
@@ -1791,7 +1811,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                           if (_model.change == 1)
                                             Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 0, 5),
+                                                  .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
@@ -1800,10 +1820,10 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                   Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                8, 0, 8, 0),
+                                                            .fromSTEB(8.0, 0.0,
+                                                                8.0, 0.0),
                                                     child: SizedBox(
-                                                      width: 280,
+                                                      width: 280.0,
                                                       child: TextFormField(
                                                         controller: _model
                                                             .textController,
@@ -1823,7 +1843,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                     fontFamily:
                                                                         'Open Sans',
                                                                     fontSize:
-                                                                        16,
+                                                                        16.0,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -1839,7 +1859,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        5),
+                                                                        5.0),
                                                           ),
                                                           focusedBorder:
                                                               OutlineInputBorder(
@@ -1853,7 +1873,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        5),
+                                                                        5.0),
                                                           ),
                                                           errorBorder:
                                                               OutlineInputBorder(
@@ -1867,7 +1887,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        5),
+                                                                        5.0),
                                                           ),
                                                           focusedErrorBorder:
                                                               OutlineInputBorder(
@@ -1881,23 +1901,22 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        5),
+                                                                        5.0),
                                                           ),
                                                         ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Open Sans',
-                                                                  fontSize: 16,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                ),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Open Sans',
+                                                              fontSize: 16.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                            ),
                                                         validator: _model
                                                             .textControllerValidator
                                                             .asValidator(
@@ -1909,10 +1928,13 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                     padding:
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(
-                                                                10, 20, 10, 0),
+                                                                10.0,
+                                                                20.0,
+                                                                10.0,
+                                                                0.0),
                                                     child: Container(
-                                                      width: 140,
-                                                      height: 40,
+                                                      width: 140.0,
+                                                      height: 40.0,
                                                       decoration: BoxDecoration(
                                                         gradient:
                                                             LinearGradient(
@@ -1924,17 +1946,17 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                     context)
                                                                 .accent
                                                           ],
-                                                          stops: const [0, 1],
+                                                          stops: const [0.0, 1.0],
                                                           begin:
                                                               const AlignmentDirectional(
-                                                                  1, 0),
+                                                                  1.0, 0.0),
                                                           end:
                                                               const AlignmentDirectional(
-                                                                  -1, 0),
+                                                                  -1.0, 0),
                                                         ),
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(5),
+                                                                .circular(5.0),
                                                       ),
                                                       child: FFButtonWidget(
                                                         onPressed: () async {
@@ -2008,16 +2030,22 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                         text: 'Check Slot',
                                                         options:
                                                             FFButtonOptions(
-                                                          width: 150,
-                                                          height: 40,
+                                                          width: 150.0,
+                                                          height: 40.0,
                                                           padding:
                                                               const EdgeInsetsDirectional
-                                                                  .fromSTEB(5,
-                                                                      0, 5, 0),
+                                                                  .fromSTEB(
+                                                                      5.0,
+                                                                      0.0,
+                                                                      5.0,
+                                                                      0.0),
                                                           iconPadding:
                                                               const EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      0, 0, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           color:
                                                               const Color(0x0020124D),
                                                           textStyle:
@@ -2030,29 +2058,30 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                     color: Colors
                                                                         .white,
                                                                     fontSize:
-                                                                        16,
+                                                                        16.0,
                                                                     letterSpacing:
                                                                         0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w600,
                                                                   ),
-                                                          elevation: 0,
+                                                          elevation: 0.0,
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(5),
+                                                                  .circular(
+                                                                      5.0),
                                                         ),
                                                       ),
                                                     ),
                                                   ),
                                                 ]
                                                     .divide(
-                                                        const SizedBox(height: 15))
+                                                        const SizedBox(height: 15.0))
                                                     .addToEnd(
-                                                        const SizedBox(height: 5)),
+                                                        const SizedBox(height: 5.0)),
                                               ),
                                             ),
-                                        ].divide(const SizedBox(height: 10)),
+                                        ].divide(const SizedBox(height: 10.0)),
                                       ),
                                     ),
                                   ),
@@ -2067,13 +2096,13 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                       if (!snapshot.hasData) {
                                         return Center(
                                           child: SizedBox(
-                                            width: 40,
-                                            height: 40,
+                                            width: 40.0,
+                                            height: 40.0,
                                             child: SpinKitThreeBounce(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .subHeader,
-                                              size: 40,
+                                              size: 40.0,
                                             ),
                                           ),
                                         );
@@ -2082,11 +2111,13 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                           snapshot.data!;
 
                                       return Container(
-                                        width: MediaQuery.sizeOf(context).width,
-                                        height: 250,
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        height: 250.0,
                                         constraints: const BoxConstraints(
-                                          minWidth: 310,
-                                          maxWidth: 440,
+                                          minWidth: 310.0,
+                                          maxWidth: 440.0,
                                         ),
                                         decoration: const BoxDecoration(),
                                         child: Column(
@@ -2096,7 +2127,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                           children: [
                                             Padding(
                                               padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 5, 0),
+                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
@@ -2106,8 +2137,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                   Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                5, 0, 0, 0),
+                                                            .fromSTEB(5.0, 0.0,
+                                                                0.0, 0.0),
                                                     child: RichText(
                                                       textScaler:
                                                           MediaQuery.of(context)
@@ -2142,7 +2173,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w600,
-                                                              fontSize: 14,
+                                                              fontSize: 14.0,
                                                             ),
                                                           )
                                                         ],
@@ -2185,7 +2216,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
-                                                          size: 17,
+                                                          size: 17.0,
                                                         ),
                                                         Text(
                                                           'Slot Re-Scan',
@@ -2195,7 +2226,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                               .override(
                                                                 fontFamily:
                                                                     'Raleway',
-                                                                fontSize: 12,
+                                                                fontSize: 12.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -2204,7 +2235,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                               ),
                                                         ),
                                                       ].divide(
-                                                          const SizedBox(width: 5)),
+                                                          const SizedBox(width: 5.0)),
                                                     ),
                                                   ),
                                                 ],
@@ -2288,17 +2319,17 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                       }
                                                     },
                                                     child: Container(
-                                                      width: 110,
-                                                      height: 140,
+                                                      width: 110.0,
+                                                      height: 140.0,
                                                       decoration: BoxDecoration(
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(5),
+                                                                .circular(5.0),
                                                         border: Border.all(
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .liteText,
-                                                          width: 1,
+                                                          width: 1.0,
                                                         ),
                                                       ),
                                                       child: Column(
@@ -2309,8 +2340,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                 .center,
                                                         children: [
                                                           Container(
-                                                            width: 60,
-                                                            height: 60,
+                                                            width: 60.0,
+                                                            height: 60.0,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: const Color(
@@ -2318,22 +2349,22 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             child: Align(
                                                               alignment:
                                                                   const AlignmentDirectional(
-                                                                      0, 0),
+                                                                      0.0, 0.0),
                                                               child: ClipRRect(
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            0),
+                                                                            0.0),
                                                                 child:
                                                                     Image.asset(
                                                                   'assets/images/Inbox_(13).png',
-                                                                  width: 50,
-                                                                  height: 45,
+                                                                  width: 50.0,
+                                                                  height: 45.0,
                                                                   fit: BoxFit
                                                                       .cover,
                                                                 ),
@@ -2351,7 +2382,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .subHeader,
-                                                                  fontSize: 15,
+                                                                  fontSize:
+                                                                      15.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -2379,9 +2411,9 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                           ),
                                                         ]
                                                             .divide(const SizedBox(
-                                                                height: 8))
+                                                                height: 8.0))
                                                             .around(const SizedBox(
-                                                                height: 8)),
+                                                                height: 8.0)),
                                                       ),
                                                     ),
                                                   ),
@@ -2496,17 +2528,17 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                       safeSetState(() {});
                                                     },
                                                     child: Container(
-                                                      width: 110,
-                                                      height: 140,
+                                                      width: 110.0,
+                                                      height: 140.0,
                                                       decoration: BoxDecoration(
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(5),
+                                                                .circular(5.0),
                                                         border: Border.all(
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .liteText,
-                                                          width: 1,
+                                                          width: 1.0,
                                                         ),
                                                       ),
                                                       child: Column(
@@ -2517,8 +2549,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                 .center,
                                                         children: [
                                                           Container(
-                                                            width: 60,
-                                                            height: 60,
+                                                            width: 60.0,
+                                                            height: 60.0,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: const Color(
@@ -2526,22 +2558,22 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             child: Align(
                                                               alignment:
                                                                   const AlignmentDirectional(
-                                                                      0, 0),
+                                                                      0.0, 0.0),
                                                               child: ClipRRect(
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            0),
+                                                                            0.0),
                                                                 child:
                                                                     Image.asset(
                                                                   'assets/images/Inbox_(8).png',
-                                                                  width: 50,
-                                                                  height: 45,
+                                                                  width: 50.0,
+                                                                  height: 45.0,
                                                                   fit: BoxFit
                                                                       .cover,
                                                                 ),
@@ -2559,7 +2591,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .subHeader,
-                                                                  fontSize: 15,
+                                                                  fontSize:
+                                                                      15.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -2587,9 +2620,9 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                           ),
                                                         ]
                                                             .divide(const SizedBox(
-                                                                height: 8))
+                                                                height: 8.0))
                                                             .around(const SizedBox(
-                                                                height: 8)),
+                                                                height: 8.0)),
                                                       ),
                                                     ),
                                                   ),
@@ -2629,18 +2662,18 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                         safeSetState(() {}));
                                                   },
                                                   child: Container(
-                                                    width: 110,
-                                                    height: 140,
+                                                    width: 110.0,
+                                                    height: 140.0,
                                                     decoration: BoxDecoration(
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              5),
+                                                              5.0),
                                                       border: Border.all(
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .liteText,
-                                                        width: 1,
+                                                        width: 1.0,
                                                       ),
                                                     ),
                                                     child: Column(
@@ -2651,8 +2684,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                               .center,
                                                       children: [
                                                         Container(
-                                                          width: 60,
-                                                          height: 60,
+                                                          width: 60.0,
+                                                          height: 60.0,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: const Color(
@@ -2660,22 +2693,22 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        5),
+                                                                        5.0),
                                                           ),
                                                           child: Align(
                                                             alignment:
                                                                 const AlignmentDirectional(
-                                                                    0, 0),
+                                                                    0.0, 0.0),
                                                             child: ClipRRect(
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          0),
+                                                                          0.0),
                                                               child:
                                                                   Image.asset(
                                                                 'assets/images/Inbox_(9).png',
-                                                                width: 50,
-                                                                height: 45,
+                                                                width: 50.0,
+                                                                height: 45.0,
                                                                 fit: BoxFit
                                                                     .cover,
                                                               ),
@@ -2693,7 +2726,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .subHeader,
-                                                                fontSize: 15,
+                                                                fontSize: 15.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -2712,7 +2745,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .liteText,
-                                                                fontSize: 14,
+                                                                fontSize: 14.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -2722,9 +2755,9 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                         ),
                                                       ]
                                                           .divide(const SizedBox(
-                                                              height: 8))
+                                                              height: 8.0))
                                                           .around(const SizedBox(
-                                                              height: 8)),
+                                                              height: 8.0)),
                                                     ),
                                                   ),
                                                 ),
@@ -2735,7 +2768,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                               children: [
                                                 Padding(
                                                   padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(0, 5, 0, 0),
+                                                      .fromSTEB(
+                                                          0.0, 5.0, 0.0, 0.0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -2760,8 +2794,11 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                         child: Padding(
                                                           padding:
                                                               const EdgeInsetsDirectional
-                                                                  .fromSTEB(3,
-                                                                      0, 0, 0),
+                                                                  .fromSTEB(
+                                                                      3.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: FFButtonWidget(
                                                             onPressed:
                                                                 () async {
@@ -2863,22 +2900,22 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                 'Unblock Slot',
                                                             options:
                                                                 FFButtonOptions(
-                                                              width: 140,
-                                                              height: 40,
+                                                              width: 140.0,
+                                                              height: 40.0,
                                                               padding:
                                                                   const EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          5,
-                                                                          0,
-                                                                          5,
-                                                                          0),
+                                                                          5.0,
+                                                                          0.0,
+                                                                          5.0,
+                                                                          0.0),
                                                               iconPadding:
                                                                   const EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          0,
-                                                                          0),
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .heading,
@@ -2892,21 +2929,21 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                         color: Colors
                                                                             .white,
                                                                         fontSize:
-                                                                            15,
+                                                                            15.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
-                                                              elevation: 0,
+                                                              elevation: 0.0,
                                                               borderSide:
                                                                   const BorderSide(
                                                                 color: Colors
                                                                     .transparent,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                           ),
                                                         ),
@@ -2934,8 +2971,11 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                         child: Padding(
                                                           padding:
                                                               const EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      0, 3, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      3.0,
+                                                                      0.0),
                                                           child: FFButtonWidget(
                                                             onPressed:
                                                                 () async {
@@ -3043,22 +3083,22 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             text: 'Block Slot',
                                                             options:
                                                                 FFButtonOptions(
-                                                              width: 140,
-                                                              height: 40,
+                                                              width: 140.0,
+                                                              height: 40.0,
                                                               padding:
                                                                   const EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          5,
-                                                                          0,
-                                                                          5,
-                                                                          0),
+                                                                          5.0,
+                                                                          0.0,
+                                                                          5.0,
+                                                                          0.0),
                                                               iconPadding:
                                                                   const EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          0,
-                                                                          0),
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .primaryText,
@@ -3072,21 +3112,21 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                         color: Colors
                                                                             .white,
                                                                         fontSize:
-                                                                            15,
+                                                                            15.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                       ),
-                                                              elevation: 0,
+                                                              elevation: 0.0,
                                                               borderSide:
                                                                   const BorderSide(
                                                                 color: Colors
                                                                     .transparent,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                           ),
                                                         ),
@@ -3119,7 +3159,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                 ),
                                               ],
                                             ),
-                                          ].divide(const SizedBox(height: 15)),
+                                          ].divide(const SizedBox(height: 15.0)),
                                         ),
                                       );
                                     },
@@ -3130,15 +3170,15 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Raleway',
-                                        fontSize: 16,
+                                        fontSize: 16.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
-                                        lineHeight: 1,
+                                        lineHeight: 1.0,
                                       ),
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 25),
+                                      0.0, 0.0, 0.0, 25.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -3200,47 +3240,50 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                       safeSetState(() {});
                                     },
                                     child: Container(
-                                      width: MediaQuery.sizeOf(context).width,
-                                      height: 60,
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      height: 60.0,
                                       constraints: const BoxConstraints(
-                                        minWidth: 320,
-                                        maxWidth: 450,
+                                        minWidth: 320.0,
+                                        maxWidth: 450.0,
                                       ),
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBackground,
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
                                         border: Border.all(
                                           color: FlutterFlowTheme.of(context)
                                               .liteBg,
-                                          width: 2,
+                                          width: 2.0,
                                         ),
                                       ),
                                       child: Padding(
-                                        padding: const EdgeInsets.all(5),
+                                        padding: const EdgeInsets.all(5.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
                                               MainAxisAlignment.start,
                                           children: [
                                             Container(
-                                              width: 50,
-                                              height: 50,
+                                              width: 50.0,
+                                              height: 50.0,
                                               decoration: BoxDecoration(
                                                 color: const Color(0xFFF8F4FF),
                                                 borderRadius:
-                                                    BorderRadius.circular(5),
+                                                    BorderRadius.circular(5.0),
                                               ),
                                               child: Align(
-                                                alignment:
-                                                    const AlignmentDirectional(0, 0),
+                                                alignment: const AlignmentDirectional(
+                                                    0.0, 0.0),
                                                 child: ClipRRect(
                                                   borderRadius:
-                                                      BorderRadius.circular(0),
+                                                      BorderRadius.circular(
+                                                          0.0),
                                                   child: Image.asset(
                                                     'assets/images/Inbox_(11).png',
-                                                    width: 40,
-                                                    height: 35,
+                                                    width: 40.0,
+                                                    height: 35.0,
                                                     fit: BoxFit.cover,
                                                   ),
                                                 ),
@@ -3262,7 +3305,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .subHeader,
-                                                          fontSize: 15,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
@@ -3277,7 +3320,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                               .liteText,
                                                       fontWeight:
                                                           FontWeight.w600,
-                                                      fontSize: 15,
+                                                      fontSize: 15.0,
                                                     ),
                                                   )
                                                 ],
@@ -3286,20 +3329,20 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Raleway',
-                                                          fontSize: 15,
+                                                          fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
                                               ),
                                             ),
-                                          ].divide(const SizedBox(width: 15)),
+                                          ].divide(const SizedBox(width: 15.0)),
                                         ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 15)),
+                              ].divide(const SizedBox(height: 15.0)),
                             ),
                           ),
                         ),

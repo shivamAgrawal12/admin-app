@@ -282,13 +282,13 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: const AlignmentDirectional(0, -1),
+            alignment: const AlignmentDirectional(0.0, -1.0),
             child: Container(
-              width: MediaQuery.sizeOf(context).width,
-              height: MediaQuery.sizeOf(context).height * 1,
+              width: MediaQuery.sizeOf(context).width * 1.0,
+              height: MediaQuery.sizeOf(context).height * 1.0,
               constraints: const BoxConstraints(
-                minWidth: 320,
-                maxWidth: 450,
+                minWidth: 320.0,
+                maxWidth: 450.0,
               ),
               decoration: const BoxDecoration(),
               child: SingleChildScrollView(
@@ -298,17 +298,18 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Container(
-                      width: MediaQuery.sizeOf(context).width,
-                      height: 70,
+                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      height: 70.0,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         border: Border.all(
                           color: const Color(0xFFEEECF1),
-                          width: 1,
+                          width: 1.0,
                         ),
                       ),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(25, 0, 25, 0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            25.0, 0.0, 25.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -336,41 +337,42 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                               child: FaIcon(
                                 FontAwesomeIcons.arrowLeft,
                                 color: FlutterFlowTheme.of(context).primaryText,
-                                size: 24,
+                                size: 24.0,
                               ),
                             ),
                             ClipRRect(
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.0),
                               child: Image.asset(
                                 'assets/images/Group_42_(2).png',
-                                width: 130,
-                                height: 40,
+                                width: 130.0,
+                                height: 40.0,
                                 fit: BoxFit.contain,
                               ),
                             ),
                             Container(
-                              width: 31,
-                              height: 31,
+                              width: 31.0,
+                              height: 31.0,
                               decoration: const BoxDecoration(
                                 shape: BoxShape.circle,
                               ),
                             ),
-                          ].divide(const SizedBox(width: 6)),
+                          ].divide(const SizedBox(width: 6.0)),
                         ),
                       ),
                     ),
                     Container(
-                      width: MediaQuery.sizeOf(context).width,
-                      height: 60,
+                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      height: 60.0,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         border: Border.all(
                           color: const Color(0xFFEEECF1),
-                          width: 1,
+                          width: 1.0,
                         ),
                       ),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            10.0, 0.0, 10.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -382,32 +384,33 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                   .override(
                                     fontFamily: 'Raleway',
                                     color: FlutterFlowTheme.of(context).heading,
-                                    fontSize: 16,
+                                    fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),
-                          ].divide(const SizedBox(width: 6)),
+                          ].divide(const SizedBox(width: 6.0)),
                         ),
                       ),
                     ),
                     Container(
-                      width: 300,
+                      width: 300.0,
                       height: MediaQuery.sizeOf(context).height * 1.28,
                       decoration: const BoxDecoration(),
                       child: Form(
                         key: _model.formKey,
                         autovalidateMode: AutovalidateMode.disabled,
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(0, 15, 0, 10),
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 15.0, 0.0, 10.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(-1, -1),
+                                alignment: const AlignmentDirectional(-1.0, -1.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      5, 5, 0, 0),
+                                      5.0, 5.0, 0.0, 0.0),
                                   child: Text(
                                     'Robot Name',
                                     style: FlutterFlowTheme.of(context)
@@ -424,10 +427,10 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                 ),
                               ),
                               Padding(
-                                padding:
-                                    const EdgeInsetsDirectional.fromSTEB(8, 5, 8, 0),
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 5.0, 8.0, 0.0),
                                 child: SizedBox(
-                                  width: 310,
+                                  width: 310.0,
                                   child: TextFormField(
                                     controller: _model.nameTextController,
                                     focusNode: _model.nameFocusNode,
@@ -439,7 +442,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                           .labelMedium
                                           .override(
                                             fontFamily: 'Open Sans',
-                                            fontSize: 16,
+                                            fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                           ),
@@ -449,7 +452,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                               .liteText,
                                           width: 1.5,
                                         ),
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
                                       ),
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -457,7 +461,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                               .subHeader,
                                           width: 1.5,
                                         ),
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
                                       ),
                                       errorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -465,7 +470,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                               .error,
                                           width: 1.5,
                                         ),
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
                                       ),
                                       focusedErrorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -473,14 +479,15 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                               .error,
                                           width: 1.5,
                                         ),
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
                                       ),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Open Sans',
-                                          fontSize: 16,
+                                          fontSize: 16.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -492,10 +499,10 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                     'textFieldOnPageLoadAnimation1']!),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(-1, -1),
+                                alignment: const AlignmentDirectional(-1.0, -1.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      5, 10, 0, 0),
+                                      5.0, 10.0, 0.0, 0.0),
                                   child: Text(
                                     'Robot Id',
                                     style: FlutterFlowTheme.of(context)
@@ -512,10 +519,10 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                 ),
                               ),
                               Padding(
-                                padding:
-                                    const EdgeInsetsDirectional.fromSTEB(8, 5, 8, 0),
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 5.0, 8.0, 0.0),
                                 child: SizedBox(
-                                  width: 310,
+                                  width: 310.0,
                                   child: TextFormField(
                                     controller: _model.idTextController,
                                     focusNode: _model.idFocusNode,
@@ -527,7 +534,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                           .labelMedium
                                           .override(
                                             fontFamily: 'Open Sans',
-                                            fontSize: 16,
+                                            fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                           ),
@@ -537,7 +544,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                               .liteText,
                                           width: 1.5,
                                         ),
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
                                       ),
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -545,7 +553,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                               .subHeader,
                                           width: 1.5,
                                         ),
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
                                       ),
                                       errorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -553,7 +562,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                               .error,
                                           width: 1.5,
                                         ),
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
                                       ),
                                       focusedErrorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -561,14 +571,15 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                               .error,
                                           width: 1.5,
                                         ),
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
                                       ),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Open Sans',
-                                          fontSize: 16,
+                                          fontSize: 16.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -579,10 +590,10 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                     'textFieldOnPageLoadAnimation2']!),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(-1, -1),
+                                alignment: const AlignmentDirectional(-1.0, -1.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      5, 10, 0, 0),
+                                      5.0, 10.0, 0.0, 0.0),
                                   child: Text(
                                     'Max Row',
                                     style: FlutterFlowTheme.of(context)
@@ -599,10 +610,10 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                 ),
                               ),
                               Padding(
-                                padding:
-                                    const EdgeInsetsDirectional.fromSTEB(8, 5, 8, 0),
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 5.0, 8.0, 0.0),
                                 child: SizedBox(
-                                  width: 310,
+                                  width: 310.0,
                                   child: TextFormField(
                                     controller: _model.rowTextController,
                                     focusNode: _model.rowFocusNode,
@@ -615,7 +626,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                           .labelMedium
                                           .override(
                                             fontFamily: 'Open Sans',
-                                            fontSize: 16,
+                                            fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                           ),
@@ -625,7 +636,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                               .liteText,
                                           width: 1.5,
                                         ),
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
                                       ),
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -633,7 +645,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                               .subHeader,
                                           width: 1.5,
                                         ),
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
                                       ),
                                       errorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -641,7 +654,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                               .error,
                                           width: 1.5,
                                         ),
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
                                       ),
                                       focusedErrorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -649,14 +663,15 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                               .error,
                                           width: 1.5,
                                         ),
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
                                       ),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Open Sans',
-                                          fontSize: 16,
+                                          fontSize: 16.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -668,10 +683,10 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                     'textFieldOnPageLoadAnimation3']!),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(-1, -1),
+                                alignment: const AlignmentDirectional(-1.0, -1.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      5, 10, 0, 0),
+                                      5.0, 10.0, 0.0, 0.0),
                                   child: Text(
                                     'Max Rack',
                                     style: FlutterFlowTheme.of(context)
@@ -688,10 +703,10 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                 ),
                               ),
                               Padding(
-                                padding:
-                                    const EdgeInsetsDirectional.fromSTEB(8, 5, 8, 0),
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 5.0, 8.0, 0.0),
                                 child: SizedBox(
-                                  width: 310,
+                                  width: 310.0,
                                   child: TextFormField(
                                     controller: _model.rackTextController,
                                     focusNode: _model.rackFocusNode,
@@ -704,7 +719,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                           .labelMedium
                                           .override(
                                             fontFamily: 'Open Sans',
-                                            fontSize: 16,
+                                            fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                           ),
@@ -714,7 +729,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                               .liteText,
                                           width: 1.5,
                                         ),
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
                                       ),
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -722,7 +738,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                               .subHeader,
                                           width: 1.5,
                                         ),
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
                                       ),
                                       errorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -730,7 +747,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                               .error,
                                           width: 1.5,
                                         ),
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
                                       ),
                                       focusedErrorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -738,14 +756,15 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                               .error,
                                           width: 1.5,
                                         ),
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
                                       ),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Open Sans',
-                                          fontSize: 16,
+                                          fontSize: 16.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -758,10 +777,10 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                     'textFieldOnPageLoadAnimation4']!),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(-1, -1),
+                                alignment: const AlignmentDirectional(-1.0, -1.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      5, 10, 0, 0),
+                                      5.0, 10.0, 0.0, 0.0),
                                   child: Text(
                                     'Max Slot',
                                     style: FlutterFlowTheme.of(context)
@@ -778,10 +797,10 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                 ),
                               ),
                               Padding(
-                                padding:
-                                    const EdgeInsetsDirectional.fromSTEB(8, 5, 8, 0),
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 5.0, 8.0, 0.0),
                                 child: SizedBox(
-                                  width: 310,
+                                  width: 310.0,
                                   child: TextFormField(
                                     controller: _model.slotTextController,
                                     focusNode: _model.slotFocusNode,
@@ -794,7 +813,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                           .labelMedium
                                           .override(
                                             fontFamily: 'Open Sans',
-                                            fontSize: 16,
+                                            fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                           ),
@@ -804,7 +823,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                               .liteText,
                                           width: 1.5,
                                         ),
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
                                       ),
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -812,7 +832,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                               .subHeader,
                                           width: 1.5,
                                         ),
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
                                       ),
                                       errorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -820,7 +841,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                               .error,
                                           width: 1.5,
                                         ),
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
                                       ),
                                       focusedErrorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -828,14 +850,15 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                               .error,
                                           width: 1.5,
                                         ),
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
                                       ),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Open Sans',
-                                          fontSize: 16,
+                                          fontSize: 16.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -848,10 +871,10 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                     'textFieldOnPageLoadAnimation5']!),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(-1, -1),
+                                alignment: const AlignmentDirectional(-1.0, -1.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      5, 10, 0, 0),
+                                      5.0, 10.0, 0.0, 0.0),
                                   child: Text(
                                     'Max Depth',
                                     style: FlutterFlowTheme.of(context)
@@ -868,10 +891,10 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                 ),
                               ),
                               Padding(
-                                padding:
-                                    const EdgeInsetsDirectional.fromSTEB(8, 5, 8, 0),
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 5.0, 8.0, 0.0),
                                 child: SizedBox(
-                                  width: 310,
+                                  width: 310.0,
                                   child: TextFormField(
                                     controller: _model.depthTextController,
                                     focusNode: _model.depthFocusNode,
@@ -884,7 +907,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                           .labelMedium
                                           .override(
                                             fontFamily: 'Open Sans',
-                                            fontSize: 16,
+                                            fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                           ),
@@ -894,7 +917,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                               .liteText,
                                           width: 1.5,
                                         ),
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
                                       ),
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -902,7 +926,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                               .subHeader,
                                           width: 1.5,
                                         ),
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
                                       ),
                                       errorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -910,7 +935,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                               .error,
                                           width: 1.5,
                                         ),
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
                                       ),
                                       focusedErrorBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -918,14 +944,15 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                               .error,
                                           width: 1.5,
                                         ),
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
                                       ),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Open Sans',
-                                          fontSize: 16,
+                                          fontSize: 16.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -938,10 +965,10 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                     'textFieldOnPageLoadAnimation6']!),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(-1, -1),
+                                alignment: const AlignmentDirectional(-1.0, -1.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      5, 5, 0, 0),
+                                      5.0, 5.0, 0.0, 0.0),
                                   child: Text(
                                     'Slot Type',
                                     style: FlutterFlowTheme.of(context)
@@ -958,8 +985,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                 ),
                               ),
                               Padding(
-                                padding:
-                                    const EdgeInsetsDirectional.fromSTEB(8, 5, 8, 0),
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 5.0, 8.0, 0.0),
                                 child: FlutterFlowDropDown<String>(
                                   controller: _model.dropDownValueController ??=
                                       FormFieldController<String>(
@@ -968,13 +995,13 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                   options: const ['metal_tray', 'plastic_tray'],
                                   onChanged: (val) => safeSetState(
                                       () => _model.dropDownValue = val),
-                                  width: 310,
-                                  height: 50,
+                                  width: 310.0,
+                                  height: 50.0,
                                   textStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Open Sans',
-                                        fontSize: 16,
+                                        fontSize: 16.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -983,15 +1010,15 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                     Icons.keyboard_arrow_down_rounded,
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
-                                    size: 24,
+                                    size: 24.0,
                                   ),
-                                  elevation: 0,
+                                  elevation: 0.0,
                                   borderColor:
                                       FlutterFlowTheme.of(context).subHeader,
-                                  borderWidth: 1,
-                                  borderRadius: 5,
+                                  borderWidth: 1.0,
+                                  borderRadius: 5.0,
                                   margin: const EdgeInsetsDirectional.fromSTEB(
-                                      10, 2, 10, 4),
+                                      10.0, 2.0, 10.0, 4.0),
                                   hidesUnderline: true,
                                   isOverButton: true,
                                   isSearchable: false,
@@ -1000,10 +1027,10 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                     'dropDownOnPageLoadAnimation1']!),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(-1, -1),
+                                alignment: const AlignmentDirectional(-1.0, -1.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      5, 10, 0, 0),
+                                      5.0, 10.0, 0.0, 0.0),
                                   child: Text(
                                     'Slot Height',
                                     style: FlutterFlowTheme.of(context)
@@ -1020,8 +1047,8 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                 ),
                               ),
                               Padding(
-                                padding:
-                                    const EdgeInsetsDirectional.fromSTEB(8, 5, 8, 0),
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 5.0, 8.0, 0.0),
                                 child: FlutterFlowDropDown<String>(
                                   controller:
                                       _model.slotheightValueController ??=
@@ -1031,13 +1058,13 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                   options: const ['80', '100', '150', '180', '200'],
                                   onChanged: (val) => safeSetState(
                                       () => _model.slotheightValue = val),
-                                  width: 310,
-                                  height: 50,
+                                  width: 310.0,
+                                  height: 50.0,
                                   textStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Open Sans',
-                                        fontSize: 16,
+                                        fontSize: 16.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -1046,15 +1073,15 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                     Icons.keyboard_arrow_down_rounded,
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
-                                    size: 24,
+                                    size: 24.0,
                                   ),
-                                  elevation: 0,
+                                  elevation: 0.0,
                                   borderColor:
                                       FlutterFlowTheme.of(context).subHeader,
-                                  borderWidth: 1,
-                                  borderRadius: 5,
+                                  borderWidth: 1.0,
+                                  borderRadius: 5.0,
                                   margin: const EdgeInsetsDirectional.fromSTEB(
-                                      10, 2, 10, 4),
+                                      10.0, 2.0, 10.0, 4.0),
                                   hidesUnderline: true,
                                   isOverButton: true,
                                   isSearchable: false,
@@ -1064,21 +1091,21 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                               ),
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0, 40, 0, 15),
+                                    0.0, 40.0, 0.0, 15.0),
                                 child: Container(
-                                  width: 140,
-                                  height: 40,
+                                  width: 140.0,
+                                  height: 40.0,
                                   decoration: BoxDecoration(
                                     gradient: LinearGradient(
                                       colors: [
                                         FlutterFlowTheme.of(context).heading,
                                         FlutterFlowTheme.of(context).accent
                                       ],
-                                      stops: const [0, 1],
-                                      begin: const AlignmentDirectional(1, 0),
-                                      end: const AlignmentDirectional(-1, 0),
+                                      stops: const [0.0, 1.0],
+                                      begin: const AlignmentDirectional(1.0, 0.0),
+                                      end: const AlignmentDirectional(-1.0, 0),
                                     ),
-                                    borderRadius: BorderRadius.circular(5),
+                                    borderRadius: BorderRadius.circular(5.0),
                                   ),
                                   child: FFButtonWidget(
                                     onPressed: () async {
@@ -1159,27 +1186,27 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                                     },
                                     text: 'Register',
                                     options: FFButtonOptions(
-                                      height: 40,
+                                      height: 40.0,
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          5, 0, 5, 0),
+                                          5.0, 0.0, 5.0, 0.0),
                                       iconPadding:
                                           const EdgeInsetsDirectional.fromSTEB(
-                                              0, 0, 0, 0),
+                                              0.0, 0.0, 0.0, 0.0),
                                       color: const Color(0x27351C75),
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
                                             fontFamily: 'Raleway',
                                             color: Colors.white,
-                                            fontSize: 16,
+                                            fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
-                                      elevation: 0,
+                                      elevation: 0.0,
                                       borderSide: const BorderSide(
                                         color: Color(0xFF8E7CC3),
                                       ),
-                                      borderRadius: BorderRadius.circular(5),
+                                      borderRadius: BorderRadius.circular(5.0),
                                     ),
                                   ),
                                 ).animateOnPageLoad(animationsMap[
@@ -1190,7 +1217,7 @@ class _RegisterRobotWidgetState extends State<RegisterRobotWidget>
                         ),
                       ),
                     ),
-                  ].addToEnd(const SizedBox(height: 20)),
+                  ].addToEnd(const SizedBox(height: 20.0)),
                 ),
               ),
             ),

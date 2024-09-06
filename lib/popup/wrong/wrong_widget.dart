@@ -46,27 +46,27 @@ class _WrongWidgetState extends State<WrongWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0, -0.6),
+      alignment: const AlignmentDirectional(0.0, -0.6),
       child: Container(
-        width: 250,
+        width: 250.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(10.0),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
                 child: Text(
                   'Something Went wrong.',
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Raleway',
                         color: FlutterFlowTheme.of(context).primaryText,
-                        fontSize: 16,
+                        fontSize: 16.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
                       ),
@@ -102,7 +102,7 @@ class _WrongWidgetState extends State<WrongWidget> {
                 style: FlutterFlowTheme.of(context).headlineSmall.override(
                       fontFamily: 'Open Sans',
                       color: FlutterFlowTheme.of(context).primaryBackground,
-                      fontSize: 2,
+                      fontSize: 2.0,
                       letterSpacing: 0.0,
                     ),
               ),

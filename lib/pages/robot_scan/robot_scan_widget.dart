@@ -104,13 +104,13 @@ class _RobotScanWidgetState extends State<RobotScanWidget>
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: const AlignmentDirectional(0, -1),
+            alignment: const AlignmentDirectional(0.0, -1.0),
             child: Container(
-              width: MediaQuery.sizeOf(context).width,
-              height: MediaQuery.sizeOf(context).height * 1,
+              width: MediaQuery.sizeOf(context).width * 1.0,
+              height: MediaQuery.sizeOf(context).height * 1.0,
               constraints: const BoxConstraints(
-                minWidth: 320,
-                maxWidth: 450,
+                minWidth: 320.0,
+                maxWidth: 450.0,
               ),
               decoration: const BoxDecoration(),
               child: Column(
@@ -118,46 +118,48 @@ class _RobotScanWidgetState extends State<RobotScanWidget>
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
-                    width: MediaQuery.sizeOf(context).width,
-                    height: 70,
+                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    height: 70.0,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
                         color: const Color(0xFFEEECF1),
-                        width: 1,
+                        width: 1.0,
                       ),
                     ),
                     child: Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           ClipRRect(
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(8.0),
                             child: Image.asset(
                               'assets/images/Group_42_(2).png',
-                              width: 140,
-                              height: 40,
+                              width: 140.0,
+                              height: 40.0,
                               fit: BoxFit.contain,
                             ),
                           ),
-                        ].divide(const SizedBox(width: 6)),
+                        ].divide(const SizedBox(width: 6.0)),
                       ),
                     ),
                   ),
                   Container(
-                    width: MediaQuery.sizeOf(context).width,
-                    height: 60,
+                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    height: 60.0,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
                         color: const Color(0xFFEEECF1),
-                        width: 1,
+                        width: 1.0,
                       ),
                     ),
                     child: Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -169,25 +171,26 @@ class _RobotScanWidgetState extends State<RobotScanWidget>
                                 .override(
                                   fontFamily: 'Open Sans',
                                   color: FlutterFlowTheme.of(context).heading,
-                                  fontSize: 16,
+                                  fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
                                 ),
                           ),
-                        ].divide(const SizedBox(width: 6)),
+                        ].divide(const SizedBox(width: 6.0)),
                       ),
                     ),
                   ),
                   Container(
-                    width: MediaQuery.sizeOf(context).width,
+                    width: MediaQuery.sizeOf(context).width * 1.0,
                     height: MediaQuery.sizeOf(context).height * 0.75,
                     constraints: const BoxConstraints(
-                      minWidth: 320,
-                      maxWidth: 450,
+                      minWidth: 320.0,
+                      maxWidth: 450.0,
                     ),
                     decoration: const BoxDecoration(),
                     child: Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: SingleChildScrollView(
                         primary: false,
                         child: Column(
@@ -195,10 +198,10 @@ class _RobotScanWidgetState extends State<RobotScanWidget>
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(1, -1),
+                              alignment: const AlignmentDirectional(1.0, -1.0),
                               child: Padding(
-                                padding:
-                                    const EdgeInsetsDirectional.fromSTEB(0, 0, 40, 0),
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 40.0, 0.0),
                                 child: Switch.adaptive(
                                   value: _model.switchValue!,
                                   onChanged: (newValue) async {
@@ -231,9 +234,9 @@ class _RobotScanWidgetState extends State<RobotScanWidget>
                                 children: [
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        8, 0, 8, 0),
+                                        8.0, 0.0, 8.0, 0.0),
                                     child: SizedBox(
-                                      width: 280,
+                                      width: 280.0,
                                       child: TextFormField(
                                         controller: _model.textController,
                                         focusNode: _model.textFieldFocusNode,
@@ -246,7 +249,7 @@ class _RobotScanWidgetState extends State<RobotScanWidget>
                                                   .labelMedium
                                                   .override(
                                                     fontFamily: 'Open Sans',
-                                                    fontSize: 16,
+                                                    fontSize: 16.0,
                                                     letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: OutlineInputBorder(
@@ -254,30 +257,30 @@ class _RobotScanWidgetState extends State<RobotScanWidget>
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .subHeader,
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(5),
+                                                BorderRadius.circular(5.0),
                                           ),
                                           focusedBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .heading,
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(5),
+                                                BorderRadius.circular(5.0),
                                           ),
                                           errorBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .error,
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(5),
+                                                BorderRadius.circular(5.0),
                                           ),
                                           focusedErrorBorder:
                                               OutlineInputBorder(
@@ -285,17 +288,17 @@ class _RobotScanWidgetState extends State<RobotScanWidget>
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .error,
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(5),
+                                                BorderRadius.circular(5.0),
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Open Sans',
-                                              fontSize: 16,
+                                              fontSize: 16.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
@@ -306,19 +309,19 @@ class _RobotScanWidgetState extends State<RobotScanWidget>
                                     ),
                                   ),
                                   Container(
-                                    width: 140,
-                                    height: 40,
+                                    width: 140.0,
+                                    height: 40.0,
                                     decoration: BoxDecoration(
                                       gradient: LinearGradient(
                                         colors: [
                                           FlutterFlowTheme.of(context).heading,
                                           FlutterFlowTheme.of(context).accent
                                         ],
-                                        stops: const [0, 1],
-                                        begin: const AlignmentDirectional(1, 0),
-                                        end: const AlignmentDirectional(-1, 0),
+                                        stops: const [0.0, 1.0],
+                                        begin: const AlignmentDirectional(1.0, 0.0),
+                                        end: const AlignmentDirectional(-1.0, 0),
                                       ),
-                                      borderRadius: BorderRadius.circular(5),
+                                      borderRadius: BorderRadius.circular(5.0),
                                     ),
                                     child: FFButtonWidget(
                                       onPressed: () async {
@@ -347,32 +350,33 @@ class _RobotScanWidgetState extends State<RobotScanWidget>
                                       },
                                       text: 'Next',
                                       options: FFButtonOptions(
-                                        width: 140,
-                                        height: 40,
+                                        width: 140.0,
+                                        height: 40.0,
                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                            5, 0, 5, 0),
+                                            5.0, 0.0, 5.0, 0.0),
                                         iconPadding:
                                             const EdgeInsetsDirectional.fromSTEB(
-                                                0, 0, 0, 0),
+                                                0.0, 0.0, 0.0, 0.0),
                                         color: const Color(0x0020124D),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
                                               fontFamily: 'Open Sans',
                                               color: Colors.white,
-                                              fontSize: 16,
+                                              fontSize: 16.0,
                                               letterSpacing: 0.0,
                                             ),
-                                        elevation: 0,
+                                        elevation: 0.0,
                                         borderSide: const BorderSide(
                                           color: Colors.transparent,
-                                          width: 1,
+                                          width: 1.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(5),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
                                       ),
                                     ),
                                   ),
-                                ].divide(const SizedBox(height: 45)),
+                                ].divide(const SizedBox(height: 45.0)),
                               ),
                             if (_model.change == 0 ? true : false)
                               SingleChildScrollView(
@@ -390,33 +394,33 @@ class _RobotScanWidgetState extends State<RobotScanWidget>
                                           safeSetState(() {});
                                         },
                                         child: Container(
-                                          width: 300,
-                                          height: 300,
+                                          width: 300.0,
+                                          height: 300.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
                                             boxShadow: const [
                                               BoxShadow(
-                                                blurRadius: 20,
+                                                blurRadius: 20.0,
                                                 color: Color(0x678E7CC3),
                                                 offset: Offset(
-                                                  5,
-                                                  8,
+                                                  5.0,
+                                                  8.0,
                                                 ),
                                               )
                                             ],
                                             borderRadius:
-                                                BorderRadius.circular(5),
+                                                BorderRadius.circular(5.0),
                                           ),
                                           child: const Padding(
-                                            padding: EdgeInsets.all(10),
+                                            padding: EdgeInsets.all(10.0),
                                             child: SizedBox(
-                                              width: 300,
-                                              height: 300,
+                                              width: 300.0,
+                                              height: 300.0,
                                               child: custom_widgets
                                                   .QRCodeScannerScreen(
-                                                width: 300,
-                                                height: 300,
+                                                width: 300.0,
+                                                height: 300.0,
                                               ),
                                             ),
                                           ),
@@ -425,23 +429,23 @@ class _RobotScanWidgetState extends State<RobotScanWidget>
                                           'containerOnPageLoadAnimation']!),
                                     if (FFAppState().scannerpage == '')
                                       Container(
-                                        width: 300,
-                                        height: 300,
+                                        width: 300.0,
+                                        height: 300.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .primaryBackground,
                                           boxShadow: const [
                                             BoxShadow(
-                                              blurRadius: 20,
+                                              blurRadius: 20.0,
                                               color: Color(0x678E7CC3),
                                               offset: Offset(
-                                                5,
-                                                8,
+                                                5.0,
+                                                8.0,
                                               ),
                                             )
                                           ],
                                           borderRadius:
-                                              BorderRadius.circular(5),
+                                              BorderRadius.circular(5.0),
                                         ),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -456,12 +460,14 @@ class _RobotScanWidgetState extends State<RobotScanWidget>
                                               },
                                               text: 'Scan',
                                               options: FFButtonOptions(
-                                                height: 40,
+                                                height: 40.0,
                                                 padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(24, 0, 24, 0),
+                                                    .fromSTEB(
+                                                        24.0, 0.0, 24.0, 0.0),
                                                 iconPadding:
                                                     const EdgeInsetsDirectional
-                                                        .fromSTEB(0, 0, 0, 0),
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .liteText,
@@ -474,13 +480,13 @@ class _RobotScanWidgetState extends State<RobotScanWidget>
                                                           color: Colors.white,
                                                           letterSpacing: 0.0,
                                                         ),
-                                                elevation: 3,
+                                                elevation: 3.0,
                                                 borderSide: const BorderSide(
                                                   color: Colors.transparent,
-                                                  width: 1,
+                                                  width: 1.0,
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(8),
+                                                    BorderRadius.circular(8.0),
                                               ),
                                             ),
                                           ],
@@ -497,24 +503,24 @@ class _RobotScanWidgetState extends State<RobotScanWidget>
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Raleway',
-                                                fontSize: 18,
+                                                fontSize: 18.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
-                                                lineHeight: 1,
+                                                lineHeight: 1.0,
                                               ),
                                         ),
                                         Icon(
                                           Icons.qr_code_scanner_outlined,
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryText,
-                                          size: 24,
+                                          size: 24.0,
                                         ),
-                                      ].divide(const SizedBox(width: 5)),
+                                      ].divide(const SizedBox(width: 5.0)),
                                     ),
-                                  ].divide(const SizedBox(height: 40)),
+                                  ].divide(const SizedBox(height: 40.0)),
                                 ),
                               ),
-                          ].divide(const SizedBox(height: 20)),
+                          ].divide(const SizedBox(height: 20.0)),
                         ),
                       ),
                     ),

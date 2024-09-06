@@ -46,27 +46,27 @@ class _ResendOtpWidgetState extends State<ResendOtpWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0, -0.6),
+      alignment: const AlignmentDirectional(0.0, -0.6),
       child: Container(
-        width: 280,
+        width: 280.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(10.0),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
                 child: Text(
                   'Your OTP has been sent to your registered mobile number.',
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Raleway',
                         color: FlutterFlowTheme.of(context).accent,
-                        fontSize: 16,
+                        fontSize: 16.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
                         lineHeight: 1.4,
@@ -95,7 +95,7 @@ class _ResendOtpWidgetState extends State<ResendOtpWidget> {
                 style: FlutterFlowTheme.of(context).headlineSmall.override(
                       fontFamily: 'Open Sans',
                       color: FlutterFlowTheme.of(context).primaryBackground,
-                      fontSize: 2,
+                      fontSize: 2.0,
                       letterSpacing: 0.0,
                     ),
               ),

@@ -46,32 +46,32 @@ class _SuccessfullWidgetState extends State<SuccessfullWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0, -0.6),
+      alignment: const AlignmentDirectional(0.0, -0.6),
       child: Container(
-        width: 270,
+        width: 270.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).liteBg,
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(10.0),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Align(
-                      alignment: const AlignmentDirectional(0, 0),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Text(
                         'Successfully',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Raleway',
                               color: FlutterFlowTheme.of(context).success,
-                              fontSize: 18,
+                              fontSize: 18.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.bold,
                             ),
@@ -80,17 +80,17 @@ class _SuccessfullWidgetState extends State<SuccessfullWidget> {
                     Icon(
                       Icons.task_alt,
                       color: FlutterFlowTheme.of(context).success,
-                      size: 19,
+                      size: 19.0,
                     ),
-                  ].divide(const SizedBox(width: 5)),
+                  ].divide(const SizedBox(width: 5.0)),
                 ),
               ),
               ClipRRect(
-                borderRadius: BorderRadius.circular(0),
+                borderRadius: BorderRadius.circular(0.0),
                 child: Image.asset(
                   'assets/images/dbdca15d8fb3e9d11a8f3e7ccc92acc6.gif',
-                  width: 160,
-                  height: 150,
+                  width: 160.0,
+                  height: 150.0,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -127,7 +127,7 @@ class _SuccessfullWidgetState extends State<SuccessfullWidget> {
                       fontWeight: FontWeight.w100,
                     ),
               ),
-            ].divide(const SizedBox(height: 20)),
+            ].divide(const SizedBox(height: 20.0)),
           ),
         ),
       ),

@@ -124,13 +124,13 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: const AlignmentDirectional(0, -1),
+            alignment: const AlignmentDirectional(0.0, -1.0),
             child: Container(
-              width: MediaQuery.sizeOf(context).width,
-              height: MediaQuery.sizeOf(context).height * 1,
+              width: MediaQuery.sizeOf(context).width * 1.0,
+              height: MediaQuery.sizeOf(context).height * 1.0,
               constraints: const BoxConstraints(
-                minWidth: 320,
-                maxWidth: 450,
+                minWidth: 320.0,
+                maxWidth: 450.0,
               ),
               decoration: const BoxDecoration(),
               child: Column(
@@ -138,17 +138,18 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
-                    width: MediaQuery.sizeOf(context).width,
-                    height: 70,
+                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    height: 70.0,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
                         color: const Color(0xFFEEECF1),
-                        width: 1,
+                        width: 1.0,
                       ),
                     ),
                     child: Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(25, 0, 25, 0),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -173,15 +174,15 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                             child: FaIcon(
                               FontAwesomeIcons.arrowLeft,
                               color: FlutterFlowTheme.of(context).primaryText,
-                              size: 24,
+                              size: 24.0,
                             ),
                           ),
                           ClipRRect(
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(8.0),
                             child: Image.asset(
                               'assets/images/Group_42_(2).png',
-                              width: 130,
-                              height: 40,
+                              width: 130.0,
+                              height: 40.0,
                               fit: BoxFit.contain,
                             ),
                           ),
@@ -209,38 +210,39 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                               ).then((value) => safeSetState(() {}));
                             },
                             child: Container(
-                              width: 31,
-                              height: 31,
+                              width: 31.0,
+                              height: 31.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context).accent4,
                                 shape: BoxShape.circle,
                               ),
                               child: Align(
-                                alignment: const AlignmentDirectional(0, 2.6),
+                                alignment: const AlignmentDirectional(0.0, 2.6),
                                 child: Icon(
                                   Icons.person_3,
                                   color: FlutterFlowTheme.of(context).heading,
-                                  size: 28,
+                                  size: 28.0,
                                 ),
                               ),
                             ),
                           ),
-                        ].divide(const SizedBox(width: 6)),
+                        ].divide(const SizedBox(width: 6.0)),
                       ),
                     ),
                   ),
                   Container(
-                    width: MediaQuery.sizeOf(context).width,
-                    height: 60,
+                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    height: 60.0,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
                         color: const Color(0xFFEEECF1),
-                        width: 1,
+                        width: 1.0,
                       ),
                     ),
                     child: Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -252,12 +254,12 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                 .override(
                                   fontFamily: 'Raleway',
                                   color: FlutterFlowTheme.of(context).heading,
-                                  fontSize: 16,
+                                  fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
                                 ),
                           ),
-                        ].divide(const SizedBox(width: 6)),
+                        ].divide(const SizedBox(width: 6.0)),
                       ).animateOnPageLoad(
                           animationsMap['rowOnPageLoadAnimation']!),
                     ),
@@ -276,11 +278,11 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                       if (!snapshot.hasData) {
                         return Center(
                           child: SizedBox(
-                            width: 40,
-                            height: 40,
+                            width: 40.0,
+                            height: 40.0,
                             child: SpinKitThreeBounce(
                               color: FlutterFlowTheme.of(context).subHeader,
-                              size: 40,
+                              size: 40.0,
                             ),
                           ),
                         );
@@ -291,8 +293,8 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                         width: MediaQuery.sizeOf(context).width * 0.98,
                         height: MediaQuery.sizeOf(context).height * 0.8,
                         constraints: const BoxConstraints(
-                          minWidth: 300,
-                          maxWidth: 430,
+                          minWidth: 300.0,
+                          maxWidth: 430.0,
                         ),
                         decoration: const BoxDecoration(),
                         child: FutureBuilder<ApiCallResponse>(
@@ -309,12 +311,12 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                             if (!snapshot.hasData) {
                               return Center(
                                 child: SizedBox(
-                                  width: 40,
-                                  height: 40,
+                                  width: 40.0,
+                                  height: 40.0,
                                   child: SpinKitThreeBounce(
                                     color:
                                         FlutterFlowTheme.of(context).subHeader,
-                                    size: 40,
+                                    size: 40.0,
                                   ),
                                 ),
                               );
@@ -326,7 +328,7 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                 Column(
                                   children: [
                                     Align(
-                                      alignment: const Alignment(0, 0),
+                                      alignment: const Alignment(0.0, 0),
                                       child: TabBar(
                                         labelColor: FlutterFlowTheme.of(context)
                                             .primaryText,
@@ -344,7 +346,7 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                         indicatorColor:
                                             FlutterFlowTheme.of(context)
                                                 .heading,
-                                        padding: const EdgeInsets.all(4),
+                                        padding: const EdgeInsets.all(4.0),
                                         tabs: [
                                           const Tab(
                                             text: '  Inprocess  ',
@@ -405,18 +407,21 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                       return Align(
                                                         alignment:
                                                             const AlignmentDirectional(
-                                                                0, -1),
+                                                                0.0, -1.0),
                                                         child: Padding(
                                                           padding:
                                                               const EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      10, 0, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      10.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: Container(
-                                                            width: 340,
+                                                            width: 340.0,
                                                             constraints:
                                                                 const BoxConstraints(
-                                                              minWidth: 270,
-                                                              maxWidth: 360,
+                                                              minWidth: 270.0,
+                                                              maxWidth: 360.0,
                                                             ),
                                                             decoration:
                                                                 BoxDecoration(
@@ -425,25 +430,27 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                   .primaryBackground,
                                                               boxShadow: const [
                                                                 BoxShadow(
-                                                                  blurRadius: 5,
+                                                                  blurRadius:
+                                                                      5.0,
                                                                   color: Color(
                                                                       0x26000000),
                                                                   offset:
                                                                       Offset(
-                                                                    1,
-                                                                    3,
+                                                                    1.0,
+                                                                    3.0,
                                                                   ),
                                                                 )
                                                               ],
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             child: Padding(
                                                               padding:
                                                                   const EdgeInsets
-                                                                      .all(10),
+                                                                      .all(
+                                                                          10.0),
                                                               child: Row(
                                                                 mainAxisSize:
                                                                     MainAxisSize
@@ -476,10 +483,10 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            5,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           getJsonField(
@@ -491,7 +498,7 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                               .override(
                                                                                 fontFamily: 'Raleway',
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
-                                                                                fontSize: 14,
+                                                                                fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w600,
                                                                               ),
@@ -499,10 +506,10 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            10,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            10.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           'Direct Pickable',
@@ -518,10 +525,10 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            5,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           getJsonField(
@@ -533,7 +540,7 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                               .override(
                                                                                 fontFamily: 'Raleway',
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
-                                                                                fontSize: 14,
+                                                                                fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w600,
                                                                               ),
@@ -541,10 +548,10 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            10,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            10.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           'Status',
@@ -560,10 +567,10 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            5,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           getJsonField(
@@ -575,7 +582,7 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                               .override(
                                                                                 fontFamily: 'Raleway',
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
-                                                                                fontSize: 14,
+                                                                                fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w600,
                                                                               ),
@@ -583,10 +590,10 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            10,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            10.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           'Task Id',
@@ -602,10 +609,10 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            5,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           getJsonField(
@@ -617,7 +624,7 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                               .override(
                                                                                 fontFamily: 'Raleway',
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
-                                                                                fontSize: 14,
+                                                                                fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w600,
                                                                               ),
@@ -649,10 +656,10 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            5,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           getJsonField(
@@ -664,7 +671,7 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                               .override(
                                                                                 fontFamily: 'Raleway',
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
-                                                                                fontSize: 14,
+                                                                                fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w600,
                                                                               ),
@@ -672,10 +679,10 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            10,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            10.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           'Slot Friendly Name',
@@ -691,10 +698,10 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            5,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           getJsonField(
@@ -706,7 +713,7 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                               .override(
                                                                                 fontFamily: 'Raleway',
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
-                                                                                fontSize: 14,
+                                                                                fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w600,
                                                                               ),
@@ -714,10 +721,10 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            10,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            10.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           'Created At',
@@ -733,10 +740,10 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            5,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           valueOrDefault<
@@ -752,7 +759,7 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                               .override(
                                                                                 fontFamily: 'Raleway',
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
-                                                                                fontSize: 14,
+                                                                                fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w600,
                                                                               ),
@@ -760,10 +767,10 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            10,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            10.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           'Tray Type',
@@ -779,10 +786,10 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            5,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           getJsonField(
@@ -794,7 +801,7 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                               .override(
                                                                                 fontFamily: 'Raleway',
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
-                                                                                fontSize: 14,
+                                                                                fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w600,
                                                                               ),
@@ -811,7 +818,7 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                         ),
                                                       );
                                                     }).addToEnd(
-                                                        const SizedBox(height: 60)),
+                                                        const SizedBox(height: 60.0)),
                                                   ),
                                                 ),
                                               );
@@ -855,18 +862,21 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                       return Align(
                                                         alignment:
                                                             const AlignmentDirectional(
-                                                                0, -1),
+                                                                0.0, -1.0),
                                                         child: Padding(
                                                           padding:
                                                               const EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      10, 0, 0),
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      10.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: Container(
-                                                            width: 340,
+                                                            width: 340.0,
                                                             constraints:
                                                                 const BoxConstraints(
-                                                              minWidth: 270,
-                                                              maxWidth: 350,
+                                                              minWidth: 270.0,
+                                                              maxWidth: 350.0,
                                                             ),
                                                             decoration:
                                                                 BoxDecoration(
@@ -875,25 +885,27 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                   .primaryBackground,
                                                               boxShadow: const [
                                                                 BoxShadow(
-                                                                  blurRadius: 5,
+                                                                  blurRadius:
+                                                                      5.0,
                                                                   color: Color(
                                                                       0x26000000),
                                                                   offset:
                                                                       Offset(
-                                                                    1,
-                                                                    3,
+                                                                    1.0,
+                                                                    3.0,
                                                                   ),
                                                                 )
                                                               ],
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             child: Padding(
                                                               padding:
                                                                   const EdgeInsets
-                                                                      .all(10),
+                                                                      .all(
+                                                                          10.0),
                                                               child: Row(
                                                                 mainAxisSize:
                                                                     MainAxisSize
@@ -926,10 +938,10 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            5,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           getJsonField(
@@ -941,7 +953,7 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                               .override(
                                                                                 fontFamily: 'Raleway',
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
-                                                                                fontSize: 14,
+                                                                                fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w600,
                                                                               ),
@@ -949,10 +961,10 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            10,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            10.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           'Direct Pickable',
@@ -968,10 +980,10 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            5,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           getJsonField(
@@ -983,7 +995,7 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                               .override(
                                                                                 fontFamily: 'Raleway',
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
-                                                                                fontSize: 14,
+                                                                                fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w600,
                                                                               ),
@@ -991,10 +1003,10 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            10,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            10.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           'Status',
@@ -1010,10 +1022,10 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            5,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           getJsonField(
@@ -1025,7 +1037,7 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                               .override(
                                                                                 fontFamily: 'Raleway',
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
-                                                                                fontSize: 14,
+                                                                                fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w600,
                                                                               ),
@@ -1033,10 +1045,10 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            10,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            10.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           'Task Id',
@@ -1052,10 +1064,10 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            5,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           getJsonField(
@@ -1067,7 +1079,7 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                               .override(
                                                                                 fontFamily: 'Raleway',
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
-                                                                                fontSize: 14,
+                                                                                fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w600,
                                                                               ),
@@ -1099,10 +1111,10 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            5,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           getJsonField(
@@ -1114,7 +1126,7 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                               .override(
                                                                                 fontFamily: 'Raleway',
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
-                                                                                fontSize: 14,
+                                                                                fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w600,
                                                                               ),
@@ -1122,10 +1134,10 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            10,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            10.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           'Slot Friendly Name',
@@ -1141,10 +1153,10 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            5,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           getJsonField(
@@ -1156,7 +1168,7 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                               .override(
                                                                                 fontFamily: 'Raleway',
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
-                                                                                fontSize: 14,
+                                                                                fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w600,
                                                                               ),
@@ -1164,10 +1176,10 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            10,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            10.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           'Created At',
@@ -1183,10 +1195,10 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            5,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           valueOrDefault<
@@ -1202,7 +1214,7 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                               .override(
                                                                                 fontFamily: 'Raleway',
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
-                                                                                fontSize: 14,
+                                                                                fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w600,
                                                                               ),
@@ -1210,10 +1222,10 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            10,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            10.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           'Tray Type',
@@ -1229,10 +1241,10 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                       ),
                                                                       Padding(
                                                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                            0,
-                                                                            5,
-                                                                            0,
-                                                                            0),
+                                                                            0.0,
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           getJsonField(
@@ -1244,7 +1256,7 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                                               .override(
                                                                                 fontFamily: 'Raleway',
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
-                                                                                fontSize: 14,
+                                                                                fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w600,
                                                                               ),
@@ -1261,7 +1273,7 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                                         ),
                                                       );
                                                     }).addToEnd(
-                                                        const SizedBox(height: 60)),
+                                                        const SizedBox(height: 60.0)),
                                                   ),
                                                 ),
                                               );
@@ -1275,16 +1287,16 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                 Align(
                                   alignment: const AlignmentDirectional(0.18, -0.96),
                                   child: Container(
-                                    width: 35,
-                                    height: 35,
+                                    width: 35.0,
+                                    height: 35.0,
                                     decoration: BoxDecoration(
                                       color:
                                           FlutterFlowTheme.of(context).liteText,
                                       shape: BoxShape.circle,
                                     ),
-                                    alignment: const AlignmentDirectional(-1, 0),
+                                    alignment: const AlignmentDirectional(-1.0, 0.0),
                                     child: Align(
-                                      alignment: const AlignmentDirectional(0, 0),
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
                                       child: Text(
                                         valueOrDefault<String>(
                                           AdminApiGroup.taskByStatusCall
@@ -1302,7 +1314,7 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
-                                              fontSize: 14,
+                                              fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
@@ -1313,16 +1325,16 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                 Align(
                                   alignment: const AlignmentDirectional(-0.95, -0.96),
                                   child: Container(
-                                    width: 35,
-                                    height: 35,
+                                    width: 35.0,
+                                    height: 35.0,
                                     decoration: BoxDecoration(
                                       color:
                                           FlutterFlowTheme.of(context).liteText,
                                       shape: BoxShape.circle,
                                     ),
-                                    alignment: const AlignmentDirectional(-1, 0),
+                                    alignment: const AlignmentDirectional(-1.0, 0.0),
                                     child: Align(
-                                      alignment: const AlignmentDirectional(0, 0),
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
                                       child: Text(
                                         valueOrDefault<String>(
                                           AdminApiGroup.taskByStatusCall
@@ -1340,7 +1352,7 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
-                                              fontSize: 14,
+                                              fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),

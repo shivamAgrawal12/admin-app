@@ -125,13 +125,13 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
           body: SafeArea(
             top: true,
             child: Align(
-              alignment: const AlignmentDirectional(0, -1),
+              alignment: const AlignmentDirectional(0.0, -1.0),
               child: Container(
-                width: MediaQuery.sizeOf(context).width,
-                height: MediaQuery.sizeOf(context).height * 1,
+                width: MediaQuery.sizeOf(context).width * 1.0,
+                height: MediaQuery.sizeOf(context).height * 1.0,
                 constraints: const BoxConstraints(
-                  minWidth: 320,
-                  maxWidth: 450,
+                  minWidth: 320.0,
+                  maxWidth: 450.0,
                 ),
                 decoration: const BoxDecoration(),
                 child: Column(
@@ -139,46 +139,48 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Container(
-                      width: MediaQuery.sizeOf(context).width,
-                      height: 70,
+                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      height: 70.0,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         border: Border.all(
                           color: const Color(0xFFEEECF1),
-                          width: 1,
+                          width: 1.0,
                         ),
                       ),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(15, 0, 10, 0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            15.0, 0.0, 10.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             ClipRRect(
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.0),
                               child: Image.asset(
                                 'assets/images/Group_42_(2).png',
-                                width: 130,
-                                height: 40,
+                                width: 130.0,
+                                height: 40.0,
                                 fit: BoxFit.contain,
                               ),
                             ),
-                          ].divide(const SizedBox(width: 6)),
+                          ].divide(const SizedBox(width: 6.0)),
                         ),
                       ),
                     ),
                     Container(
-                      width: MediaQuery.sizeOf(context).width,
-                      height: 60,
+                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      height: 60.0,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         border: Border.all(
                           color: const Color(0xFFEEECF1),
-                          width: 1,
+                          width: 1.0,
                         ),
                       ),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            10.0, 0.0, 10.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -190,25 +192,25 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                   .override(
                                     fontFamily: 'Raleway',
                                     color: FlutterFlowTheme.of(context).heading,
-                                    fontSize: 16,
+                                    fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),
-                          ].divide(const SizedBox(width: 6)),
+                          ].divide(const SizedBox(width: 6.0)),
                         ),
                       ),
                     ),
                     Container(
-                      width: MediaQuery.sizeOf(context).width,
+                      width: MediaQuery.sizeOf(context).width * 1.0,
                       height: MediaQuery.sizeOf(context).height * 0.8,
                       constraints: const BoxConstraints(
-                        minWidth: 320,
-                        maxWidth: 450,
+                        minWidth: 320.0,
+                        maxWidth: 450.0,
                       ),
                       decoration: const BoxDecoration(),
                       child: Padding(
-                        padding: const EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10.0),
                         child: SingleChildScrollView(
                           primary: false,
                           child: Column(
@@ -227,7 +229,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                             fontFamily: 'Open Sans',
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
-                                            fontSize: 16,
+                                            fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -238,7 +240,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .heading,
                                         fontWeight: FontWeight.w600,
-                                        fontSize: 16,
+                                        fontSize: 16.0,
                                       ),
                                     )
                                   ],
@@ -246,7 +248,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Raleway',
-                                        fontSize: 16,
+                                        fontSize: 16.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
@@ -259,7 +261,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                   visible: _model.rowshow == 0 ? true : false,
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0, 20, 0, 0),
+                                        0.0, 20.0, 0.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -269,7 +271,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Raleway',
-                                                fontSize: 18,
+                                                fontSize: 18.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
@@ -292,8 +294,8 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                               onChanged: (val) => safeSetState(
                                                   () =>
                                                       _model.speedValue = val),
-                                              width: 200,
-                                              height: 45,
+                                              width: 200.0,
+                                              height: 45.0,
                                               textStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -308,24 +310,25 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
-                                                size: 24,
+                                                size: 24.0,
                                               ),
-                                              elevation: 0,
+                                              elevation: 0.0,
                                               borderColor:
                                                   FlutterFlowTheme.of(context)
                                                       .subHeader,
-                                              borderWidth: 1,
-                                              borderRadius: 5,
+                                              borderWidth: 1.0,
+                                              borderRadius: 5.0,
                                               margin: const EdgeInsetsDirectional
-                                                  .fromSTEB(10, 0, 10, 4),
+                                                  .fromSTEB(
+                                                      10.0, 0.0, 10.0, 4.0),
                                               hidesUnderline: true,
                                               isOverButton: true,
                                               isSearchable: false,
                                               isMultiSelect: false,
                                             ),
                                             Container(
-                                              width: 100,
-                                              height: 40,
+                                              width: 100.0,
+                                              height: 40.0,
                                               decoration: BoxDecoration(
                                                 gradient: LinearGradient(
                                                   colors: [
@@ -334,14 +337,14 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .accent
                                                   ],
-                                                  stops: const [0, 1],
+                                                  stops: const [0.0, 1.0],
                                                   begin: const AlignmentDirectional(
-                                                      1, 0),
+                                                      1.0, 0.0),
                                                   end: const AlignmentDirectional(
-                                                      -1, 0),
+                                                      -1.0, 0),
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(5),
+                                                    BorderRadius.circular(5.0),
                                               ),
                                               child: FFButtonWidget(
                                                 onPressed: () async {
@@ -400,12 +403,14 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                 },
                                                 text: 'Submit',
                                                 options: FFButtonOptions(
-                                                  height: 40,
+                                                  height: 40.0,
                                                   padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(5, 0, 5, 0),
+                                                      .fromSTEB(
+                                                          5.0, 0.0, 5.0, 0.0),
                                                   iconPadding:
                                                       const EdgeInsetsDirectional
-                                                          .fromSTEB(0, 0, 0, 0),
+                                                          .fromSTEB(0.0, 0.0,
+                                                              0.0, 0.0),
                                                   color: const Color(0x27351C75),
                                                   textStyle: FlutterFlowTheme
                                                           .of(context)
@@ -413,23 +418,24 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                       .override(
                                                         fontFamily: 'Raleway',
                                                         color: Colors.white,
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
-                                                  elevation: 0,
+                                                  elevation: 0.0,
                                                   borderSide: const BorderSide(
                                                     color: Color(0xFF8E7CC3),
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(5),
+                                                      BorderRadius.circular(
+                                                          5.0),
                                                 ),
                                               ),
                                             ),
                                           ],
                                         ),
-                                      ].divide(const SizedBox(height: 20)),
+                                      ].divide(const SizedBox(height: 20.0)),
                                     ),
                                   ),
                                 ),
@@ -441,7 +447,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                   visible: _model.rowshow == 1 ? true : false,
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0, 20, 0, 0),
+                                        0.0, 20.0, 0.0, 0.0),
                                     child: SingleChildScrollView(
                                       primary: false,
                                       child: Column(
@@ -453,7 +459,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Raleway',
-                                                  fontSize: 18,
+                                                  fontSize: 18.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -475,8 +481,8 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                 onChanged: (val) =>
                                                     safeSetState(() => _model
                                                         .buffTrayValue = val),
-                                                width: 280,
-                                                height: 45,
+                                                width: 280.0,
+                                                height: 45.0,
                                                 textStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -493,16 +499,17 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryText,
-                                                  size: 24,
+                                                  size: 24.0,
                                                 ),
-                                                elevation: 0,
+                                                elevation: 0.0,
                                                 borderColor:
                                                     FlutterFlowTheme.of(context)
                                                         .subHeader,
-                                                borderWidth: 1,
-                                                borderRadius: 5,
+                                                borderWidth: 1.0,
+                                                borderRadius: 5.0,
                                                 margin: const EdgeInsetsDirectional
-                                                    .fromSTEB(10, 0, 10, 4),
+                                                    .fromSTEB(
+                                                        10.0, 0.0, 10.0, 4.0),
                                                 hidesUnderline: true,
                                                 isOverButton: true,
                                                 isSearchable: false,
@@ -516,7 +523,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Raleway',
-                                                  fontSize: 16,
+                                                  fontSize: 16.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -524,7 +531,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    15, 0, 10, 0),
+                                                    15.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -537,7 +544,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Open Sans',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -547,14 +554,17 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                   child: Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            1, 0),
+                                                            1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 0),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0),
                                                       child: SizedBox(
-                                                        width: 200,
+                                                        width: 200.0,
                                                         child: TextFormField(
                                                           controller: _model
                                                               .abhSsTextController,
@@ -574,7 +584,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                       fontFamily:
                                                                           'Open Sans',
                                                                       fontSize:
-                                                                          16,
+                                                                          16.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -585,12 +595,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .subHeader,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedBorder:
                                                                 OutlineInputBorder(
@@ -599,12 +609,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .liteText,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             errorBorder:
                                                                 OutlineInputBorder(
@@ -613,12 +623,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedErrorBorder:
                                                                 OutlineInputBorder(
@@ -627,12 +637,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                           ),
                                                           style: FlutterFlowTheme
@@ -641,7 +651,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Open Sans',
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -657,13 +667,13 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(const SizedBox(width: 4)),
+                                              ].divide(const SizedBox(width: 4.0)),
                                             ),
                                           ),
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    15, 0, 10, 0),
+                                                    15.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -676,7 +686,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Open Sans',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -686,14 +696,17 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                   child: Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            1, 0),
+                                                            1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 0),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0),
                                                       child: SizedBox(
-                                                        width: 200,
+                                                        width: 200.0,
                                                         child: TextFormField(
                                                           controller: _model
                                                               .abhSrTextController,
@@ -713,7 +726,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                       fontFamily:
                                                                           'Open Sans',
                                                                       fontSize:
-                                                                          16,
+                                                                          16.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -724,12 +737,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .subHeader,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedBorder:
                                                                 OutlineInputBorder(
@@ -738,12 +751,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .liteText,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             errorBorder:
                                                                 OutlineInputBorder(
@@ -752,12 +765,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedErrorBorder:
                                                                 OutlineInputBorder(
@@ -766,12 +779,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                           ),
                                                           style: FlutterFlowTheme
@@ -780,7 +793,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Open Sans',
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -796,13 +809,13 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(const SizedBox(width: 4)),
+                                              ].divide(const SizedBox(width: 4.0)),
                                             ),
                                           ),
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    15, 0, 10, 0),
+                                                    15.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -815,7 +828,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Open Sans',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -825,14 +838,17 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                   child: Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            1, 0),
+                                                            1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 0),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0),
                                                       child: SizedBox(
-                                                        width: 200,
+                                                        width: 200.0,
                                                         child: TextFormField(
                                                           controller: _model
                                                               .abhDsTextController,
@@ -852,7 +868,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                       fontFamily:
                                                                           'Open Sans',
                                                                       fontSize:
-                                                                          16,
+                                                                          16.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -863,12 +879,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .subHeader,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedBorder:
                                                                 OutlineInputBorder(
@@ -877,12 +893,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .liteText,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             errorBorder:
                                                                 OutlineInputBorder(
@@ -891,12 +907,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedErrorBorder:
                                                                 OutlineInputBorder(
@@ -905,12 +921,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                           ),
                                                           style: FlutterFlowTheme
@@ -919,7 +935,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Open Sans',
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -935,13 +951,13 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(const SizedBox(width: 4)),
+                                              ].divide(const SizedBox(width: 4.0)),
                                             ),
                                           ),
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    15, 0, 10, 0),
+                                                    15.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -954,7 +970,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Open Sans',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -964,14 +980,17 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                   child: Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            1, 0),
+                                                            1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 0),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0),
                                                       child: SizedBox(
-                                                        width: 200,
+                                                        width: 200.0,
                                                         child: TextFormField(
                                                           controller: _model
                                                               .abhDrTextController,
@@ -991,7 +1010,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                       fontFamily:
                                                                           'Open Sans',
                                                                       fontSize:
-                                                                          16,
+                                                                          16.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -1002,12 +1021,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .subHeader,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedBorder:
                                                                 OutlineInputBorder(
@@ -1016,12 +1035,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .liteText,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             errorBorder:
                                                                 OutlineInputBorder(
@@ -1030,12 +1049,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedErrorBorder:
                                                                 OutlineInputBorder(
@@ -1044,12 +1063,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                           ),
                                                           style: FlutterFlowTheme
@@ -1058,7 +1077,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Open Sans',
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -1074,7 +1093,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(const SizedBox(width: 4)),
+                                              ].divide(const SizedBox(width: 4.0)),
                                             ),
                                           ),
                                           Text(
@@ -1083,7 +1102,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Raleway',
-                                                  fontSize: 16,
+                                                  fontSize: 16.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -1091,7 +1110,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    15, 0, 10, 0),
+                                                    15.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -1104,7 +1123,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Open Sans',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -1114,14 +1133,17 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                   child: Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            1, 0),
+                                                            1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 0),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0),
                                                       child: SizedBox(
-                                                        width: 200,
+                                                        width: 200.0,
                                                         child: TextFormField(
                                                           controller: _model
                                                               .abmSsTextController,
@@ -1141,7 +1163,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                       fontFamily:
                                                                           'Open Sans',
                                                                       fontSize:
-                                                                          16,
+                                                                          16.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -1152,12 +1174,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .subHeader,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedBorder:
                                                                 OutlineInputBorder(
@@ -1166,12 +1188,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .liteText,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             errorBorder:
                                                                 OutlineInputBorder(
@@ -1180,12 +1202,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedErrorBorder:
                                                                 OutlineInputBorder(
@@ -1194,12 +1216,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                           ),
                                                           style: FlutterFlowTheme
@@ -1208,7 +1230,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Open Sans',
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -1224,13 +1246,13 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(const SizedBox(width: 4)),
+                                              ].divide(const SizedBox(width: 4.0)),
                                             ),
                                           ),
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    15, 0, 10, 0),
+                                                    15.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -1243,7 +1265,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Open Sans',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -1253,14 +1275,17 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                   child: Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            1, 0),
+                                                            1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 0),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0),
                                                       child: SizedBox(
-                                                        width: 200,
+                                                        width: 200.0,
                                                         child: TextFormField(
                                                           controller: _model
                                                               .abmSrTextController,
@@ -1280,7 +1305,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                       fontFamily:
                                                                           'Open Sans',
                                                                       fontSize:
-                                                                          16,
+                                                                          16.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -1291,12 +1316,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .subHeader,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedBorder:
                                                                 OutlineInputBorder(
@@ -1305,12 +1330,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .liteText,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             errorBorder:
                                                                 OutlineInputBorder(
@@ -1319,12 +1344,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedErrorBorder:
                                                                 OutlineInputBorder(
@@ -1333,12 +1358,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                           ),
                                                           style: FlutterFlowTheme
@@ -1347,7 +1372,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Open Sans',
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -1363,13 +1388,13 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(const SizedBox(width: 4)),
+                                              ].divide(const SizedBox(width: 4.0)),
                                             ),
                                           ),
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    15, 0, 10, 0),
+                                                    15.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -1382,7 +1407,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Open Sans',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -1392,14 +1417,17 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                   child: Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            1, 0),
+                                                            1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 0),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0),
                                                       child: SizedBox(
-                                                        width: 200,
+                                                        width: 200.0,
                                                         child: TextFormField(
                                                           controller: _model
                                                               .abmDsTextController,
@@ -1419,7 +1447,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                       fontFamily:
                                                                           'Open Sans',
                                                                       fontSize:
-                                                                          16,
+                                                                          16.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -1430,12 +1458,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .subHeader,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedBorder:
                                                                 OutlineInputBorder(
@@ -1444,12 +1472,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .liteText,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             errorBorder:
                                                                 OutlineInputBorder(
@@ -1458,12 +1486,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedErrorBorder:
                                                                 OutlineInputBorder(
@@ -1472,12 +1500,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                           ),
                                                           style: FlutterFlowTheme
@@ -1486,7 +1514,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Open Sans',
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -1502,13 +1530,13 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(const SizedBox(width: 4)),
+                                              ].divide(const SizedBox(width: 4.0)),
                                             ),
                                           ),
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    15, 0, 10, 0),
+                                                    15.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -1521,7 +1549,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Open Sans',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -1531,14 +1559,17 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                   child: Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            1, 0),
+                                                            1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 0),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0),
                                                       child: SizedBox(
-                                                        width: 200,
+                                                        width: 200.0,
                                                         child: TextFormField(
                                                           controller: _model
                                                               .abmDrTextController,
@@ -1558,7 +1589,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                       fontFamily:
                                                                           'Open Sans',
                                                                       fontSize:
-                                                                          16,
+                                                                          16.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -1569,12 +1600,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .subHeader,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedBorder:
                                                                 OutlineInputBorder(
@@ -1583,12 +1614,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .liteText,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             errorBorder:
                                                                 OutlineInputBorder(
@@ -1597,12 +1628,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedErrorBorder:
                                                                 OutlineInputBorder(
@@ -1611,12 +1642,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                           ),
                                                           style: FlutterFlowTheme
@@ -1625,7 +1656,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Open Sans',
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -1641,7 +1672,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(const SizedBox(width: 4)),
+                                              ].divide(const SizedBox(width: 4.0)),
                                             ),
                                           ),
                                           Text(
@@ -1650,7 +1681,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Raleway',
-                                                  fontSize: 16,
+                                                  fontSize: 16.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -1658,7 +1689,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    15, 0, 10, 0),
+                                                    15.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -1671,7 +1702,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Open Sans',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -1681,14 +1712,17 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                   child: Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            1, 0),
+                                                            1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 0),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0),
                                                       child: SizedBox(
-                                                        width: 200,
+                                                        width: 200.0,
                                                         child: TextFormField(
                                                           controller: _model
                                                               .ablSsTextController,
@@ -1708,7 +1742,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                       fontFamily:
                                                                           'Open Sans',
                                                                       fontSize:
-                                                                          16,
+                                                                          16.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -1719,12 +1753,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .subHeader,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedBorder:
                                                                 OutlineInputBorder(
@@ -1733,12 +1767,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .liteText,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             errorBorder:
                                                                 OutlineInputBorder(
@@ -1747,12 +1781,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedErrorBorder:
                                                                 OutlineInputBorder(
@@ -1761,12 +1795,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                           ),
                                                           style: FlutterFlowTheme
@@ -1775,7 +1809,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Open Sans',
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -1791,13 +1825,13 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(const SizedBox(width: 4)),
+                                              ].divide(const SizedBox(width: 4.0)),
                                             ),
                                           ),
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    15, 0, 10, 0),
+                                                    15.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -1810,7 +1844,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Open Sans',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -1820,14 +1854,17 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                   child: Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            1, 0),
+                                                            1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 0),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0),
                                                       child: SizedBox(
-                                                        width: 200,
+                                                        width: 200.0,
                                                         child: TextFormField(
                                                           controller: _model
                                                               .ablSrTextController,
@@ -1847,7 +1884,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                       fontFamily:
                                                                           'Open Sans',
                                                                       fontSize:
-                                                                          16,
+                                                                          16.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -1858,12 +1895,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .subHeader,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedBorder:
                                                                 OutlineInputBorder(
@@ -1872,12 +1909,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .liteText,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             errorBorder:
                                                                 OutlineInputBorder(
@@ -1886,12 +1923,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedErrorBorder:
                                                                 OutlineInputBorder(
@@ -1900,12 +1937,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                           ),
                                                           style: FlutterFlowTheme
@@ -1914,7 +1951,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Open Sans',
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -1930,13 +1967,13 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(const SizedBox(width: 4)),
+                                              ].divide(const SizedBox(width: 4.0)),
                                             ),
                                           ),
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    15, 0, 10, 0),
+                                                    15.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -1949,7 +1986,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Open Sans',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -1959,14 +1996,17 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                   child: Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            1, 0),
+                                                            1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 0),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0),
                                                       child: SizedBox(
-                                                        width: 200,
+                                                        width: 200.0,
                                                         child: TextFormField(
                                                           controller: _model
                                                               .ablDsTextController,
@@ -1986,7 +2026,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                       fontFamily:
                                                                           'Open Sans',
                                                                       fontSize:
-                                                                          16,
+                                                                          16.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -1997,12 +2037,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .subHeader,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedBorder:
                                                                 OutlineInputBorder(
@@ -2011,12 +2051,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .liteText,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             errorBorder:
                                                                 OutlineInputBorder(
@@ -2025,12 +2065,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedErrorBorder:
                                                                 OutlineInputBorder(
@@ -2039,12 +2079,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                           ),
                                                           style: FlutterFlowTheme
@@ -2053,7 +2093,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Open Sans',
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -2069,13 +2109,13 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(const SizedBox(width: 4)),
+                                              ].divide(const SizedBox(width: 4.0)),
                                             ),
                                           ),
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    15, 0, 10, 0),
+                                                    15.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -2088,7 +2128,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Open Sans',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -2098,14 +2138,17 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                   child: Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            1, 0),
+                                                            1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 0),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0),
                                                       child: SizedBox(
-                                                        width: 200,
+                                                        width: 200.0,
                                                         child: TextFormField(
                                                           controller: _model
                                                               .ablDrTextController,
@@ -2125,7 +2168,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                       fontFamily:
                                                                           'Open Sans',
                                                                       fontSize:
-                                                                          16,
+                                                                          16.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -2136,12 +2179,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .subHeader,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedBorder:
                                                                 OutlineInputBorder(
@@ -2150,12 +2193,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .liteText,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             errorBorder:
                                                                 OutlineInputBorder(
@@ -2164,12 +2207,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedErrorBorder:
                                                                 OutlineInputBorder(
@@ -2178,12 +2221,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                           ),
                                                           style: FlutterFlowTheme
@@ -2192,7 +2235,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Open Sans',
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -2208,16 +2251,16 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(const SizedBox(width: 4)),
+                                              ].divide(const SizedBox(width: 4.0)),
                                             ),
                                           ),
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0, 15, 0, 15),
+                                                    0.0, 15.0, 0.0, 15.0),
                                             child: Container(
-                                              width: 140,
-                                              height: 40,
+                                              width: 140.0,
+                                              height: 40.0,
                                               decoration: BoxDecoration(
                                                 gradient: LinearGradient(
                                                   colors: [
@@ -2226,14 +2269,14 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .accent
                                                   ],
-                                                  stops: const [0, 1],
+                                                  stops: const [0.0, 1.0],
                                                   begin: const AlignmentDirectional(
-                                                      1, 0),
+                                                      1.0, 0.0),
                                                   end: const AlignmentDirectional(
-                                                      -1, 0),
+                                                      -1.0, 0),
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(5),
+                                                    BorderRadius.circular(5.0),
                                               ),
                                               child: FFButtonWidget(
                                                 onPressed: () async {
@@ -2341,12 +2384,14 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                 },
                                                 text: 'Submit',
                                                 options: FFButtonOptions(
-                                                  height: 40,
+                                                  height: 40.0,
                                                   padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(5, 0, 5, 0),
+                                                      .fromSTEB(
+                                                          5.0, 0.0, 5.0, 0.0),
                                                   iconPadding:
                                                       const EdgeInsetsDirectional
-                                                          .fromSTEB(0, 0, 0, 0),
+                                                          .fromSTEB(0.0, 0.0,
+                                                              0.0, 0.0),
                                                   color: const Color(0x27351C75),
                                                   textStyle: FlutterFlowTheme
                                                           .of(context)
@@ -2354,22 +2399,23 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                       .override(
                                                         fontFamily: 'Raleway',
                                                         color: Colors.white,
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
-                                                  elevation: 0,
+                                                  elevation: 0.0,
                                                   borderSide: const BorderSide(
                                                     color: Color(0xFF8E7CC3),
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(5),
+                                                      BorderRadius.circular(
+                                                          5.0),
                                                 ),
                                               ),
                                             ),
                                           ),
-                                        ].divide(const SizedBox(height: 20)),
+                                        ].divide(const SizedBox(height: 20.0)),
                                       ),
                                     ),
                                   ),
@@ -2382,7 +2428,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                   visible: _model.rowshow == 2 ? true : false,
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0, 20, 0, 0),
+                                        0.0, 20.0, 0.0, 0.0),
                                     child: SingleChildScrollView(
                                       primary: false,
                                       child: Column(
@@ -2394,7 +2440,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Raleway',
-                                                  fontSize: 18,
+                                                  fontSize: 18.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -2416,8 +2462,8 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                 onChanged: (val) =>
                                                     safeSetState(() => _model
                                                         .asDropDownValue = val),
-                                                width: 280,
-                                                height: 45,
+                                                width: 280.0,
+                                                height: 45.0,
                                                 textStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -2434,16 +2480,17 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryText,
-                                                  size: 24,
+                                                  size: 24.0,
                                                 ),
-                                                elevation: 0,
+                                                elevation: 0.0,
                                                 borderColor:
                                                     FlutterFlowTheme.of(context)
                                                         .subHeader,
-                                                borderWidth: 1,
-                                                borderRadius: 5,
+                                                borderWidth: 1.0,
+                                                borderRadius: 5.0,
                                                 margin: const EdgeInsetsDirectional
-                                                    .fromSTEB(10, 0, 10, 4),
+                                                    .fromSTEB(
+                                                        10.0, 0.0, 10.0, 4.0),
                                                 hidesUnderline: true,
                                                 isOverButton: true,
                                                 isSearchable: false,
@@ -2457,7 +2504,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Raleway',
-                                                  fontSize: 16,
+                                                  fontSize: 16.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -2465,7 +2512,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    15, 0, 10, 0),
+                                                    15.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -2478,7 +2525,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Open Sans',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -2488,14 +2535,17 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                   child: Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            1, 0),
+                                                            1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 0),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0),
                                                       child: SizedBox(
-                                                        width: 200,
+                                                        width: 200.0,
                                                         child: TextFormField(
                                                           controller: _model
                                                               .ashSsTextController,
@@ -2515,7 +2565,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                       fontFamily:
                                                                           'Open Sans',
                                                                       fontSize:
-                                                                          16,
+                                                                          16.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -2526,12 +2576,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .subHeader,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedBorder:
                                                                 OutlineInputBorder(
@@ -2540,12 +2590,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .liteText,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             errorBorder:
                                                                 OutlineInputBorder(
@@ -2554,12 +2604,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedErrorBorder:
                                                                 OutlineInputBorder(
@@ -2568,12 +2618,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                           ),
                                                           style: FlutterFlowTheme
@@ -2582,7 +2632,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Open Sans',
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -2598,13 +2648,13 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(const SizedBox(width: 4)),
+                                              ].divide(const SizedBox(width: 4.0)),
                                             ),
                                           ),
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    15, 0, 10, 0),
+                                                    15.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -2617,7 +2667,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Open Sans',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -2627,14 +2677,17 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                   child: Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            1, 0),
+                                                            1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 0),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0),
                                                       child: SizedBox(
-                                                        width: 200,
+                                                        width: 200.0,
                                                         child: TextFormField(
                                                           controller: _model
                                                               .ashSrTextController,
@@ -2654,7 +2707,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                       fontFamily:
                                                                           'Open Sans',
                                                                       fontSize:
-                                                                          16,
+                                                                          16.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -2665,12 +2718,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .subHeader,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedBorder:
                                                                 OutlineInputBorder(
@@ -2679,12 +2732,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .liteText,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             errorBorder:
                                                                 OutlineInputBorder(
@@ -2693,12 +2746,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedErrorBorder:
                                                                 OutlineInputBorder(
@@ -2707,12 +2760,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                           ),
                                                           style: FlutterFlowTheme
@@ -2721,7 +2774,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Open Sans',
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -2737,13 +2790,13 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(const SizedBox(width: 4)),
+                                              ].divide(const SizedBox(width: 4.0)),
                                             ),
                                           ),
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    15, 0, 10, 0),
+                                                    15.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -2756,7 +2809,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Open Sans',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -2766,14 +2819,17 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                   child: Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            1, 0),
+                                                            1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 0),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0),
                                                       child: SizedBox(
-                                                        width: 200,
+                                                        width: 200.0,
                                                         child: TextFormField(
                                                           controller: _model
                                                               .ashDsTextController,
@@ -2793,7 +2849,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                       fontFamily:
                                                                           'Open Sans',
                                                                       fontSize:
-                                                                          16,
+                                                                          16.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -2804,12 +2860,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .subHeader,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedBorder:
                                                                 OutlineInputBorder(
@@ -2818,12 +2874,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .liteText,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             errorBorder:
                                                                 OutlineInputBorder(
@@ -2832,12 +2888,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedErrorBorder:
                                                                 OutlineInputBorder(
@@ -2846,12 +2902,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                           ),
                                                           style: FlutterFlowTheme
@@ -2860,7 +2916,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Open Sans',
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -2876,13 +2932,13 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(const SizedBox(width: 4)),
+                                              ].divide(const SizedBox(width: 4.0)),
                                             ),
                                           ),
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    15, 0, 10, 0),
+                                                    15.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -2895,7 +2951,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Open Sans',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -2905,14 +2961,17 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                   child: Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            1, 0),
+                                                            1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 0),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0),
                                                       child: SizedBox(
-                                                        width: 200,
+                                                        width: 200.0,
                                                         child: TextFormField(
                                                           controller: _model
                                                               .ashDrTextController,
@@ -2932,7 +2991,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                       fontFamily:
                                                                           'Open Sans',
                                                                       fontSize:
-                                                                          16,
+                                                                          16.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -2943,12 +3002,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .subHeader,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedBorder:
                                                                 OutlineInputBorder(
@@ -2957,12 +3016,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .liteText,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             errorBorder:
                                                                 OutlineInputBorder(
@@ -2971,12 +3030,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedErrorBorder:
                                                                 OutlineInputBorder(
@@ -2985,12 +3044,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                           ),
                                                           style: FlutterFlowTheme
@@ -2999,7 +3058,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Open Sans',
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -3015,7 +3074,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(const SizedBox(width: 4)),
+                                              ].divide(const SizedBox(width: 4.0)),
                                             ),
                                           ),
                                           Text(
@@ -3024,7 +3083,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Raleway',
-                                                  fontSize: 16,
+                                                  fontSize: 16.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -3032,7 +3091,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    15, 0, 10, 0),
+                                                    15.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -3045,7 +3104,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Open Sans',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -3055,14 +3114,17 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                   child: Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            1, 0),
+                                                            1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 0),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0),
                                                       child: SizedBox(
-                                                        width: 200,
+                                                        width: 200.0,
                                                         child: TextFormField(
                                                           controller: _model
                                                               .asmSsTextController,
@@ -3082,7 +3144,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                       fontFamily:
                                                                           'Open Sans',
                                                                       fontSize:
-                                                                          16,
+                                                                          16.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -3093,12 +3155,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .subHeader,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedBorder:
                                                                 OutlineInputBorder(
@@ -3107,12 +3169,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .liteText,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             errorBorder:
                                                                 OutlineInputBorder(
@@ -3121,12 +3183,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedErrorBorder:
                                                                 OutlineInputBorder(
@@ -3135,12 +3197,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                           ),
                                                           style: FlutterFlowTheme
@@ -3149,7 +3211,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Open Sans',
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -3165,13 +3227,13 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(const SizedBox(width: 4)),
+                                              ].divide(const SizedBox(width: 4.0)),
                                             ),
                                           ),
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    15, 0, 10, 0),
+                                                    15.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -3184,7 +3246,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Open Sans',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -3194,14 +3256,17 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                   child: Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            1, 0),
+                                                            1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 0),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0),
                                                       child: SizedBox(
-                                                        width: 200,
+                                                        width: 200.0,
                                                         child: TextFormField(
                                                           controller: _model
                                                               .asmSrTextController,
@@ -3221,7 +3286,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                       fontFamily:
                                                                           'Open Sans',
                                                                       fontSize:
-                                                                          16,
+                                                                          16.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -3232,12 +3297,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .subHeader,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedBorder:
                                                                 OutlineInputBorder(
@@ -3246,12 +3311,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .liteText,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             errorBorder:
                                                                 OutlineInputBorder(
@@ -3260,12 +3325,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedErrorBorder:
                                                                 OutlineInputBorder(
@@ -3274,12 +3339,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                           ),
                                                           style: FlutterFlowTheme
@@ -3288,7 +3353,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Open Sans',
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -3304,13 +3369,13 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(const SizedBox(width: 4)),
+                                              ].divide(const SizedBox(width: 4.0)),
                                             ),
                                           ),
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    15, 0, 10, 0),
+                                                    15.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -3323,7 +3388,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Open Sans',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -3333,14 +3398,17 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                   child: Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            1, 0),
+                                                            1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 0),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0),
                                                       child: SizedBox(
-                                                        width: 200,
+                                                        width: 200.0,
                                                         child: TextFormField(
                                                           controller: _model
                                                               .asmDsTextController,
@@ -3360,7 +3428,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                       fontFamily:
                                                                           'Open Sans',
                                                                       fontSize:
-                                                                          16,
+                                                                          16.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -3371,12 +3439,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .subHeader,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedBorder:
                                                                 OutlineInputBorder(
@@ -3385,12 +3453,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .liteText,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             errorBorder:
                                                                 OutlineInputBorder(
@@ -3399,12 +3467,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedErrorBorder:
                                                                 OutlineInputBorder(
@@ -3413,12 +3481,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                           ),
                                                           style: FlutterFlowTheme
@@ -3427,7 +3495,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Open Sans',
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -3443,13 +3511,13 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(const SizedBox(width: 4)),
+                                              ].divide(const SizedBox(width: 4.0)),
                                             ),
                                           ),
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    15, 0, 10, 0),
+                                                    15.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -3462,7 +3530,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Open Sans',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -3472,14 +3540,17 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                   child: Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            1, 0),
+                                                            1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 0),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0),
                                                       child: SizedBox(
-                                                        width: 200,
+                                                        width: 200.0,
                                                         child: TextFormField(
                                                           controller: _model
                                                               .asmDrTextController,
@@ -3499,7 +3570,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                       fontFamily:
                                                                           'Open Sans',
                                                                       fontSize:
-                                                                          16,
+                                                                          16.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -3510,12 +3581,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .subHeader,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedBorder:
                                                                 OutlineInputBorder(
@@ -3524,12 +3595,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .liteText,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             errorBorder:
                                                                 OutlineInputBorder(
@@ -3538,12 +3609,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedErrorBorder:
                                                                 OutlineInputBorder(
@@ -3552,12 +3623,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                           ),
                                                           style: FlutterFlowTheme
@@ -3566,7 +3637,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Open Sans',
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -3582,7 +3653,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(const SizedBox(width: 4)),
+                                              ].divide(const SizedBox(width: 4.0)),
                                             ),
                                           ),
                                           Text(
@@ -3591,7 +3662,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Raleway',
-                                                  fontSize: 16,
+                                                  fontSize: 16.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
@@ -3599,7 +3670,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    15, 0, 10, 0),
+                                                    15.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -3612,7 +3683,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Open Sans',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -3622,14 +3693,17 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                   child: Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            1, 0),
+                                                            1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 0),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0),
                                                       child: SizedBox(
-                                                        width: 200,
+                                                        width: 200.0,
                                                         child: TextFormField(
                                                           controller: _model
                                                               .aslSsTextController,
@@ -3649,7 +3723,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                       fontFamily:
                                                                           'Open Sans',
                                                                       fontSize:
-                                                                          16,
+                                                                          16.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -3660,12 +3734,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .subHeader,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedBorder:
                                                                 OutlineInputBorder(
@@ -3674,12 +3748,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .liteText,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             errorBorder:
                                                                 OutlineInputBorder(
@@ -3688,12 +3762,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedErrorBorder:
                                                                 OutlineInputBorder(
@@ -3702,12 +3776,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                           ),
                                                           style: FlutterFlowTheme
@@ -3716,7 +3790,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Open Sans',
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -3732,13 +3806,13 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(const SizedBox(width: 4)),
+                                              ].divide(const SizedBox(width: 4.0)),
                                             ),
                                           ),
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    15, 0, 10, 0),
+                                                    15.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -3751,7 +3825,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Open Sans',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -3761,14 +3835,17 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                   child: Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            1, 0),
+                                                            1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 0),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0),
                                                       child: SizedBox(
-                                                        width: 200,
+                                                        width: 200.0,
                                                         child: TextFormField(
                                                           controller: _model
                                                               .aslSrTextController,
@@ -3788,7 +3865,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                       fontFamily:
                                                                           'Open Sans',
                                                                       fontSize:
-                                                                          16,
+                                                                          16.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -3799,12 +3876,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .subHeader,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedBorder:
                                                                 OutlineInputBorder(
@@ -3813,12 +3890,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .liteText,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             errorBorder:
                                                                 OutlineInputBorder(
@@ -3827,12 +3904,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedErrorBorder:
                                                                 OutlineInputBorder(
@@ -3841,12 +3918,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                           ),
                                                           style: FlutterFlowTheme
@@ -3855,7 +3932,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Open Sans',
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -3871,13 +3948,13 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(const SizedBox(width: 4)),
+                                              ].divide(const SizedBox(width: 4.0)),
                                             ),
                                           ),
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    15, 0, 10, 0),
+                                                    15.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -3890,7 +3967,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Open Sans',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -3900,14 +3977,17 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                   child: Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            1, 0),
+                                                            1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 0),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0),
                                                       child: SizedBox(
-                                                        width: 200,
+                                                        width: 200.0,
                                                         child: TextFormField(
                                                           controller: _model
                                                               .aslDsTextController,
@@ -3927,7 +4007,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                       fontFamily:
                                                                           'Open Sans',
                                                                       fontSize:
-                                                                          16,
+                                                                          16.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -3938,12 +4018,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .subHeader,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedBorder:
                                                                 OutlineInputBorder(
@@ -3952,12 +4032,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .liteText,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             errorBorder:
                                                                 OutlineInputBorder(
@@ -3966,12 +4046,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedErrorBorder:
                                                                 OutlineInputBorder(
@@ -3980,12 +4060,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                           ),
                                                           style: FlutterFlowTheme
@@ -3994,7 +4074,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Open Sans',
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -4010,13 +4090,13 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(const SizedBox(width: 4)),
+                                              ].divide(const SizedBox(width: 4.0)),
                                             ),
                                           ),
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    15, 0, 10, 0),
+                                                    15.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -4029,7 +4109,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Open Sans',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
@@ -4039,14 +4119,17 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                   child: Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            1, 0),
+                                                            1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  8, 0, 8, 0),
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0),
                                                       child: SizedBox(
-                                                        width: 200,
+                                                        width: 200.0,
                                                         child: TextFormField(
                                                           controller: _model
                                                               .aslDrTextController,
@@ -4066,7 +4149,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                       fontFamily:
                                                                           'Open Sans',
                                                                       fontSize:
-                                                                          16,
+                                                                          16.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
@@ -4077,12 +4160,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .subHeader,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedBorder:
                                                                 OutlineInputBorder(
@@ -4091,12 +4174,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .liteText,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             errorBorder:
                                                                 OutlineInputBorder(
@@ -4105,12 +4188,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             focusedErrorBorder:
                                                                 OutlineInputBorder(
@@ -4119,12 +4202,12 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .error,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                           ),
                                                           style: FlutterFlowTheme
@@ -4133,7 +4216,7 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Open Sans',
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -4149,16 +4232,16 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(const SizedBox(width: 4)),
+                                              ].divide(const SizedBox(width: 4.0)),
                                             ),
                                           ),
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0, 15, 0, 15),
+                                                    0.0, 15.0, 0.0, 15.0),
                                             child: Container(
-                                              width: 140,
-                                              height: 40,
+                                              width: 140.0,
+                                              height: 40.0,
                                               decoration: BoxDecoration(
                                                 gradient: LinearGradient(
                                                   colors: [
@@ -4167,14 +4250,14 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .accent
                                                   ],
-                                                  stops: const [0, 1],
+                                                  stops: const [0.0, 1.0],
                                                   begin: const AlignmentDirectional(
-                                                      1, 0),
+                                                      1.0, 0.0),
                                                   end: const AlignmentDirectional(
-                                                      -1, 0),
+                                                      -1.0, 0),
                                                 ),
                                                 borderRadius:
-                                                    BorderRadius.circular(5),
+                                                    BorderRadius.circular(5.0),
                                               ),
                                               child: FFButtonWidget(
                                                 onPressed: () async {
@@ -4299,12 +4382,14 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                 },
                                                 text: 'Submit',
                                                 options: FFButtonOptions(
-                                                  height: 40,
+                                                  height: 40.0,
                                                   padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(5, 0, 5, 0),
+                                                      .fromSTEB(
+                                                          5.0, 0.0, 5.0, 0.0),
                                                   iconPadding:
                                                       const EdgeInsetsDirectional
-                                                          .fromSTEB(0, 0, 0, 0),
+                                                          .fromSTEB(0.0, 0.0,
+                                                              0.0, 0.0),
                                                   color: const Color(0x27351C75),
                                                   textStyle: FlutterFlowTheme
                                                           .of(context)
@@ -4312,28 +4397,29 @@ class _AddShuttleDetailsWidgetState extends State<AddShuttleDetailsWidget> {
                                                       .override(
                                                         fontFamily: 'Raleway',
                                                         color: Colors.white,
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
-                                                  elevation: 0,
+                                                  elevation: 0.0,
                                                   borderSide: const BorderSide(
                                                     color: Color(0xFF8E7CC3),
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(5),
+                                                      BorderRadius.circular(
+                                                          5.0),
                                                 ),
                                               ),
                                             ),
                                           ),
-                                        ].divide(const SizedBox(height: 20)),
+                                        ].divide(const SizedBox(height: 20.0)),
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ].addToEnd(const SizedBox(height: 150)),
+                            ].addToEnd(const SizedBox(height: 150.0)),
                           ),
                         ),
                       ),

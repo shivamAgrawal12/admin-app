@@ -62,13 +62,13 @@ class _MatrixCsvWidgetState extends State<MatrixCsvWidget> {
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: const AlignmentDirectional(0, -1),
+            alignment: const AlignmentDirectional(0.0, -1.0),
             child: Container(
-              width: MediaQuery.sizeOf(context).width,
-              height: MediaQuery.sizeOf(context).height * 1,
+              width: MediaQuery.sizeOf(context).width * 1.0,
+              height: MediaQuery.sizeOf(context).height * 1.0,
               constraints: const BoxConstraints(
-                minWidth: 320,
-                maxWidth: 450,
+                minWidth: 320.0,
+                maxWidth: 450.0,
               ),
               decoration: const BoxDecoration(),
               child: Column(
@@ -76,17 +76,18 @@ class _MatrixCsvWidgetState extends State<MatrixCsvWidget> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
-                    width: MediaQuery.sizeOf(context).width,
-                    height: 70,
+                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    height: 70.0,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
                         color: const Color(0xFFEEECF1),
-                        width: 1,
+                        width: 1.0,
                       ),
                     ),
                     child: Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(25, 0, 25, 0),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -94,8 +95,8 @@ class _MatrixCsvWidgetState extends State<MatrixCsvWidget> {
                           Opacity(
                             opacity: loggedIn ? 1.0 : 0.0,
                             child: Padding(
-                              padding:
-                                  const EdgeInsetsDirectional.fromSTEB(0, 0, 12, 0),
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 12.0, 0.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -119,49 +120,50 @@ class _MatrixCsvWidgetState extends State<MatrixCsvWidget> {
                                 child: FaIcon(
                                   FontAwesomeIcons.arrowLeft,
                                   color: FlutterFlowTheme.of(context).bodyText,
-                                  size: 26,
+                                  size: 26.0,
                                 ),
                               ),
                             ),
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(0, 0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: ClipRRect(
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.0),
                               child: Image.asset(
                                 'assets/images/Group_42_(2).png',
-                                width: 130,
-                                height: 40,
+                                width: 130.0,
+                                height: 40.0,
                                 fit: BoxFit.contain,
                               ),
                             ),
                           ),
                           Padding(
-                            padding:
-                                const EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                12.0, 0.0, 0.0, 0.0),
                             child: FaIcon(
                               FontAwesomeIcons.arrowLeft,
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
-                              size: 26,
+                              size: 26.0,
                             ),
                           ),
-                        ].divide(const SizedBox(width: 6)),
+                        ].divide(const SizedBox(width: 6.0)),
                       ),
                     ),
                   ),
                   Container(
-                    width: MediaQuery.sizeOf(context).width,
-                    height: 50,
+                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    height: 50.0,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
                         color: const Color(0xFFEEECF1),
-                        width: 1,
+                        width: 1.0,
                       ),
                     ),
                     child: Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -173,27 +175,27 @@ class _MatrixCsvWidgetState extends State<MatrixCsvWidget> {
                                 .override(
                                   fontFamily: 'Raleway',
                                   color: FlutterFlowTheme.of(context).accent,
-                                  fontSize: 16,
+                                  fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
                                 ),
                           ),
-                        ].divide(const SizedBox(width: 6)),
+                        ].divide(const SizedBox(width: 6.0)),
                       ),
                     ),
                   ),
                   Container(
-                    width: MediaQuery.sizeOf(context).width,
+                    width: MediaQuery.sizeOf(context).width * 1.0,
                     height: MediaQuery.sizeOf(context).height * 0.8,
                     constraints: const BoxConstraints(
-                      minWidth: 320,
-                      maxWidth: 450,
+                      minWidth: 320.0,
+                      maxWidth: 450.0,
                     ),
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).csvbgclr,
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(10.0),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -203,7 +205,7 @@ class _MatrixCsvWidgetState extends State<MatrixCsvWidget> {
                               width: MediaQuery.sizeOf(context).width * 0.9,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context).primary,
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: InkWell(
                                 splashColor: Colors.transparent,
@@ -268,15 +270,15 @@ class _MatrixCsvWidgetState extends State<MatrixCsvWidget> {
                                   children: [
                                     Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          6, 0, 6, 0),
+                                          6.0, 0.0, 6.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
                                           Container(
-                                            width: 42,
-                                            height: 42,
+                                            width: 42.0,
+                                            height: 42.0,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -291,13 +293,13 @@ class _MatrixCsvWidgetState extends State<MatrixCsvWidget> {
                                                 Align(
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          0, 0),
+                                                          0.0, 0.0),
                                                   child: Icon(
                                                     Icons.cloud_upload_rounded,
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .subHeader,
-                                                    size: 24,
+                                                    size: 24.0,
                                                   ),
                                                 ),
                                               ],
@@ -314,15 +316,15 @@ class _MatrixCsvWidgetState extends State<MatrixCsvWidget> {
                                             fontFamily: 'Raleway',
                                             color: FlutterFlowTheme.of(context)
                                                 .accent,
-                                            fontSize: 16,
+                                            fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
                                   ]
-                                      .divide(const SizedBox(height: 8))
-                                      .addToStart(const SizedBox(height: 8))
-                                      .addToEnd(const SizedBox(height: 8)),
+                                      .divide(const SizedBox(height: 8.0))
+                                      .addToStart(const SizedBox(height: 8.0))
+                                      .addToEnd(const SizedBox(height: 8.0)),
                                 ),
                               ),
                             ),
@@ -334,7 +336,7 @@ class _MatrixCsvWidgetState extends State<MatrixCsvWidget> {
                                   .override(
                                     fontFamily: 'Raleway',
                                     color: FlutterFlowTheme.of(context).error,
-                                    fontSize: 16,
+                                    fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                     lineHeight: 1.5,
@@ -342,13 +344,13 @@ class _MatrixCsvWidgetState extends State<MatrixCsvWidget> {
                             ),
                             Container(
                               width: MediaQuery.sizeOf(context).width * 0.9,
-                              height: 40,
+                              height: 40.0,
                               constraints: const BoxConstraints(
-                                maxWidth: 400,
+                                maxWidth: 400.0,
                               ),
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context).liteText,
-                                borderRadius: BorderRadius.circular(5),
+                                borderRadius: BorderRadius.circular(5.0),
                               ),
                               child: FFButtonWidget(
                                 onPressed: () async {
@@ -400,29 +402,29 @@ class _MatrixCsvWidgetState extends State<MatrixCsvWidget> {
                                 text: 'Download',
                                 icon: const Icon(
                                   Icons.cloud_download_sharp,
-                                  size: 24,
+                                  size: 24.0,
                                 ),
                                 options: FFButtonOptions(
-                                  height: 40,
+                                  height: 40.0,
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      5, 0, 5, 0),
+                                      5.0, 0.0, 5.0, 0.0),
                                   iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 0),
+                                      0.0, 0.0, 0.0, 0.0),
                                   color: const Color(0x27351C75),
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
                                         fontFamily: 'Raleway',
                                         color: Colors.white,
-                                        fontSize: 16,
+                                        fontSize: 16.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
-                                  elevation: 0,
+                                  elevation: 0.0,
                                   borderSide: const BorderSide(
                                     color: Color(0xFF8E7CC3),
                                   ),
-                                  borderRadius: BorderRadius.circular(5),
+                                  borderRadius: BorderRadius.circular(5.0),
                                 ),
                               ),
                             ),
@@ -432,18 +434,18 @@ class _MatrixCsvWidgetState extends State<MatrixCsvWidget> {
                                 Container(
                                   width: MediaQuery.sizeOf(context).width * 0.9,
                                   constraints: const BoxConstraints(
-                                    maxWidth: 400,
+                                    maxWidth: 400.0,
                                   ),
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context).primary,
-                                    borderRadius: BorderRadius.circular(5),
+                                    borderRadius: BorderRadius.circular(5.0),
                                     border: Border.all(
                                       color: FlutterFlowTheme.of(context)
                                           .subHeader,
                                     ),
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsets.all(8),
+                                    padding: const EdgeInsets.all(8.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -534,19 +536,21 @@ class _MatrixCsvWidgetState extends State<MatrixCsvWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .liteText,
-                                                  size: 24,
+                                                  size: 24.0,
                                                 ),
                                                 options: FFButtonOptions(
                                                   width:
                                                       MediaQuery.sizeOf(context)
                                                               .width *
                                                           0.8,
-                                                  height: 40,
+                                                  height: 40.0,
                                                   padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(5, 0, 5, 0),
+                                                      .fromSTEB(
+                                                          5.0, 0.0, 5.0, 0.0),
                                                   iconPadding:
                                                       const EdgeInsetsDirectional
-                                                          .fromSTEB(0, 0, 0, 0),
+                                                          .fromSTEB(0.0, 0.0,
+                                                              0.0, 0.0),
                                                   color: const Color(0x00351C75),
                                                   textStyle: FlutterFlowTheme
                                                           .of(context)
@@ -557,20 +561,21 @@ class _MatrixCsvWidgetState extends State<MatrixCsvWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .accent,
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
-                                                  elevation: 0,
+                                                  elevation: 0.0,
                                                   borderSide: BorderSide(
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyText,
-                                                    width: 1,
+                                                    width: 1.0,
                                                   ),
                                                   borderRadius:
-                                                      BorderRadius.circular(5),
+                                                      BorderRadius.circular(
+                                                          5.0),
                                                 ),
                                               ),
                                               SingleChildScrollView(
@@ -582,12 +587,12 @@ class _MatrixCsvWidgetState extends State<MatrixCsvWidget> {
                                                   children: [
                                                     Flexible(
                                                       child: SizedBox(
-                                                        width: 300,
-                                                        height: 370,
+                                                        width: 300.0,
+                                                        height: 370.0,
                                                         child: custom_widgets
                                                             .Csvviewer(
-                                                          width: 300,
-                                                          height: 370,
+                                                          width: 300.0,
+                                                          height: 370.0,
                                                           csvfile: _model
                                                               .uploadedLocalFile,
                                                         ),
@@ -596,20 +601,20 @@ class _MatrixCsvWidgetState extends State<MatrixCsvWidget> {
                                                   ],
                                                 ),
                                               ),
-                                            ].divide(const SizedBox(height: 8)),
+                                            ].divide(const SizedBox(height: 8.0)),
                                           ),
                                         if (_model.csvimg == 0)
                                           Container(
-                                            width: 350,
-                                            height: 350,
+                                            width: 350.0,
+                                            height: 350.0,
                                             decoration: const BoxDecoration(),
                                             child: ClipRRect(
                                               borderRadius:
-                                                  BorderRadius.circular(8),
+                                                  BorderRadius.circular(8.0),
                                               child: Image.asset(
                                                 'assets/images/Frame_1000003774.png',
-                                                width: 300,
-                                                height: 200,
+                                                width: 300.0,
+                                                height: 200.0,
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -621,8 +626,8 @@ class _MatrixCsvWidgetState extends State<MatrixCsvWidget> {
                               ],
                             ),
                           ]
-                              .divide(const SizedBox(height: 18))
-                              .addToEnd(const SizedBox(height: 50)),
+                              .divide(const SizedBox(height: 18.0))
+                              .addToEnd(const SizedBox(height: 50.0)),
                         ),
                       ),
                     ),

@@ -64,47 +64,47 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: const AlignmentDirectional(0, -0.6),
+      alignment: const AlignmentDirectional(0.0, -0.6),
       child: Container(
-        width: 280,
+        width: 280.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).liteBg,
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(10.0),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Container(
-              width: 290,
-              height: 60,
+              width: 290.0,
+              height: 60.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).primaryBackground,
                 boxShadow: const [
                   BoxShadow(
-                    blurRadius: 25,
+                    blurRadius: 25.0,
                     color: Color(0x338E7CC3),
                     offset: Offset(
-                      0,
-                      5,
+                      0.0,
+                      5.0,
                     ),
                   )
                 ],
                 borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(20),
-                  bottomRight: Radius.circular(20),
-                  topLeft: Radius.circular(10),
-                  topRight: Radius.circular(10),
+                  bottomLeft: Radius.circular(20.0),
+                  bottomRight: Radius.circular(20.0),
+                  topLeft: Radius.circular(10.0),
+                  topRight: Radius.circular(10.0),
                 ),
               ),
               child: Align(
-                alignment: const AlignmentDirectional(0, 0),
+                alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Text(
                   'Change Slot To Picking Station',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Raleway',
                         color: FlutterFlowTheme.of(context).heading,
-                        fontSize: 16,
+                        fontSize: 16.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
                       ),
@@ -112,52 +112,52 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
               child: Text(
                 'Slot Id',
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Raleway',
                       color: FlutterFlowTheme.of(context).heading,
-                      fontSize: 14,
+                      fontSize: 14.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w500,
                     ),
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
               child: Text(
                 FFAppState().homeslotid,
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Raleway',
-                      fontSize: 30,
+                      fontSize: 30.0,
                       letterSpacing: 0.5,
                       fontWeight: FontWeight.w600,
-                      lineHeight: 1,
+                      lineHeight: 1.0,
                     ),
               ),
             ),
             Align(
-              alignment: const AlignmentDirectional(-1, -1),
+              alignment: const AlignmentDirectional(-1.0, -1.0),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(30, 15, 0, 0),
+                padding: const EdgeInsetsDirectional.fromSTEB(30.0, 15.0, 0.0, 0.0),
                 child: Text(
                   'Enter Friendly Name',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Raleway',
                         color: FlutterFlowTheme.of(context).liteText,
-                        fontSize: 15,
+                        fontSize: 15.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w500,
-                        lineHeight: 1,
+                        lineHeight: 1.0,
                       ),
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(8, 8, 8, 0),
+              padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 0.0),
               child: SizedBox(
-                width: 220,
+                width: 220.0,
                 child: TextFormField(
                   controller: _model.textController,
                   focusNode: _model.textFieldFocusNode,
@@ -168,7 +168,7 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
                     hintStyle:
                         FlutterFlowTheme.of(context).labelMedium.override(
                               fontFamily: 'Open Sans',
-                              fontSize: 15,
+                              fontSize: 15.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w500,
                             ),
@@ -177,33 +177,33 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
                         color: FlutterFlowTheme.of(context).liteText,
                         width: 1.5,
                       ),
-                      borderRadius: BorderRadius.circular(5),
+                      borderRadius: BorderRadius.circular(5.0),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: FlutterFlowTheme.of(context).heading,
                         width: 1.5,
                       ),
-                      borderRadius: BorderRadius.circular(5),
+                      borderRadius: BorderRadius.circular(5.0),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: FlutterFlowTheme.of(context).error,
                         width: 1.5,
                       ),
-                      borderRadius: BorderRadius.circular(5),
+                      borderRadius: BorderRadius.circular(5.0),
                     ),
                     focusedErrorBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: FlutterFlowTheme.of(context).error,
                         width: 1.5,
                       ),
-                      borderRadius: BorderRadius.circular(5),
+                      borderRadius: BorderRadius.circular(5.0),
                     ),
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Raleway',
-                        fontSize: 15,
+                        fontSize: 15.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
                       ),
@@ -213,7 +213,7 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(15, 30, 15, 15),
+              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 15.0, 15.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -227,40 +227,42 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
                     },
                     text: 'Cancel',
                     options: FFButtonOptions(
-                      width: 100,
-                      height: 40,
-                      padding: const EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
-                      iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                      width: 100.0,
+                      height: 40.0,
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
+                      iconPadding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: const Color(0x00351C75),
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Raleway',
                                 color: FlutterFlowTheme.of(context).accent,
-                                fontSize: 16,
+                                fontSize: 16.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.w600,
                               ),
-                      elevation: 0,
+                      elevation: 0.0,
                       borderSide: BorderSide(
                         color: FlutterFlowTheme.of(context).heading,
                       ),
-                      borderRadius: BorderRadius.circular(5),
+                      borderRadius: BorderRadius.circular(5.0),
                     ),
                   ),
                   Container(
-                    width: 100,
-                    height: 40,
+                    width: 100.0,
+                    height: 40.0,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
                           FlutterFlowTheme.of(context).heading,
                           FlutterFlowTheme.of(context).accent
                         ],
-                        stops: const [0, 1],
-                        begin: const AlignmentDirectional(1, 0),
-                        end: const AlignmentDirectional(-1, 0),
+                        stops: const [0.0, 1.0],
+                        begin: const AlignmentDirectional(1.0, 0.0),
+                        end: const AlignmentDirectional(-1.0, 0),
                       ),
-                      borderRadius: BorderRadius.circular(5),
+                      borderRadius: BorderRadius.circular(5.0),
                     ),
                     child: FFButtonWidget(
                       onPressed: () async {
@@ -311,23 +313,25 @@ class _FriendlyNameWidgetState extends State<FriendlyNameWidget> {
                       },
                       text: 'Change',
                       options: FFButtonOptions(
-                        height: 40,
-                        padding: const EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
-                        iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                        height: 40.0,
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
+                        iconPadding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: const Color(0x27351C75),
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Raleway',
                                   color: Colors.white,
-                                  fontSize: 16,
+                                  fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
                                 ),
-                        elevation: 0,
+                        elevation: 0.0,
                         borderSide: const BorderSide(
                           color: Color(0xFF8E7CC3),
                         ),
-                        borderRadius: BorderRadius.circular(5),
+                        borderRadius: BorderRadius.circular(5.0),
                       ),
                     ),
                   ),

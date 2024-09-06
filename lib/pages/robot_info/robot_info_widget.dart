@@ -214,39 +214,39 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: const AlignmentDirectional(0, -1),
+            alignment: const AlignmentDirectional(0.0, -1.0),
             child: Container(
-              width: MediaQuery.sizeOf(context).width,
-              height: MediaQuery.sizeOf(context).height * 1,
+              width: MediaQuery.sizeOf(context).width * 1.0,
+              height: MediaQuery.sizeOf(context).height * 1.0,
               constraints: const BoxConstraints(
-                minWidth: 320,
-                maxWidth: 450,
+                minWidth: 320.0,
+                maxWidth: 450.0,
               ),
               decoration: const BoxDecoration(),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Container(
-                      width: MediaQuery.sizeOf(context).width,
+                      width: MediaQuery.sizeOf(context).width * 1.0,
                       decoration: const BoxDecoration(
                         gradient: LinearGradient(
                           colors: [Color(0xFF351C75), Color(0xFF8E7CC3)],
-                          stops: [0, 1],
-                          begin: AlignmentDirectional(0, -1),
-                          end: AlignmentDirectional(0, 1),
+                          stops: [0.0, 1.0],
+                          begin: AlignmentDirectional(0.0, -1.0),
+                          end: AlignmentDirectional(0, 1.0),
                         ),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding:
-                                  const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 10.0, 0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -254,7 +254,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                 children: [
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        12, 0, 0, 0),
+                                        12.0, 0.0, 0.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
@@ -278,22 +278,22 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                         FontAwesomeIcons.arrowLeft,
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBackground,
-                                        size: 26,
+                                        size: 26.0,
                                       ),
                                     ),
                                   ),
                                   ClipRRect(
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                     child: Image.asset(
                                       'assets/images/leapmile_2_(1).png',
-                                      width: 130,
-                                      height: 35,
+                                      width: 130.0,
+                                      height: 35.0,
                                       fit: BoxFit.contain,
                                     ),
                                   ),
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 15, 0),
+                                        0.0, 0.0, 15.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
@@ -321,8 +321,8 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                         ).then((value) => safeSetState(() {}));
                                       },
                                       child: Container(
-                                        width: 31,
-                                        height: 31,
+                                        width: 31.0,
+                                        height: 31.0,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .primaryBackground,
@@ -330,22 +330,22 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                         ),
                                         child: Align(
                                           alignment:
-                                              const AlignmentDirectional(0, 2.6),
+                                              const AlignmentDirectional(0.0, 2.6),
                                           child: Icon(
                                             Icons.person_3_sharp,
                                             color: FlutterFlowTheme.of(context)
                                                 .heading,
-                                            size: 28,
+                                            size: 28.0,
                                           ),
                                         ),
                                       ),
                                     ),
                                   ),
-                                ].divide(const SizedBox(width: 6)),
+                                ].divide(const SizedBox(width: 6.0)),
                               ),
                             ),
                             Container(
-                              height: 180,
+                              height: 180.0,
                               decoration: const BoxDecoration(),
                               child: FutureBuilder<ApiCallResponse>(
                                 future: AdminApiGroup.verifyRobotIdCall.call(
@@ -356,12 +356,12 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                   if (!snapshot.hasData) {
                                     return Center(
                                       child: SizedBox(
-                                        width: 40,
-                                        height: 40,
+                                        width: 40.0,
+                                        height: 40.0,
                                         child: SpinKitThreeBounce(
                                           color: FlutterFlowTheme.of(context)
                                               .subHeader,
-                                          size: 40,
+                                          size: 40.0,
                                         ),
                                       ),
                                     );
@@ -374,7 +374,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                     children: [
                                       Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                            10, 25, 10, 0),
+                                            10.0, 25.0, 10.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -386,8 +386,8 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Container(
-                                                  width: 25,
-                                                  height: 25,
+                                                  width: 25.0,
+                                                  height: 25.0,
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
                                                             context)
@@ -397,15 +397,15 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                   child: Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            0, 0),
+                                                            0.0, 0.0),
                                                     child: ClipRRect(
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              8),
+                                                              8.0),
                                                       child: Image.asset(
                                                         'assets/images/Robot_Arm.png',
-                                                        width: 17,
-                                                        height: 17,
+                                                        width: 17.0,
+                                                        height: 17.0,
                                                         fit: BoxFit.cover,
                                                       ),
                                                     ),
@@ -426,7 +426,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryBackground,
-                                                            fontSize: 15,
+                                                            fontSize: 15.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
@@ -454,35 +454,36 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryBackground,
-                                                            fontSize: 15,
+                                                            fontSize: 15.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
                                                           ),
                                                     ),
-                                                  ].divide(const SizedBox(width: 5)),
+                                                  ].divide(
+                                                      const SizedBox(width: 5.0)),
                                                 ),
-                                              ].divide(const SizedBox(width: 5)),
+                                              ].divide(const SizedBox(width: 5.0)),
                                             ),
-                                          ].divide(const SizedBox(width: 6)),
+                                          ].divide(const SizedBox(width: 6.0)),
                                         ),
                                       ),
                                       Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0, 15, 0, 5),
+                                            0.0, 15.0, 0.0, 5.0),
                                         child: Container(
                                           width:
                                               MediaQuery.sizeOf(context).width *
                                                   0.95,
                                           constraints: const BoxConstraints(
-                                            minWidth: 300,
-                                            maxWidth: 420,
+                                            minWidth: 300.0,
+                                            maxWidth: 420.0,
                                           ),
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .liteBg,
                                             borderRadius:
-                                                BorderRadius.circular(5),
+                                                BorderRadius.circular(5.0),
                                           ),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
@@ -490,7 +491,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                 MainAxisAlignment.center,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsets.all(8),
+                                                padding: const EdgeInsets.all(8.0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -532,7 +533,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w500,
-                                                              fontSize: 14,
+                                                              fontSize: 14.0,
                                                             ),
                                                           )
                                                         ],
@@ -559,8 +560,8 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                               .center,
                                                       children: [
                                                         Container(
-                                                          width: 55,
-                                                          height: 25,
+                                                          width: 55.0,
+                                                          height: 25.0,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: const Color(
@@ -568,18 +569,18 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        5),
+                                                                        5.0),
                                                             border: Border.all(
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .accent4,
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
                                                           ),
                                                           child: Align(
                                                             alignment:
                                                                 const AlignmentDirectional(
-                                                                    0, 0),
+                                                                    0.0, 0.0),
                                                             child: Text(
                                                               valueOrDefault<
                                                                   String>(
@@ -601,27 +602,27 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                                             context)
                                                                         .success,
                                                                     fontSize:
-                                                                        13,
+                                                                        13.0,
                                                                     letterSpacing:
                                                                         0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w600,
                                                                     lineHeight:
-                                                                        1,
+                                                                        1.0,
                                                                   ),
                                                             ),
                                                           ),
                                                         ),
-                                                      ].divide(
-                                                          const SizedBox(height: 10)),
+                                                      ].divide(const SizedBox(
+                                                          height: 10.0)),
                                                     ),
                                                   ],
                                                 ).animateOnPageLoad(animationsMap[
                                                     'rowOnPageLoadAnimation1']!),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsets.all(8),
+                                                padding: const EdgeInsets.all(8.0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -644,7 +645,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Raleway',
-                                                                fontSize: 13,
+                                                                fontSize: 13.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -653,8 +654,8 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                               ),
                                                         ),
                                                         Container(
-                                                          width: 50,
-                                                          height: 23,
+                                                          width: 50.0,
+                                                          height: 23.0,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -663,12 +664,12 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        5),
+                                                                        5.0),
                                                           ),
                                                           child: Align(
                                                             alignment:
                                                                 const AlignmentDirectional(
-                                                                    0, 0),
+                                                                    0.0, 0.0),
                                                             child: Text(
                                                               valueOrDefault<
                                                                   String>(
@@ -693,15 +694,15 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                                         FontWeight
                                                                             .w600,
                                                                     lineHeight:
-                                                                        1,
+                                                                        1.0,
                                                                   ),
                                                             ).animateOnPageLoad(
                                                                 animationsMap[
                                                                     'textOnPageLoadAnimation1']!),
                                                           ),
                                                         ),
-                                                      ].divide(
-                                                          const SizedBox(height: 6)),
+                                                      ].divide(const SizedBox(
+                                                          height: 6.0)),
                                                     ),
                                                     Column(
                                                       mainAxisSize:
@@ -718,7 +719,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Raleway',
-                                                                fontSize: 13,
+                                                                fontSize: 13.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -727,8 +728,8 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                               ),
                                                         ),
                                                         Container(
-                                                          width: 50,
-                                                          height: 23,
+                                                          width: 50.0,
+                                                          height: 23.0,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -737,12 +738,12 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        5),
+                                                                        5.0),
                                                           ),
                                                           child: Align(
                                                             alignment:
                                                                 const AlignmentDirectional(
-                                                                    0, 0),
+                                                                    0.0, 0.0),
                                                             child: Text(
                                                               valueOrDefault<
                                                                   String>(
@@ -767,15 +768,15 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                                         FontWeight
                                                                             .w600,
                                                                     lineHeight:
-                                                                        1,
+                                                                        1.0,
                                                                   ),
                                                             ).animateOnPageLoad(
                                                                 animationsMap[
                                                                     'textOnPageLoadAnimation2']!),
                                                           ),
                                                         ),
-                                                      ].divide(
-                                                          const SizedBox(height: 6)),
+                                                      ].divide(const SizedBox(
+                                                          height: 6.0)),
                                                     ),
                                                     Column(
                                                       mainAxisSize:
@@ -792,7 +793,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Raleway',
-                                                                fontSize: 13,
+                                                                fontSize: 13.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -801,8 +802,8 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                               ),
                                                         ),
                                                         Container(
-                                                          width: 50,
-                                                          height: 23,
+                                                          width: 50.0,
+                                                          height: 23.0,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -811,12 +812,12 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        5),
+                                                                        5.0),
                                                           ),
                                                           child: Align(
                                                             alignment:
                                                                 const AlignmentDirectional(
-                                                                    0, 0),
+                                                                    0.0, 0.0),
                                                             child: Text(
                                                               valueOrDefault<
                                                                   String>(
@@ -841,15 +842,15 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                                         FontWeight
                                                                             .w600,
                                                                     lineHeight:
-                                                                        1,
+                                                                        1.0,
                                                                   ),
                                                             ).animateOnPageLoad(
                                                                 animationsMap[
                                                                     'textOnPageLoadAnimation3']!),
                                                           ),
                                                         ),
-                                                      ].divide(
-                                                          const SizedBox(height: 6)),
+                                                      ].divide(const SizedBox(
+                                                          height: 6.0)),
                                                     ),
                                                     Column(
                                                       mainAxisSize:
@@ -866,7 +867,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Raleway',
-                                                                fontSize: 13,
+                                                                fontSize: 13.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -875,8 +876,8 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                               ),
                                                         ),
                                                         Container(
-                                                          width: 50,
-                                                          height: 23,
+                                                          width: 50.0,
+                                                          height: 23.0,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
@@ -885,12 +886,12 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        5),
+                                                                        5.0),
                                                           ),
                                                           child: Align(
                                                             alignment:
                                                                 const AlignmentDirectional(
-                                                                    0, 0),
+                                                                    0.0, 0.0),
                                                             child: Text(
                                                               valueOrDefault<
                                                                   String>(
@@ -915,15 +916,15 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                                         FontWeight
                                                                             .w600,
                                                                     lineHeight:
-                                                                        1,
+                                                                        1.0,
                                                                   ),
                                                             ).animateOnPageLoad(
                                                                 animationsMap[
                                                                     'textOnPageLoadAnimation4']!),
                                                           ),
                                                         ),
-                                                      ].divide(
-                                                          const SizedBox(height: 6)),
+                                                      ].divide(const SizedBox(
+                                                          height: 6.0)),
                                                     ),
                                                   ],
                                                 ),
@@ -943,19 +944,20 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                       ),
                     ),
                     Container(
-                      width: MediaQuery.sizeOf(context).width,
+                      width: MediaQuery.sizeOf(context).width * 1.0,
                       height: MediaQuery.sizeOf(context).height * 0.7,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).primaryBackground,
                         borderRadius: const BorderRadius.only(
-                          bottomLeft: Radius.circular(0),
-                          bottomRight: Radius.circular(0),
-                          topLeft: Radius.circular(0),
-                          topRight: Radius.circular(0),
+                          bottomLeft: Radius.circular(0.0),
+                          bottomRight: Radius.circular(0.0),
+                          topLeft: Radius.circular(0.0),
+                          topRight: Radius.circular(0.0),
                         ),
                       ),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(10, 10, 10, 15),
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            10.0, 10.0, 10.0, 15.0),
                         child: SingleChildScrollView(
                           primary: false,
                           child: Column(
@@ -963,28 +965,28 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0, -1),
+                                alignment: const AlignmentDirectional(0.0, -1.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0, 10, 0, 0),
+                                      0.0, 10.0, 0.0, 0.0),
                                   child: Container(
                                     width:
                                         MediaQuery.sizeOf(context).width * 0.9,
-                                    height: 65,
+                                    height: 65.0,
                                     constraints: const BoxConstraints(
-                                      minWidth: 300,
-                                      maxWidth: 420,
+                                      minWidth: 300.0,
+                                      maxWidth: 420.0,
                                     ),
                                     decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(5),
+                                      borderRadius: BorderRadius.circular(5.0),
                                       border: Border.all(
                                         color: FlutterFlowTheme.of(context)
                                             .liteText,
-                                        width: 1,
+                                        width: 1.0,
                                       ),
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsets.all(5),
+                                      padding: const EdgeInsets.all(5.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -1014,15 +1016,15 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                               );
                                             },
                                             child: Container(
-                                              width: 155,
-                                              height: 60,
+                                              width: 155.0,
+                                              height: 60.0,
                                               constraints: const BoxConstraints(
-                                                minWidth: 140,
-                                                maxWidth: 155,
+                                                minWidth: 140.0,
+                                                maxWidth: 155.0,
                                               ),
                                               decoration: BoxDecoration(
                                                 borderRadius:
-                                                    BorderRadius.circular(0),
+                                                    BorderRadius.circular(0.0),
                                               ),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -1030,26 +1032,26 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                     MainAxisAlignment.start,
                                                 children: [
                                                   Container(
-                                                    width: 50,
-                                                    height: 50,
+                                                    width: 50.0,
+                                                    height: 50.0,
                                                     decoration: BoxDecoration(
                                                       color: const Color(0xFFF8F4FF),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              5),
+                                                              5.0),
                                                     ),
                                                     child: Align(
                                                       alignment:
                                                           const AlignmentDirectional(
-                                                              0, 0),
+                                                              0.0, 0.0),
                                                       child: ClipRRect(
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(0),
+                                                                .circular(0.0),
                                                         child: Image.asset(
                                                           'assets/images/Inbox_(10).png',
-                                                          width: 45,
-                                                          height: 40,
+                                                          width: 45.0,
+                                                          height: 40.0,
                                                           fit: BoxFit.cover,
                                                         ),
                                                       ),
@@ -1087,7 +1089,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                                 .liteText,
                                                             fontWeight:
                                                                 FontWeight.w500,
-                                                            fontSize: 14,
+                                                            fontSize: 14.0,
                                                           ),
                                                         )
                                                       ],
@@ -1103,15 +1105,15 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                           ),
                                                     ),
                                                   ),
-                                                ].divide(const SizedBox(width: 15)),
+                                                ].divide(const SizedBox(width: 15.0)),
                                               ),
                                             ),
                                           ),
                                           SizedBox(
-                                            height: 50,
+                                            height: 50.0,
                                             child: VerticalDivider(
-                                              width: 2,
-                                              thickness: 1,
+                                              width: 2.0,
+                                              thickness: 1.0,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .liteBg,
@@ -1141,15 +1143,15 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                               );
                                             },
                                             child: Container(
-                                              width: 155,
-                                              height: 60,
+                                              width: 155.0,
+                                              height: 60.0,
                                               constraints: const BoxConstraints(
-                                                minWidth: 140,
-                                                maxWidth: 155,
+                                                minWidth: 140.0,
+                                                maxWidth: 155.0,
                                               ),
                                               decoration: BoxDecoration(
                                                 borderRadius:
-                                                    BorderRadius.circular(0),
+                                                    BorderRadius.circular(0.0),
                                               ),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -1157,26 +1159,26 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                     MainAxisAlignment.start,
                                                 children: [
                                                   Container(
-                                                    width: 50,
-                                                    height: 50,
+                                                    width: 50.0,
+                                                    height: 50.0,
                                                     decoration: BoxDecoration(
                                                       color: const Color(0xFFF8F4FF),
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              5),
+                                                              5.0),
                                                     ),
                                                     child: Align(
                                                       alignment:
                                                           const AlignmentDirectional(
-                                                              0, 0),
+                                                              0.0, 0.0),
                                                       child: ClipRRect(
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(0),
+                                                                .circular(0.0),
                                                         child: Image.asset(
                                                           'assets/images/Inbox_(17).png',
-                                                          width: 45,
-                                                          height: 40,
+                                                          width: 45.0,
+                                                          height: 40.0,
                                                           fit: BoxFit.cover,
                                                         ),
                                                       ),
@@ -1214,7 +1216,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                                 .liteText,
                                                             fontWeight:
                                                                 FontWeight.w500,
-                                                            fontSize: 14,
+                                                            fontSize: 14.0,
                                                           ),
                                                         )
                                                       ],
@@ -1230,7 +1232,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                           ),
                                                     ),
                                                   ),
-                                                ].divide(const SizedBox(width: 15)),
+                                                ].divide(const SizedBox(width: 15.0)),
                                               ),
                                             ),
                                           ),
@@ -1242,32 +1244,32 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0, 0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Container(
                                   width:
                                       MediaQuery.sizeOf(context).width * 0.95,
                                   constraints: const BoxConstraints(
-                                    minWidth: 300,
-                                    maxWidth: 420,
+                                    minWidth: 300.0,
+                                    maxWidth: 420.0,
                                   ),
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     boxShadow: const [
                                       BoxShadow(
-                                        blurRadius: 20,
+                                        blurRadius: 20.0,
                                         color: Color(0x14351C75),
                                         offset: Offset(
-                                          2,
-                                          2,
+                                          2.0,
+                                          2.0,
                                         ),
                                       )
                                     ],
-                                    borderRadius: BorderRadius.circular(5),
+                                    borderRadius: BorderRadius.circular(5.0),
                                   ),
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        10, 12, 10, 12),
+                                        10.0, 12.0, 10.0, 12.0),
                                     child: SingleChildScrollView(
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -1282,10 +1284,10 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Raleway',
-                                                  fontSize: 16,
+                                                  fontSize: 16.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
-                                                  lineHeight: 1,
+                                                  lineHeight: 1.0,
                                                 ),
                                           ),
                                           Row(
@@ -1316,25 +1318,26 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                   );
                                                 },
                                                 child: Container(
-                                                  width: 140,
-                                                  height: 140,
+                                                  width: 140.0,
+                                                  height: 140.0,
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryBackground,
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            5),
+                                                            5.0),
                                                     border: Border.all(
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .liteBg,
-                                                      width: 1,
+                                                      width: 1.0,
                                                     ),
                                                   ),
                                                   child: Padding(
-                                                    padding: const EdgeInsets.all(8),
+                                                    padding:
+                                                        const EdgeInsets.all(8.0),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -1343,8 +1346,8 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                               .center,
                                                       children: [
                                                         Container(
-                                                          width: 50,
-                                                          height: 50,
+                                                          width: 50.0,
+                                                          height: 50.0,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: const Color(
@@ -1352,22 +1355,22 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        5),
+                                                                        5.0),
                                                           ),
                                                           child: Align(
                                                             alignment:
                                                                 const AlignmentDirectional(
-                                                                    0, 0),
+                                                                    0.0, 0.0),
                                                             child: ClipRRect(
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          0),
+                                                                          0.0),
                                                               child:
                                                                   Image.asset(
                                                                 'assets/images/Inbox_(18).png',
-                                                                width: 45,
-                                                                height: 40,
+                                                                width: 45.0,
+                                                                height: 40.0,
                                                                 fit: BoxFit
                                                                     .cover,
                                                               ),
@@ -1403,7 +1406,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .liteText,
-                                                                fontSize: 13,
+                                                                fontSize: 13.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -1411,8 +1414,8 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                                         .w600,
                                                               ),
                                                         ),
-                                                      ].divide(
-                                                          const SizedBox(height: 8)),
+                                                      ].divide(const SizedBox(
+                                                          height: 8.0)),
                                                     ),
                                                   ),
                                                 ),
@@ -1441,25 +1444,26 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                   );
                                                 },
                                                 child: Container(
-                                                  width: 140,
-                                                  height: 140,
+                                                  width: 140.0,
+                                                  height: 140.0,
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryBackground,
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            5),
+                                                            5.0),
                                                     border: Border.all(
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .liteBg,
-                                                      width: 1,
+                                                      width: 1.0,
                                                     ),
                                                   ),
                                                   child: Padding(
-                                                    padding: const EdgeInsets.all(8),
+                                                    padding:
+                                                        const EdgeInsets.all(8.0),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -1468,8 +1472,8 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                               .center,
                                                       children: [
                                                         Container(
-                                                          width: 50,
-                                                          height: 50,
+                                                          width: 50.0,
+                                                          height: 50.0,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: const Color(
@@ -1477,22 +1481,22 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        5),
+                                                                        5.0),
                                                           ),
                                                           child: Align(
                                                             alignment:
                                                                 const AlignmentDirectional(
-                                                                    0, 0),
+                                                                    0.0, 0.0),
                                                             child: ClipRRect(
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          0),
+                                                                          0.0),
                                                               child:
                                                                   Image.asset(
                                                                 'assets/images/Inbox_(19).png',
-                                                                width: 45,
-                                                                height: 40,
+                                                                width: 45.0,
+                                                                height: 40.0,
                                                                 fit: BoxFit
                                                                     .cover,
                                                               ),
@@ -1528,7 +1532,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .liteText,
-                                                                fontSize: 13,
+                                                                fontSize: 13.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
@@ -1536,19 +1540,19 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                                         .w600,
                                                               ),
                                                         ),
-                                                      ].divide(
-                                                          const SizedBox(height: 8)),
+                                                      ].divide(const SizedBox(
+                                                          height: 8.0)),
                                                     ),
                                                   ),
                                                 ),
                                               ).animateOnPageLoad(animationsMap[
                                                   'containerOnPageLoadAnimation4']!),
-                                            ].divide(const SizedBox(width: 10)),
+                                            ].divide(const SizedBox(width: 10.0)),
                                           ),
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0, 10, 0, 0),
+                                                    0.0, 10.0, 0.0, 0.0),
                                             child: Text(
                                               'Lists',
                                               style:
@@ -1556,18 +1560,18 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Raleway',
-                                                        fontSize: 16,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
-                                                        lineHeight: 1,
+                                                        lineHeight: 1.0,
                                                       ),
                                             ),
                                           ),
                                           Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 0, 10),
+                                                    0.0, 0.0, 0.0, 10.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -1600,26 +1604,26 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                     );
                                                   },
                                                   child: Container(
-                                                    width: 100,
-                                                    height: 130,
+                                                    width: 100.0,
+                                                    height: 130.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
                                                           .primaryBackground,
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              5),
+                                                              5.0),
                                                       border: Border.all(
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .liteBg,
-                                                        width: 1,
+                                                        width: 1.0,
                                                       ),
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsets.all(5),
+                                                          const EdgeInsets.all(5.0),
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -1628,8 +1632,8 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                                 .center,
                                                         children: [
                                                           Container(
-                                                            width: 50,
-                                                            height: 50,
+                                                            width: 50.0,
+                                                            height: 50.0,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: const Color(
@@ -1637,22 +1641,22 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             child: Align(
                                                               alignment:
                                                                   const AlignmentDirectional(
-                                                                      0, 0),
+                                                                      0.0, 0.0),
                                                               child: ClipRRect(
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            0),
+                                                                            0.0),
                                                                 child:
                                                                     Image.asset(
                                                                   'assets/images/Inbox_(20).png',
-                                                                  width: 45,
-                                                                  height: 40,
+                                                                  width: 45.0,
+                                                                  height: 40.0,
                                                                   fit: BoxFit
                                                                       .cover,
                                                                 ),
@@ -1688,7 +1692,8 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .liteText,
-                                                                  fontSize: 13,
+                                                                  fontSize:
+                                                                      13.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -1697,7 +1702,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                                 ),
                                                           ),
                                                         ].divide(const SizedBox(
-                                                            height: 8)),
+                                                            height: 8.0)),
                                                       ),
                                                     ),
                                                   ),
@@ -1729,26 +1734,26 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                     );
                                                   },
                                                   child: Container(
-                                                    width: 100,
-                                                    height: 130,
+                                                    width: 100.0,
+                                                    height: 130.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
                                                           .primaryBackground,
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              5),
+                                                              5.0),
                                                       border: Border.all(
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .liteBg,
-                                                        width: 1,
+                                                        width: 1.0,
                                                       ),
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsets.all(5),
+                                                          const EdgeInsets.all(5.0),
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -1757,8 +1762,8 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                                 .center,
                                                         children: [
                                                           Container(
-                                                            width: 50,
-                                                            height: 50,
+                                                            width: 50.0,
+                                                            height: 50.0,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: const Color(
@@ -1766,22 +1771,22 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             child: Align(
                                                               alignment:
                                                                   const AlignmentDirectional(
-                                                                      0, 0),
+                                                                      0.0, 0.0),
                                                               child: ClipRRect(
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            0),
+                                                                            0.0),
                                                                 child:
                                                                     Image.asset(
                                                                   'assets/images/Inbox_(21).png',
-                                                                  width: 45,
-                                                                  height: 40,
+                                                                  width: 45.0,
+                                                                  height: 40.0,
                                                                   fit: BoxFit
                                                                       .cover,
                                                                 ),
@@ -1817,7 +1822,8 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .liteText,
-                                                                  fontSize: 13,
+                                                                  fontSize:
+                                                                      13.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -1826,7 +1832,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                                 ),
                                                           ),
                                                         ].divide(const SizedBox(
-                                                            height: 8)),
+                                                            height: 8.0)),
                                                       ),
                                                     ),
                                                   ),
@@ -1857,26 +1863,26 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                     );
                                                   },
                                                   child: Container(
-                                                    width: 110,
-                                                    height: 130,
+                                                    width: 110.0,
+                                                    height: 130.0,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
                                                           .primaryBackground,
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              5),
+                                                              5.0),
                                                       border: Border.all(
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .liteBg,
-                                                        width: 1,
+                                                        width: 1.0,
                                                       ),
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsets.all(5),
+                                                          const EdgeInsets.all(5.0),
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -1885,8 +1891,8 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                                 .center,
                                                         children: [
                                                           Container(
-                                                            width: 50,
-                                                            height: 50,
+                                                            width: 50.0,
+                                                            height: 50.0,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: const Color(
@@ -1894,22 +1900,22 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          5),
+                                                                          5.0),
                                                             ),
                                                             child: Align(
                                                               alignment:
                                                                   const AlignmentDirectional(
-                                                                      0, 0),
+                                                                      0.0, 0.0),
                                                               child: ClipRRect(
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            0),
+                                                                            0.0),
                                                                 child:
                                                                     Image.asset(
                                                                   'assets/images/Inbox_(22).png',
-                                                                  width: 45,
-                                                                  height: 40,
+                                                                  width: 45.0,
+                                                                  height: 40.0,
                                                                   fit: BoxFit
                                                                       .cover,
                                                                 ),
@@ -1945,7 +1951,8 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .liteText,
-                                                                  fontSize: 13,
+                                                                  fontSize:
+                                                                      13.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
@@ -1954,7 +1961,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                                 ),
                                                           ),
                                                         ].divide(const SizedBox(
-                                                            height: 8)),
+                                                            height: 8.0)),
                                                       ),
                                                     ),
                                                   ),
@@ -1964,15 +1971,15 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                             ).animateOnPageLoad(animationsMap[
                                                 'rowOnPageLoadAnimation2']!),
                                           ),
-                                        ].divide(const SizedBox(height: 10)),
+                                        ].divide(const SizedBox(height: 10.0)),
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
                             ]
-                                .divide(const SizedBox(height: 15))
-                                .addToEnd(const SizedBox(height: 50)),
+                                .divide(const SizedBox(height: 15.0))
+                                .addToEnd(const SizedBox(height: 50.0)),
                           ),
                         ),
                       ),
