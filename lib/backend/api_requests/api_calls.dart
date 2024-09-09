@@ -15,7 +15,7 @@ class AdminApiGroup {
   static String getBaseUrl({
     String? apiURL = '',
   }) =>
-      'https://robotmanagerv1test.qikpod.com:8981';
+      'https://\${FFAppState().ApiURl}.qikpod.com:8981';
   static Map<String, String> headers = {
     'Authorization':
         'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',

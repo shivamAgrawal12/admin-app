@@ -583,6 +583,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                         .apiurlTextController
                                                         .text;
                                                     safeSetState(() {});
+                                                    _model.logincondition = 0;
+                                                    safeSetState(() {});
                                                   }
                                                 },
                                                 autofocus: true,
@@ -631,18 +633,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                         required isFocused,
                                                         maxLength}) =>
                                                     null,
-                                                keyboardType:
-                                                    TextInputType.number,
                                                 cursorColor:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,
                                                 validator: _model
                                                     .apiurlTextControllerValidator
                                                     .asValidator(context),
-                                                inputFormatters: [
-                                                  FilteringTextInputFormatter
-                                                      .allow(RegExp('[0-9]'))
-                                                ],
                                               ),
                                             ),
                                           ),
@@ -676,6 +672,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                 '') {
                                           FFAppState().ApiURl =
                                               _model.apiurlTextController.text;
+                                          safeSetState(() {});
+                                          _model.logincondition = 0;
                                           safeSetState(() {});
                                         }
                                       },
@@ -1159,7 +1157,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                             ).animateOnPageLoad(animationsMap[
                                                 'textOnPageLoadAnimation6']!),
                                             Text(
-                                              _model.apiurlTextController.text,
+                                              valueOrDefault<String>(
+                                                _model.textController2.text,
+                                                '-',
+                                              ),
                                               textAlign: TextAlign.start,
                                               style: FlutterFlowTheme.of(
                                                       context)
@@ -1245,9 +1246,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                           await AdminApiGroup
                                                               .validateOtpCall
                                                               .call(
-                                                        userPhone: _model
-                                                            .apiurlTextController
-                                                            .text,
+                                                        userPhone:
+                                                            valueOrDefault<
+                                                                String>(
+                                                          _model.textController2
+                                                              .text,
+                                                          '-',
+                                                        ),
                                                         otpText: _model
                                                             .textFieldOtpTextController
                                                             .text,
@@ -1488,8 +1493,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                 await AdminApiGroup
                                                     .validateOtpCall
                                                     .call(
-                                              userPhone: _model
-                                                  .apiurlTextController.text,
+                                              userPhone:
+                                                  _model.textController2.text,
                                               otpText: _model
                                                   .textFieldOtpTextController
                                                   .text,
