@@ -271,6 +271,7 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                 taskStatus: 'order_placed',
                                 robotId: FFAppState().robotid,
                                 taskType: 'admin',
+                                apiURL: FFAppState().ApiURl,
                               )))
                         .future,
                     builder: (context, snapshot) {
@@ -304,6 +305,7 @@ class _CurrentTaskWidgetState extends State<CurrentTaskWidget>
                                   taskStatus: 'tray_ready_to_use',
                                   robotId: FFAppState().robotid,
                                   taskType: 'admin',
+                                  apiURL: FFAppState().ApiURl,
                                 )))
                               .future,
                           builder: (context, snapshot) {

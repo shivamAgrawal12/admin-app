@@ -40,7 +40,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
     super.initState();
     _model = createModel(context, () => LoginPageModel());
 
-    _model.textController1 ??= TextEditingController();
+    _model.apiurlTextController ??= TextEditingController();
+    _model.apiurlFocusNode ??= FocusNode();
+
+    _model.textController2 ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
 
     _model.textFieldOtpTextController ??= TextEditingController();
@@ -72,18 +75,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
         ],
       ),
       'textOnPageLoadAnimation1': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 1010.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-      'textOnPageLoadAnimation2': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           FadeEffect(
@@ -131,27 +122,39 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
           ),
         ],
       ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1010.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
       'textOnPageLoadAnimation3': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
-          MoveEffect(
+          FadeEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 1000.0.ms,
-            begin: const Offset(-50.0, 0.0),
-            end: const Offset(0.0, 0.0),
+            duration: 1010.0.ms,
+            begin: 0.0,
+            end: 1.0,
           ),
         ],
       ),
       'textOnPageLoadAnimation4': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
-          MoveEffect(
+          FadeEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 1000.0.ms,
-            begin: const Offset(50.0, 0.0),
-            end: const Offset(0.0, 0.0),
+            duration: 1010.0.ms,
+            begin: 0.0,
+            end: 1.0,
           ),
         ],
       ),
@@ -191,7 +194,79 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
           ),
         ],
       ),
+      'imageOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 800.0.ms,
+            begin: const Offset(-1.0, -1.0),
+            end: const Offset(1.0, 1.0),
+          ),
+        ],
+      ),
       'textOnPageLoadAnimation6': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1000.0.ms,
+            begin: const Offset(-50.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation7': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1000.0.ms,
+            begin: const Offset(50.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation8': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1010.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation5': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 800.0.ms,
+            begin: const Offset(-1.0, -1.0),
+            end: const Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation6': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 800.0.ms,
+            begin: const Offset(-1.0, -1.0),
+            end: const Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation9': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           FadeEffect(
@@ -404,7 +479,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                             animationsMap['columnOnPageLoadAnimation']!),
                       ),
                     ),
-                    if (_model.logincondition == 0)
+                    if (_model.logincondition == 2)
                       Container(
                         width: MediaQuery.sizeOf(context).width * 1.0,
                         height: MediaQuery.sizeOf(context).height * 0.67,
@@ -441,6 +516,241 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 30.0, 0.0, 0.0),
+                                  child: Text(
+                                    'Enter Api URL',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Open Sans',
+                                          fontSize: 16.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                          lineHeight: 1.0,
+                                        ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'textOnPageLoadAnimation1']!),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 20.0, 0.0, 10.0),
+                                  child: Container(
+                                    width: 300.0,
+                                    height: 45.0,
+                                    decoration: BoxDecoration(
+                                      color:
+                                          FlutterFlowTheme.of(context).tertiary,
+                                      borderRadius: BorderRadius.circular(5.0),
+                                      border: Border.all(
+                                        color: FlutterFlowTheme.of(context)
+                                            .liteText,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 0.0, 10.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Align(
+                                            alignment:
+                                                const AlignmentDirectional(-1.0, 0.0),
+                                            child: FaIcon(
+                                              FontAwesomeIcons.database,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .heading,
+                                              size: 24.0,
+                                            ),
+                                          ),
+                                          Expanded(
+                                            child: Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(5.0, 0.0, 5.0, 0.0),
+                                              child: TextFormField(
+                                                controller:
+                                                    _model.apiurlTextController,
+                                                focusNode:
+                                                    _model.apiurlFocusNode,
+                                                onFieldSubmitted: (_) async {
+                                                  if (_model.apiurlTextController
+                                                              .text !=
+                                                          '') {
+                                                    FFAppState().ApiURl = _model
+                                                        .apiurlTextController
+                                                        .text;
+                                                    safeSetState(() {});
+                                                  }
+                                                },
+                                                autofocus: true,
+                                                textCapitalization:
+                                                    TextCapitalization.none,
+                                                textInputAction:
+                                                    TextInputAction.done,
+                                                obscureText: false,
+                                                decoration: InputDecoration(
+                                                  hintText: 'Url.....',
+                                                  hintStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily: 'Open Sans',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                  enabledBorder:
+                                                      InputBorder.none,
+                                                  focusedBorder:
+                                                      InputBorder.none,
+                                                  errorBorder: InputBorder.none,
+                                                  focusedErrorBorder:
+                                                      InputBorder.none,
+                                                  contentPadding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(10.0, 0.0,
+                                                              0.0, 5.0),
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Raleway',
+                                                          fontSize: 15.0,
+                                                          letterSpacing: 1.5,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                                maxLength: 10,
+                                                maxLengthEnforcement:
+                                                    MaxLengthEnforcement
+                                                        .enforced,
+                                                buildCounter: (context,
+                                                        {required currentLength,
+                                                        required isFocused,
+                                                        maxLength}) =>
+                                                    null,
+                                                keyboardType:
+                                                    TextInputType.number,
+                                                cursorColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                validator: _model
+                                                    .apiurlTextControllerValidator
+                                                    .asValidator(context),
+                                                inputFormatters: [
+                                                  FilteringTextInputFormatter
+                                                      .allow(RegExp('[0-9]'))
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'containerOnPageLoadAnimation1']!),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      10.0, 20.0, 10.0, 0.0),
+                                  child: Container(
+                                    width: 300.0,
+                                    height: 45.0,
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          FlutterFlowTheme.of(context).heading,
+                                          FlutterFlowTheme.of(context).accent
+                                        ],
+                                        stops: const [0.0, 1.0],
+                                        begin: const AlignmentDirectional(1.0, 0.0),
+                                        end: const AlignmentDirectional(-1.0, 0),
+                                      ),
+                                      borderRadius: BorderRadius.circular(5.0),
+                                    ),
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        if (_model.apiurlTextController.text !=
+                                                '') {
+                                          FFAppState().ApiURl =
+                                              _model.apiurlTextController.text;
+                                          safeSetState(() {});
+                                        }
+                                      },
+                                      text: 'Submit',
+                                      options: FFButtonOptions(
+                                        width: 300.0,
+                                        height: 45.0,
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            24.0, 0.0, 24.0, 0.0),
+                                        iconPadding:
+                                            const EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: const Color(0x27351C75),
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'Raleway',
+                                              color: Colors.white,
+                                              fontSize: 16.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                        elevation: 0.0,
+                                        borderSide: const BorderSide(
+                                          color: Color(0xFF8E7CC3),
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
+                                      ),
+                                    ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'containerOnPageLoadAnimation2']!),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    if (_model.logincondition == 0)
+                      Container(
+                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        height: MediaQuery.sizeOf(context).height * 0.67,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).primaryBackground,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 10.0, 0.0, 15.0),
+                          child: SingleChildScrollView(
+                            primary: false,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(
+                                  width: 170.0,
+                                  height: 170.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                  ),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    child: Image.asset(
+                                      'assets/images/amico.png',
+                                      width: 300.0,
+                                      height: 200.0,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'imageOnPageLoadAnimation2']!),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 10.0, 0.0, 0.0),
                                   child: Text(
                                     'Login ',
@@ -457,7 +767,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                           lineHeight: 1.0,
                                         ),
                                   ).animateOnPageLoad(animationsMap[
-                                      'textOnPageLoadAnimation1']!),
+                                      'textOnPageLoadAnimation2']!),
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
@@ -474,7 +784,62 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                           lineHeight: 1.0,
                                         ),
                                   ).animateOnPageLoad(animationsMap[
-                                      'textOnPageLoadAnimation2']!),
+                                      'textOnPageLoadAnimation3']!),
+                                ),
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 20.0, 0.0, 0.0),
+                                      child: Text(
+                                        'Change Api?',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Open Sans',
+                                              fontSize: 16.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w600,
+                                              lineHeight: 1.0,
+                                            ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'textOnPageLoadAnimation4']!),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 20.0, 0.0, 0.0),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          _model.logincondition = 2;
+                                          safeSetState(() {});
+                                        },
+                                        child: Text(
+                                          ' Click here',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Open Sans',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .subHeader,
+                                                fontSize: 16.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w500,
+                                                decoration:
+                                                    TextDecoration.underline,
+                                                lineHeight: 1.0,
+                                              ),
+                                        ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'textOnPageLoadAnimation5']!),
+                                    ),
+                                  ],
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
@@ -517,19 +882,19 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                   .fromSTEB(5.0, 0.0, 5.0, 0.0),
                                               child: TextFormField(
                                                 controller:
-                                                    _model.textController1,
+                                                    _model.textController2,
                                                 focusNode:
                                                     _model.textFieldFocusNode,
                                                 onFieldSubmitted: (_) async {
                                                   if (functions.checklength(
-                                                      _model.textController1
+                                                      _model.textController2
                                                           .text)!) {
                                                     _model.generateC =
                                                         await AdminApiGroup
                                                             .generateOtpCall
                                                             .call(
                                                       userPhone: _model
-                                                          .textController1.text,
+                                                          .textController2.text,
                                                     );
 
                                                     _model.logincondition = 1;
@@ -608,7 +973,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,
                                                 validator: _model
-                                                    .textController1Validator
+                                                    .textController2Validator
                                                     .asValidator(context),
                                                 inputFormatters: [
                                                   FilteringTextInputFormatter
@@ -621,7 +986,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                       ),
                                     ),
                                   ).animateOnPageLoad(animationsMap[
-                                      'containerOnPageLoadAnimation1']!),
+                                      'containerOnPageLoadAnimation3']!),
                                 ),
                                 Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
@@ -644,12 +1009,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         if (functions.checklength(
-                                            _model.textController1.text)!) {
+                                            _model.textController2.text)!) {
                                           _model.generate = await AdminApiGroup
                                               .generateOtpCall
                                               .call(
                                             userPhone:
-                                                _model.textController1.text,
+                                                _model.textController2.text,
+                                            apiURL: FFAppState().ApiURl,
                                           );
 
                                           _model.logincondition = 1;
@@ -702,7 +1068,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                       ),
                                     ),
                                   ).animateOnPageLoad(animationsMap[
-                                      'containerOnPageLoadAnimation2']!),
+                                      'containerOnPageLoadAnimation4']!),
                                 ),
                               ],
                             ),
@@ -738,7 +1104,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                         fit: BoxFit.cover,
                                       ),
                                     ).animateOnPageLoad(animationsMap[
-                                        'imageOnPageLoadAnimation2']!),
+                                        'imageOnPageLoadAnimation3']!),
                                   ),
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
@@ -791,9 +1157,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                             FontWeight.normal,
                                                       ),
                                             ).animateOnPageLoad(animationsMap[
-                                                'textOnPageLoadAnimation3']!),
+                                                'textOnPageLoadAnimation6']!),
                                             Text(
-                                              _model.textController1.text,
+                                              _model.apiurlTextController.text,
                                               textAlign: TextAlign.start,
                                               style: FlutterFlowTheme.of(
                                                       context)
@@ -808,7 +1174,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                     fontWeight: FontWeight.w600,
                                                   ),
                                             ).animateOnPageLoad(animationsMap[
-                                                'textOnPageLoadAnimation4']!),
+                                                'textOnPageLoadAnimation7']!),
                                           ].divide(const SizedBox(width: 5.0)),
                                         ),
                                       ),
@@ -829,7 +1195,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                             lineHeight: 1.0,
                                           ),
                                     ).animateOnPageLoad(animationsMap[
-                                        'textOnPageLoadAnimation5']!),
+                                        'textOnPageLoadAnimation8']!),
                                   ),
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
@@ -880,7 +1246,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                               .validateOtpCall
                                                               .call(
                                                         userPhone: _model
-                                                            .textController1
+                                                            .apiurlTextController
                                                             .text,
                                                         otpText: _model
                                                             .textFieldOtpTextController
@@ -921,7 +1287,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                             ),
                                                             customerphonenumber:
                                                                 int.tryParse(_model
-                                                                    .textController1
+                                                                    .apiurlTextController
                                                                     .text),
                                                           ),
                                                         );
@@ -1091,7 +1457,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                         ),
                                       ),
                                     ).animateOnPageLoad(animationsMap[
-                                        'containerOnPageLoadAnimation3']!),
+                                        'containerOnPageLoadAnimation5']!),
                                   ),
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
@@ -1122,8 +1488,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                 await AdminApiGroup
                                                     .validateOtpCall
                                                     .call(
-                                              userPhone:
-                                                  _model.textController1.text,
+                                              userPhone: _model
+                                                  .apiurlTextController.text,
                                               otpText: _model
                                                   .textFieldOtpTextController
                                                   .text,
@@ -1157,7 +1523,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                   ),
                                                   customerphonenumber:
                                                       int.tryParse(_model
-                                                          .textController1
+                                                          .apiurlTextController
                                                           .text),
                                                 ),
                                               );
@@ -1270,7 +1636,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                         ),
                                       ),
                                     ).animateOnPageLoad(animationsMap[
-                                        'containerOnPageLoadAnimation4']!),
+                                        'containerOnPageLoadAnimation6']!),
                                   ),
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
@@ -1293,8 +1659,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                   await AdminApiGroup
                                                       .generateOtpCall
                                                       .call(
-                                                userPhone:
-                                                    _model.textController1.text,
+                                                userPhone: _model
+                                                    .apiurlTextController.text,
                                               );
 
                                               if ((_model
@@ -1355,7 +1721,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                   ),
                                             ),
                                           ).animateOnPageLoad(animationsMap[
-                                              'textOnPageLoadAnimation6']!),
+                                              'textOnPageLoadAnimation9']!),
                                         ),
                                         if (responsiveVisibility(
                                           context: context,

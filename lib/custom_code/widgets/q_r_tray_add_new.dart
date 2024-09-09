@@ -234,6 +234,7 @@ class _QRTrayAddNewState extends State<QRTrayAddNew>
     final result = await AdminApiGroup.trayInfoWithoutTypeCall.call(
       trayId: scannedValue,
       robotId: FFAppState().robotid,
+      apiURL: FFAppState().ApiURl,
     );
 
     if (result.succeeded) {

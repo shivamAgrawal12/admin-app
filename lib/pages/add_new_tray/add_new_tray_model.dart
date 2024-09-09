@@ -10,8 +10,6 @@ class AddNewTrayModel extends FlutterFlowModel<AddNewTrayWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  // Stores action output result for [Custom Action - routhpage] action in add_new_tray widget.
-  String? routh;
   // State field(s) for Switch widget.
   bool? switchValue;
   // State field(s) for TextField widget.

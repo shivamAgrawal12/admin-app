@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/popup/already/already_widget.dart';
 import '/popup/menu/menu_widget.dart';
 import '/popup/tray_added/tray_added_widget.dart';
-import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -39,11 +38,6 @@ class _AddNewTrayWidgetState extends State<AddNewTrayWidget>
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().scannerpage = 'trayadd';
-      safeSetState(() {});
-      _model.routh = await actions.routhpage(
-        context,
-      );
-      FFAppState().rothpage = _model.routh!;
       safeSetState(() {});
     });
 
@@ -553,6 +547,7 @@ class _AddNewTrayWidgetState extends State<AddNewTrayWidget>
                                                   .call(
                                             trayId: FFAppState().trayid,
                                             robotId: FFAppState().robotid,
+                                            apiURL: FFAppState().ApiURl,
                                           );
 
                                           if ((_model.trayCheckBtn?.succeeded ??

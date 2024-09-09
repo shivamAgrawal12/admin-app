@@ -8,16 +8,20 @@ import 'package:flutter/material.dart';
 class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   ///  Local state fields for this page.
 
-  int logincondition = 0;
+  int logincondition = 2;
 
   String? num;
 
   ///  State fields for stateful widgets in this page.
 
+  // State field(s) for apiurl widget.
+  FocusNode? apiurlFocusNode;
+  TextEditingController? apiurlTextController;
+  String? Function(BuildContext, String?)? apiurlTextControllerValidator;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
-  TextEditingController? textController1;
-  String? Function(BuildContext, String?)? textController1Validator;
+  TextEditingController? textController2;
+  String? Function(BuildContext, String?)? textController2Validator;
   // Stores action output result for [Backend Call - API (generate otp)] action in TextField widget.
   ApiCallResponse? generateC;
   // Stores action output result for [Backend Call - API (generate otp)] action in Button widget.
@@ -52,8 +56,11 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
 
   @override
   void dispose() {
+    apiurlFocusNode?.dispose();
+    apiurlTextController?.dispose();
+
     textFieldFocusNode?.dispose();
-    textController1?.dispose();
+    textController2?.dispose();
 
     textFieldOtpFocusNode?.dispose();
     textFieldOtpTextController?.dispose();

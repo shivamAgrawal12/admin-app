@@ -109,7 +109,9 @@ class _LogoutWidgetState extends State<LogoutWidget> {
                         GoRouter.of(context).clearRedirectLocation();
 
                         FFAppState().scannerpage = '';
+                        FFAppState().deleteHideslot();
                         FFAppState().hideslot = 0;
+
                         FFAppState().trayqrscan = 0;
                         FFAppState().update(() {});
 
