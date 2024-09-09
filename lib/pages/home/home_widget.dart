@@ -12,7 +12,6 @@ import '/popup/no_record/no_record_widget.dart';
 import '/popup/select_type/select_type_widget.dart';
 import '/popup/slotheightassign/slotheightassign_widget.dart';
 import '/popup/successfull/successfull_widget.dart';
-import 'dart:async';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
@@ -45,12 +44,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      unawaited(
-        () async {
-          await actions.checkAndUpdateConnectionStatus(
-            context,
-          );
-        }(),
+      await actions.checkAndUpdateConnectionStatus(
+        context,
       );
       _model.robostatus = await AdminApiGroup.verifyRobotIdCall.call(
         robotId: FFAppState().robotid,
@@ -60,11 +55,6 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
       FFAppState().hideslot = 7;
       FFAppState().update(() {});
       _model.change = 4;
-      safeSetState(() {});
-      _model.routh = await actions.routhpage(
-        context,
-      );
-      FFAppState().rothpage = _model.routh!;
       safeSetState(() {});
     });
 

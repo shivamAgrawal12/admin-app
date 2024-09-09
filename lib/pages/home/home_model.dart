@@ -12,8 +12,6 @@ class HomeModel extends FlutterFlowModel<HomeWidget> {
 
   // Stores action output result for [Backend Call - API (verify robot id)] action in home widget.
   ApiCallResponse? robostatus;
-  // Stores action output result for [Custom Action - routhpage] action in home widget.
-  String? routh;
   // State field(s) for Column12 widget.
   ScrollController? column12;
   // State field(s) for Column widget.
