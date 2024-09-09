@@ -15,7 +15,7 @@ class AdminApiGroup {
   static String getBaseUrl({
     String? apiURL = '',
   }) =>
-      'https://\${FFAppState().ApiURl}.qikpod.com:8983';
+      'https://staging.qikpod.com:8983';
   static Map<String, String> headers = {
     'Authorization':
         'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NzA4Mzc1NjR9.E5mqlPukF9nZms9ZKQqEhsc_gD_lV1KdicbsAfLgLMA',
@@ -276,6 +276,10 @@ class ValidateOtpCall {
   String? accesstoken(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.access_token''',
+      ));
+  String? msg(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
       ));
 }
 

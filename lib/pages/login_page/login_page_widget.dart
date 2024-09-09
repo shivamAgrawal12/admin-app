@@ -1363,7 +1363,16 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                   .viewInsetsOf(
                                                                       context),
                                                               child:
-                                                                  const InvalidOtpWidget(),
+                                                                  InvalidOtpWidget(
+                                                                apiresponse:
+                                                                    AdminApiGroup
+                                                                        .validateOtpCall
+                                                                        .msg(
+                                                                  (_model.validateOtpC
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )!,
+                                                              ),
                                                             );
                                                           },
                                                         ).then((value) =>
@@ -1384,7 +1393,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                 .viewInsetsOf(
                                                                     context),
                                                             child:
-                                                                const InvalidOtpWidget(),
+                                                                const InvalidOtpWidget(
+                                                              apiresponse:
+                                                                  'Enter 10 digit mobile number',
+                                                            ),
                                                           );
                                                         },
                                                       ).then((value) =>
@@ -1585,7 +1597,15 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                     padding:
                                                         MediaQuery.viewInsetsOf(
                                                             context),
-                                                    child: const InvalidOtpWidget(),
+                                                    child: InvalidOtpWidget(
+                                                      apiresponse: AdminApiGroup
+                                                          .validateOtpCall
+                                                          .msg(
+                                                        (_model.validateOtp
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      )!,
+                                                    ),
                                                   );
                                                 },
                                               ).then((value) =>
@@ -1603,7 +1623,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                   padding:
                                                       MediaQuery.viewInsetsOf(
                                                           context),
-                                                  child: const InvalidOtpWidget(),
+                                                  child: const InvalidOtpWidget(
+                                                    apiresponse:
+                                                        'Enter the correct otp',
+                                                  ),
                                                 );
                                               },
                                             ).then(

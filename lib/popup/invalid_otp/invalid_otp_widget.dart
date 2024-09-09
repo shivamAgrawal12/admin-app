@@ -5,7 +5,12 @@ import 'invalid_otp_model.dart';
 export 'invalid_otp_model.dart';
 
 class InvalidOtpWidget extends StatefulWidget {
-  const InvalidOtpWidget({super.key});
+  const InvalidOtpWidget({
+    super.key,
+    required this.apiresponse,
+  });
+
+  final String? apiresponse;
 
   @override
   State<InvalidOtpWidget> createState() => _InvalidOtpWidgetState();
@@ -53,11 +58,28 @@ class _InvalidOtpWidgetState extends State<InvalidOtpWidget> {
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                 child: Text(
-                  'Invalid OTP, Please Try Again',
+                  'Validation Failed',
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Raleway',
                         color: FlutterFlowTheme.of(context).accent,
+                        fontSize: 16.0,
+                        letterSpacing: 0.0,
+                        fontWeight: FontWeight.w600,
+                      ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                child: Text(
+                  valueOrDefault<String>(
+                    widget.apiresponse,
+                    '-',
+                  ),
+                  textAlign: TextAlign.center,
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Raleway',
+                        color: FlutterFlowTheme.of(context).heading,
                         fontSize: 16.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
