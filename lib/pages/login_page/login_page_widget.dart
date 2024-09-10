@@ -624,15 +624,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
-                                                maxLength: 10,
-                                                maxLengthEnforcement:
-                                                    MaxLengthEnforcement
-                                                        .enforced,
-                                                buildCounter: (context,
-                                                        {required currentLength,
-                                                        required isFocused,
-                                                        maxLength}) =>
-                                                    null,
                                                 cursorColor:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,

@@ -150,7 +150,7 @@ class FFAppState extends ChangeNotifier {
     _slotcount = value;
   }
 
-  String _ApiURl = '';
+  String _ApiURl = 'robotmanagerv1test';
   String get ApiURl => _ApiURl;
   set ApiURl(String value) {
     _ApiURl = value;
