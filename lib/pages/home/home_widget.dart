@@ -152,7 +152,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
         onWillPop: () async => false,
         child: Scaffold(
           key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          backgroundColor: const Color(0xFF8E7CC3),
           body: SafeArea(
             top: true,
             child: Align(
@@ -177,8 +177,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                           gradient: LinearGradient(
                             colors: [Color(0xFF351C75), Color(0xFF8E7CC3)],
                             stops: [0.0, 1.0],
-                            begin: AlignmentDirectional(0.0, -1.0),
-                            end: AlignmentDirectional(0, 1.0),
+                            begin: AlignmentDirectional(0.0, 1.0),
+                            end: AlignmentDirectional(0, -1.0),
                           ),
                         ),
                         child: Padding(

@@ -109,7 +109,7 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget>
         onWillPop: () async => false,
         child: Scaffold(
           key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          backgroundColor: FlutterFlowTheme.of(context).primary,
           body: SafeArea(
             top: true,
             child: Align(

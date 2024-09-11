@@ -152,7 +152,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget>
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).primary,
         body: SafeArea(
           top: true,
           child: Align(
@@ -1348,7 +1348,7 @@ class _TrayReleaseWidgetState extends State<TrayReleaseWidget>
                                 ].divide(const SizedBox(width: 5.0)),
                               ),
                             ),
-                        ].addToEnd(const SizedBox(height: 40.0)),
+                        ].addToEnd(const SizedBox(height: 230.0)),
                       ),
                     ),
                   ),
