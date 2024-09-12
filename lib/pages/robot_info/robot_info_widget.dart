@@ -398,7 +398,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                     'assets/images/Robot_Arm.png',
                                                     width: 17.0,
                                                     height: 17.0,
-                                                    fit: BoxFit.cover,
+                                                    fit: BoxFit.contain,
                                                   ),
                                                 ),
                                               ),
@@ -1002,7 +1002,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                           BorderRadius.circular(
                                                               0.0),
                                                       child: Image.asset(
-                                                        'assets/images/Inbox_(10).png',
+                                                        'assets/images/Inbox_(11).png',
                                                         width: 45.0,
                                                         height: 40.0,
                                                         fit: BoxFit.cover,
@@ -1129,7 +1129,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                           BorderRadius.circular(
                                                               0.0),
                                                       child: Image.asset(
-                                                        'assets/images/Inbox_(17).png',
+                                                        'assets/images/Inbox_(12).png',
                                                         width: 45.0,
                                                         height: 40.0,
                                                         fit: BoxFit.cover,
@@ -1318,7 +1318,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                                     .circular(
                                                                         0.0),
                                                             child: Image.asset(
-                                                              'assets/images/Inbox_(18).png',
+                                                              'assets/images/Inbox_(14).png',
                                                               width: 45.0,
                                                               height: 40.0,
                                                               fit: BoxFit.cover,
@@ -1443,7 +1443,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                                     .circular(
                                                                         0.0),
                                                             child: Image.asset(
-                                                              'assets/images/Inbox_(19).png',
+                                                              'assets/images/Inbox_(13).png',
                                                               width: 45.0,
                                                               height: 40.0,
                                                               fit: BoxFit.cover,
@@ -1599,7 +1599,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                                           0.0),
                                                               child:
                                                                   Image.asset(
-                                                                'assets/images/Inbox_(20).png',
+                                                                'assets/images/Inbox_(15).png',
                                                                 width: 45.0,
                                                                 height: 40.0,
                                                                 fit: BoxFit
@@ -1725,7 +1725,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                                           0.0),
                                                               child:
                                                                   Image.asset(
-                                                                'assets/images/Inbox_(21).png',
+                                                                'assets/images/Inbox_(16).png',
                                                                 width: 45.0,
                                                                 height: 40.0,
                                                                 fit: BoxFit
@@ -1850,7 +1850,7 @@ class _RobotInfoWidgetState extends State<RobotInfoWidget>
                                                                           0.0),
                                                               child:
                                                                   Image.asset(
-                                                                'assets/images/Inbox_(22).png',
+                                                                'assets/images/Inbox_(17).png',
                                                                 width: 45.0,
                                                                 height: 40.0,
                                                                 fit: BoxFit

@@ -44,6 +44,9 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      FFAppState().scannerpage = 'home';
+      FFAppState().hideslot = 7;
+      FFAppState().update(() {});
       await actions.checkAndUpdateConnectionStatus(
         context,
       );
@@ -51,9 +54,6 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
         robotId: FFAppState().robotid,
       );
 
-      FFAppState().scannerpage = '';
-      FFAppState().hideslot = 7;
-      FFAppState().update(() {});
       _model.change = 4;
       safeSetState(() {});
     });
@@ -298,7 +298,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                   'assets/images/Robot_Arm.png',
                                                   width: 17.0,
                                                   height: 17.0,
-                                                  fit: BoxFit.cover,
+                                                  fit: BoxFit.contain,
                                                 ),
                                               ),
                                             ),
@@ -674,10 +674,10 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                   .circular(
                                                                       0.0),
                                                           child: Image.asset(
-                                                            'assets/images/Group_5887.png',
+                                                            'assets/images/Inbox_(2).png',
                                                             width: 45.0,
                                                             height: 40.0,
-                                                            fit: BoxFit.cover,
+                                                            fit: BoxFit.contain,
                                                           ),
                                                         ),
                                                       ),
@@ -771,7 +771,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                   .circular(
                                                                       0.0),
                                                           child: Image.asset(
-                                                            'assets/images/Inbox_(3).png',
+                                                            'assets/images/Inbox.png',
                                                             width: 45.0,
                                                             height: 40.0,
                                                             fit: BoxFit.cover,
@@ -883,7 +883,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                   .circular(
                                                                       0.0),
                                                           child: Image.asset(
-                                                            'assets/images/Inbox_(2).png',
+                                                            'assets/images/Inbox_(1).png',
                                                             width: 45.0,
                                                             height: 40.0,
                                                             fit: BoxFit.cover,
@@ -1092,7 +1092,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                   .circular(
                                                                       0.0),
                                                           child: Image.asset(
-                                                            'assets/images/Inbox_(14).png',
+                                                            'assets/images/Inbox_(3).png',
                                                             width: 45.0,
                                                             height: 40.0,
                                                             fit: BoxFit.cover,
@@ -1189,7 +1189,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                   .circular(
                                                                       0.0),
                                                           child: Image.asset(
-                                                            'assets/images/Inbox_(15).png',
+                                                            'assets/images/Inbox_(5).png',
                                                             width: 45.0,
                                                             height: 40.0,
                                                             fit: BoxFit.cover,
@@ -1260,6 +1260,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                           isScrollControlled: true,
                                           backgroundColor: Colors.transparent,
                                           enableDrag: false,
+                                          useSafeArea: true,
                                           context: context,
                                           builder: (context) {
                                             return GestureDetector(
@@ -1296,10 +1297,12 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                           padding: const EdgeInsets.all(5.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
                                             children: [
                                               Container(
-                                                width: 50.0,
-                                                height: 50.0,
+                                                width: 40.0,
+                                                height: 35.0,
                                                 decoration: BoxDecoration(
                                                   color: const Color(0xFFF8F4FF),
                                                   borderRadius:
@@ -1357,6 +1360,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                           isScrollControlled: true,
                                           backgroundColor: Colors.transparent,
                                           enableDrag: false,
+                                          useSafeArea: true,
                                           context: context,
                                           builder: (context) {
                                             return GestureDetector(
@@ -1393,6 +1397,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                           padding: const EdgeInsets.all(5.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
                                             children: [
                                               Container(
                                                 width: 50.0,
@@ -1412,9 +1418,9 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                         BorderRadius.circular(
                                                             0.0),
                                                     child: Image.asset(
-                                                      'assets/images/Group_5796.png',
-                                                      width: 45.0,
-                                                      height: 40.0,
+                                                      'assets/images/Vector.png',
+                                                      width: 40.0,
+                                                      height: 35.0,
                                                       fit: BoxFit.contain,
                                                     ),
                                                   ),
@@ -1454,6 +1460,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                           isScrollControlled: true,
                                           backgroundColor: Colors.transparent,
                                           enableDrag: false,
+                                          useSafeArea: true,
                                           context: context,
                                           builder: (context) {
                                             return GestureDetector(
@@ -1490,6 +1497,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                           padding: const EdgeInsets.all(5.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
                                             children: [
                                               Container(
                                                 width: 50.0,
@@ -1510,8 +1519,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             0.0),
                                                     child: Image.asset(
                                                       'assets/images/Group_5796.png',
-                                                      width: 45.0,
-                                                      height: 40.0,
+                                                      width: 40.0,
+                                                      height: 35.0,
                                                       fit: BoxFit.contain,
                                                     ),
                                                   ),
@@ -1616,7 +1625,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                 borderRadius:
                                                     BorderRadius.circular(0.0),
                                                 child: Image.asset(
-                                                  'assets/images/Inbox_(13).png',
+                                                  'assets/images/Inbox_(8).png',
                                                   width: 40.0,
                                                   height: 35.0,
                                                   fit: BoxFit.cover,
@@ -2338,7 +2347,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                             0.0),
                                                                 child:
                                                                     Image.asset(
-                                                                  'assets/images/Inbox_(13).png',
+                                                                  'assets/images/Inbox_(8).png',
                                                                   width: 50.0,
                                                                   height: 45.0,
                                                                   fit: BoxFit
@@ -2547,7 +2556,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                             0.0),
                                                                 child:
                                                                     Image.asset(
-                                                                  'assets/images/Inbox_(8).png',
+                                                                  'assets/images/Inbox_(9).png',
                                                                   width: 50.0,
                                                                   height: 45.0,
                                                                   fit: BoxFit
@@ -2682,7 +2691,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                                           0.0),
                                                               child:
                                                                   Image.asset(
-                                                                'assets/images/Inbox_(9).png',
+                                                                'assets/images/Inbox_(10).png',
                                                                 width: 50.0,
                                                                 height: 45.0,
                                                                 fit: BoxFit
@@ -3234,7 +3243,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                       BorderRadius.circular(
                                                           0.0),
                                                   child: Image.asset(
-                                                    'assets/images/Inbox_(11).png',
+                                                    'assets/images/Inbox_(7).png',
                                                     width: 40.0,
                                                     height: 35.0,
                                                     fit: BoxFit.cover,
