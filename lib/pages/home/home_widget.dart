@@ -44,9 +44,6 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      FFAppState().scannerpage = 'home';
-      FFAppState().hideslot = 7;
-      FFAppState().update(() {});
       await actions.checkAndUpdateConnectionStatus(
         context,
       );
@@ -54,6 +51,9 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
         robotId: FFAppState().robotid,
       );
 
+      FFAppState().scannerpage = '';
+      FFAppState().hideslot = 7;
+      FFAppState().update(() {});
       _model.change = 4;
       safeSetState(() {});
     });
