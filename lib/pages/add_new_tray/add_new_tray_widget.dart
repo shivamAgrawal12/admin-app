@@ -162,7 +162,7 @@ class _AddNewTrayWidgetState extends State<AddNewTrayWidget>
                           ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: Image.asset(
-                              'assets/images/leapmile_2.png',
+                              'assets/images/Group_42_(2).png',
                               width: 130.0,
                               height: 40.0,
                               fit: BoxFit.contain,

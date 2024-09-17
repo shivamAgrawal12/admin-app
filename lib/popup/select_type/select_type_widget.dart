@@ -101,7 +101,7 @@ class _SelectTypeWidgetState extends State<SelectTypeWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
                       child: Text(
-                        'Assign The Type of Rack',
+                        'Assign the Type of Rack',
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Raleway',
@@ -324,7 +324,7 @@ class _SelectTypeWidgetState extends State<SelectTypeWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                       child: Text(
-                        'row',
+                        'Row',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Raleway',
                               color: FlutterFlowTheme.of(context).heading,
@@ -400,7 +400,7 @@ class _SelectTypeWidgetState extends State<SelectTypeWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                       child: Text(
-                        'slot',
+                        'Slot',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Raleway',
                               color: FlutterFlowTheme.of(context).heading,
@@ -476,7 +476,7 @@ class _SelectTypeWidgetState extends State<SelectTypeWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                       child: Text(
-                        'depth',
+                        'Depth',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Raleway',
                               color: FlutterFlowTheme.of(context).heading,

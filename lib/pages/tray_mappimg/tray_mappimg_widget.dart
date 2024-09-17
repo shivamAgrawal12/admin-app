@@ -243,7 +243,7 @@ class _TrayMappimgWidgetState extends State<TrayMappimgWidget>
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Tray Mapping',
+                              'Mapping Tray',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(

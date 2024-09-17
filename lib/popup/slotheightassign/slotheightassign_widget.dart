@@ -99,7 +99,7 @@ class _SlotheightassignWidgetState extends State<SlotheightassignWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
                       child: Text(
-                        'Assign The Height',
+                        'Assign the Height',
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Raleway',

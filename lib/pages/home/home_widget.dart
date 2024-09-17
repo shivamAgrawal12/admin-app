@@ -1318,10 +1318,10 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                         BorderRadius.circular(
                                                             0.0),
                                                     child: Image.asset(
-                                                      'assets/images/Group_5796.png',
+                                                      'assets/images/Inbox11.png',
                                                       width: 45.0,
                                                       height: 40.0,
-                                                      fit: BoxFit.contain,
+                                                      fit: BoxFit.cover,
                                                     ),
                                                   ),
                                                 ),
@@ -1418,7 +1418,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                         BorderRadius.circular(
                                                             0.0),
                                                     child: Image.asset(
-                                                      'assets/images/Vector.png',
+                                                      'assets/images/Inbox_(18).png',
                                                       width: 40.0,
                                                       height: 35.0,
                                                       fit: BoxFit.contain,
@@ -1518,7 +1518,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                         BorderRadius.circular(
                                                             0.0),
                                                     child: Image.asset(
-                                                      'assets/images/Group_5796.png',
+                                                      'assets/images/Inbox_(19).png',
                                                       width: 40.0,
                                                       height: 35.0,
                                                       fit: BoxFit.contain,

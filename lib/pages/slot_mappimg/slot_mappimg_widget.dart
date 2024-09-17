@@ -257,7 +257,7 @@ class _SlotMappimgWidgetState extends State<SlotMappimgWidget>
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Mapping Slot',
+                              'Slot Mapping',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(

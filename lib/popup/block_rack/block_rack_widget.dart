@@ -101,7 +101,7 @@ class _BlockRackWidgetState extends State<BlockRackWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
                       child: Text(
-                        'Block The Rack',
+                        'Block the Rack',
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Raleway',
@@ -259,7 +259,7 @@ class _BlockRackWidgetState extends State<BlockRackWidget> {
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                         child: Text(
-                          'row',
+                          'Row',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Raleway',
@@ -415,7 +415,7 @@ class _BlockRackWidgetState extends State<BlockRackWidget> {
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                         child: Text(
-                          'slot',
+                          'Slot',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Raleway',
@@ -493,7 +493,7 @@ class _BlockRackWidgetState extends State<BlockRackWidget> {
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                         child: Text(
-                          'depth',
+                          'Depth',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Raleway',
