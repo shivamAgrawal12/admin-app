@@ -8,19 +8,34 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-import '/popup/nointernet/nointernet_widget.dart';
+import 'dart:io' show Platform;
+import 'package:flutter/foundation.dart' show kIsWeb;
+// Import the package for non-web environments
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
+import '/popup/nointernet/nointernet_widget.dart';
 
-Future<void> checkAndUpdateConnectionStatus(BuildContext context) async {
-  // Check internet connection
-  bool isConnected = await InternetConnection().hasInternetAccess;
+Future<void> checkAndUpdateConnectionStatus(
+  BuildContext context,
+  String? pagename, // Page name passed as parameter
+) async {
+  bool isConnected;
+
+  // Check internet connection based on platform
+  if (kIsWeb) {
+    // For web, use a simple online check
+    isConnected = await checkWebConnection();
+  } else {
+    // For non-web (mobile/desktop), use InternetConnectionCheckerPlus
+    isConnected = await InternetConnectionCheckerPlus().hasConnection;
+  }
 
   // Update FFAppState with the connection status
+  bool previousConnectionStatus = FFAppState().connected;
   FFAppState().connected = isConnected;
 
   // Notify listeners about the state change
   FFAppState().notifyListeners();
-  print('Connected2: $isConnected');
+  print('Connected: $isConnected');
 
   // If not connected, show the NoInternetWidget as a bottom sheet
   if (!isConnected) {
@@ -40,5 +55,39 @@ Future<void> checkAndUpdateConnectionStatus(BuildContext context) async {
         );
       },
     );
+  }
+
+  // If previously disconnected and now connected, refresh the page
+  if (!previousConnectionStatus && isConnected) {
+    // Close the modal bottom sheet if open
+    if (Navigator.canPop(context)) {
+      Navigator.pop(context);
+    }
+
+    // Dynamically navigate to the provided page
+    if (pagename != null && pagename.isNotEmpty) {
+      context.pushNamed(
+        pagename,
+        extra: <String, dynamic>{
+          kTransitionInfoKey: TransitionInfo(
+            hasTransition: true,
+            transitionType: PageTransitionType.fade,
+            duration: Duration(milliseconds: 0),
+          ),
+        },
+      );
+    } else {
+      print('No page name provided');
+    }
+  }
+}
+
+// Function to check internet connection for web
+Future<bool> checkWebConnection() async {
+  try {
+    final result = await Uri.tryParse('https://google.com');
+    return result != null;
+  } catch (e) {
+    return false;
   }
 }

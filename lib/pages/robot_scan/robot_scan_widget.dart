@@ -38,6 +38,7 @@ class _RobotScanWidgetState extends State<RobotScanWidget>
         () async {
           await actions.checkAndUpdateConnectionStatus(
             context,
+            'robot_scan',
           );
         }(),
       );
@@ -328,6 +329,7 @@ class _RobotScanWidgetState extends State<RobotScanWidget>
                                         await actions
                                             .checkAndUpdateConnectionStatus(
                                           context,
+                                          'robot_scan',
                                         );
                                         FFAppState().robotid =
                                             _model.textController.text;
