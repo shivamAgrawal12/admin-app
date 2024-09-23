@@ -79,9 +79,9 @@ dependencies:
   stop_watch_timer: 3.0.2
   synchronized: 3.1.0
   timeago: 3.6.1
-  url_launcher: 6.2.5
-  url_launcher_android: 6.3.0
-  url_launcher_ios: 6.2.5
+  url_launcher: 6.3.0
+  url_launcher_android: 6.3.4
+  url_launcher_ios: 6.3.1
   url_launcher_platform_interface: 2.3.2
   vibration: ^1.9.0
   video_player: 2.8.6

@@ -46,7 +46,6 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       await actions.checkAndUpdateConnectionStatus(
         context,
-        'home',
       );
       _model.robostatus = await AdminApiGroup.verifyRobotIdCall.call(
         robotId: FFAppState().robotid,
