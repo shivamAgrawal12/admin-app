@@ -13,7 +13,7 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
 class AdminApiGroup {
   static String getBaseUrl({
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) =>
       'https://robotmanagerv1staging.qikpod.com:8981';
   static Map<String, String> headers = {
@@ -74,7 +74,7 @@ class AdminApiGroup {
 class VerifyRobotIdCall {
   Future<ApiCallResponse> call({
     String? robotId = '',
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -144,7 +144,7 @@ class VerifyRobotIdCall {
 class ShuttleDetailsCall {
   Future<ApiCallResponse> call({
     String? robotId = '',
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -202,7 +202,7 @@ class ShuttleDetailsCall {
 class GenerateOtpCall {
   Future<ApiCallResponse> call({
     String? userPhone = '',
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -240,7 +240,7 @@ class ValidateOtpCall {
   Future<ApiCallResponse> call({
     String? userPhone = '',
     String? otpText = '',
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -287,7 +287,7 @@ class SlotInfoCall {
   Future<ApiCallResponse> call({
     String? slotId = '',
     String? robotId = '',
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -376,7 +376,7 @@ class TrayInfoCall {
     String? trayId = '',
     String? robotId = '',
     String? trayType = '',
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -433,7 +433,7 @@ class TrayInfoWithoutTypeCall {
   Future<ApiCallResponse> call({
     String? trayId = '',
     String? robotId = '',
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -496,7 +496,7 @@ class TrayInfoWithoutTypeCall {
 class PatchTrayIdInSlotCall {
   Future<ApiCallResponse> call({
     int? id,
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -553,7 +553,7 @@ class AddNewTrayCall {
     String? robotId = '',
     String? trayType = '',
     int? trayHeight,
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -590,7 +590,7 @@ class AddNewTrayCall {
 class DeleteTrayCall {
   Future<ApiCallResponse> call({
     int? id,
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -630,7 +630,7 @@ class SlotInfoByTrayIdCall {
   Future<ApiCallResponse> call({
     String? trayId = '',
     String? robotId = '',
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -681,7 +681,7 @@ class SlotDetailByFriendlyNameCall {
   Future<ApiCallResponse> call({
     String? slotFriendlyName = '',
     String? robotId = '',
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -737,7 +737,7 @@ class PostTaskCall {
     String? robotId = '',
     String? trayId = '',
     String? taskType = '',
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -785,7 +785,7 @@ class TaskDetailsCall {
     int? recordId,
     String? status = '',
     String? robotId = '',
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -834,7 +834,7 @@ class ListOfTrayCall {
   Future<ApiCallResponse> call({
     String? robotId = '',
     String? trayType = '',
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -885,7 +885,7 @@ class ListOfTrayCall {
 class ListOfTrayWithoutTypeCall {
   Future<ApiCallResponse> call({
     String? robotId = '',
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -936,7 +936,7 @@ class ListOfTrayRetrieveCall {
   Future<ApiCallResponse> call({
     String? robotId = '',
     String? status = '',
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -983,7 +983,7 @@ class ListOfTrayRetrieveCall {
 class ListOfSlotCall {
   Future<ApiCallResponse> call({
     String? robotId = '',
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -1031,7 +1031,7 @@ class TaskByStatusCall {
     String? taskStatus = '',
     String? robotId = '',
     String? taskType = '',
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -1087,7 +1087,7 @@ class RegisterNewRobotCall {
     int? maxDepth,
     String? slotType = '',
     int? slotHeight,
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -1141,7 +1141,7 @@ class GetTaskCall {
     String? robotId = '',
     String? taskType = '',
     String? taskStatus = '',
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -1193,7 +1193,7 @@ class GetTaskCall {
 class TaskCompleteCall {
   Future<ApiCallResponse> call({
     String? taskId = '',
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -1240,7 +1240,7 @@ class ChangeSlotTypeCall {
     int? id,
     String? type = '',
     String? friendlyName = '',
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -1293,7 +1293,7 @@ class PickingstationPatchCallCall {
     String? robotId = '',
     String? slotId = '',
     String? friendlyName = '',
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -1340,7 +1340,7 @@ class ChangeSlotTypeWithoutFriendlyNameCall {
   Future<ApiCallResponse> call({
     int? id,
     String? type = '',
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -1387,7 +1387,7 @@ class DirectPickableCall {
   Future<ApiCallResponse> call({
     int? id,
     bool? directPickable,
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -1442,7 +1442,7 @@ class AddShuttlesCall {
     String? shuttleIpAddress = '',
     String? shuttleId = '',
     String? robotId = '',
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -1498,7 +1498,7 @@ class MappingTrayAsnShuttleCall {
     String? robotId = '',
     String? trayId = '',
     String? slotId = '',
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -1541,7 +1541,7 @@ class TaskByIdCall {
   Future<ApiCallResponse> call({
     int? recordId,
     String? robotId = '',
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -1588,7 +1588,7 @@ class UplodeSlotCsvCall {
   Future<ApiCallResponse> call({
     String? robotId = '',
     FFUploadedFile? inFile,
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -1632,7 +1632,7 @@ class UplodeTrayCsvCall {
   Future<ApiCallResponse> call({
     String? robotId = '',
     FFUploadedFile? inFile,
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -1676,7 +1676,7 @@ class SpeedInShuttleCall {
   Future<ApiCallResponse> call({
     int? id,
     String? speed = '',
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -1734,7 +1734,7 @@ class AddBufferInShutttleCall {
     int? lowSdRetrieve,
     int? lowDdStore,
     int? lowDdRetrieve,
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -1801,7 +1801,7 @@ class AddSpeedInShuttleCall {
     int? lowDdRetrieve,
     int? mediumDdRetrieve,
     int? highDdRetrieve,
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -1860,7 +1860,7 @@ class BlockRackCall {
     int? row,
     int? slot,
     int? depth,
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -1916,7 +1916,7 @@ class ChangeTheTypeOfSlotCall {
     int? row,
     int? slot,
     int? depth,
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
@@ -1967,7 +1967,7 @@ class ChangeTheTypeOfSlotCall {
 class CancelAllPendingCall {
   Future<ApiCallResponse> call({
     String? robotId = '',
-    String? apiURL = '',
+    String? apiURL = '[\${FFAppState().ApiURl}]',
   }) async {
     final baseUrl = AdminApiGroup.getBaseUrl(
       apiURL: apiURL,
